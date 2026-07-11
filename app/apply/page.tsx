@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import Link from 'next/link';
 import { createClient } from '@supabase/supabase-js';
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
@@ -55,27 +56,36 @@ export default function ApplyForListingPage() {
         return (
             <div className="min-h-screen bg-slate-50 flex items-center justify-center p-6 antialiased font-sans">
                 <div className="bg-white max-w-md w-full rounded-2xl p-8 border border-slate-200 text-center shadow-md">
-                    <div className="w-12 h-12 bg-emerald-50 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <span className="text-xl text-emerald-600">✓</span>
+                    <div className="w-12 h-12 bg-teal-50 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span className="text-xl text-teal-600">✓</span>
                     </div>
                     <h2 className="text-2xl font-extrabold text-slate-950">Application Submitted</h2>
                     <p className="text-slate-500 mt-2 text-sm leading-relaxed">
                         Our audit division will review your brand framework parameters and compliance history within 48 hours.
                     </p>
+                    <Link href="/" className="mt-6 inline-block w-full bg-slate-900 hover:bg-slate-800 text-white font-bold py-2.5 px-4 rounded-xl text-xs transition-colors">
+                        Return to Directory
+                    </Link>
                 </div>
             </div>
         );
     }
 
     return (
-        <div className="min-h-screen bg-slate-50 text-slate-900 antialiased font-sans pb-16">
-            <header className="bg-white border-b border-slate-200 py-12 px-6 shadow-sm text-center">
-                <div className="max-w-3xl mx-auto">
-                    <h1 className="text-3xl font-black text-slate-950 tracking-tight">
-                        List Your Franchise Brand Node — Franchise.sg
+        <div className="min-h-screen bg-slate-50/60 text-slate-900 antialiased font-sans pb-16">
+            {/* Uniform Portal Header */}
+            <header className="bg-gradient-to-r from-teal-900 via-slate-950 to-slate-950 text-white py-16 px-6">
+                <div className="max-w-2xl mx-auto">
+                    <div className="flex items-center gap-3 text-xs mb-4">
+                        <Link href="/" className="text-teal-400 hover:underline">Directory</Link>
+                        <span className="text-slate-600">/</span>
+                        <span className="text-slate-400">Brand Onboarding</span>
+                    </div>
+                    <h1 className="text-4xl font-black tracking-tight leading-none">
+                        List Your Franchise Brand Node
                     </h1>
-                    <p className="text-slate-500 mt-2 max-w-xl mx-auto text-sm">
-                        Put your brand footprint in front of thousands of high-net-worth investors and prospective operators in Singapore.
+                    <p className="text-slate-400 mt-3 text-sm font-light leading-relaxed">
+                        Put your brand footprint in front of thousands of high-net-worth investors and prospective operators across our unified regional framework.
                     </p>
                 </div>
             </header>
@@ -96,7 +106,7 @@ export default function ApplyForListingPage() {
                         </div>
                         <div>
                             <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Primary Category</label>
-                            <select className="w-full px-4 py-2.5 border border-slate-200 rounded-xl text-sm bg-white focus:outline-none focus:ring-2 focus:ring-teal-500" value={formData.category} onChange={e => setFormData({ ...formData, category: e.target.value })}>
+                            <select className="w-full px-4 py-2.5 border border-slate-200 rounded-xl text-sm bg-white focus:outline-none focus:ring-2 focus:ring-teal-500 text-slate-700" value={formData.category} onChange={e => setFormData({ ...formData, category: e.target.value })}>
                                 <option>Food & Beverage</option>
                                 <option>Health & Wellness</option>
                                 <option>Education & Enrichment</option>
@@ -108,22 +118,22 @@ export default function ApplyForListingPage() {
                     <div className="border-t border-slate-100 pt-6">
                         <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Select Listing Infrastructure Tier</label>
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-2">
-                            <label className={`border-2 rounded-xl p-4 flex flex-col cursor-pointer transition-all ${formData.tierRequested === 'free' ? 'border-teal-600 bg-teal-50/20' : 'border-slate-200 bg-white hover:border-slate-300'}`}>
+                            <label className={`border-2 rounded-xl p-4 flex flex-col cursor-pointer transition-all ${formData.tierRequested === 'free' ? 'border-teal-600 bg-teal-50/10' : 'border-slate-200 bg-white hover:border-slate-300'}`}>
                                 <div className="flex items-center gap-2">
                                     <input type="radio" name="tierRequested" value="free" checked={formData.tierRequested === 'free'} onChange={() => setFormData({ ...formData, tierRequested: 'free' })} className="text-teal-600 focus:ring-teal-500" />
                                     <span className="font-bold text-sm text-slate-900">Standard Free Directory</span>
                                 </div>
-                                <span className="text-xs text-slate-500 mt-1">Basic listing layout visibility across public directory indices.</span>
+                                <span className="text-xs text-slate-500 mt-1.5 leading-normal">Basic listing layout visibility across public directory indices.</span>
                             </label>
 
-                            <label className={`border-2 rounded-xl p-4 flex flex-col cursor-pointer transition-all ${formData.tierRequested === 'premium_verified' ? 'border-teal-600 bg-teal-50/20' : 'border-slate-200 bg-white hover:border-slate-300'}`}>
+                            <label className={`border-2 rounded-xl p-4 flex flex-col cursor-pointer transition-all ${formData.tierRequested === 'premium_verified' ? 'border-teal-600 bg-teal-50/10' : 'border-slate-200 bg-white hover:border-slate-300'}`}>
                                 <div className="flex items-center gap-2">
                                     <input type="radio" name="tierRequested" value="premium_verified" checked={formData.tierRequested === 'premium_verified'} onChange={() => setFormData({ ...formData, tierRequested: 'premium_verified' })} className="text-teal-600 focus:ring-teal-500" />
-                                    <span className="font-bold text-sm text-slate-900 text-teal-950 flex items-center gap-1.5">
+                                    <span className="font-bold text-sm text-teal-950 flex items-center gap-1.5">
                                         ✨ Premium Verified Badge
                                     </span>
                                 </div>
-                                <span className="text-xs text-slate-500 mt-1">Includes audited verification markup aligned with financial disclosure standards.</span>
+                                <span className="text-xs text-slate-500 mt-1.5 leading-normal">Includes audited verification markup aligned with financial disclosure standards.</span>
                             </label>
                         </div>
                     </div>
@@ -162,7 +172,7 @@ export default function ApplyForListingPage() {
                         <textarea className="w-full px-4 py-2.5 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-teal-500" rows={3} placeholder="Provide details on current unit counts or target operational footprints..." value={formData.message} onChange={e => setFormData({ ...formData, message: e.target.value })} />
                     </div>
 
-                    <button type="submit" disabled={loading} className="w-full bg-teal-600 hover:bg-teal-700 text-white font-bold py-3 px-4 rounded-xl shadow-md transition-colors text-sm disabled:opacity-50">
+                    <button type="submit" disabled={loading} className="w-full bg-teal-600 hover:bg-teal-500 text-white font-bold py-3.5 px-4 rounded-xl shadow-md transition-colors text-xs uppercase tracking-wider disabled:opacity-50">
                         {loading ? 'Transmitting Inbound Payload...' : 'Submit Official Directory Application'}
                     </button>
                 </form>
