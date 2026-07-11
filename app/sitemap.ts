@@ -1,6 +1,8 @@
 import { MetadataRoute } from 'next';
 import { createClient } from '@supabase/supabase-js';
 
+export const revalidate = 0; // Forces dynamic calculations on crawl requests
+
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
 const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || '';
 const supabase = createClient(supabaseUrl, supabaseAnonKey);
@@ -8,7 +10,6 @@ const supabase = createClient(supabaseUrl, supabaseAnonKey);
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const baseUrl = 'https://franchise.sg';
 
-    // 1. Core Platform Route Nodes
     const coreRoutes = [
         {
             url: baseUrl,
@@ -31,7 +32,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ];
 
     try {
-        // 2. Dynamic Franchise Record Ingestion (Fetches all 20+ records automatically)
         const { data: franchises } = await supabase
             .from('franchises')
             .select('slug, updated_at');
