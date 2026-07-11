@@ -10,33 +10,37 @@ const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
 export async function GET() {
     const baseUrl = 'https://franchise.sg';
+    const currentIsoDate = new Date().toISOString();
 
-    // 1. Ingest Core Platform Routing Infrastructure
+    // 1. Core Static Platform Routes
     const coreUrls = [
-        `  <url>\n    <loc>${baseUrl}</loc>\n    <lastmod>${new Date().toISOString()}</lastmod>\n    <changefreq>daily</changefreq>\n    <priority>1.0</priority>\n  </url>`,
-        `  <url>\n    <loc>${baseUrl}/for-sale</loc>\n    <lastmod>${new Date().toISOString()}</lastmod>\n    <changefreq>daily</changefreq>\n    <priority>0.9</priority>\n  </url>`,
-        `  <url>\n    <loc>${baseUrl}/apply</loc>\n    <lastmod>${new Date().toISOString()}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.7</priority>\n  </url>`
+        `  <url>\n    <loc>${baseUrl}</loc>\n    <lastmod>${currentIsoDate}</lastmod>\n    <changefreq>daily</changefreq>\n    <priority>1.0</priority>\n  </url>`,
+        `  <url>\n    <loc>${baseUrl}/for-sale</loc>\n    <lastmod>${currentIsoDate}</lastmod>\n    <changefreq>daily</changefreq>\n    <priority>0.9</priority>\n  </url>`,
+        `  <url>\n    <loc>${baseUrl}/apply</loc>\n    <lastmod>${currentIsoDate}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.7</priority>\n  </url>`
     ];
 
     let dynamicUrls: string[] = [];
 
     try {
-        // 2. Direct Runtime Stream Injection from Supabase Table
-        const { data: franchises } = await supabase
+        // 2. Optimized Fetch Selecting Only the Guaranteed Slug Column
+        const { data: franchises, error: supabaseError } = await supabase
             .from('franchises')
-            .select('slug, updated_at');
+            .select('slug');
+
+        if (supabaseError) {
+            console.error('Supabase sitemap fetch failure:', supabaseError.message);
+        }
 
         if (franchises && franchises.length > 0) {
             dynamicUrls = franchises.map((item) => {
-                const dateStr = item.updated_at ? new Date(item.updated_at).toISOString() : new Date().toISOString();
-                return `  <url>\n    <loc>${baseUrl}/franchise/${item.slug}</loc>\n    <lastmod>${dateStr}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.8</priority>\n  </url>`;
+                return `  <url>\n    <loc>${baseUrl}/franchise/${item.slug}</loc>\n    <lastmod>${currentIsoDate}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.8</priority>\n  </url>`;
             });
         }
     } catch (error) {
-        console.error('Sitemap API Stream Execution Error:', error);
+        console.error('Sitemap unexpected fatal exception:', error);
     }
 
-    // 3. Construct Raw XML Schema Document Wrapper
+    // 3. Construct Unified XML Document Payload
     const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${[...coreUrls, ...dynamicUrls].join('\n')}
