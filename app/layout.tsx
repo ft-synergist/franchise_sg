@@ -31,6 +31,9 @@ export const metadata: Metadata = {
     siteName: "Franchise.sg",
     locale: "en_SG",
     type: "website",
+  },
+  verification: {
+    google: "googlea47aaff8e85ee7a5",
   }
 };
 
