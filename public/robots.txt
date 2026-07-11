@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Allow: /for-sale
+Allow: /apply
+Disallow: /api/
+Disallow: /_next/
+
+Sitemap: https://franchise.sg/sitemap.xml
