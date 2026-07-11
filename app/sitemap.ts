@@ -1,7 +1,9 @@
 import { MetadataRoute } from 'next';
 import { createClient } from '@supabase/supabase-js';
 
-export const revalidate = 0; // Forces dynamic calculations on crawl requests
+// Explicitly declare dynamic routing parameters for edge processing
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
 const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || '';
@@ -32,11 +34,16 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ];
 
     try {
-        const { data: franchises } = await supabase
+        // Execute a direct, decoupled table fetch query bypassing middleware overhead
+        const { data: franchises, error } = await supabase
             .from('franchises')
-            .select('slug, updated_at');
+            .select('slug, updated_at')
+            .order('created_at', { ascending: false });
 
-        if (!franchises) return coreRoutes;
+        if (error || !franchises || franchises.length === 0) {
+            console.warn('Sitemap builder: No rows returned or execution skipped.', error);
+            return coreRoutes;
+        }
 
         const dynamicRoutes = franchises.map((item) => ({
             url: `${baseUrl}/franchise/${item.slug}`,
@@ -46,8 +53,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         }));
 
         return [...coreRoutes, ...dynamicRoutes];
-    } catch (error) {
-        console.error('Sitemap streaming error:', error);
+    } catch (err) {
+        console.error('Sitemap fatal exception:', err);
         return coreRoutes;
     }
 }
