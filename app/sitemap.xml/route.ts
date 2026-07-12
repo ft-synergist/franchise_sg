@@ -22,25 +22,42 @@ export async function GET() {
     let dynamicUrls: string[] = [];
 
     try {
-        // 2. Optimized Fetch Selecting Only the Guaranteed Slug Column
+        // 2. Optimized Fetch Selecting Only the Guaranteed Slug Column for Franchises
         const { data: franchises, error: supabaseError } = await supabase
             .from('franchises')
             .select('slug');
 
         if (supabaseError) {
-            console.error('Supabase sitemap fetch failure:', supabaseError.message);
+            console.error('Supabase sitemap franchise fetch failure:', supabaseError.message);
         }
 
         if (franchises && franchises.length > 0) {
-            dynamicUrls = franchises.map((item) => {
+            const franchiseUrls = franchises.map((item) => {
                 return `  <url>\n    <loc>${baseUrl}/franchise/${item.slug}</loc>\n    <lastmod>${currentIsoDate}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.8</priority>\n  </url>`;
             });
+            dynamicUrls = [...dynamicUrls, ...franchiseUrls];
+        }
+
+        // 3. Dynamic Fetch for Contributed Insights & News Articles
+        const { data: articles, error: articlesError } = await supabase
+            .from('articles')
+            .select('slug');
+
+        if (articlesError) {
+            console.error('Supabase sitemap articles fetch failure:', articlesError.message);
+        }
+
+        if (articles && articles.length > 0) {
+            const articleUrls = articles.map((item) => {
+                return `  <url>\n    <loc>${baseUrl}/insights/${item.slug}</loc>\n    <lastmod>${currentIsoDate}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.8</priority>\n  </url>`;
+            });
+            dynamicUrls = [...dynamicUrls, ...articleUrls];
         }
     } catch (error) {
         console.error('Sitemap unexpected fatal exception:', error);
     }
 
-    // 3. Construct Unified XML Document Payload
+    // 4. Construct Unified XML Document Payload
     const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${[...coreUrls, ...dynamicUrls].join('\n')}
