@@ -4,19 +4,30 @@ import { notFound } from 'next/navigation';
 
 export const revalidate = 60; // Cache category variants for 60 seconds
 
-// Map incoming clean URL slugs to exact database category lookups
-const categoryMap: Record<string, { dbName: string; displayName: string }> = {
-    'food-beverage': { dbName: 'Food & Beverage', displayName: 'Food & Beverage' },
-    'personal-services': { dbName: 'Personal Services', displayName: 'Personal Services' },
-    'childrens-services': { dbName: 'Children\'s Services', displayName: "Children's Services" },
-    'retail-convenience': { dbName: 'Retail & Convenience', displayName: 'Retail & Convenience' },
+// Exact routing taxonomy configuration map
+const categoryMap: Record<string, { dbNames: string[]; displayName: string }> = {
+    'food-beverage': {
+        dbNames: ['Food & Beverage', 'Food and Beverage', 'F&B'],
+        displayName: 'Food & Beverage'
+    },
+    'retail-services': {
+        dbNames: ['Retail Services', 'Retail'],
+        displayName: 'Retail Services'
+    },
+    'health-wellness': {
+        dbNames: ['Health & Wellness', 'Health and Wellness'],
+        displayName: 'Health & Wellness'
+    },
+    'education-enrichment': {
+        dbNames: ['Education & Enrichment', 'Education and Enrichment', 'Education'],
+        displayName: 'Education & Enrichment'
+    },
 };
 
 interface CategoryPageProps {
     params: Promise<{ slug: string }>;
 }
 
-// Generate dynamic page metadata for hyper-targeted local category SEO
 export async function generateMetadata({ params }: CategoryPageProps) {
     const { slug } = await params;
     const config = categoryMap[slug];
@@ -45,20 +56,18 @@ export default async function CategoryDirectoryPage({ params }: CategoryPageProp
     const { slug } = await params;
     const config = categoryMap[slug];
 
-    // Soft fallback if an investor requests a non-existent marketplace vertical
     if (!config) {
         notFound();
     }
 
-    // Query Supabase filtering exclusively on the matched targeted category sector
+    // FIXED: Using .in() with the variant array matrix to pull every single asset node variant without omissions
     const { data: franchises, error } = await supabase
         .from('franchises')
         .select('*')
-        .eq('category', config.dbName)
+        .in('category', config.dbNames)
         .order('is_featured', { ascending: false })
         .order('brand_name', { ascending: true });
 
-    // Structural JSON-LD ItemList Schema to dominate niche specific search queries
     const schemaMarkup = {
         "@context": "https://schema.org",
         "@type": "CollectionPage",
@@ -88,7 +97,6 @@ export default async function CategoryDirectoryPage({ params }: CategoryPageProp
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaMarkup) }}
             />
 
-            {/* Dynamic Segment Header Viewport */}
             <header className="bg-gradient-to-r from-teal-950 via-slate-950 to-slate-950 text-white py-16 px-6 border-b border-slate-800">
                 <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-left">
 
@@ -109,14 +117,10 @@ export default async function CategoryDirectoryPage({ params }: CategoryPageProp
                 </div>
             </header>
 
-            {/* Filtered Context Grid Blocks */}
             <main className="max-w-6xl mx-auto px-6 py-12">
                 {!franchises || franchises.length === 0 ? (
                     <div className="bg-white rounded-2xl p-12 text-center border border-slate-200">
-                        <p className="text-slate-500">No active brands currently listed under {config.displayName} for this cycle.</p>
-                        <Link href="/apply" className="mt-4 inline-block text-xs font-bold text-teal-600 hover:underline">
-                            Be the first to list your brand here →
-                        </Link>
+                        <p className="text-slate-500 font-medium">No active brands currently listed under {config.displayName} for this cycle.</p>
                     </div>
                 ) : (
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
