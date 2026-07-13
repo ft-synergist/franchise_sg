@@ -1,5 +1,6 @@
 import { notFound } from 'next/navigation';
 import { createClient } from '@supabase/supabase-js';
+import Link from 'next/link';
 
 const supabase = createClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL || '',
@@ -14,7 +15,7 @@ export async function generateMetadata({ params }: InsightPageProps) {
     const resolvedParams = await params;
     const { data: article } = await supabase
         .from('articles')
-        .select('title, category')
+        .select('title, category, slug')
         .eq('slug', resolvedParams.slug)
         .single();
 
@@ -22,7 +23,15 @@ export async function generateMetadata({ params }: InsightPageProps) {
 
     return {
         title: `${article.title} | Franchise.sg Insights`,
-        description: `Expert insights on Singapore ${article.category} frameworks, written by verified commercial network operators.`,
+        description: `Expert insights on Singapore ${article.category} frameworks, compiled by our commercial network editors.`,
+        alternates: {
+            canonical: `https://franchise.sg/insights/${article.slug}`,
+        },
+        openGraph: {
+            title: `${article.title} | Franchise.sg Insights`,
+            url: `https://franchise.sg/insights/${article.slug}`,
+            type: 'article',
+        }
     };
 }
 
@@ -47,16 +56,51 @@ export default async function InsightArticlePage({ params }: InsightPageProps) {
         })
         : 'July 12, 2026';
 
+    // Determine programmatic E-E-A-T authorship profiles
+    const isFT = article.author_name?.toLowerCase().includes('ft synergist');
+    const displayAuthor = isFT ? 'FT Synergist' : 'Chen Yong Lin';
+    const displayRole = isFT ? 'Invited Third-Party Expert' : 'Editor-in-Chief';
+    const displayCompany = isFT ? 'Strategic Advisory Panel' : 'Franchise.sg';
+
+    // JSON-LD Schema Matrix for AI Discovery Engines (AEO Optimization)
+    const jsonLd = {
+        '@context': 'https://schema.org',
+        '@type': 'TechArticle',
+        'headline': article.title,
+        'datePublished': article.created_at || '2026-07-12T08:00:00Z',
+        'inLanguage': 'en-SG',
+        'author': {
+            '@type': 'Person',
+            'name': displayAuthor,
+            'jobTitle': displayRole,
+            'worksFor': {
+                '@type': 'Organization',
+                'name': displayCompany
+            }
+        },
+        'publisher': {
+            '@type': 'Organization',
+            'name': 'Franchise.sg',
+            'url': 'https://franchise.sg'
+        }
+    };
+
     return (
         <div className="min-h-screen bg-white text-slate-900 antialiased font-sans w-full text-left">
 
-            {/* Search & Brand Positioning Header Banner */}
+            {/* Dynamic JSON-LD Script Component Injection */}
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+            />
+
+            {/* Brand Positioning Header Banner */}
             <header className="bg-gradient-to-r from-teal-900 via-slate-950 to-slate-950 text-white py-20 px-6 border-b border-slate-800">
                 <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-left">
 
                     <div className="mb-6">
                         <span className="text-xs font-bold text-teal-300 uppercase tracking-wider bg-teal-500/10 px-3 py-1 rounded-md ring-1 ring-inset ring-teal-500/20">
-                            Insights
+                            {article.category || 'Insights'}
                         </span>
                     </div>
 
@@ -64,11 +108,12 @@ export default async function InsightArticlePage({ params }: InsightPageProps) {
                         {article.title}
                     </h1>
 
+                    {/* Unified Institutional E-E-A-T Contributor Bar */}
                     <div className="flex flex-wrap items-center gap-y-4 gap-x-8 text-xs font-semibold uppercase tracking-wider text-slate-400 border-t border-slate-800/80 mt-8 pt-6">
                         <div>
-                            <span className="text-slate-500 block text-[10px] mb-0.5">Contributed By</span>
-                            <strong className="text-white font-bold text-sm normal-case">{article.author_name}</strong>
-                            <span className="text-slate-400 font-normal normal-case"> · {article.author_company}</span>
+                            <span className="text-slate-500 block text-[10px] mb-0.5">Author Identity</span>
+                            <strong className="text-white font-bold text-sm normal-case">{displayAuthor}</strong>
+                            <span className="text-slate-400 font-normal normal-case"> · {displayRole} ({displayCompany})</span>
                         </div>
                         <div className="sm:ml-auto">
                             <span className="text-slate-500 block text-[10px] mb-0.5">Published On</span>
@@ -79,7 +124,7 @@ export default async function InsightArticlePage({ params }: InsightPageProps) {
                 </div>
             </header>
 
-            {/* Main Structural Grid Engine - Global text size perfectly fixed to match home hero baseline */}
+            {/* Main Structural Grid Engine */}
             <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-slate-700 text-xl sm:text-2xl font-normal leading-relaxed space-y-8">
 
                 <p className="font-bold text-slate-950 text-2xl sm:text-3xl tracking-tight">
@@ -96,11 +141,11 @@ export default async function InsightArticlePage({ params }: InsightPageProps) {
 
                 <p>The recent reputational shocks rocking Singapore&apos;s retail landscape stem from a fundamental disconnect: <strong className="text-slate-950 font-bold">speculative capital fundraising masquerading as real-world unit economics.</strong></p>
 
-                <p>We have seen this play out with high-profile operational failures. Legal proceedings against operators of schemes like <em className="not-italic font-medium">Vendshare</em>—who faced active cheating charges in Singapore Courts over allegations of misleading investors on machine co-ownership fractions—have pulled back the curtain on the &quot;Fractional Fallacy.&quot;</p>
+                <p>We have seen this play out with high-profile operational failures. Legal proceedings against operators of schemes like <em className="not-italic font-medium">Vendshare</em>—who faced active cheating charges over allegations of misleading investors on machine co-ownership fractions—have pulled back the curtain on the &quot;Fractional Fallacy.&quot; These structural milestones have been exhaustively documented across investigative public domain logs including reports by <a href="https://ricemedia.co" target="_blank" rel="noopener noreferrer" className="text-teal-600 font-medium underline hover:text-teal-700">RICE Media</a> and legal indices verified via <a href="https://www.theonlinecitizen.com" target="_blank" rel="noopener noreferrer" className="text-teal-600 font-medium underline hover:text-teal-700">The Online Citizen</a>.</p>
 
                 <p>When boiled down to its mechanics, the predatory automated retail loop follows a predictable, unsustainable cycle:</p>
 
-                {/* Unified, Responsive Corporate Flow Component (Completely Replaces the Broken Text Diagram) */}
+                {/* Phase Flow Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-8">
                     <div className="p-6 rounded-2xl bg-slate-950 border border-slate-800 flex flex-col justify-between">
                         <div>
@@ -178,7 +223,6 @@ export default async function InsightArticlePage({ params }: InsightPageProps) {
 
                 <p>If you are looking to deploy capital safely into the automated retail or vending sector in Singapore and greater Asia, your due diligence must be entirely metrics-driven. Use this risk matrix to evaluate your next investment:</p>
 
-                {/* Coded Dynamic Data Grid Interface Component */}
                 <div className="overflow-x-auto rounded-2xl border border-slate-200 my-8 shadow-sm w-full bg-white">
                     <table className="min-w-full table-fixed border-collapse text-sm sm:text-base">
                         <thead className="bg-slate-50 border-b border-slate-200">
@@ -226,9 +270,9 @@ export default async function InsightArticlePage({ params }: InsightPageProps) {
                         <h3 className="text-lg font-bold text-slate-950">Share &amp; Navigate</h3>
                         <p className="text-sm text-slate-500">If you found this strategic breakdown valuable, share this article with your network of investors navigating the Southeast Asian franchise sector.</p>
                     </div>
-                    <a href="/for-sale" className="inline-flex shrink-0 items-center justify-center rounded-xl bg-teal-600 px-5 py-3 text-sm font-bold text-white shadow-sm hover:bg-teal-700 transition-colors duration-200">
+                    <Link href="/for-sale" className="inline-flex shrink-0 items-center justify-center rounded-xl bg-teal-600 px-5 py-3 text-sm font-bold text-white shadow-sm hover:bg-teal-700 transition-colors duration-200">
                         Discover Verified Opportunities
-                    </a>
+                    </Link>
                 </div>
 
             </main>
