@@ -2,20 +2,20 @@ import Link from 'next/link';
 
 export const metadata = {
     title: 'List Your Franchise Brand | Singapore Franchise Portal',
-    description: 'Put your brand footprint in front of high-net-worth investors and prospective corporate operators looking for franchise opportunities in Singapore.',
+    description: 'Connect your brand with investment funds, family offices, high-net-worth investors, and master franchise operators in Singapore.',
     alternates: {
         canonical: 'https://franchise.sg/apply',
     },
     openGraph: {
         title: 'List Your Franchise Brand | Singapore Franchise Portal',
-        description: 'Put your brand footprint in front of high-net-worth investors and prospective corporate operators looking for franchise opportunities in Singapore.',
+        description: 'Connect your brand with investment funds, family offices, high-net-worth investors, and master franchise operators in Singapore.',
         url: 'https://franchise.sg/apply',
         type: 'website',
     },
     twitter: {
         card: 'summary_large_image',
         title: 'List Your Franchise Brand | Singapore Franchise Portal',
-        description: 'Put your brand footprint in front of high-net-worth investors and prospective corporate operators looking for franchise opportunities in Singapore.',
+        description: 'Connect your brand with investment funds, family offices, high-net-worth investors, and master franchise operators in Singapore.',
     }
 };
 
@@ -27,7 +27,6 @@ export default function FranchiseApplyPage() {
             <header className="bg-gradient-to-r from-teal-900 via-slate-950 to-slate-950 text-white py-20 px-6 border-b border-slate-800">
                 <div className="max-w-4xl mx-auto text-left">
 
-                    {/* 100% Uniform Singapore Franchise Portal Pill Tag */}
                     <div className="mb-6 inline-flex items-center gap-2 bg-teal-500/10 border border-teal-500/20 px-3 py-1 rounded-full">
                         <span className="w-2 h-2 rounded-full bg-teal-400"></span>
                         <span className="text-xs font-semibold text-teal-300 uppercase tracking-wider">
@@ -39,8 +38,9 @@ export default function FranchiseApplyPage() {
                         List Your Franchise Brand
                     </h1>
 
-                    <p className="text-slate-400 mt-4 text-base sm:text-lg max-w-2xl font-light">
-                        Put your brand footprint in front of high-net-worth investors and prospective corporate operators in Singapore.
+                    {/* Broadened Investment Target Copy */}
+                    <p className="text-slate-300 mt-4 text-base sm:text-lg max-w-2xl font-normal leading-relaxed">
+                        Connect your brand footprint directly with high-net-worth individuals, family offices, private equity houses, and experienced master franchise operators across the Singapore and Asian markets.
                     </p>
 
                     <div className="mt-6">
@@ -54,7 +54,7 @@ export default function FranchiseApplyPage() {
                 </div>
             </header>
 
-            {/* Main Intake Form Grid Area */}
+            {/* Main Intake Form Area */}
             <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
 
                 <div className="bg-white border border-slate-200 rounded-2xl p-6 sm:p-10 shadow-sm">
@@ -63,7 +63,7 @@ export default function FranchiseApplyPage() {
                         Brand Registration Profile
                     </h2>
                     <p className="text-xs text-slate-500 mb-8 leading-relaxed">
-                        Fill out the operational fields below. Our review unit will verify the details against active business registry data before activating your public directory entry.
+                        Fill out the verified metrics below. Our review unit cross-references all applications with ACRA corporate registry records before deploying your listing profile to our active investor network.
                     </p>
 
                     <form className="space-y-6">
@@ -82,21 +82,32 @@ export default function FranchiseApplyPage() {
                             </div>
                             <div>
                                 <label className="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-2">
-                                    Primary Category
+                                    Singapore UEN (Unique Entity Number)
                                 </label>
-                                <select className="w-full bg-slate-50/80 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500/20 focus:border-teal-600 text-slate-700 font-medium transition-all">
-                                    <option>Food &amp; Beverage</option>
-                                    <option>Retail Services</option>
-                                    <option>Health &amp; Wellness</option>
-                                    <option>Education Infrastructure</option>
-                                </select>
+                                <input
+                                    type="text"
+                                    required
+                                    placeholder="e.g. 202612345N"
+                                    className="w-full bg-slate-50/80 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500/20 focus:border-teal-600 text-slate-800 font-medium transition-all"
+                                />
                             </div>
                         </div>
 
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                             <div>
                                 <label className="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-2">
-                                    Minimum Capital Required (SGD)
+                                    Primary Business Category
+                                </label>
+                                <select className="w-full bg-slate-50/80 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500/20 focus:border-teal-600 text-slate-700 font-medium transition-all">
+                                    <option>Food &amp; Beverage</option>
+                                    <option>Retail &amp; Consumer Kiosks</option>
+                                    <option>Health, Wellness &amp; Fitness</option>
+                                    <option>Education &amp; Enrichment Infrastructure</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label className="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-2">
+                                    Minimum Investment Capital Required (SGD)
                                 </label>
                                 <input
                                     type="number"
@@ -105,6 +116,9 @@ export default function FranchiseApplyPage() {
                                     className="w-full bg-slate-50/80 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500/20 focus:border-teal-600 text-slate-800 font-medium transition-all"
                                 />
                             </div>
+                        </div>
+
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                             <div>
                                 <label className="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-2">
                                     Initial Franchise Fee (SGD)
@@ -116,28 +130,28 @@ export default function FranchiseApplyPage() {
                                     className="w-full bg-slate-50/80 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500/20 focus:border-teal-600 text-slate-800 font-medium transition-all"
                                 />
                             </div>
+                            <div>
+                                <label className="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-2">
+                                    Ongoing Monthly Royalty Structure
+                                </label>
+                                <input
+                                    type="text"
+                                    required
+                                    placeholder="e.g. 5% Gross Monthly Sales or Fixed S$1,500/mo"
+                                    className="w-full bg-slate-50/80 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500/20 focus:border-teal-600 text-slate-800 font-medium transition-all"
+                                />
+                            </div>
                         </div>
 
+                        {/* Realigned, Concrete Textarea Block */}
                         <div>
                             <label className="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-2">
-                                Ongoing Royalty Structure Details
-                            </label>
-                            <input
-                                type="text"
-                                required
-                                placeholder="e.g. 5% Monthly Gross Profit or Fixed S$1,200/mo"
-                                className="w-full bg-slate-50/80 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500/20 focus:border-teal-600 text-slate-800 font-medium transition-all"
-                            />
-                        </div>
-
-                        <div>
-                            <label className="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-2">
-                                Brand Value Proposition &amp; Operational Overview
+                                Brand Summary &amp; Franchise Structure
                             </label>
                             <textarea
                                 rows={4}
                                 required
-                                placeholder="Provide a clean operational description detailing active outlet density, localized supply chains, or physical equipment footprint records."
+                                placeholder="State your business model clearly. Include current number of active outlets, required physical store footprint square footage, and standard supply chain arrangements."
                                 className="w-full bg-slate-50/80 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500/20 focus:border-teal-600 text-slate-800 font-medium transition-all resize-none leading-relaxed"
                             />
                         </div>
@@ -147,7 +161,7 @@ export default function FranchiseApplyPage() {
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                             <div>
                                 <label className="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-2">
-                                    Corporate Authorized Contact Name
+                                    Authorized Management Contact Name
                                 </label>
                                 <input
                                     type="text"
@@ -158,7 +172,7 @@ export default function FranchiseApplyPage() {
                             </div>
                             <div>
                                 <label className="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-2">
-                                    Official Corporate Email Address
+                                    Official Management Corporate Email
                                 </label>
                                 <input
                                     type="email"
