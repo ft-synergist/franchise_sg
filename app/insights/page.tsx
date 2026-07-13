@@ -26,7 +26,7 @@ const articles = [
         excerpt: 'The promise of 30%+ passive ROI has collapsed under real criminal court charges in Singapore. Read our hard hitting article on real equipment setup fees, empty location tricks, and how to verify actual unit economics before you lose your capital.',
         category: 'Franchise Scam Alert',
         author: 'Chen Yong Lin',
-        role: 'Editor-in-Chief',
+        role: 'Editor',
         date: 'July 12, 2026'
     }
 ];
@@ -35,7 +35,7 @@ export default function InsightsHubPage() {
     return (
         <div className="min-h-screen bg-slate-50/60 text-slate-900 antialiased font-sans w-full text-left">
 
-            {/* Dynamic Header Block */}
+            {/* Header Block */}
             <header className="bg-gradient-to-r from-teal-900 via-slate-950 to-slate-950 text-white py-20 px-6 border-b border-slate-800">
                 <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-left">
 
@@ -48,14 +48,13 @@ export default function InsightsHubPage() {
                         Franchise Insights
                     </h1>
 
-                    {/* Exact User-Optimized Intent Copy Block */}
                     <p className="text-slate-300 mt-4 text-base sm:text-lg max-w-3xl font-normal leading-relaxed">
                         Don&apos;t sign a franchise agreement blindly. We break down the real data and numbers investors care about: franchise trends and growth, initial setup fees, ongoing royalties, hidden operational costs, projected breakeven timelines, and transparent EBITDA margins across Singapore and Asia Region.
                     </p>
                 </div>
             </header>
 
-            {/* Main Listing Layout - Misleading Subheader Completely Stripped */}
+            {/* Main Listing Layout */}
             <main className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
 
                 {/* Dynamic Card Layout Grid */}
@@ -83,11 +82,12 @@ export default function InsightsHubPage() {
                                 </p>
                             </Link>
 
+                            {/* Clean, Grounded Contributor Box (Fluff Removed) */}
                             <div className="mt-4 border-t border-slate-100 pt-4 flex flex-col gap-2">
                                 <div className="bg-slate-50/80 p-3 rounded-xl flex flex-col">
-                                    <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Lead Analyst</span>
+                                    <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Contributor</span>
                                     <span className="font-bold text-slate-800 text-xs mt-0.5">
-                                        {article.author} <span className="font-normal text-slate-500">· {article.role}</span>
+                                        {article.author} <span className="font-normal text-slate-500">· {article.role}, Franchise.sg</span>
                                     </span>
                                 </div>
 
