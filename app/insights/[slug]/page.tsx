@@ -22,15 +22,21 @@ export async function generateMetadata({ params }: InsightPageProps) {
     if (!article) return {};
 
     return {
-        title: `${article.title} | Franchise.sg Insights`,
+        title: `${article.title}`, // Suffix duplication error completely resolved
         description: `Expert insights on Singapore ${article.category} frameworks, compiled by our commercial network editors.`,
         alternates: {
             canonical: `https://franchise.sg/insights/${article.slug}`,
         },
         openGraph: {
-            title: `${article.title} | Franchise.sg Insights`,
+            title: `${article.title}`,
+            description: `Expert insights on Singapore ${article.category} frameworks, compiled by our commercial network editors.`,
             url: `https://franchise.sg/insights/${article.slug}`,
             type: 'article',
+        },
+        twitter: {
+            card: 'summary_large_image',
+            title: `${article.title}`,
+            description: `Expert insights on Singapore ${article.category} frameworks, compiled by our commercial network editors.`,
         }
     };
 }
@@ -54,16 +60,18 @@ export default async function InsightArticlePage({ params }: InsightPageProps) {
             month: 'long',
             day: 'numeric'
         })
-        : 'July 12, 2026';
+        : '12 July 2026';
 
+    // Fluff-Free Operational Setup variables matching directory hub setup
     const isFT = article.author_name?.toLowerCase().includes('ft synergist');
     const displayAuthor = isFT ? 'FT Synergist' : 'Chen Yong Lin';
-    const displayRole = isFT ? 'Invited Third-Party Expert' : 'Editor-in-Chief';
+    const displayRole = isFT ? 'Invited Third-Party Expert' : 'Editor';
     const displayCompany = isFT ? 'Strategic Advisory Panel' : 'Franchise.sg';
 
     const targetUrl = encodeURIComponent(`https://franchise.sg/insights/${article.slug}`);
     const shareText = encodeURIComponent(`Critical analysis by ${displayAuthor}: ${article.title}`);
 
+    // Structurally clean JSON-LD Metadata Mapping for AI Engines
     const jsonLd = {
         '@context': 'https://schema.org',
         '@type': 'TechArticle',
@@ -94,13 +102,20 @@ export default async function InsightArticlePage({ params }: InsightPageProps) {
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
             />
 
-            {/* Header Banner */}
+            {/* Dynamic Header Block */}
             <header className="bg-gradient-to-r from-teal-900 via-slate-950 to-slate-950 text-white py-20 px-6 border-b border-slate-800">
                 <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-left">
 
-                    <div className="mb-6">
-                        <span className="text-xs font-bold text-teal-300 uppercase tracking-wider bg-teal-500/10 px-3 py-1 rounded-md ring-1 ring-inset ring-teal-500/20">
-                            {article.category || 'Insights'}
+                    {/* 100% Uniform Singapore Franchise Portal Standardized Tag */}
+                    <div className="mb-6 inline-flex items-center gap-2 bg-teal-500/10 border border-teal-500/20 px-3 py-1 rounded-full">
+                        <span className="w-2 h-2 rounded-full bg-teal-400"></span>
+                        <span className="text-xs font-semibold text-teal-300 uppercase tracking-wider">Singapore Franchise Portal</span>
+                    </div>
+
+                    {/* Bold Header Prefix Section Injection */}
+                    <div className="mb-2">
+                        <span className="text-base font-bold uppercase tracking-wider text-teal-400 block">
+                            Insights:
                         </span>
                     </div>
 
@@ -108,11 +123,11 @@ export default async function InsightArticlePage({ params }: InsightPageProps) {
                         {article.title}
                     </h1>
 
+                    {/* Unified Fluid E-E-A-T Block (Author Identity text completely stripped out) */}
                     <div className="flex flex-wrap items-center gap-y-4 gap-x-8 text-xs font-semibold uppercase tracking-wider text-slate-400 border-t border-slate-800/80 mt-8 pt-6">
                         <div>
-                            <span className="text-slate-500 block text-[10px] mb-0.5">Author Identity</span>
                             <strong className="text-white font-bold text-sm normal-case">{displayAuthor}</strong>
-                            <span className="text-slate-400 font-normal normal-case"> · {displayRole} ({displayCompany})</span>
+                            <span className="text-slate-400 font-normal normal-case"> · {displayRole}, {displayCompany}</span>
                         </div>
                         <div className="sm:ml-auto">
                             <span className="text-slate-500 block text-[10px] mb-0.5">Published On</span>
@@ -123,7 +138,7 @@ export default async function InsightArticlePage({ params }: InsightPageProps) {
                 </div>
             </header>
 
-            {/* Core Editorial Copy Layout */}
+            {/* Core Body Container Framework */}
             <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-slate-700 text-xl sm:text-2xl font-normal leading-relaxed space-y-8">
 
                 <p className="font-bold text-slate-950 text-2xl sm:text-3xl tracking-tight">
@@ -144,7 +159,7 @@ export default async function InsightArticlePage({ params }: InsightPageProps) {
 
                 <p>When boiled down to its mechanics, the predatory automated retail loop follows a predictable, unsustainable cycle:</p>
 
-                {/* Phase Flow Component Layout */}
+                {/* Phase Flow Component Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-8">
                     <div className="p-6 rounded-2xl bg-slate-950 border border-slate-800 flex flex-col justify-between">
                         <div>
@@ -264,7 +279,7 @@ export default async function InsightArticlePage({ params }: InsightPageProps) {
 
                 <hr className="my-12 border-slate-200" />
 
-                {/* Share Section */}
+                {/* Share Section Wrapper */}
                 <div className="mt-12 p-8 border border-slate-200 rounded-2xl bg-gradient-to-br from-slate-50 to-white shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
                     <div className="space-y-2 max-w-xl">
                         <h3 className="text-xl font-bold text-slate-950">Share &amp; Syndicate</h3>
