@@ -51,6 +51,16 @@ export default function InsightsHubPage() {
                     <p className="text-slate-300 mt-4 text-base sm:text-lg max-w-3xl font-normal leading-relaxed">
                         Don&apos;t sign a franchise agreement blindly. We break down the real data and numbers investors care about: franchise trends and growth, initial setup fees, ongoing royalties, hidden operational costs, projected breakeven timelines, and transparent EBITDA margins across Singapore and Asia Region.
                     </p>
+
+                    {/* Return Navigation Anchor */}
+                    <div className="mt-6">
+                        <Link
+                            href="/"
+                            className="inline-flex items-center justify-center text-xs font-bold uppercase tracking-wider text-teal-400 hover:text-teal-300 transition-colors"
+                        >
+                            ← Return to Main Directory
+                        </Link>
+                    </div>
                 </div>
             </header>
 
@@ -82,7 +92,7 @@ export default function InsightsHubPage() {
                                 </p>
                             </Link>
 
-                            {/* Clean, Grounded Contributor Box (Fluff Removed) */}
+                            {/* Clean, Grounded Contributor Box */}
                             <div className="mt-4 border-t border-slate-100 pt-4 flex flex-col gap-2">
                                 <div className="bg-slate-50/80 p-3 rounded-xl flex flex-col">
                                     <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Contributor</span>
