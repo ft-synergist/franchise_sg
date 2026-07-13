@@ -54,17 +54,17 @@ export default function HomePage() {
             </span>
           </div>
 
-          {/* FIXED: Strategic Heading Text */}
+          {/* STRATEGIC VALUE ALIGNMENT: Main Search Keyword Anchor */}
           <h1 className="text-4xl sm:text-5xl font-black tracking-tight text-white max-w-4xl leading-tight">
             Find the Latest Franchise Opportunities in Singapore
           </h1>
 
-          {/* FIXED: Dynamic Core Parameter Write-up Copy */}
+          {/* HIGH-INTENT PARAMETERS: Clear semantic indexing markers */}
           <p className="text-slate-300 mt-4 text-base sm:text-lg max-w-3xl font-normal leading-relaxed">
             Understand the Minimum Investment Capital Required (SGD) before meeting the franchisors. Access initial franchise fees and setup fees, ongoing royalties and franchise categories across Singapore and Asian markets.
           </p>
 
-          {/* Strategic Navigation Action Block */}
+          {/* Primary Call To Actions */}
           <div className="mt-8 flex flex-wrap gap-4">
             <Link
               href="/apply"
