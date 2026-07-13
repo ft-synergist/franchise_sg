@@ -12,25 +12,47 @@ export default async function FranchiseDirectoryHome() {
     .order('brand_name', { ascending: true });
 
   return (
-    <div className="min-h-screen bg-slate-50/60 text-slate-900 antialiased font-sans">
+    <div className="min-h-screen bg-slate-50/60 text-slate-900 antialiased font-sans w-full text-left">
       {/* Search & Brand Positioning Header */}
       <header className="bg-gradient-to-r from-teal-900 via-slate-950 to-slate-950 text-white py-20 px-6">
         <div className="max-w-6xl mx-auto text-center sm:text-left">
+
+          {/* 1. Portal Badge Update: Swapped from Commercial to Franchise Portal */}
           <div className="inline-flex items-center gap-2 bg-teal-500/10 border border-teal-500/30 px-3 py-1 rounded-full mb-6">
             <span className="w-2 h-2 rounded-full bg-teal-400 animate-pulse"></span>
-            <span className="text-xs font-semibold text-teal-300 uppercase tracking-wider">Singapore Commercial Portal</span>
+            <span className="text-xs font-semibold text-teal-300 uppercase tracking-wider">
+              Singapore Franchise Portal
+            </span>
           </div>
+
           <h1 className="text-4xl sm:text-5xl font-black tracking-tight max-w-3xl leading-none">
             Find the Best Franchise Opportunities in Singapore
           </h1>
+
           <p className="text-slate-400 mt-4 text-base sm:text-lg max-w-2xl font-light">
             Analyze audited investment metrics, initial startup fees, and historical growth vectors across trending local assets and international legacies.
           </p>
+
+          {/* 2. Button Row Array: Expanded to integrate exact matching Franchise Insights bridge */}
           <div className="mt-8 flex flex-wrap gap-4 justify-center sm:justify-start">
-            <Link href="/for-sale" className="bg-teal-600 hover:bg-teal-500 text-white px-6 py-3 rounded-xl font-bold shadow-md transition-all text-sm">
+            <Link
+              href="/for-sale"
+              className="bg-teal-600 hover:bg-teal-500 text-white px-6 py-3 rounded-xl font-bold shadow-md transition-all text-sm"
+            >
               Explore Active Resale Listings
             </Link>
-            <Link href="/apply" className="bg-slate-800/80 hover:bg-slate-800 border border-slate-700 text-slate-200 px-6 py-3 rounded-xl font-semibold transition-all text-sm">
+
+            <Link
+              href="/insights"
+              className="bg-slate-800/80 hover:bg-slate-800 border border-slate-700 text-slate-200 px-6 py-3 rounded-xl font-semibold transition-all text-sm"
+            >
+              Franchise Insights
+            </Link>
+
+            <Link
+              href="/apply"
+              className="bg-slate-950/40 hover:bg-slate-900/40 border border-slate-800 text-slate-400 px-6 py-3 rounded-xl font-medium transition-all text-sm"
+            >
               Register Your Franchise Brand
             </Link>
           </div>
@@ -45,7 +67,7 @@ export default async function FranchiseDirectoryHome() {
 
         {!franchises || franchises.length === 0 ? (
           <div className="bg-white rounded-2xl p-12 text-center border border-slate-200">
-            <p className="text-slate-500">Database synchronization in progress. Please refresh Shortly.</p>
+            <p className="text-slate-500">Database synchronization in progress. Please refresh shortly.</p>
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
