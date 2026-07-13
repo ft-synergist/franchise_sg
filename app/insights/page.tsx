@@ -1,21 +1,21 @@
 import Link from 'next/link';
 
 export const metadata = {
-    title: 'Singapore Franchise Fees, Setup Costs & Profit Margins', // Suffix override bug completely eliminated
-    description: 'Before you buy, compare initial setup fees, franchise fees, royalties, projected breakeven timelines, and verified brand due diligence logs.',
+    title: 'Franchise Insights | Singapore Fees, Trends & Costs',
+    description: 'Before you sign a franchise agreement, compare initial setup fees, franchise trends, ongoing royalties, operational costs, and breakeven timelines across Singapore and Asia.',
     alternates: {
         canonical: 'https://franchise.sg/insights',
     },
     openGraph: {
-        title: 'Singapore Franchise Fees, Setup Costs & Profit Margins | Insights',
-        description: 'Before you buy, compare initial setup fees, franchise fees, royalties, projected breakeven timelines, and verified brand due diligence logs.',
+        title: 'Franchise Insights | Singapore Fees, Trends & Costs',
+        description: 'Before you sign a franchise agreement, compare initial setup fees, franchise trends, ongoing royalties, operational costs, and breakeven timelines across Singapore and Asia.',
         url: 'https://franchise.sg/insights',
         type: 'website',
     },
     twitter: {
         card: 'summary_large_image',
-        title: 'Singapore Franchise Fees, Setup Costs & Profit Margins | Insights',
-        description: 'Before you buy, compare initial setup fees, franchise fees, royalties, projected breakeven timelines, and verified brand due diligence logs.',
+        title: 'Franchise Insights | Singapore Fees, Trends & Costs',
+        description: 'Before you sign a franchise agreement, compare initial setup fees, franchise trends, ongoing royalties, operational costs, and breakeven timelines across Singapore and Asia.',
     }
 };
 
@@ -23,7 +23,7 @@ const articles = [
     {
         title: 'Vending Machine Franchise Scam Alert: The Reality Behind "Hands-Off Passive Income" in Singapore',
         slug: 'vending-machine-franchise-analysis-singapore',
-        excerpt: 'The promise of 30%+ passive ROI has collapsed under real criminal court charges in Singapore. Read our hard hitting due diligence report on real equipment setup fees, empty location tricks, and how to verify actual unit economics before you lose your capital.',
+        excerpt: 'The promise of 30%+ passive ROI has collapsed under real criminal court charges in Singapore. Read our hard hitting article on real equipment setup fees, empty location tricks, and how to verify actual unit economics before you lose your capital.',
         category: 'Franchise Scam Alert',
         author: 'Chen Yong Lin',
         role: 'Editor-in-Chief',
@@ -35,31 +35,28 @@ export default function InsightsHubPage() {
     return (
         <div className="min-h-screen bg-slate-50/60 text-slate-900 antialiased font-sans w-full text-left">
 
-            {/* Search & Brand Positioning Header */}
+            {/* Dynamic Header Block */}
             <header className="bg-gradient-to-r from-teal-900 via-slate-950 to-slate-950 text-white py-20 px-6 border-b border-slate-800">
                 <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-left">
 
                     <div className="mb-6 inline-flex items-center gap-2 bg-teal-500/10 border border-teal-500/20 px-3 py-1 rounded-full">
                         <span className="w-2 h-2 rounded-full bg-teal-400"></span>
-                        <span className="text-xs font-semibold text-teal-300 uppercase tracking-wider">Singapore Franchise Marketplace</span>
+                        <span className="text-xs font-semibold text-teal-300 uppercase tracking-wider">Singapore Franchise Portal</span>
                     </div>
 
                     <h1 className="text-4xl sm:text-5xl font-black tracking-tight text-white max-w-4xl leading-tight">
-                        Franchise Fees, Setup Costs &amp; Projected ROI
+                        Franchise Insights
                     </h1>
 
+                    {/* Exact User-Optimized Intent Copy Block */}
                     <p className="text-slate-300 mt-4 text-base sm:text-lg max-w-3xl font-normal leading-relaxed">
-                        Don&apos;t sign a franchise agreement blindly. We break down the real numbers investors care about: initial setup fees, ongoing royalties, hidden operational costs, projected breakeven timelines, and transparent EBITDA margins across Singapore.
+                        Don&apos;t sign a franchise agreement blindly. We break down the real data and numbers investors care about: franchise trends and growth, initial setup fees, ongoing royalties, hidden operational costs, projected breakeven timelines, and transparent EBITDA margins across Singapore and Asia Region.
                     </p>
                 </div>
             </header>
 
-            {/* Main Grid Engine */}
+            {/* Main Listing Layout - Misleading Subheader Completely Stripped */}
             <main className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-
-                <h2 className="text-2xl font-extrabold text-slate-950 tracking-tight mb-8">
-                    Franchise Due Diligence &amp; Risk Reports
-                </h2>
 
                 {/* Dynamic Card Layout Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
@@ -98,7 +95,7 @@ export default function InsightsHubPage() {
                                     href={`/insights/${article.slug}`}
                                     className="w-full text-center mt-2 border border-slate-200 bg-white hover:bg-slate-50 text-slate-800 font-bold py-2.5 px-4 rounded-xl text-xs transition-colors block"
                                 >
-                                    Read Due Diligence Report
+                                    Read Full Article
                                 </Link>
                             </div>
 
