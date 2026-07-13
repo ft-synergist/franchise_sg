@@ -19,15 +19,15 @@ interface GridEngineProps {
 
 export default function FranchiseGridEngine({ initialFranchises }: GridEngineProps) {
     const [selectedCategory, setSelectedCategory] = useState<string>('All');
-    const [maxBudget, setMaxBudget] = useState<number>(300000); // Default high boundary tier
+    const [maxBudget, setMaxBudget] = useState<number>(300000);
 
-    // Dynamically extract unique categories available in the current database payload
+    // Extract unique industries dynamically
     const categories = useMemo(() => {
         const list = new Set(initialFranchises.map(f => f.category));
         return ['All', ...Array.from(list)];
     }, [initialFranchises]);
 
-    // Perform hyper-fast client-side filtering operations
+    // Fast client-side filtering logic
     const filteredFranchises = useMemo(() => {
         return initialFranchises.filter((item) => {
             const matchesCategory = selectedCategory === 'All' || item.category === selectedCategory;
@@ -37,13 +37,12 @@ export default function FranchiseGridEngine({ initialFranchises }: GridEnginePro
     }, [initialFranchises, selectedCategory, maxBudget]);
 
     return (
-        /* FIXED: This wrapper id must match your parent button href anchor precisely */
-        <div id="directory-market" className="w-full pt-4">
+        <div id="directory-market" className="w-full pt-4 scroll-mt-12">
 
-            {/* Interactive Operational Control Suite Block */}
+            {/* Interactive Filter Controls */}
             <div className="bg-white border border-slate-200 rounded-2xl p-6 mb-10 shadow-sm flex flex-col md:flex-row gap-8 items-center justify-between">
 
-                {/* Category Pill Switcher */}
+                {/* Industry Pill Toggles */}
                 <div className="w-full md:w-2/3 text-left">
                     <label className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block mb-3">
                         Filter by Industry Vertical
@@ -64,7 +63,7 @@ export default function FranchiseGridEngine({ initialFranchises }: GridEnginePro
                     </div>
                 </div>
 
-                {/* Dynamic Budget Tier Range Selector */}
+                {/* Capital Slider */}
                 <div className="w-full md:w-1/3 text-left">
                     <div className="flex justify-between items-center mb-2">
                         <label className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">
@@ -92,16 +91,10 @@ export default function FranchiseGridEngine({ initialFranchises }: GridEnginePro
 
             </div>
 
-            {/* Render Viewport Loops based on Filter Array State */}
+            {/* Directory Grid Marketplace Display */}
             {filteredFranchises.length === 0 ? (
                 <div className="bg-white rounded-2xl p-12 text-center border border-slate-200">
                     <p className="text-slate-500 font-medium">No opportunities match your selected filter matrix.</p>
-                    <button
-                        onClick={() => { setSelectedCategory('All'); setMaxBudget(300000); }}
-                        className="mt-3 text-xs font-bold text-teal-600 hover:underline"
-                    >
-                        Reset filter parameters
-                    </button>
                 </div>
             ) : (
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -139,7 +132,6 @@ export default function FranchiseGridEngine({ initialFranchises }: GridEnginePro
                                 💰 <span className="text-slate-700 font-semibold">Royalty:</span> {item.royalty_fee_text}
                             </div>
 
-                            {/* Gated High Intent Convincement Loop Action Target */}
                             <button className="w-full mt-6 border border-slate-200 bg-white hover:bg-slate-50 text-slate-800 font-bold py-2.5 px-4 rounded-xl text-xs shadow-sm transition-colors duration-150">
                                 Request Full Disclosure Packet
                             </button>
