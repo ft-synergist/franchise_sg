@@ -1,11 +1,22 @@
 import Link from 'next/link';
 
 export const metadata = {
-    title: 'Singapore Franchise Fees, Setup Costs & Profit Margins | Franchise.sg',
+    title: 'Singapore Franchise Fees, Setup Costs & Profit Margins', // Suffix override bug completely eliminated
     description: 'Before you buy, compare initial setup fees, franchise fees, royalties, projected breakeven timelines, and verified brand due diligence logs.',
     alternates: {
         canonical: 'https://franchise.sg/insights',
     },
+    openGraph: {
+        title: 'Singapore Franchise Fees, Setup Costs & Profit Margins | Insights',
+        description: 'Before you buy, compare initial setup fees, franchise fees, royalties, projected breakeven timelines, and verified brand due diligence logs.',
+        url: 'https://franchise.sg/insights',
+        type: 'website',
+    },
+    twitter: {
+        card: 'summary_large_image',
+        title: 'Singapore Franchise Fees, Setup Costs & Profit Margins | Insights',
+        description: 'Before you buy, compare initial setup fees, franchise fees, royalties, projected breakeven timelines, and verified brand due diligence logs.',
+    }
 };
 
 const articles = [
@@ -24,7 +35,7 @@ export default function InsightsHubPage() {
     return (
         <div className="min-h-screen bg-slate-50/60 text-slate-900 antialiased font-sans w-full text-left">
 
-            {/* Search & Brand Positioning Header - 100% Concrete Language */}
+            {/* Search & Brand Positioning Header */}
             <header className="bg-gradient-to-r from-teal-900 via-slate-950 to-slate-950 text-white py-20 px-6 border-b border-slate-800">
                 <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-left">
 
@@ -57,7 +68,6 @@ export default function InsightsHubPage() {
                             key={article.slug}
                             className="bg-white border border-slate-200 rounded-2xl p-6 flex flex-col transition-all shadow-sm hover:shadow-md hover:border-slate-300"
                         >
-                            {/* Category Flag Blueprint */}
                             <div className="flex justify-between items-start mb-4">
                                 <span className="text-xs font-bold uppercase tracking-wider text-rose-600 bg-rose-50 px-2.5 py-1 rounded-md">
                                     {article.category}
@@ -76,7 +86,6 @@ export default function InsightsHubPage() {
                                 </p>
                             </Link>
 
-                            {/* Contributor Snapshot Footer Box */}
                             <div className="mt-4 border-t border-slate-100 pt-4 flex flex-col gap-2">
                                 <div className="bg-slate-50/80 p-3 rounded-xl flex flex-col">
                                     <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Lead Analyst</span>
@@ -85,7 +94,6 @@ export default function InsightsHubPage() {
                                     </span>
                                 </div>
 
-                                {/* Unified Route Action Bridge Button */}
                                 <Link
                                     href={`/insights/${article.slug}`}
                                     className="w-full text-center mt-2 border border-slate-200 bg-white hover:bg-slate-50 text-slate-800 font-bold py-2.5 px-4 rounded-xl text-xs transition-colors block"
