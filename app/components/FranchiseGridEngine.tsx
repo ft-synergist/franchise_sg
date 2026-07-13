@@ -37,7 +37,9 @@ export default function FranchiseGridEngine({ initialFranchises }: GridEnginePro
     }, [initialFranchises, selectedCategory, maxBudget]);
 
     return (
-        <div className="w-full">
+        /* FIXED: This wrapper id must match your parent button href anchor precisely */
+        <div id="directory-market" className="w-full pt-4">
+
             {/* Interactive Operational Control Suite Block */}
             <div className="bg-white border border-slate-200 rounded-2xl p-6 mb-10 shadow-sm flex flex-col md:flex-row gap-8 items-center justify-between">
 
@@ -52,8 +54,8 @@ export default function FranchiseGridEngine({ initialFranchises }: GridEnginePro
                                 key={cat}
                                 onClick={() => setSelectedCategory(cat)}
                                 className={`px-4 py-2 rounded-xl text-xs font-bold transition-all duration-150 ${selectedCategory === cat
-                                    ? 'bg-teal-600 text-white shadow-sm'
-                                    : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
+                                        ? 'bg-teal-600 text-white shadow-sm'
+                                        : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
                                     }`}
                             >
                                 {cat}
