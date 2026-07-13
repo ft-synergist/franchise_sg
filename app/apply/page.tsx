@@ -17,7 +17,7 @@ export default function FranchiseApplyPage() {
     const [formData, setFormData] = useState({
         brand_name: '',
         uen: '',
-        category: 'Food & Beverage',
+        category: 'Food & Beverage (QSR & Full-Service)',
         min_capital: '',
         franchise_fee: '',
         royalty_structure: '',
@@ -113,10 +113,16 @@ export default function FranchiseApplyPage() {
                                     <div>
                                         <label className="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-2">Primary Business Category</label>
                                         <select name="category" value={formData.category} onChange={handleChange} className="w-full bg-slate-50/80 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500/20 focus:border-teal-600 text-slate-700 font-medium transition-all">
-                                            <option>Food &amp; Beverage</option>
-                                            <option>Retail &amp; Consumer Kiosks</option>
-                                            <option>Health, Wellness &amp; Fitness</option>
-                                            <option>Education &amp; Enrichment Infrastructure</option>
+                                            <option>Food &amp; Beverage (QSR &amp; Full-Service)</option>
+                                            <option>Commercial &amp; Residential Services</option>
+                                            <option>Personal Services (Wellness, Fitness &amp; Salons)</option>
+                                            <option>Business Services (B2B &amp; Consulting)</option>
+                                            <option>Software, AI &amp; Digital Technology</option>
+                                            <option>Eldercare Services &amp; Healthcare Centers</option>
+                                            <option>Retail &amp; Convenience</option>
+                                            <option>Automotive Tech &amp; Maintenance</option>
+                                            <option>Hospitality &amp; Lodging</option>
+                                            <option>Children&apos;s Services (Education &amp; Enrichment)</option>
                                         </select>
                                     </div>
                                     <div>
