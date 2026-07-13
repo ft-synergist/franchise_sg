@@ -3,6 +3,27 @@ import Link from 'next/link';
 
 export const revalidate = 60; // Cache index pages globally on Vercel Edge nodes for 60 seconds
 
+export const metadata = {
+  title: 'Franchise Singapore | Find the Latest Franchise Opportunities',
+  description: 'Understand the Minimum Investment Capital Required (SGD) before meeting the franchisors. Access initial franchise fees and setup fees, ongoing royalties and franchise categories across Singapore and Asian markets.',
+  alternates: {
+    canonical: 'https://www.franchise.sg',
+  },
+  openGraph: {
+    title: 'Franchise Singapore | Find the Latest Franchise Opportunities',
+    description: 'Understand the Minimum Investment Capital Required (SGD) before meeting the franchisors. Access initial franchise fees and setup fees, ongoing royalties and franchise categories across Singapore and Asian markets.',
+    url: 'https://www.franchise.sg',
+    siteName: 'Franchise Singapore',
+    type: 'website',
+    locale: 'en_SG',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Franchise Singapore | Find the Latest Franchise Opportunities',
+    description: 'Understand the Minimum Investment Capital Required (SGD) before meeting the franchisors. Access initial franchise fees and setup fees, ongoing royalties and franchise categories across Singapore and Asian markets.',
+  }
+};
+
 export default async function FranchiseDirectoryHome() {
   // Fetch both featured premium client nodes and un-solicited benchmark options dynamically
   const { data: franchises, error } = await supabase
@@ -11,8 +32,51 @@ export default async function FranchiseDirectoryHome() {
     .order('is_featured', { ascending: false })
     .order('brand_name', { ascending: true });
 
+  // Generate Programmatic Schema Markup for crawling bots
+  const schemaMarkup = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://www.franchise.sg/#organization",
+        "name": "Franchise Singapore",
+        "url": "https://www.franchise.sg",
+        "logo": "https://www.franchise.sg/favicon.ico",
+        "description": "The authoritative Singapore Franchise Portal breaking down startup costs, capital requirements, and margins across Asia."
+      },
+      {
+        "@type": "CollectionPage",
+        "@id": "https://www.franchise.sg/#webpage",
+        "url": "https://www.franchise.sg",
+        "name": "Franchise Singapore Directory",
+        "description": "Understand the Minimum Investment Capital Required (SGD) before meeting the franchisors.",
+        "isPartOf": { "@id": "https://www.franchise.sg/#organization" },
+        "about": {
+          "@type": "ItemList",
+          "name": "Franchise Opportunities in Singapore",
+          "itemListElement": franchises?.map((item, index) => ({
+            "@type": "ListItem",
+            "position": index + 1,
+            "item": {
+              "@type": "BusinessWithPhysicalSystem",
+              "name": item.brand_name,
+              "description": item.description,
+              "category": item.category
+            }
+          })) || []
+        }
+      }
+    ]
+  };
+
   return (
     <div className="min-h-screen bg-slate-50/60 text-slate-900 antialiased font-sans w-full text-left">
+
+      {/* Programmatic JSON-LD Schema Script Tag Block */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaMarkup) }}
+      />
 
       {/* Search & Brand Positioning Header */}
       <header className="bg-gradient-to-r from-teal-900 via-slate-950 to-slate-950 text-white py-20 px-6 border-b border-slate-800">
@@ -25,17 +89,17 @@ export default async function FranchiseDirectoryHome() {
             </span>
           </div>
 
-          {/* UPDATED: Strategic Headline */}
+          {/* STRATEGIC VALUE ALIGNMENT: Main Search Keyword Anchor */}
           <h1 className="text-4xl sm:text-5xl font-black tracking-tight text-white max-w-4xl leading-tight">
             Find the Latest Franchise Opportunities in Singapore
           </h1>
 
-          {/* UPDATED: Strategic SEO Parameter Copy */}
+          {/* HIGH-INTENT PARAMETERS: Clear semantic indexing markers */}
           <p className="text-slate-300 mt-4 text-base sm:text-lg max-w-3xl font-normal leading-relaxed">
             Understand the Minimum Investment Capital Required (SGD) before meeting the franchisors. Access initial franchise fees and setup fees, ongoing royalties and franchise categories across Singapore and Asian markets.
           </p>
 
-          {/* UPDATED: Coherent Strategic Action Button Array */}
+          {/* Primary Call To Actions */}
           <div className="mt-8 flex flex-wrap gap-4">
             <Link
               href="/apply"
