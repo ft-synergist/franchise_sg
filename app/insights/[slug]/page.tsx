@@ -14,8 +14,8 @@ const insightsMap: Record<string, { title: string; description: string; content:
         description: 'Discover what makes a profitable food franchise opportunity in Singapore. An unfiltered analysis of historical fast-food evolution, cost traps, and top SG business brands.',
         content: () => (
             <>
-                <header className="bg-gradient-to-r from-teal-900 via-slate-950 to-slate-950 text-white py-20 px-6 border-b border-slate-800">
-                    <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-left">
+                <header className="bg-gradient-to-r from-teal-900 via-slate-950 to-slate-950 text-white py-20 px-6 border-b border-slate-800 -mx-8 sm:-mx-12 -mt-8 sm:-mt-12 mb-12 rounded-t-3xl">
+                    <div className="max-w-4xl mx-auto px-4 text-left">
                         <div className="mb-6 inline-flex items-center gap-2 bg-teal-500/10 border border-teal-500/20 px-3 py-1 rounded-full">
                             <span className="w-2 h-2 rounded-full bg-teal-400"></span>
                             <span className="text-xs font-semibold text-teal-300 uppercase tracking-wider">Singapore Franchise Portal</span>
@@ -23,7 +23,7 @@ const insightsMap: Record<string, { title: string; description: string; content:
                         <div className="mb-2">
                             <span className="text-base font-bold uppercase tracking-wider text-teal-400 block">Insights:</span>
                         </div>
-                        <h1 className="text-4xl sm:text-5xl font-black tracking-tight text-white max-w-4xl leading-tight">
+                        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white max-w-4xl leading-tight">
                             How to Determine the Best F&B Franchise to Invest in Singapore: The Evolution of Singapore F&B Franchise (1968–2026)
                         </h1>
                         <div className="flex flex-wrap items-center gap-y-4 gap-x-8 text-xs font-semibold uppercase tracking-wider text-slate-400 border-t border-slate-800/80 mt-8 pt-6">
@@ -39,7 +39,7 @@ const insightsMap: Record<string, { title: string; description: string; content:
                     </div>
                 </header>
 
-                <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-slate-800 text-lg sm:text-xl font-normal leading-relaxed space-y-8 text-left">
+                <section className="prose prose-slate max-w-none text-slate-800 text-lg sm:text-xl font-normal leading-relaxed space-y-8 text-left">
                     <p className="font-bold text-slate-950 text-2xl sm:text-3xl tracking-tight leading-snug">
                         Why are food and beverage franchises in Singapore almost uniquely bulletproof compared to the rest of the world?
                     </p>
@@ -174,9 +174,9 @@ const insightsMap: Record<string, { title: string; description: string; content:
 
                     <h2 className="text-3xl font-black text-slate-950 tracking-tight mt-14 mb-4">The Authoritative Verdict for 2026 Investors</h2>
                     <p className="font-medium text-slate-950">
-                        The Singapore franchise ecosystem rewards two distinct models: Unyielding Heritage Nostalgia or Hyper-Automated Modern Agility. As dining continues to anchor Singaporean social culture, the franchises that successfully leverage localization, early Halal integration, and high digital engagement will continue to dominate search rankings, capture outsized consumer spend, and deliver predictable, scalable growth.
+                        The Singapore franchise ecosystem rewards two distinct models: Unyielding Heritage Nostalgia or Hyper-Automated Modern Agility (like high-agility modern digital-first casual concepts). As dining continues to anchor Singaporean social culture, the franchises that successfully leverage localization, early Halal integration, and high digital engagement will continue to dominate search rankings, capture outsized consumer spend, and deliver predictable, scalable growth.
                     </p>
-                </main>
+                </section>
             </>
         )
     },
@@ -190,8 +190,8 @@ const insightsMap: Record<string, { title: string; description: string; content:
         description: 'The promise of 30%+ passive ROI has collapsed under real criminal court charges in Singapore. Read our hard hitting article on real equipment setup fees, empty location tricks, and how to verify actual unit economics before you lose your capital.',
         content: () => (
             <>
-                <header className="bg-gradient-to-r from-teal-900 via-slate-950 to-slate-950 text-white py-20 px-6 border-b border-slate-800">
-                    <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-left">
+                <header className="bg-gradient-to-r from-teal-900 via-slate-950 to-slate-950 text-white py-20 px-6 border-b border-slate-800 -mx-8 sm:-mx-12 -mt-8 sm:-mt-12 mb-12 rounded-t-3xl">
+                    <div className="max-w-4xl mx-auto px-4 text-left">
                         <div className="mb-6 inline-flex items-center gap-2 bg-teal-500/10 border border-teal-500/20 px-3 py-1 rounded-full">
                             <span className="w-2 h-2 rounded-full bg-teal-400"></span>
                             <span className="text-xs font-semibold text-teal-300 uppercase tracking-wider">Singapore Franchise Portal</span>
@@ -199,7 +199,7 @@ const insightsMap: Record<string, { title: string; description: string; content:
                         <div className="mb-2">
                             <span className="text-base font-bold uppercase tracking-wider text-teal-400 block">Insights:</span>
                         </div>
-                        <h1 className="text-4xl sm:text-5xl font-black tracking-tight text-white max-w-4xl leading-tight">
+                        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white max-w-4xl leading-tight">
                             Vending Machine Franchise Scam Alert: The Reality Behind &quot;Hands-Off Passive Income&quot; in Singapore
                         </h1>
                         <div className="flex flex-wrap items-center gap-y-4 gap-x-8 text-xs font-semibold uppercase tracking-wider text-slate-400 border-t border-slate-800/80 mt-8 pt-6">
@@ -215,7 +215,7 @@ const insightsMap: Record<string, { title: string; description: string; content:
                     </div>
                 </header>
 
-                <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-slate-800 text-lg sm:text-xl font-normal leading-relaxed space-y-8 text-left">
+                <section className="prose prose-slate max-w-none text-slate-800 text-lg sm:text-xl font-normal leading-relaxed space-y-8 text-left">
                     <p className="font-bold text-slate-950 text-2xl sm:text-3xl tracking-tight leading-snug">
                         Is &quot;100% hands-off passive income&quot; in Singapore officially dead?
                     </p>
@@ -383,7 +383,6 @@ export default async function DynamicInsightRouter({ params }: DynamicInsightPro
         notFound();
     }
 
-    // Dynamic URI configuration for sharing module strings
     const targetUrl = encodeURIComponent(`https://franchise.sg/insights/${slug}`);
     const shareText = encodeURIComponent(`Critical analysis by Franchise.sg: ${insight.title}`);
 
@@ -398,11 +397,13 @@ export default async function DynamicInsightRouter({ params }: DynamicInsightPro
             </nav>
 
             <article className="w-full flex-1 bg-slate-50/60 pb-12">
-                {insight.content()}
+                <div className="max-w-4xl mx-auto bg-white border border-slate-200 rounded-3xl p-8 sm:p-12 shadow-sm mt-8">
 
-                {/* SYSTEMIC FIX: Permanent Share & Syndicate Component for EVERY single Insight page */}
-                <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-4 pb-16">
-                    <div className="p-8 border border-slate-200 rounded-2xl bg-gradient-to-br from-white to-slate-50 shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+                    {/* Core Markdown Content Render Vector */}
+                    {insight.content()}
+
+                    {/* SYSTEMIC FIX: Nested precisely inside the white card boundary line framework */}
+                    <div className="mt-12 p-8 border border-slate-200 rounded-2xl bg-gradient-to-br from-white to-slate-50 shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
                         <div className="space-y-2 max-w-xl text-left">
                             <h3 className="text-xl font-bold text-slate-950">Share &amp; Syndicate</h3>
                             <p className="text-base text-slate-500 leading-normal">
@@ -439,16 +440,17 @@ export default async function DynamicInsightRouter({ params }: DynamicInsightPro
                             Discover Active Opportunities
                         </Link>
                     </div>
-                </div>
 
-                {/* Central Directory Anchor Block */}
-                <div className="mt-4 pt-8 border-t border-slate-200 text-center pb-12">
-                    <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-4">
-                        Analyze Vetted Investment Parameters on the Open Marketplace
-                    </p>
-                    <Link href="/" className="inline-block bg-teal-600 hover:bg-teal-700 text-white font-bold text-xs py-3 px-6 rounded-xl shadow-sm transition-colors">
-                        Explore the Singapore Franchise Directory Map
-                    </Link>
+                    {/* Central Directory Anchor Block */}
+                    <div className="mt-12 pt-8 border-t border-slate-200 text-center">
+                        <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-4">
+                            Analyze Vetted Investment Parameters on the Open Marketplace
+                        </p>
+                        <Link href="/" className="inline-block bg-teal-600 hover:bg-teal-700 text-white font-bold text-xs py-3 px-6 rounded-xl shadow-sm transition-colors">
+                            Explore the Singapore Franchise Directory Map
+                        </Link>
+                    </div>
+
                 </div>
             </article>
         </div>
