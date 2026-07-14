@@ -142,20 +142,17 @@ const insightsMap: Record<string, { title: string; description: string; content:
                                 <li>• <strong>Old Chang Kee (1956):</strong> Iconic golden curry puffs and rapid-service savory snacks.</li>
                                 <li>• <strong>Ya Kun Kaya Toast (1944):</strong> The definitive Hainanese breakfast experience scaled globally.</li>
                                 <li>• <strong>Killiney Kopitiam (1919):</strong> Rich local blends and authentic hawker fare formats.</li>
-                                <li>• <strong>JUMBO Seafood (1987):</strong> Premium dining name, famous for Chilli Crab.</li>
+                                <li>• <strong>JUMBO Seafood (1987):</strong> Globally recognized premium dining name, famous for Chilli Crab.</li>
                                 <li>• <strong>Song Fa Bak Kut Teh (1969):</strong> Teochew-style peppery pork rib soup scaled into an institutional-grade brand.</li>
                             </ul>
                         </div>
 
                         <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm">
-                            <h3 className="text-base font-bold text-slate-950 mb-3 uppercase tracking-wider text-teal-700">Lifestyle & Modern Conglomerates</h3>
+                            <h3 className="text-base font-bold text-slate-950 mb-3 uppercase tracking-wider text-teal-700">Notable Singapore F&B Masters</h3>
                             <ul className="space-y-2 text-xs font-semibold text-slate-700">
-                                <li>• <strong>Toast Box (2005):</strong> Nostalgic Nanyang coffee shop experience under BreadTalk Group.</li>
-                                <li>• <strong>LiHO TEA (2017):</strong> Agile bubble tea franchise that successfully pioneered cheese tea.</li>
-                                <li>• <strong>MindChamps (2002):</strong> Premium preschool franchise built on unique, proprietary pedagogy.</li>
-                                <li>• <strong>Anytime Fitness Singapore (2013):</strong> Market leader in 24/7 boutique fitness minimizing labor reliance.</li>
-                                <li>• <strong>Charles & Keith (1996):</strong> International fast-fashion juggernaut for women's footwear.</li>
-                                <li>• <strong>TWG Tea (2008):</strong> Luxury tea salons showcasing beautiful packaging and international blends.</li>
+                                <li>• <strong>Toast Box (2005):</strong> Nostalgic Nanyang coffee shop experience scaled across premium commercial layouts.</li>
+                                <li>• <strong>LiHO TEA (2017):</strong> Local quick-service beverage juggernaut leading regional productization trends.</li>
+                                <li>• <strong>TWG Tea (2008):</strong> Institutional luxury salon system packaging high-value curated tea allocations worldwide.</li>
                             </ul>
                         </div>
                     </div>
@@ -185,7 +182,7 @@ const insightsMap: Record<string, { title: string; description: string; content:
     },
 
     // ==========================================
-    // ROUTE 2: THE VENDING MACHINE SCAM EXPOSÉ (100% EXHAUSTIVE ORIGINAL FULL-LENGTH VERSION)
+    // ROUTE 2: THE VENDING MACHINE SCAM EXPOSÉ
     // URL: /insights/vending-machine-franchise-analysis-singapore
     // ==========================================
     'vending-machine-franchise-analysis-singapore': {
@@ -355,26 +352,6 @@ const insightsMap: Record<string, { title: string; description: string; content:
                     <h2 className="text-3xl font-black text-slate-950 tracking-tight mt-14 mb-4">The Bottom Line</h2>
                     <p>The automated retail sector in Singapore isn&apos;t dying; it is maturing. The purge of predatory, asset-light schemes paves the way for transparent, operationally sound brands to dominate the Asian continent. For the modern investor, the lesson is clear: <strong className="text-slate-950 font-bold">look past the promise of passive income and demand to see the physical asset.</strong></p>
                 </section>
-
-                {/* Share Section Wrapper */}
-                <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
-                    <div className="mt-12 p-8 border border-slate-200 rounded-2xl bg-gradient-to-br from-slate-50 to-white shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-                        <div className="space-y-2 max-w-xl text-left">
-                            <h3 className="text-xl font-bold text-slate-950">Share &amp; Syndicate</h3>
-                            <p className="text-base text-slate-500 leading-normal">
-                                Help regular business owners and private networks avoid structural scams. Route this expert analysis directly to your commercial groups:
-                            </p>
-                            <div className="flex flex-wrap gap-2 pt-2">
-                                <span className="inline-flex items-center justify-center px-4 py-2 text-xs font-bold text-emerald-700 bg-emerald-50 rounded-lg border border-emerald-200 cursor-pointer">WhatsApp</span>
-                                <span className="inline-flex items-center justify-center px-4 py-2 text-xs font-bold text-sky-700 bg-sky-50 rounded-lg border border-sky-200 cursor-pointer">Telegram</span>
-                                <span className="inline-flex items-center justify-center px-4 py-2 text-xs font-bold text-blue-700 bg-blue-50 rounded-lg border border-blue-200 cursor-pointer">LinkedIn</span>
-                            </div>
-                        </div>
-                        <Link href="/" className="inline-flex shrink-0 items-center justify-center rounded-xl bg-teal-600 px-6 py-3 text-base font-bold text-white shadow-sm hover:bg-teal-700 transition-colors duration-200 w-full md:w-auto text-center">
-                            Discover Active Deals
-                        </Link>
-                    </div>
-                </div>
             </>
         )
     }
@@ -406,8 +383,11 @@ export default async function DynamicInsightRouter({ params }: DynamicInsightPro
         notFound();
     }
 
+    // Dynamic URI configuration for sharing module strings
+    const targetUrl = encodeURIComponent(`https://franchise.sg/insights/${slug}`);
+    const shareText = encodeURIComponent(`Critical analysis by Franchise.sg: ${insight.title}`);
+
     return (
-        // FORCING DIRECT SYSTEM CLASS INTERACTION TO IGNORE GLOBALS.CSS BODY OVERRIDES
         <div className="min-h-screen w-full bg-slate-50/60 font-sans antialiased text-slate-900 text-left flex flex-col">
             <nav className="bg-white border-b border-slate-200 py-4 px-6 sm:px-8">
                 <div className="max-w-6xl mx-auto flex items-center">
@@ -417,8 +397,59 @@ export default async function DynamicInsightRouter({ params }: DynamicInsightPro
                 </div>
             </nav>
 
-            <article className="w-full flex-1 bg-slate-50/60 pb-20">
+            <article className="w-full flex-1 bg-slate-50/60 pb-12">
                 {insight.content()}
+
+                {/* SYSTEMIC FIX: Permanent Share & Syndicate Component for EVERY single Insight page */}
+                <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-4 pb-16">
+                    <div className="p-8 border border-slate-200 rounded-2xl bg-gradient-to-br from-white to-slate-50 shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+                        <div className="space-y-2 max-w-xl text-left">
+                            <h3 className="text-xl font-bold text-slate-950">Share &amp; Syndicate</h3>
+                            <p className="text-base text-slate-500 leading-normal">
+                                Help regular business owners and private networks avoid structural pitfalls. Route this expert analysis directly to your commercial groups:
+                            </p>
+                            <div className="flex flex-wrap gap-2 pt-2">
+                                <a
+                                    href={`https://api.whatsapp.com/send?text=${shareText}%20--%20${targetUrl}`}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="inline-flex items-center justify-center px-4 py-2 text-xs font-bold text-emerald-700 bg-emerald-50 rounded-lg hover:bg-emerald-100 transition-colors border border-emerald-200"
+                                >
+                                    WhatsApp
+                                </a>
+                                <a
+                                    href={`https://t.me/share/url?url=${targetUrl}&text=${shareText}`}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="inline-flex items-center justify-center px-4 py-2 text-xs font-bold text-sky-700 bg-sky-50 rounded-lg hover:bg-sky-100 transition-colors border border-sky-200"
+                                >
+                                    Telegram
+                                </a>
+                                <a
+                                    href={`https://www.linkedin.com/sharing/share-offsite/?url=${targetUrl}`}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="inline-flex items-center justify-center px-4 py-2 text-xs font-bold text-blue-700 bg-blue-50 rounded-lg hover:bg-blue-100 transition-colors border border-blue-200"
+                                >
+                                    LinkedIn
+                                </a>
+                            </div>
+                        </div>
+                        <Link href="/" className="inline-flex shrink-0 items-center justify-center rounded-xl bg-teal-600 px-6 py-3 text-base font-bold text-white shadow-sm hover:bg-teal-700 transition-colors duration-200 w-full md:w-auto text-center">
+                            Discover Active Opportunities
+                        </Link>
+                    </div>
+                </div>
+
+                {/* Central Directory Anchor Block */}
+                <div className="mt-4 pt-8 border-t border-slate-200 text-center pb-12">
+                    <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-4">
+                        Analyze Vetted Investment Parameters on the Open Marketplace
+                    </p>
+                    <Link href="/" className="inline-block bg-teal-600 hover:bg-teal-700 text-white font-bold text-xs py-3 px-6 rounded-xl shadow-sm transition-colors">
+                        Explore the Singapore Franchise Directory Map
+                    </Link>
+                </div>
             </article>
         </div>
     );
