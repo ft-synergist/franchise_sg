@@ -3,21 +3,21 @@ import { notFound } from 'next/navigation';
 
 export const revalidate = 60;
 
-// Dynamic Insights Mapping - Optimised for high-value search queries
+// Dynamic Insights Mapping - Both production routes combined cleanly
 const insightsMap: Record<string, { title: string; description: string; content: () => React.JSX.Element }> = {
 
     // ==========================================
-    // ROUTE 1: FIXED SEO SLUG FOR BULLETPROOF SEARCH CLARITY
-    // URL: /insights/best-food-franchise-to-invest-in-singapore
+    // ROUTE 1: THE F&B FRANCHISE EVOLUTION MANIFESTO
+    // URL: /insights/how-to-determine-the-best-food-franchise-to-invest-in-singapore
     // ==========================================
-    'best-food-franchise-to-invest-in-singapore': {
-        title: 'Best F&B Franchise to Invest in Singapore: 2026 Profit Matrix',
+    'how-to-determine-the-best-food-franchise-to-invest-in-singapore': {
+        title: 'How to Determine the Best F&B Franchise to Invest in Singapore: The Evolution of Singapore F&B Franchise (1968–2026)',
         description: 'Discover what makes a profitable food franchise opportunity in Singapore. An unfiltered analysis of historical fast-food evolution, cost traps, and top SG business brands.',
         content: () => (
             <>
                 {/* H1 targets hard commercial search queries while preserving Taleb style */}
                 <h1 className="text-3xl sm:text-5xl font-black text-slate-950 tracking-tight leading-tight mb-6">
-                    Best F&B Franchise to Invest in Singapore: The Psychology of the Plate & Dynamic Profit Moats (1968–2026)
+                    How to Determine the Best F&B Franchise to Invest in Singapore: The Evolution of Singapore F&B Franchise (1968–2026)
                 </h1>
 
                 <div className="flex flex-wrap items-center gap-3 text-xs text-slate-400 font-semibold mb-8 border-b border-slate-100 pb-6">
@@ -174,10 +174,10 @@ const insightsMap: Record<string, { title: string; description: string; content:
     },
 
     // ==========================================
-    // INSIGHT 2: THE VENDING MACHINE SCAM ARCHIVE (PRESERVED)
-    // URL: /insights/vending-machine-franchise-scam
+    // ROUTE 2: THE VENDING MACHINE SCAM ARCHIVE
+    // URL: /insights/vending-machine-franchise-analysis-singapore
     // ==========================================
-    'vending-machine-franchise-scam': {
+    'vending-machine-franchise-analysis-singapore': {
         title: 'Vending Machine Franchise Scams in Singapore: The Red Flags',
         description: 'Protect your capital. Learn how to spot and avoid predatory vending machine investment schemes masquerading as passive income franchises.',
         content: () => (
