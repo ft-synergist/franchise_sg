@@ -19,11 +19,21 @@ export const metadata = {
     }
 };
 
+// Mirroring the exact active Supabase table rows from the live database
 const articles = [
+    {
+        title: 'How to Determine the Best F&B Franchise to Invest in Singapore: The Evolution of Singapore F&B Franchise (1968–2026)',
+        slug: 'how-to-determine-the-best-food-franchise-to-invest-in-singapore',
+        excerpt: 'Why are F&B operations in Singapore uniquely resilient? Discover what makes a profitable food franchise opportunity. An unfiltered, data-backed analysis of historical fast-food evolution, rental asymmetries, and top homegrown SG brands.',
+        category: 'Market Strategy',
+        author: 'Chen Yong Lin',
+        role: 'Editor',
+        date: 'July 14, 2026'
+    },
     {
         title: 'Vending Machine Franchise Scam Alert: The Reality Behind "Hands-Off Passive Income" in Singapore',
         slug: 'vending-machine-franchise-analysis-singapore',
-        excerpt: 'The promise of 30%+ passive ROI has collapsed under real criminal court charges in Singapore. Read our hard hitting article on real equipment setup fees, empty location tricks, and how to verify actual unit economics before you lose your capital.',
+        excerpt: 'The promise of 30% passive ROI has collapsed under real criminal court charges in Singapore. Read our hard hitting article on real equipment setup fees, empty location tricks, and how to verify actual unit economics before you lose your capital.',
         category: 'Franchise Scam Alert',
         author: 'Chen Yong Lin',
         role: 'Editor',
@@ -68,14 +78,17 @@ export default function InsightsHubPage() {
             <main className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
 
                 {/* Dynamic Card Layout Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     {articles.map((article) => (
                         <article
                             key={article.slug}
                             className="bg-white border border-slate-200 rounded-2xl p-6 flex flex-col transition-all shadow-sm hover:shadow-md hover:border-slate-300"
                         >
                             <div className="flex justify-between items-start mb-4">
-                                <span className="text-xs font-bold uppercase tracking-wider text-rose-600 bg-rose-50 px-2.5 py-1 rounded-md">
+                                <span className={`text-xs font-bold uppercase tracking-wider px-2.5 py-1 rounded-md ${article.category === 'Franchise Scam Alert'
+                                        ? 'text-rose-600 bg-rose-50'
+                                        : 'text-teal-600 bg-teal-50'
+                                    }`}>
                                     {article.category}
                                 </span>
                                 <span className="text-[10px] font-extrabold bg-slate-100 text-slate-600 px-2 py-0.5 rounded uppercase tracking-wider">
