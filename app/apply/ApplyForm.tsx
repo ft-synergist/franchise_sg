@@ -1,17 +1,13 @@
 'use client';
 
-import { useState, useEffect, Suspense } from 'react';
+import { useState } from 'react';
 import { createClient } from '@supabase/supabase-js';
-import { useSearchParams } from 'next/navigation';
-import Link from 'next/link';
 
-const supabase = createClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL || '',
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || ''
-);
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
+const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
+const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
-function ApplyFormContent() {
-    const searchParams = useSearchParams();
+export default function ApplyForm() {
     const [loading, setLoading] = useState(false);
     const [success, setSuccess] = useState(false);
     const [errorText, setErrorText] = useState('');
@@ -19,10 +15,10 @@ function ApplyFormContent() {
     const [formData, setFormData] = useState({
         brand_name: '',
         uen: '',
-        category: 'Food & Beverage (QSR & Full-Service)',
+        category: 'Food & Beverage',
         brand_origin: 'Singapore',
         established_year: '',
-        current_outlets: '1',
+        current_outlets: '',
         min_capital: '',
         franchise_fee: '',
         royalty_structure: '',
@@ -34,14 +30,6 @@ function ApplyFormContent() {
         contact_email: ''
     });
 
-    // Detect and extract preset brand allocations directly from the URL stream
-    useEffect(() => {
-        const brandParam = searchParams.get('brand');
-        if (brandParam) {
-            setFormData(prev => ({ ...prev, brand_name: brandParam }));
-        }
-    }, [searchParams]);
-
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
@@ -52,7 +40,7 @@ function ApplyFormContent() {
         setErrorText('');
 
         try {
-            // Pipeline mutations directly into the updated table schema structures
+            // 1. Core transactional database insertion
             const { error } = await supabase.from('franchise_applications').insert([
                 {
                     brand_name: formData.brand_name,
@@ -74,9 +62,21 @@ function ApplyFormContent() {
             ]);
 
             if (error) throw error;
+
+            // 2. Transmit notification request event to short-term centralized email bridge
+            await fetch('/api/notify', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    type: 'franchisor_application',
+                    data: formData
+                })
+            });
+
             setSuccess(true);
         } catch (err: any) {
-            setErrorText(err.message || 'Submission matrix interrupted. Please check database parameter structures.');
+            console.error('Franchisor Registry Failure:', err);
+            setErrorText(err.message || 'Transmission exception encountered. Please review database sync rules.');
         } finally {
             setLoading(false);
         }
@@ -84,139 +84,134 @@ function ApplyFormContent() {
 
     if (success) {
         return (
-            <div className="text-center py-12 space-y-4">
-                <div className="w-12 h-12 rounded-full bg-teal-50 border border-teal-200 text-teal-600 flex items-center justify-center text-xl font-bold mx-auto">✓</div>
-                <h2 className="text-2xl font-black text-slate-950 tracking-tight">Verification Profile Submitted</h2>
-                <p className="text-sm text-slate-500 max-w-md mx-auto">Data sync is operational. Our audit unit will verify these operational parameters against live ACRA filings before staging updates live to the directory network.</p>
-                <div className="pt-4">
-                    <Link href="/" className="inline-flex items-center justify-center px-6 py-2.5 bg-slate-950 hover:bg-slate-900 text-white font-bold rounded-xl text-xs transition-colors">
-                        Return to Franchise Singapore Directory
-                    </Link>
+            <div className="w-full bg-teal-50 border border-teal-200 rounded-3xl p-8 text-center space-y-4 max-w-2xl mx-auto">
+                <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-teal-600 text-white text-xl font-bold">✓</div>
+                <div>
+                    <h2 className="text-xl font-black text-slate-950 uppercase tracking-wide">Brand Registry Received</h2>
+                    <p className="text-xs text-slate-600 leading-relaxed mt-2 max-w-md mx-auto">
+                        Commercial profiling for **{formData.brand_name}** has logged successfully. The system router has dispatched onboarding tracking references directly to **{formData.contact_email}**.
+                    </p>
                 </div>
             </div>
         );
     }
 
     return (
-        <>
-            <h2 className="text-xl font-extrabold text-slate-950 tracking-tight mb-2">Brand Registration Profile</h2>
-            <p className="text-xs text-slate-500 mb-8 leading-relaxed">Provide absolute, verified operational matrices below. All submitted fields map explicitly to our live investor diagnostic dashboards and conversational AI recommendation data chunks.</p>
+        <div className="w-full bg-white border border-slate-200 rounded-3xl p-6 sm:p-10 shadow-sm max-w-4xl mx-auto text-left">
+            <div className="border-b border-slate-100 pb-5 mb-6">
+                <h1 className="text-2xl font-black text-slate-950 tracking-tight uppercase">Franchisor Listing Onboarding</h1>
+                <p className="text-xs text-slate-500 mt-1">Provide unified configuration values to compile your structural directory profile, dynamic sitemaps, and automated SEO diagnostic cards.</p>
+            </div>
 
             {errorText && (
-                <div className="mb-6 p-4 bg-rose-50 border border-rose-200 text-rose-700 text-xs font-semibold rounded-xl">{errorText}</div>
+                <div className="p-4 bg-rose-50 border border-rose-200 text-rose-700 text-xs font-bold rounded-xl mb-6">{errorText}</div>
             )}
 
             <form onSubmit={handleSubmit} className="space-y-6">
-                {/* Section: Identity Parameters */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                    <div>
-                        <label className="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-2">Brand / Corporate Name</label>
-                        <input type="text" name="brand_name" required value={formData.brand_name} onChange={handleChange} placeholder="e.g. Barber 25" className="w-full bg-slate-50/80 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500/20 focus:border-teal-600 text-slate-800 font-medium transition-all" />
+                {/* Section 1: Core Institutional Parameters */}
+                <div className="space-y-4">
+                    <h3 className="text-xs font-black text-slate-400 uppercase tracking-wider">1. Brand Identity &amp; Parameters</h3>
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                        <div>
+                            <label className="block text-[10px] font-bold uppercase tracking-wider text-slate-500 mb-1.5">Brand Name</label>
+                            <input type="text" name="brand_name" required value={formData.brand_name} onChange={handleChange} placeholder="e.g. Pawa Bakery" className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs focus:outline-none focus:ring-2 focus:ring-teal-500/20 focus:border-teal-600 text-slate-800 font-medium transition-all" />
+                        </div>
+                        <div>
+                            <label className="block text-[10px] font-bold uppercase tracking-wider text-slate-500 mb-1.5">Singapore UEN</label>
+                            <input type="text" name="uen" required value={formData.uen} onChange={handleChange} placeholder="e.g. 202612345N" className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs focus:outline-none focus:ring-2 focus:ring-teal-500/20 focus:border-teal-600 text-slate-800 font-medium transition-all" />
+                        </div>
+                        <div>
+                            <label className="block text-[10px] font-bold uppercase tracking-wider text-slate-500 mb-1.5">Industry Category</label>
+                            <select name="category" value={formData.category} onChange={handleChange} className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs focus:outline-none focus:ring-2 focus:ring-teal-500/20 focus:border-teal-600 text-slate-700 font-medium transition-all">
+                                <option>Food &amp; Beverage</option>
+                                <option>Retail &amp; Consumer Goods</option>
+                                <option>Fitness &amp; Wellness</option>
+                                <option>Education &amp; Enrichment</option>
+                                <option>Services &amp; Logistics</option>
+                            </select>
+                        </div>
                     </div>
-                    <div>
-                        <label className="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-2">Singapore UEN</label>
-                        <input type="text" name="uen" required value={formData.uen} onChange={handleChange} placeholder="e.g. 201538542M" className="w-full bg-slate-50/80 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500/20 focus:border-teal-600 text-slate-800 font-medium transition-all" />
+
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                        <div>
+                            <label className="block text-[10px] font-bold uppercase tracking-wider text-slate-500 mb-1.5">Brand Origin</label>
+                            <input type="text" name="brand_origin" required value={formData.brand_origin} onChange={handleChange} placeholder="e.g. Singapore" className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs focus:outline-none focus:ring-2 focus:ring-teal-500/20 focus:border-teal-600 text-slate-800 font-medium transition-all" />
+                        </div>
+                        <div>
+                            <label className="block text-[10px] font-bold uppercase tracking-wider text-slate-500 mb-1.5">Established Year</label>
+                            <input type="number" name="established_year" required value={formData.established_year} onChange={handleChange} placeholder="e.g. 2024" className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs focus:outline-none focus:ring-2 focus:ring-teal-500/20 focus:border-teal-600 text-slate-800 font-medium transition-all" />
+                        </div>
+                        <div>
+                            <label className="block text-[10px] font-bold uppercase tracking-wider text-slate-500 mb-1.5">Active System Outlets</label>
+                            <input type="number" name="current_outlets" required value={formData.current_outlets} onChange={handleChange} placeholder="e.g. 5" className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs focus:outline-none focus:ring-2 focus:ring-teal-500/20 focus:border-teal-600 text-slate-800 font-medium transition-all" />
+                        </div>
                     </div>
                 </div>
 
-                {/* Section: Taxonomy & Historical Metrics */}
-                <div className="grid grid-cols-1 sm:grid-cols-4 gap-4">
-                    <div className="sm:col-span-2">
-                        <label className="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-2">Primary Business Category</label>
-                        <select name="category" value={formData.category} onChange={handleChange} className="w-full bg-slate-50/80 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500/20 focus:border-teal-600 text-slate-700 font-medium transition-all">
-                            <option>Food &amp; Beverage (QSR &amp; Full-Service)</option>
-                            <option>Commercial &amp; Residential Services</option>
-                            <option>Personal Services (Wellness, Fitness &amp; Salons)</option>
-                            <option>Business Services (B2B &amp; Consulting)</option>
-                            <option>Software, AI &amp; Digital Technology</option>
-                            <option>Eldercare Services &amp; Healthcare Centers</option>
-                            <option>Retail &amp; Convenience</option>
-                            <option>Automotive Tech &amp; Maintenance</option>
-                            <option>Hospitality &amp; Lodging</option>
-                            <option>Children&apos;s Services (Education &amp; Enrichment)</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label className="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-2">Brand Origin</label>
-                        <input type="text" name="brand_origin" required value={formData.brand_origin} onChange={handleChange} placeholder="e.g. Japan" className="w-full bg-slate-50/80 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500/20 focus:border-teal-600 text-slate-800 font-medium transition-all" />
-                    </div>
-                    <div>
-                        <label className="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-2">Year Est.</label>
-                        <input type="number" name="established_year" required value={formData.established_year} onChange={handleChange} placeholder="e.g. 2015" className="w-full bg-slate-50/80 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500/20 focus:border-teal-600 text-slate-800 font-medium transition-all" />
+                {/* Section 2: Capital Deployment Matrices */}
+                <div className="space-y-4 pt-2">
+                    <h3 className="text-xs font-black text-slate-400 uppercase tracking-wider">2. Commercial &amp; Capital Allocation Parameters</h3>
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                        <div>
+                            <label className="block text-[10px] font-bold uppercase tracking-wider text-slate-500 mb-1.5">Min Capital Required (SGD)</label>
+                            <input type="number" name="min_capital" required value={formData.min_capital} onChange={handleChange} placeholder="e.g. 95000" className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs focus:outline-none focus:ring-2 focus:ring-teal-500/20 focus:border-teal-600 text-slate-800 font-medium transition-all" />
+                        </div>
+                        <div>
+                            <label className="block text-[10px] font-bold uppercase tracking-wider text-slate-500 mb-1.5">Initial Franchise Fee (SGD)</label>
+                            <input type="number" name="franchise_fee" required value={formData.franchise_fee} onChange={handleChange} placeholder="e.g. 25000" className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs focus:outline-none focus:ring-2 focus:ring-teal-500/20 focus:border-teal-600 text-slate-800 font-medium transition-all" />
+                        </div>
+                        <div>
+                            <label className="block text-[10px] font-bold uppercase tracking-wider text-slate-500 mb-1.5">Ongoing Royalty Structure</label>
+                            <input type="text" name="royalty_structure" required value={formData.royalty_structure} onChange={handleChange} placeholder="e.g. 5% Gross Sales" className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs focus:outline-none focus:ring-2 focus:ring-teal-500/20 focus:border-teal-600 text-slate-800 font-medium transition-all" />
+                        </div>
                     </div>
                 </div>
 
-                {/* Section: Baseline Financial Allocations */}
-                <div className="grid grid-cols-1 sm:grid-cols-4 gap-4">
-                    <div>
-                        <label className="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-2">Active Outlets</label>
-                        <input type="number" name="current_outlets" required value={formData.current_outlets} onChange={handleChange} placeholder="e.g. 1" className="w-full bg-slate-50/80 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500/20 focus:border-teal-600 text-slate-800 font-medium transition-all" />
+                {/* Section 3: Performance & ROI Projections */}
+                <div className="space-y-4 pt-2">
+                    <h3 className="text-xs font-black text-slate-400 uppercase tracking-wider">3. Projections &amp; Market Summaries</h3>
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                        <div>
+                            <label className="block text-[10px] font-bold uppercase tracking-wider text-slate-500 mb-1.5">Projected Breakeven</label>
+                            <input type="text" name="projected_breakeven" required value={formData.projected_breakeven} onChange={handleChange} placeholder="e.g. 6 - 9 Months" className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs focus:outline-none focus:ring-2 focus:ring-teal-500/20 focus:border-teal-600 text-slate-800 font-medium transition-all" />
+                        </div>
+                        <div>
+                            <label className="block text-[10px] font-bold uppercase tracking-wider text-slate-500 mb-1.5">Projected Payback Period</label>
+                            <input type="text" name="projected_payback" required value={formData.projected_payback} onChange={handleChange} placeholder="e.g. 18 - 24 Months" className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs focus:outline-none focus:ring-2 focus:ring-teal-500/20 focus:border-teal-600 text-slate-800 font-medium transition-all" />
+                        </div>
+                        <div>
+                            <label className="block text-[10px] font-bold uppercase tracking-wider text-slate-500 mb-1.5">Estimated Return Matrix (ROI)</label>
+                            <input type="text" name="projected_roi" required value={formData.projected_roi} onChange={handleChange} placeholder="e.g. 25% - 30% Annually" className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs focus:outline-none focus:ring-2 focus:ring-teal-500/20 focus:border-teal-600 text-slate-800 font-medium transition-all" />
+                        </div>
                     </div>
+
                     <div>
-                        <label className="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-2">Min Capital (SGD)</label>
-                        <input type="number" name="min_capital" required value={formData.min_capital} onChange={handleChange} placeholder="e.g. 100000" className="w-full bg-slate-50/80 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500/20 focus:border-teal-600 text-slate-800 font-medium transition-all" />
-                    </div>
-                    <div>
-                        <label className="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-2">Franchise Fee (SGD)</label>
-                        <input type="number" name="franchise_fee" required value={formData.franchise_fee} onChange={handleChange} placeholder="e.g. 25000" className="w-full bg-slate-50/80 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500/20 focus:border-teal-600 text-slate-800 font-medium transition-all" />
-                    </div>
-                    <div>
-                        <label className="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-2">Royalty Model</label>
-                        <input type="text" name="royalty_structure" required value={formData.royalty_structure} onChange={handleChange} placeholder="e.g. Fixed Monthly Rate" className="w-full bg-slate-50/80 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500/20 focus:border-teal-600 text-slate-800 font-medium transition-all" />
+                        <label className="block text-[10px] font-bold uppercase tracking-wider text-slate-500 mb-1.5">Market Overview / Brand Summary</label>
+                        <textarea name="brand_summary" required rows={3} value={formData.brand_summary} onChange={handleChange} placeholder="Artisanal bakery concept focusing on high-margin, trending local pastries combined with advanced centralized supply chain infrastructure..." className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs focus:outline-none focus:ring-2 focus:ring-teal-500/20 focus:border-teal-600 text-slate-800 font-medium transition-all resize-none leading-relaxed" />
                     </div>
                 </div>
 
-                {/* Section: Premium Performance Metrics */}
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 bg-teal-50/30 p-4 border border-teal-500/10 rounded-2xl">
-                    <div>
-                        <label className="block text-[10px] font-black uppercase tracking-wider text-teal-800 mb-2">Projected Breakeven</label>
-                        <input type="text" name="projected_breakeven" required value={formData.projected_breakeven} onChange={handleChange} placeholder="e.g. 3 - 6 Months" className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500/20 focus:border-teal-600 text-slate-800 font-medium transition-all" />
-                    </div>
-                    <div>
-                        <label className="block text-[10px] font-black uppercase tracking-wider text-teal-800 mb-2">Projected Payback Period</label>
-                        <input type="text" name="projected_payback" required value={formData.projected_payback} onChange={handleChange} placeholder="e.g. 18 - 24 Months" className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500/20 focus:border-teal-600 text-slate-800 font-medium transition-all" />
-                    </div>
-                    <div>
-                        <label className="block text-[10px] font-black uppercase tracking-wider text-teal-800 mb-2">Estimated ROI Matrix</label>
-                        <input type="text" name="projected_roi" required value={formData.projected_roi} onChange={handleChange} placeholder="e.g. 25% - 35%" className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500/20 focus:border-teal-600 text-slate-800 font-medium transition-all" />
-                    </div>
-                </div>
-
-                {/* Section: Strategic Narrative */}
-                <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-2">Brand Summary &amp; Market Overview</label>
-                    <textarea name="brand_summary" rows={4} required value={formData.brand_summary} onChange={handleChange} placeholder="Premium high-end traditional mens barbering and grooming salon concept..." className="w-full bg-slate-50/80 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500/20 focus:border-teal-600 text-slate-800 font-medium transition-all resize-none leading-relaxed" />
-                </div>
-
-                <hr className="my-6 border-slate-100" />
-
-                {/* Section: Administrative Verification Contacts */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                    <div>
-                        <label className="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-2">Authorized Management Contact Name</label>
-                        <input type="text" name="contact_name" required value={formData.contact_name} onChange={handleChange} placeholder="Frederick Tan" className="w-full bg-slate-50/80 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500/20 focus:border-teal-600 text-slate-800 font-medium transition-all" />
-                    </div>
-                    <div>
-                        <label className="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-2">Official Management Corporate Email</label>
-                        <input type="email" name="contact_email" required value={formData.contact_email} onChange={handleChange} placeholder="fredtan@ftsynergist.com" className="w-full bg-slate-50/80 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500/20 focus:border-teal-600 text-slate-800 font-medium transition-all" />
+                {/* Section 4: Officer Authentication Details */}
+                <div className="space-y-4 pt-2 border-t border-slate-100">
+                    <h3 className="text-xs font-black text-slate-400 uppercase tracking-wider">4. Authorized Representative Contact</h3>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label className="block text-[10px] font-bold uppercase tracking-wider text-slate-500 mb-1.5">Contact Full Name</label>
+                            <input type="text" name="contact_name" required value={formData.contact_name} onChange={handleChange} placeholder="e.g. Frederick Tan" className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs focus:outline-none focus:ring-2 focus:ring-teal-500/20 focus:border-teal-600 text-slate-800 font-medium transition-all" />
+                        </div>
+                        <div>
+                            <label className="block text-[10px] font-bold uppercase tracking-wider text-slate-500 mb-1.5">Official Corporate Email</label>
+                            <input type="email" name="contact_email" required value={formData.contact_email} onChange={handleChange} placeholder="fredtan@pawabakery.com" className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs focus:outline-none focus:ring-2 focus:ring-teal-500/20 focus:border-teal-600 text-slate-800 font-medium transition-all" />
+                        </div>
                     </div>
                 </div>
 
-                <div className="pt-4">
-                    <button type="submit" disabled={loading} className="w-full text-center bg-teal-600 hover:bg-teal-700 text-white font-bold py-3.5 px-4 rounded-xl text-sm shadow-sm transition-colors duration-200 block disabled:opacity-50">
-                        {loading ? 'Processing Verification Data Sync...' : 'Submit Brand Verification Profile'}
+                <div className="flex justify-end pt-4">
+                    <button type="submit" disabled={loading} className="w-full sm:w-auto bg-teal-600 hover:bg-teal-700 text-white font-bold py-3 px-8 rounded-xl text-xs uppercase tracking-wider shadow-sm transition-colors disabled:opacity-50">
+                        {loading ? 'Processing Brand Registry...' : 'Publish Official Franchise Listing'}
                     </button>
                 </div>
             </form>
-        </>
-    );
-}
-
-// Wrap inside a strict Suspense boundary to protect Next.js layout compilation pipelines from useSearchParams runtime checking
-export default function ApplyForm() {
-    return (
-        <Suspense fallback={<div className="text-center py-10 text-xs font-bold text-slate-400 uppercase tracking-wider">Synchronizing Form Elements...</div>}>
-            <ApplyFormContent />
-        </Suspense>
+        </div>
     );
 }
