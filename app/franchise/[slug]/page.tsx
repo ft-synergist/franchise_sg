@@ -1,6 +1,7 @@
 import { supabase } from '@/lib/supabase';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
+import FddRequestForm from './FddRequestForm';
 
 export const revalidate = 60; // Cache individual profile data on Edge layers for 60 seconds
 
@@ -230,14 +231,9 @@ export default async function FranchiseProfilePage({ params }: PageProps) {
                         </div>
                     </div>
 
-                    {/* Premium Lead Generation Funnel Action Call */}
-                    <div className="pt-4 border-t border-slate-100 flex justify-end">
-                        <Link
-                            href={`/apply?brand=${encodeURIComponent(franchise.brand_name)}`}
-                            className="w-full sm:w-auto text-center bg-teal-600 hover:bg-teal-700 text-white font-bold py-3.5 px-8 rounded-xl text-xs uppercase tracking-wider shadow-sm transition-colors"
-                        >
-                            Request Franchise Disclosure Document (FDD)
-                        </Link>
+                    {/* FIXED: Replaced the incorrect external link with our inline FDD capture engine */}
+                    <div className="pt-4 border-t border-slate-100">
+                        <FddRequestForm brandName={franchise.brand_name} />
                     </div>
                 </div>
 
