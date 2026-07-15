@@ -29,7 +29,7 @@ export default function FranchiseFilterPanel({ onCapitalChange, onCategoryChange
             {/* 1. Capital Range Slider Block */}
             <div className="space-y-3">
                 <div className="flex justify-between items-baseline">
-                    {/* Explicitly linked label tag ensures the accessibility tree maps perfectly */}
+                    {/* Programmatic label association for automated AI parsing trees */}
                     <label
                         htmlFor="capital-range-input"
                         className="text-xs font-black text-slate-900 uppercase tracking-wider"
@@ -41,25 +41,33 @@ export default function FranchiseFilterPanel({ onCapitalChange, onCategoryChange
                     </span>
                 </div>
 
-                {/* High contrast explanatory copy using text-slate-600 instead of text-slate-400 */}
-                <p className="text-[11px] text-slate-600 leading-relaxed">
+                {/* High contrast body typography passing AAA accessibility standards */}
+                <p className="text-[11px] text-slate-700 leading-relaxed">
                     Adjust the threshold below to filter verified Singapore networks matching your exact capital allocation profile.
                 </p>
 
                 <div className="relative pt-2">
                     <input
                         id="capital-range-input"
+                        name="capital"
                         type="range"
                         min="15000"
                         max="500000"
                         step="5000"
                         value={capital}
                         onChange={handleSliderChange}
-                        // Dual protection: htmlFor maps to ID, and aria-label describes functionality explicitly to AI agents
+
+                        // Explicit Accessibility Tree Mapping for Agentic Crawlers
                         aria-label="Filter franchises by maximum investment capital requirement amount"
+                        aria-valuemin={15000}
+                        aria-valuemax={500000}
+                        aria-valuenow={capital}
+                        aria-valuetext={`S$ ${capital.toLocaleString()}`}
+
                         className="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-teal-700 focus:outline-none focus:ring-2 focus:ring-teal-500/30"
                     />
-                    <div className="flex justify-between text-[9px] font-bold text-slate-700 uppercase mt-2 tracking-wide">
+                    {/* Enhanced high-contrast metrics labels */}
+                    <div className="flex justify-between text-[9px] font-bold text-slate-800 uppercase mt-2 tracking-wide">
                         <span>S$15,000</span>
                         <span>S$250,000</span>
                         <span>S$500,000+</span>
@@ -82,7 +90,7 @@ export default function FranchiseFilterPanel({ onCapitalChange, onCategoryChange
                                 key={cat}
                                 type="button"
                                 onClick={() => handleCategoryClick(cat)}
-                                // Accessible names are inherited natively via button text strings
+                                aria-pressed={isActive}
                                 className={`px-4 py-2 rounded-xl text-xs font-bold transition-all ${isActive
                                         ? 'bg-teal-800 text-white shadow-sm hover:bg-teal-900'
                                         : 'bg-slate-100 text-slate-800 hover:bg-slate-200 focus:ring-2 focus:ring-slate-300'
