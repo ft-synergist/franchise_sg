@@ -231,7 +231,7 @@ export default async function FranchiseProfilePage({ params }: PageProps) {
                         </div>
                     </div>
 
-                    {/* FIXED: Replaced the incorrect external link with our inline FDD capture engine */}
+                    {/* Inline FDD request form component container */}
                     <div className="pt-4 border-t border-slate-100">
                         <FddRequestForm brandName={franchise.brand_name} />
                     </div>

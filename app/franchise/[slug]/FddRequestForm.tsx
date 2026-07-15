@@ -3,10 +3,9 @@
 import { useState } from 'react';
 import { createClient } from '@supabase/supabase-js';
 
-const supabase = createClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL || '',
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || ''
-);
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
+const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
+const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
 interface FddRequestFormProps {
     brandName: string;
@@ -36,7 +35,6 @@ export default function FddRequestForm({ brandName }: FddRequestFormProps) {
         setErrorText('');
 
         try {
-            // Pipes the investor profile parameters directly into the secure lead payload repository
             const { error } = await supabase.from('lead_payloads').insert([
                 {
                     brand_name: brandName,
@@ -52,8 +50,8 @@ export default function FddRequestForm({ brandName }: FddRequestFormProps) {
             if (error) throw error;
             setSuccess(true);
         } catch (err: any) {
-            console.error(err);
-            setErrorText('Request transmission split. Please verify network integrity.');
+            console.error('FDD Submission Exception:', err);
+            setErrorText(err.message || 'Request transmission split. Please verify network integrity.');
         } finally {
             setLoading(false);
         }
@@ -61,7 +59,7 @@ export default function FddRequestForm({ brandName }: FddRequestFormProps) {
 
     if (success) {
         return (
-            <div className="w-full bg-teal-50 border border-teal-200 rounded-2xl p-6 text-center space-y-2 animate-fade-in">
+            <div className="w-full bg-teal-50 border border-teal-200 rounded-2xl p-6 text-center space-y-2">
                 <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-teal-600 text-white font-bold text-sm">✓</span>
                 <h4 className="text-sm font-black text-slate-950 uppercase tracking-wider">FDD Request Registered</h4>
                 <p className="text-xs text-slate-600 max-w-md mx-auto leading-relaxed">
@@ -75,7 +73,7 @@ export default function FddRequestForm({ brandName }: FddRequestFormProps) {
         <div className="w-full bg-slate-50 border border-slate-200 rounded-2xl p-6 space-y-4 text-left">
             <div>
                 <h3 className="text-sm font-black text-slate-950 uppercase tracking-wider">Request Franchise Disclosure Document (FDD)</h3>
-                <p className="text-[11px] text-slate-500 leading-relaxed mt-0.5"> Provide your investment parameters below to securely extract the complete financial packet, territorial allocation matrices, and unit economics for {brandName}.</p>
+                <p className="text-[11px] text-slate-500 leading-relaxed mt-0.5">Provide your investment parameters below to securely extract the complete financial packet, territorial allocation matrices, and unit economics for {brandName}.</p>
             </div>
 
             {errorText && (
