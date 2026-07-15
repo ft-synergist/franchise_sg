@@ -1,14 +1,30 @@
 import { NextResponse } from 'next/server';
 import { Resend } from 'resend';
 
-// Initializes the tracking manager using your environment api keys
-const resend = new Resend(process.env.RESEND_API_KEY || '');
-
 export async function POST(request: Request) {
     try {
         const body = await request.json();
         const { type, data } = body;
 
+        // 1. Check if Phase 3 credentials are ready
+        const apiKey = process.env.RESEND_API_KEY;
+
+        if (!apiKey || apiKey.includes('YOUR_SECRET_API_KEY_HERE') || apiKey === '') {
+            console.log(`\n==================================================`);
+            console.log(`⚠️ FALLBACK LOGGING MODE ACTIVATED (Phase 3 Pending)`);
+            console.log(`Enquiry Type: ${type}`);
+            console.log(`Payload Metrics:`, JSON.stringify(data, null, 2));
+            console.log(`==================================================\n`);
+
+            // Return a clean success status to prevent frontend form crashes
+            return NextResponse.json({
+                success: true,
+                message: 'Lead saved to Supabase. Email skipped owing to unpopulated environment variables.'
+            });
+        }
+
+        // 2. Initialize Resend safely inside the request context
+        const resend = new Resend(apiKey);
         let emailSubject = '';
         let emailHtml = '';
 
@@ -25,8 +41,8 @@ export async function POST(request: Request) {
                     <p><strong>Brand Origin Matrix:</strong> ${data.brand_origin}</p>
                     <p><strong>Year Established:</strong> ${data.established_year}</p>
                     <p><strong>Active Outlets:</strong> ${data.current_outlets}</p>
-                    <p><strong>Minimum Investment Capital Required:</strong> S$${Number(data.min_capital).toLocaleString()}</p>
-                    <p><strong>Initial Upfront Franchise Fee:</strong> S$${Number(data.franchise_fee).toLocaleString()}</p>
+                    <p><strong>Minimum Investment Capital Required:</strong> S$${Number(data.min_capital || 0).toLocaleString()}</p>
+                    <p><strong>Initial Upfront Franchise Fee:</strong> S$${Number(data.franchise_fee || 0).toLocaleString()}</p>
                     <p><strong>Ongoing Monthly Royalty Structure:</strong> ${data.royalty_structure}</p>
                     <p style="background: #f8fafc; padding: 12px; border-radius: 8px;"><strong>Brand Summary:</strong><br/>${data.brand_summary}</p>
                     <hr style="border: 0; border-top: 1px solid #e2e8f0; margin: 20px 0;" />
@@ -53,7 +69,7 @@ export async function POST(request: Request) {
             `;
         }
 
-        // Transmits the lead payload directly to your executive mailbox
+        // 3. Dispatch the formatted lead directly to your executive mailbox
         await resend.emails.send({
             from: process.env.NOTIFICATION_FROM_EMAIL || 'onboarding@resend.dev',
             to: 'fredtan@ftsynergist.com',
