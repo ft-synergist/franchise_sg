@@ -20,8 +20,8 @@ export default function FddRequestForm({ brandName }: FddRequestFormProps) {
         name: '',
         email: '',
         phone: '',
-        capital: 'S$50,000 - S$100,000',
-        timeline: 'Within 3 Months',
+        capital: 'S$100,000 - S$250,000',
+        timeline: '3 - 6 Months',
         notes: ''
     });
 
@@ -35,6 +35,7 @@ export default function FddRequestForm({ brandName }: FddRequestFormProps) {
         setErrorText('');
 
         try {
+            // 1. Write transactional lead to Supabase
             const { error } = await supabase.from('lead_payloads').insert([
                 {
                     brand_name: brandName,
@@ -48,10 +49,21 @@ export default function FddRequestForm({ brandName }: FddRequestFormProps) {
             ]);
 
             if (error) throw error;
+
+            // 2. Fire live notification request packet directly to our API route
+            await fetch('/api/notify', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    type: 'investor_lead',
+                    data: { ...formData, brand_name: brandName }
+                })
+            });
+
             setSuccess(true);
         } catch (err: any) {
-            console.error('FDD Submission Exception:', err);
-            setErrorText(err.message || 'Request transmission split. Please verify network integrity.');
+            console.error('Lead Capture Routing Failure:', err);
+            setErrorText(err.message || 'Unable to register request. Please verify network status.');
         } finally {
             setLoading(false);
         }
@@ -59,73 +71,75 @@ export default function FddRequestForm({ brandName }: FddRequestFormProps) {
 
     if (success) {
         return (
-            <div className="w-full bg-teal-50 border border-teal-200 rounded-2xl p-6 text-center space-y-2">
-                <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-teal-600 text-white font-bold text-sm">✓</span>
-                <h4 className="text-sm font-black text-slate-950 uppercase tracking-wider">FDD Request Registered</h4>
-                <p className="text-xs text-slate-600 max-w-md mx-auto leading-relaxed">
-                    Your verification signature has been logged. The official Franchise Disclosure & Info Pack for **{brandName}** is being compiled and will be routed to your corporate inbox shortly.
-                </p>
+            <div className="w-full bg-emerald-50 border border-emerald-200 rounded-2xl p-6 text-center space-y-3">
+                <div className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-teal-700 text-white font-bold">✓</div>
+                <div>
+                    <h3 className="text-sm font-black text-slate-950 uppercase tracking-wide">FDD Request Registered</h3>
+                    <p className="text-xs text-slate-600 leading-relaxed mt-1 max-w-md mx-auto">
+                        Your verification signature has been logged. The official Franchise Disclosure &amp; Info Pack for **{brandName}** is being compiled and will be routed to your corporate inbox shortly.
+                    </p>
+                </div>
             </div>
         );
     }
 
     return (
-        <div className="w-full bg-slate-50 border border-slate-200 rounded-2xl p-6 space-y-4 text-left">
-            <div>
-                <h3 className="text-sm font-black text-slate-950 uppercase tracking-wider">Request Franchise Disclosure Document (FDD)</h3>
-                <p className="text-[11px] text-slate-500 leading-relaxed mt-0.5">Provide your investment parameters below to securely extract the complete financial packet, territorial allocation matrices, and unit economics for {brandName}.</p>
+        <div className="w-full bg-slate-50 border border-slate-200/60 rounded-2xl p-5 sm:p-6 text-left">
+            <div className="mb-4">
+                <h3 className="text-xs font-black text-slate-950 uppercase tracking-wider">Request Franchise Disclosure Document (FDD)</h3>
+                <p className="text-[11px] text-slate-500 mt-0.5">Provide your investment parameters below to securely extract the complete financial packet and unit economics for {brandName}.</p>
             </div>
 
             {errorText && (
-                <div className="p-3 bg-rose-50 border border-rose-200 text-rose-700 text-xs font-semibold rounded-xl">{errorText}</div>
+                <div className="p-3 bg-rose-50 border border-rose-200 text-rose-700 text-[11px] font-bold rounded-lg mb-4">{errorText}</div>
             )}
 
             <form onSubmit={handleSubmit} className="space-y-4">
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                     <div>
-                        <label className="block text-[10px] font-bold uppercase tracking-wider text-slate-500 mb-1.5">Full Name</label>
-                        <input type="text" name="name" required value={formData.name} onChange={handleChange} placeholder="e.g. Alex Lim" className="w-full bg-white border border-slate-200 rounded-xl px-3 py-2 text-xs focus:outline-none focus:ring-2 focus:ring-teal-500/20 focus:border-teal-600 text-slate-800 font-medium transition-all" />
+                        <label className="block text-[9px] font-bold uppercase tracking-wider text-slate-500 mb-1">Full Name</label>
+                        <input type="text" name="name" required value={formData.name} onChange={handleChange} placeholder="Jasmine Lee" className="w-full bg-white border border-slate-200 rounded-lg px-3 py-2 text-xs text-slate-800 focus:outline-none focus:ring-2 focus:ring-teal-500/20" />
                     </div>
                     <div>
-                        <label className="block text-[10px] font-bold uppercase tracking-wider text-slate-500 mb-1.5">Email Address</label>
-                        <input type="email" name="email" required value={formData.email} onChange={handleChange} placeholder="alex@familyoffice.sg" className="w-full bg-white border border-slate-200 rounded-xl px-3 py-2 text-xs focus:outline-none focus:ring-2 focus:ring-teal-500/20 focus:border-teal-600 text-slate-800 font-medium transition-all" />
+                        <label className="block text-[9px] font-bold uppercase tracking-wider text-slate-500 mb-1">Email Address</label>
+                        <input type="email" name="email" required value={formData.email} onChange={handleChange} placeholder="jasmine@gmail.com" className="w-full bg-white border border-slate-200 rounded-lg px-3 py-2 text-xs text-slate-800 focus:outline-none focus:ring-2 focus:ring-teal-500/20" />
                     </div>
                     <div>
-                        <label className="block text-[10px] font-bold uppercase tracking-wider text-slate-500 mb-1.5">Contact Number</label>
-                        <input type="tel" name="phone" required value={formData.phone} onChange={handleChange} placeholder="e.g. +65 9123 4567" className="w-full bg-white border border-slate-200 rounded-xl px-3 py-2 text-xs focus:outline-none focus:ring-2 focus:ring-teal-500/20 focus:border-teal-600 text-slate-800 font-medium transition-all" />
+                        <label className="block text-[9px] font-bold uppercase tracking-wider text-slate-500 mb-1">Contact Number</label>
+                        <input type="text" name="phone" required value={formData.phone} onChange={handleChange} placeholder="+6598208601" className="w-full bg-white border border-slate-200 rounded-lg px-3 py-2 text-xs text-slate-800 focus:outline-none focus:ring-2 focus:ring-teal-500/20" />
                     </div>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     <div>
-                        <label className="block text-[10px] font-bold uppercase tracking-wider text-slate-500 mb-1.5">Liquid Capital Allocation</label>
-                        <select name="capital" value={formData.capital} onChange={handleChange} className="w-full bg-white border border-slate-200 rounded-xl px-3 py-2 text-xs focus:outline-none focus:ring-2 focus:ring-teal-500/20 focus:border-teal-600 text-slate-700 font-medium transition-all">
+                        <label className="block text-[9px] font-bold uppercase tracking-wider text-slate-500 mb-1">Liquid Capital Allocation</label>
+                        <select name="capital" value={formData.capital} onChange={handleChange} className="w-full bg-white border border-slate-200 rounded-lg px-3 py-2 text-xs text-slate-700 focus:outline-none focus:ring-2 focus:ring-teal-500/20">
                             <option>Under S$50,000</option>
                             <option>S$50,000 - S$100,000</option>
                             <option>S$100,000 - S$250,000</option>
                             <option>S$250,000 - S$500,000</option>
-                            <option>S$500,000+</option>
+                            <option>Over S$500,000</option>
                         </select>
                     </div>
                     <div>
-                        <label className="block text-[10px] font-bold uppercase tracking-wider text-slate-500 mb-1.5">Target Deployment Timeline</label>
-                        <select name="timeline" value={formData.timeline} onChange={handleChange} className="w-full bg-white border border-slate-200 rounded-xl px-3 py-2 text-xs focus:outline-none focus:ring-2 focus:ring-teal-500/20 focus:border-teal-600 text-slate-700 font-medium transition-all">
-                            <option>Within 3 Months</option>
+                        <label className="block text-[9px] font-bold uppercase tracking-wider text-slate-500 mb-1">Target Deployment Timeline</label>
+                        <select name="timeline" value={formData.timeline} onChange={handleChange} className="w-full bg-white border border-slate-200 rounded-lg px-3 py-2 text-xs text-slate-700 focus:outline-none focus:ring-2 focus:ring-teal-500/20">
+                            <option>Immediate (Within 1 Month)</option>
                             <option>3 - 6 Months</option>
                             <option>6 - 12 Months</option>
-                            <option>Information Gathering Only</option>
+                            <option>Flexible / Researching</option>
                         </select>
                     </div>
                 </div>
 
                 <div>
-                    <label className="block text-[10px] font-bold uppercase tracking-wider text-slate-500 mb-1.5">Additional Queries / Intent Notes (Optional)</label>
-                    <textarea name="notes" rows={2} value={formData.notes} onChange={handleChange} placeholder="Requesting structural breakdowns for master franchise territory expansions..." className="w-full bg-white border border-slate-200 rounded-xl px-3 py-2 text-xs focus:outline-none focus:ring-2 focus:ring-teal-500/20 focus:border-teal-600 text-slate-800 font-medium transition-all resize-none leading-relaxed" />
+                    <label className="block text-[9px] font-bold uppercase tracking-wider text-slate-500 mb-1">Additional Queries / Intent Notes (Optional)</label>
+                    <textarea name="notes" rows={2} value={formData.notes} onChange={handleChange} placeholder="TEST" className="w-full bg-white border border-slate-200 rounded-lg px-3 py-2 text-xs text-slate-800 focus:outline-none focus:ring-2 focus:ring-teal-500/20 resize-none" />
                 </div>
 
-                <div className="flex justify-end pt-2">
-                    <button type="submit" disabled={loading} className="w-full sm:w-auto bg-teal-600 hover:bg-teal-700 text-white font-bold py-2.5 px-6 rounded-xl text-xs uppercase tracking-wider shadow-sm transition-colors disabled:opacity-50">
-                        {loading ? 'Processing Document Request...' : 'Submit Official FDD Request'}
+                <div className="flex justify-end">
+                    <button type="submit" disabled={loading} className="w-full sm:w-auto bg-teal-800 hover:bg-teal-900 text-white font-bold py-2.5 px-6 rounded-lg text-xs uppercase tracking-wider transition-colors disabled:opacity-50">
+                        {loading ? 'Processing...' : 'Submit Official FDD Request'}
                     </button>
                 </div>
             </form>
