@@ -5,14 +5,14 @@ import FranchiseGridEngine from './components/FranchiseGridEngine';
 export const revalidate = 60; // Cache index pages globally on Vercel Edge nodes for 60 seconds
 
 export const metadata = {
-  title: 'Franchise Singapore | Find the Latest Franchise Opportunities',
-  description: 'Understand the Minimum Investment Capital Required (SGD) before meeting the franchisors. Access initial franchise fees and setup fees, ongoing royalties and franchise categories across Singapore and Asian markets.',
+  title: 'Franchise Singapore | Verified Franchise Listings & Opportunities',
+  description: 'Top Franchise Singapore directory portal for active franchise listings, expert insights, and verified investment metrics. Analyze initial fees and capital setup requirements.',
   alternates: {
     canonical: 'https://www.franchise.sg',
   },
   openGraph: {
-    title: 'Franchise Singapore | Find the Latest Franchise Opportunities',
-    description: 'Understand the Minimum Investment Capital Required (SGD) before meeting the franchisors. Access initial franchise fees and setup fees, ongoing royalties and franchise categories across Singapore and Asian markets.',
+    title: 'Franchise Singapore | Verified Franchise Listings & Opportunities',
+    description: 'Top Franchise Singapore directory portal for active franchise listings, expert insights, and verified investment metrics.',
     url: 'https://www.franchise.sg',
     siteName: 'Franchise Singapore',
     type: 'website',
@@ -20,8 +20,8 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Franchise Singapore | Find the Latest Franchise Opportunities',
-    description: 'Understand the Minimum Investment Capital Required (SGD) before meeting the franchisors. Access initial franchise fees and setup fees, ongoing royalties and franchise categories across Singapore and Asian markets.',
+    title: 'Franchise Singapore | Verified Franchise Listings & Opportunities',
+    description: 'Top Franchise Singapore directory portal for active franchise listings, expert insights, and verified investment metrics.',
   }
 };
 
@@ -76,6 +76,25 @@ export default async function FranchiseDirectoryHome() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaMarkup) }}
       />
 
+      {/* URL-Safe Smooth Scroll Interceptor Script */}
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `
+            document.addEventListener('click', function(e) {
+              var scrollLink = e.target.closest('a[data-scroll-target]');
+              if (scrollLink) {
+                e.preventDefault();
+                var targetId = scrollLink.getAttribute('data-scroll-target');
+                var targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                  targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+              }
+            });
+          `
+        }}
+      />
+
       {/* Core SEO Authority Header */}
       <header className="bg-gradient-to-r from-teal-900 via-slate-950 to-slate-950 text-white py-20 px-6 border-b border-slate-800">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-left">
@@ -96,13 +115,14 @@ export default async function FranchiseDirectoryHome() {
           </p>
 
           <div className="mt-8 flex flex-wrap gap-4">
-            {/* FIXED: Links directly to the grid engine layout below instead of /apply */}
-            <Link
+            {/* Green Bar: Modified to intercept jump behavior and preserve the clean root URL */}
+            <a
               href="#directory-market"
-              className="bg-teal-600 hover:bg-teal-700 text-white font-bold py-3 px-6 rounded-xl text-sm shadow-sm transition-colors duration-200"
+              data-scroll-target="directory-market"
+              className="bg-teal-600 hover:bg-teal-700 text-white font-bold py-3 px-6 rounded-xl text-sm shadow-sm transition-colors duration-200 cursor-pointer"
             >
               Find the Latest Franchise Opportunities in Singapore
-            </Link>
+            </a>
             <Link
               href="/insights"
               className="border border-slate-700 bg-slate-900/50 hover:bg-slate-900 text-slate-300 hover:text-white font-bold py-3 px-6 rounded-xl text-sm transition-colors duration-200"
@@ -121,8 +141,9 @@ export default async function FranchiseDirectoryHome() {
 
       {/* Directory Engine Framework Section */}
       <main className="max-w-6xl mx-auto px-6 py-16" id="directory-market">
+        {/* Optimized H2 to directly capture the target "franchise listing" keyword */}
         <h2 className="text-2xl font-extrabold text-slate-950 tracking-tight mb-8 text-left">
-          Browse Verified Open Opportunities
+          Singapore Franchise Listings & Verified Opportunities
         </h2>
 
         {!franchises || franchises.length === 0 ? (
@@ -130,7 +151,6 @@ export default async function FranchiseDirectoryHome() {
             <p className="text-slate-500">Database synchronization in progress. Please refresh shortly.</p>
           </div>
         ) : (
-          /* Render the filtering grid dashboard module precisely here without the legacy prop */
           <FranchiseGridEngine />
         )}
       </main>
