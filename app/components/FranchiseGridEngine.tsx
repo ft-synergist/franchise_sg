@@ -157,7 +157,7 @@ export default function FranchiseGridEngine() {
                         return (
                             <Link
                                 key={item.id}
-                                href={`/franchises/${item.slug}`}
+                                href={`/insights/${item.slug}`}
                                 className="group block bg-white border border-slate-200 rounded-2xl p-6 shadow-sm hover:shadow-md hover:border-slate-300 transition-all text-left flex flex-col h-full"
                             >
                                 <div className="flex justify-between items-start mb-4 gap-4">
