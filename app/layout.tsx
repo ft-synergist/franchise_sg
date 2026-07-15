@@ -12,22 +12,40 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-// CRITICAL GEO/SEO ENTERPRISE METADATA INJECTION
+// CRITICAL GEO/SEO ENTERPRISE METADATA INJECTION - OPTIMIZED FOR WWW.FRANCHISE.SG
 export const metadata: Metadata = {
   title: {
-    default: "Franchise Singapore | Top Franchise Opportunities & Resale Listings",
+    default: "Franchise Singapore | Verified Franchise Opportunities & Listings",
     template: "%s | Franchise.sg"
   },
-  description: "Explore Singapore's authoritative franchise directory portal. Analyze audited investment capital matrices, initial startup fees, and operational commercial opportunities for trending local and international brands.",
-  keywords: ["Franchise Singapore", "Franchise Opportunities Singapore", "Franchises for Sale Singapore", "Buy a Franchise Singapore", "Singapore Commercial Business Listings", "F&B Franchise Singapore"],
-  metadataBase: new URL("https://franchise.sg"),
+  description: "Top Franchise Singapore portal for verified franchise opportunities. Explore our active franchise listing directory and gain expert franchise insights.",
+  keywords: [
+    "franchise singapore",
+    "franchise opportunities",
+    "franchise listing",
+    "franchise insights",
+    "business for sale singapore",
+    "f&b franchise singapore"
+  ],
+  metadataBase: new URL("https://www.franchise.sg"),
   alternates: {
     canonical: "/",
   },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
   openGraph: {
-    title: "Franchise Singapore | Top Franchise Opportunities & Resale Listings",
-    description: "Analyze audited investment capital matrices, initial startup fees, and operational commercial opportunities for trending local and international brands.",
-    url: "https://franchise.sg",
+    title: "Franchise Singapore | Verified Franchise Opportunities & Listings",
+    description: "Top Franchise Singapore portal for verified franchise opportunities. Explore our active franchise listing directory and gain expert franchise insights.",
+    url: "https://www.franchise.sg",
     siteName: "Franchise.sg",
     locale: "en_SG",
     type: "website",
