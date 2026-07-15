@@ -1,21 +1,21 @@
 import Link from 'next/link';
 
 export const metadata = {
-    title: 'Franchise Insights | Singapore Fees, Trends & Costs',
-    description: 'Before you sign a franchise agreement, compare initial setup fees, franchise trends, ongoing royalties, operational costs, and breakeven timelines across Singapore and Asia.',
+    title: 'Franchise Insights | Franchise Singapore Market Analysis',
+    description: 'Deep dive into verified Franchise Insights. Analyze initial setup fees, franchise opportunities, industry trends, and operational costs across Singapore.',
     alternates: {
-        canonical: 'https://franchise.sg/insights',
+        canonical: 'https://www.franchise.sg/insights',
     },
     openGraph: {
-        title: 'Franchise Insights | Singapore Fees, Trends & Costs',
-        description: 'Before you sign a franchise agreement, compare initial setup fees, franchise trends, ongoing royalties, operational costs, and breakeven timelines across Singapore and Asia.',
-        url: 'https://franchise.sg/insights',
+        title: 'Franchise Insights | Franchise Singapore Market Analysis',
+        description: 'Deep dive into verified Franchise Insights. Analyze initial setup fees, franchise opportunities, industry trends, and operational costs across Singapore.',
+        url: 'https://www.franchise.sg/insights',
         type: 'website',
     },
     twitter: {
         card: 'summary_large_image',
-        title: 'Franchise Insights | Singapore Fees, Trends & Costs',
-        description: 'Before you sign a franchise agreement, compare initial setup fees, franchise trends, ongoing royalties, operational costs, and breakeven timelines across Singapore and Asia.',
+        title: 'Franchise Insights | Franchise Singapore Market Analysis',
+        description: 'Deep dive into verified Franchise Insights. Analyze initial setup fees, franchise opportunities, industry trends, and operational costs across Singapore.',
     }
 };
 
@@ -62,13 +62,13 @@ export default function InsightsHubPage() {
                         Don&apos;t sign a franchise agreement blindly. We break down the real data and numbers investors care about: franchise trends and growth, initial setup fees, ongoing royalties, hidden operational costs, projected breakeven timelines, and transparent EBITDA margins across Singapore and Asia Region.
                     </p>
 
-                    {/* Return Navigation Anchor */}
+                    {/* Return Navigation Anchor - Optimized with strict semantic keyword internal anchor text */}
                     <div className="mt-6">
                         <Link
                             href="/"
                             className="inline-flex items-center justify-center text-xs font-bold uppercase tracking-wider text-teal-400 hover:text-teal-300 transition-colors"
                         >
-                            ← Return to Main Directory
+                            ← Return to Franchise Singapore Directory
                         </Link>
                     </div>
                 </div>
@@ -76,6 +76,11 @@ export default function InsightsHubPage() {
 
             {/* Main Listing Layout */}
             <main className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+
+                {/* Structural H2 injected to fix heading level hierarchy and anchor semantic search density */}
+                <h2 className="text-2xl font-extrabold text-slate-950 tracking-tight mb-8 text-left">
+                    Latest Franchise Trends & Market Reports
+                </h2>
 
                 {/* Dynamic Card Layout Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -86,8 +91,8 @@ export default function InsightsHubPage() {
                         >
                             <div className="flex justify-between items-start mb-4">
                                 <span className={`text-xs font-bold uppercase tracking-wider px-2.5 py-1 rounded-md ${article.category === 'Franchise Scam Alert'
-                                        ? 'text-rose-600 bg-rose-50'
-                                        : 'text-teal-600 bg-teal-50'
+                                    ? 'text-rose-600 bg-rose-50'
+                                    : 'text-teal-600 bg-teal-50'
                                     }`}>
                                     {article.category}
                                 </span>
