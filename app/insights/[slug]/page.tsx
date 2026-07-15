@@ -1,14 +1,17 @@
+import { supabase } from '@/lib/supabase';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 
 export const revalidate = 60;
 
-const insightsMap: Record<string, { title: string; description: string; content: () => React.JSX.Element }> = {
+interface PageProps {
+    params: Promise<{ slug: string }>;
+}
 
-    // ==========================================
-    // ROUTE 1: THE F&B FRANCHISE EVOLUTION MANIFESTO
-    // URL: /insights/how-to-determine-the-best-food-franchise-to-invest-in-singapore
-    // ==========================================
+// ==========================================
+// ARTICLE DATA ARCHITECTURE
+// ==========================================
+const insightsMap: Record<string, { title: string; description: string; content: () => React.JSX.Element }> = {
     'how-to-determine-the-best-food-franchise-to-invest-in-singapore': {
         title: 'How to Determine the Best F&B Franchise to Invest in Singapore: The Evolution of Singapore F&B Franchise (1968–2026)',
         description: 'Discover what makes a resilient food franchise opportunity in Singapore. An unfiltered analysis of historical fast-food evolution, rental traps, and navigating the manpower squeeze.',
@@ -180,11 +183,6 @@ const insightsMap: Record<string, { title: string; description: string; content:
             </>
         )
     },
-
-    // ==========================================
-    // ROUTE 2: THE VENDING MACHINE SCAM EXPOSÉ
-    // URL: /insights/vending-machine-franchise-analysis-singapore
-    // ==========================================
     'vending-machine-franchise-analysis-singapore': {
         title: 'Vending Machine Franchise Scam Alert: The Reality Behind "Hands-Off Passive Income" in Singapore',
         description: 'The promise of 30%+ passive ROI has collapsed under real criminal court charges in Singapore. Read our hard hitting article on real equipment setup fees, empty location tricks, and how to verify actual unit economics before you lose your capital.',
@@ -357,28 +355,139 @@ const insightsMap: Record<string, { title: string; description: string; content:
     }
 };
 
-interface DynamicInsightProps {
-    params: Promise<{ slug: string }>;
-}
-
-export async function generateMetadata({ params }: DynamicInsightProps) {
+// ==========================================
+// DYNAMIC METADATA ROUTER ENGINE
+// ==========================================
+export async function generateMetadata({ params }: PageProps) {
     const { slug } = await params;
+
+    // Check if this slug is a database franchise first
+    const { data: franchise } = await supabase
+        .from('franchises')
+        .select('brand_name, description')
+        .eq('slug', slug)
+        .single();
+
+    if (franchise) {
+        return {
+            title: `${franchise.brand_name} Franchise Cost & Capital Requirements | Singapore`,
+            description: franchise.description || `Analyze the initial franchise fees, investment tiers, minimum capital requirements, and ongoing royalties for ${franchise.brand_name} in Singapore.`,
+            alternates: {
+                canonical: `https://www.franchise.sg/insights/${slug}`,
+            }
+        };
+    }
+
+    // Fallback to static articles
     const insight = insightsMap[slug];
-    if (!insight) return {};
+    if (insight) {
+        return {
+            title: insight.title,
+            description: insight.description,
+            alternates: {
+                canonical: `https://www.franchise.sg/insights/${slug}`,
+            }
+        };
+    }
 
     return {
-        title: `${insight.title}`,
-        description: insight.description,
-        alternates: {
-            canonical: `https://franchise.sg/insights/${slug}`,
-        }
+        title: 'Franchise Directory View',
     };
 }
 
-export default async function DynamicInsightRouter({ params }: DynamicInsightProps) {
+// ==========================================
+// DUAL-ROUTER PRIMARY RENDER CORE
+// ==========================================
+export default async function DynamicInsightRouter({ params }: PageProps) {
     const { slug } = await params;
-    const insight = insightsMap[slug];
 
+    // Execution Sequence 1: Attempt to pull Franchise profile data from Supabase
+    const { data: franchise } = await supabase
+        .from('franchises')
+        .select('*')
+        .eq('slug', slug)
+        .single();
+
+    // If a database match is found, render the fully dynamic layout frame
+    if (franchise) {
+        return (
+            <div className="min-h-screen bg-slate-50 text-slate-900 antialiased font-sans w-full text-left py-12 px-4 sm:px-6 lg:px-8">
+                <div className="max-w-4xl mx-auto space-y-8">
+
+                    {/* Breadcrumb Navigation */}
+                    <nav className="text-xs font-bold text-slate-400 uppercase tracking-wider">
+                        <Link href="/" className="hover:text-teal-600 transition-colors">Home</Link>
+                        <span className="mx-2">/</span>
+                        <span className="text-slate-600">{franchise.brand_name} Asset Profile</span>
+                    </nav>
+
+                    {/* Master Profile Header Card */}
+                    <div className="bg-white border border-slate-200 rounded-3xl p-8 sm:p-10 shadow-sm space-y-6">
+                        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-100 pb-6">
+                            <div>
+                                <span className="text-[10px] font-black uppercase tracking-wider px-2.5 py-1 rounded bg-teal-50 text-teal-700 border border-teal-100 mb-2 inline-block">
+                                    {franchise.category}
+                                </span>
+                                <h1 className="text-3xl font-black text-slate-950 tracking-tight">
+                                    {franchise.brand_name} Franchise
+                                </h1>
+                            </div>
+
+                            <div className="bg-slate-50 border border-slate-200 rounded-2xl p-4 min-w-[220px] text-left sm:text-right">
+                                <span className="text-[9px] font-bold text-slate-400 uppercase tracking-wider block mb-1">Min Capital Required</span>
+                                <span className="text-2xl font-black text-teal-600 block">
+                                    S${(franchise.min_capital_sgd || 0).toLocaleString()}
+                                </span>
+                            </div>
+                        </div>
+
+                        {/* Financial Disclosure Breakdowns */}
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
+                            <div className="space-y-4">
+                                <h3 className="text-xs font-black text-slate-400 uppercase tracking-wider">Financial Parameters</h3>
+                                <div className="bg-slate-50/60 border border-slate-100 rounded-2xl p-5 space-y-3.5 text-xs font-semibold">
+                                    <div className="flex justify-between items-center">
+                                        <span className="text-slate-500">Initial Franchise Fee</span>
+                                        <span className="text-slate-900 font-bold">
+                                            {typeof franchise.franchise_fee_sgd === 'number' ? `S$${franchise.franchise_fee_sgd.toLocaleString()}` : franchise.franchise_fee_sgd || 'N/A'}
+                                        </span>
+                                    </div>
+                                    <div className="flex justify-between items-start gap-4">
+                                        <span className="text-slate-500 shrink-0">Ongoing Royalty Fee</span>
+                                        <span className="text-slate-900 font-bold text-right">{franchise.royalty_fee_text || 'N/A'}</span>
+                                    </div>
+                                    <div className="flex justify-between items-center border-t border-slate-200/60 pt-3">
+                                        <span className="text-slate-500">Investment Class Tier</span>
+                                        <span className="text-slate-900 font-bold">{franchise.investment_tier || 'Standard'}</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="space-y-4">
+                                <h3 className="text-xs font-black text-slate-400 uppercase tracking-wider">Market Overview</h3>
+                                <div className="bg-slate-50/60 border border-slate-100 rounded-2xl p-5 text-xs leading-relaxed text-slate-600 font-medium whitespace-pre-line">
+                                    {franchise.description || "Comprehensive financial parameters pending primary brand manager audit metrics."}
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Action Callout Trigger */}
+                        <div className="pt-4 border-t border-slate-100 flex justify-end">
+                            <Link
+                                href="/apply"
+                                className="w-full sm:w-auto text-center bg-teal-600 hover:bg-teal-700 text-white font-bold py-3.5 px-8 rounded-xl text-xs uppercase tracking-wider shadow-sm transition-colors"
+                            >
+                                Request Disclosure Packet for {franchise.brand_name}
+                            </Link>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        );
+    }
+
+    // Execution Sequence 2: Fall back to static marketing insights if database item yields empty results
+    const insight = insightsMap[slug];
     if (!insight) {
         notFound();
     }
@@ -390,8 +499,8 @@ export default async function DynamicInsightRouter({ params }: DynamicInsightPro
         <div className="min-h-screen w-full bg-slate-50/60 font-sans antialiased text-slate-900 text-left flex flex-col">
             <nav className="bg-white border-b border-slate-200 py-4 px-6 sm:px-8">
                 <div className="max-w-6xl mx-auto flex items-center">
-                    <Link href="/insights" className="text-xs font-bold uppercase tracking-wider text-teal-600 hover:text-teal-700 transition-colors">
-                        ← Back to Franchise Insights Hub
+                    <Link href="/" className="text-xs font-bold uppercase tracking-wider text-teal-600 hover:text-teal-700 transition-colors">
+                        ← Back to Franchise Marketplace Directory
                     </Link>
                 </div>
             </nav>
@@ -399,10 +508,9 @@ export default async function DynamicInsightRouter({ params }: DynamicInsightPro
             <article className="w-full flex-1 bg-slate-50/60 pb-12">
                 <div className="max-w-4xl mx-auto bg-white border border-slate-200 rounded-3xl p-8 sm:p-12 shadow-sm mt-8">
 
-                    {/* Main layout content vector */}
                     {insight.content()}
 
-                    {/* CRITICAL FIX: Locked permanently inside the global layout frame card structure for EVERY route */}
+                    {/* Shared Utility Card Footprint */}
                     <div className="mt-12 p-8 border border-slate-200 rounded-2xl bg-gradient-to-br from-white to-slate-50 shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
                         <div className="space-y-2 max-w-xl text-left">
                             <h3 className="text-xl font-bold text-slate-950">Share &amp; Syndicate</h3>
@@ -441,7 +549,6 @@ export default async function DynamicInsightRouter({ params }: DynamicInsightPro
                         </Link>
                     </div>
 
-                    {/* Core directory navigation element */}
                     <div className="mt-12 pt-8 border-t border-slate-200 text-center">
                         <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-4">
                             Analyze Vetted Investment Parameters on the Open Marketplace
