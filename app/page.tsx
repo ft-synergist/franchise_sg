@@ -120,7 +120,7 @@ export default async function FranchiseDirectoryHome() {
       </header>
 
       {/* Directory Engine Framework Section */}
-      <main className="max-w-6xl mx-auto px-6 py-16">
+      <main className="max-w-6xl mx-auto px-6 py-16" id="directory-market">
         <h2 className="text-2xl font-extrabold text-slate-950 tracking-tight mb-8 text-left">
           Browse Verified Open Opportunities
         </h2>
@@ -130,8 +130,8 @@ export default async function FranchiseDirectoryHome() {
             <p className="text-slate-500">Database synchronization in progress. Please refresh shortly.</p>
           </div>
         ) : (
-          /* Render the filtering grid dashboard module precisely here */
-          <FranchiseGridEngine initialFranchises={franchises} />
+          /* Render the filtering grid dashboard module precisely here without the legacy prop */
+          <FranchiseGridEngine />
         )}
       </main>
     </div>
