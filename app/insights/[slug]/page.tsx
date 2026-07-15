@@ -361,7 +361,7 @@ const insightsMap: Record<string, { title: string; description: string; content:
 export async function generateMetadata({ params }: PageProps) {
     const { slug } = await params;
 
-    // Check if this slug is a database franchise first
+    // Execution Block 1: Handle dynamic Supabase franchise directory configurations
     const { data: franchise } = await supabase
         .from('franchises')
         .select('brand_name, description')
@@ -369,29 +369,62 @@ export async function generateMetadata({ params }: PageProps) {
         .single();
 
     if (franchise) {
+        const titleText = `${franchise.brand_name} Franchise Cost & Capital Requirements | Singapore`;
+        const descText = franchise.description || `Analyze the initial franchise fees, investment tiers, minimum capital requirements, and ongoing royalties for ${franchise.brand_name} in Singapore.`;
+        const itemUrl = `https://www.franchise.sg/insights/${slug}`;
+
         return {
-            title: `${franchise.brand_name} Franchise Cost & Capital Requirements | Singapore`,
-            description: franchise.description || `Analyze the initial franchise fees, investment tiers, minimum capital requirements, and ongoing royalties for ${franchise.brand_name} in Singapore.`,
+            title: titleText,
+            description: descText,
             alternates: {
-                canonical: `https://www.franchise.sg/insights/${slug}`,
+                canonical: itemUrl,
+            },
+            openGraph: {
+                title: titleText,
+                description: descText,
+                url: itemUrl,
+                siteName: 'Franchise Singapore',
+                locale: 'en_SG',
+                type: 'article',
+            },
+            twitter: {
+                card: 'summary_large_image',
+                title: titleText,
+                description: descText,
             }
         };
     }
 
-    // Fallback to static articles
+    // Execution Block 2: Fallback to local hardcoded editorial articles
     const insight = insightsMap[slug];
     if (insight) {
+        const itemUrl = `https://www.franchise.sg/insights/${slug}`;
         return {
             title: insight.title,
             description: insight.description,
             alternates: {
-                canonical: `https://www.franchise.sg/insights/${slug}`,
+                canonical: itemUrl,
+            },
+            openGraph: {
+                title: insight.title,
+                description: insight.description,
+                url: itemUrl,
+                siteName: 'Franchise Singapore',
+                locale: 'en_SG',
+                type: 'article',
+            },
+            twitter: {
+                card: 'summary_large_image',
+                title: insight.title,
+                description: insight.description,
             }
         };
     }
 
+    // Baseline Fallback Frame
     return {
-        title: 'Franchise Directory View',
+        title: 'Franchise Insights Portal | Franchise Singapore',
+        description: 'Deep dive into verified business diagnostics, investment tiers, and capital matrices across major Singapore listings.'
     };
 }
 
@@ -414,9 +447,9 @@ export default async function DynamicInsightRouter({ params }: PageProps) {
             <div className="min-h-screen bg-slate-50 text-slate-900 antialiased font-sans w-full text-left py-12 px-4 sm:px-6 lg:px-8">
                 <div className="max-w-4xl mx-auto space-y-8">
 
-                    {/* Breadcrumb Navigation */}
+                    {/* Breadcrumb Navigation - Optimized anchor references */}
                     <nav className="text-xs font-bold text-slate-400 uppercase tracking-wider">
-                        <Link href="/" className="hover:text-teal-600 transition-colors">Home</Link>
+                        <Link href="/" className="hover:text-teal-600 transition-colors">Franchise Singapore Directory</Link>
                         <span className="mx-2">/</span>
                         <span className="text-slate-600">{franchise.brand_name} Asset Profile</span>
                     </nav>
@@ -441,10 +474,10 @@ export default async function DynamicInsightRouter({ params }: PageProps) {
                             </div>
                         </div>
 
-                        {/* Financial Disclosure Breakdowns */}
+                        {/* Financial Disclosure Breakdowns - Swapped container heading nodes to H2 to preserve structural consistency */}
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
                             <div className="space-y-4">
-                                <h3 className="text-xs font-black text-slate-400 uppercase tracking-wider">Financial Parameters</h3>
+                                <h2 className="text-xs font-black text-slate-400 uppercase tracking-wider">Financial Parameters</h2>
                                 <div className="bg-slate-50/60 border border-slate-100 rounded-2xl p-5 space-y-3.5 text-xs font-semibold">
                                     <div className="flex justify-between items-center">
                                         <span className="text-slate-500">Initial Franchise Fee</span>
@@ -464,7 +497,7 @@ export default async function DynamicInsightRouter({ params }: PageProps) {
                             </div>
 
                             <div className="space-y-4">
-                                <h3 className="text-xs font-black text-slate-400 uppercase tracking-wider">Market Overview</h3>
+                                <h2 className="text-xs font-black text-slate-400 uppercase tracking-wider">Market Overview</h2>
                                 <div className="bg-slate-50/60 border border-slate-100 rounded-2xl p-5 text-xs leading-relaxed text-slate-600 font-medium whitespace-pre-line">
                                     {franchise.description || "Comprehensive financial parameters pending primary brand manager audit metrics."}
                                 </div>
@@ -492,7 +525,8 @@ export default async function DynamicInsightRouter({ params }: PageProps) {
         notFound();
     }
 
-    const targetUrl = encodeURIComponent(`https://franchise.sg/insights/${slug}`);
+    // FIXED: Formatted sharing assets cleanly to point back to the fully qualified WWW domain parameters
+    const targetUrl = encodeURIComponent(`https://www.franchise.sg/insights/${slug}`);
     const shareText = encodeURIComponent(`Critical analysis by Franchise.sg: ${insight.title}`);
 
     return (
@@ -500,7 +534,7 @@ export default async function DynamicInsightRouter({ params }: PageProps) {
             <nav className="bg-white border-b border-slate-200 py-4 px-6 sm:px-8">
                 <div className="max-w-6xl mx-auto flex items-center">
                     <Link href="/" className="text-xs font-bold uppercase tracking-wider text-teal-600 hover:text-teal-700 transition-colors">
-                        ← Back to Franchise Marketplace Directory
+                        ← Back to Franchise Singapore Directory
                     </Link>
                 </div>
             </nav>
