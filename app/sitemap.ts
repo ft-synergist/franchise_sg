@@ -34,14 +34,15 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
             .from('franchises')
             .select('slug, updated_at');
 
+        // FIXED: Formatted to broadcast the isolated /franchise/ route parameters to search networks
         const franchiseRoutes: MetadataRoute.Sitemap = (franchises || []).map((item) => ({
-            url: `${baseUrl}/insights/${item.slug}`, // Aligned directly with the active dynamic router location
+            url: `${baseUrl}/franchise/${item.slug}`,
             lastModified: item.updated_at ? new Date(item.updated_at) : new Date(),
             changeFrequency: 'weekly',
             priority: 0.8,
         }));
 
-        // 3. Fallback tracking for static local editorial articles
+        // 3. Fallback tracking for static local editorial articles (remains under /insights/)
         const staticEditorialSlugs = [
             'how-to-determine-the-best-food-franchise-to-invest-in-singapore',
             'vending-machine-franchise-analysis-singapore'
