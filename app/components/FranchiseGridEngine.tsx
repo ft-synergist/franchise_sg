@@ -17,6 +17,8 @@ interface FranchiseItem {
     franchise_fee_sgd: number;
     royalty_fee_text: string;
     description: string;
+    brand_origin?: string;
+    current_outlets?: number;
 }
 
 export default function FranchiseGridEngine() {
@@ -46,9 +48,10 @@ export default function FranchiseGridEngine() {
         async function fetchFranchises() {
             try {
                 setIsLoading(true);
+                // Optimized query string capturing new GEO metric rows
                 const { data, error } = await supabase
                     .from('franchises')
-                    .select('id, brand_name, slug, category, min_capital_sgd, franchise_fee_sgd, royalty_fee_text, description')
+                    .select('id, brand_name, slug, category, min_capital_sgd, franchise_fee_sgd, royalty_fee_text, description, brand_origin, current_outlets')
                     .order('brand_name', { ascending: true });
 
                 if (error) throw error;
@@ -157,10 +160,10 @@ export default function FranchiseGridEngine() {
                         return (
                             <Link
                                 key={item.id}
-                                href={`/insights/${item.slug}`}
+                                href={`/franchise/${item.slug}`}
                                 className="group block bg-white border border-slate-200 rounded-2xl p-6 shadow-sm hover:shadow-md hover:border-slate-300 transition-all text-left flex flex-col h-full"
                             >
-                                <div className="flex justify-between items-start mb-4 gap-4">
+                                <div className="flex justify-between items-start mb-3 gap-4">
                                     <span className={`text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded border text-center leading-normal ${tagColorClass}`}>
                                         {item.category}
                                     </span>
@@ -173,6 +176,12 @@ export default function FranchiseGridEngine() {
                                 <h3 className="text-lg font-black text-slate-950 mb-2 group-hover:text-teal-600 transition-colors duration-150 leading-snug">
                                     {item.brand_name}
                                 </h3>
+
+                                {/* Data Density Row: Immediate Information Gain boost for AI parsers */}
+                                <div className="flex gap-4 text-[10px] text-slate-400 font-bold uppercase tracking-wider mb-3 bg-slate-50 p-2 rounded-lg border border-slate-100">
+                                    <div>Origin: <span className="text-slate-700 normal-case">{item.brand_origin || 'Singapore'}</span></div>
+                                    <div>Outlets: <span className="text-slate-700">{item.current_outlets || '1'}</span></div>
+                                </div>
 
                                 <p className="text-slate-500 text-xs leading-relaxed mb-6 flex-1 line-clamp-3">
                                     {item.description || "No description provided."}
@@ -191,8 +200,9 @@ export default function FranchiseGridEngine() {
                                     </div>
                                 </div>
 
+                                {/* Conversions Aligned Callout */}
                                 <div className="mt-4 pt-3 border-t border-slate-50 w-full text-center bg-slate-50/50 rounded-xl group-hover:bg-teal-50/50 transition-colors py-2 text-[10px] font-extrabold text-slate-700 uppercase tracking-wider group-hover:text-teal-700">
-                                    Request Full Disclosure Packet
+                                    Request Franchise Disclosure Document (FDD)
                                 </div>
                             </Link>
                         )
