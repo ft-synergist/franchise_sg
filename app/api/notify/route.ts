@@ -6,24 +6,19 @@ export async function POST(request: Request) {
         const body = await request.json();
         const { type, data } = body;
 
-        // 1. Check if Phase 3 credentials are ready
         const apiKey = process.env.RESEND_API_KEY;
 
         if (!apiKey || apiKey.includes('YOUR_SECRET_API_KEY_HERE') || apiKey === '') {
             console.log(`\n==================================================`);
             console.log(`⚠️ FALLBACK LOGGING MODE ACTIVATED (Phase 3 Pending)`);
-            console.log(`Enquiry Type: ${type}`);
-            console.log(`Payload Metrics:`, JSON.stringify(data, null, 2));
             console.log(`==================================================\n`);
 
-            // Return a clean success status to prevent frontend form crashes
             return NextResponse.json({
                 success: true,
-                message: 'Lead saved to Supabase. Email skipped owing to unpopulated environment variables.'
+                message: 'Lead saved to Supabase. Email skipped.'
             });
         }
 
-        // 2. Initialize Resend safely inside the request context
         const resend = new Resend(apiKey);
         let emailSubject = '';
         let emailHtml = '';
@@ -33,7 +28,6 @@ export async function POST(request: Request) {
             emailHtml = `
                 <div style="font-family: sans-serif; padding: 20px; color: #0f172a;">
                     <h2 style="color: #0d9488; margin-bottom: 4px;">New Franchisor Profile Registered</h2>
-                    <p style="font-size: 12px; color: #64748b; margin-top: 0;">Origin Location: Directory Form Submission Layer</p>
                     <hr style="border: 0; border-top: 1px solid #e2e8f0; margin: 20px 0;" />
                     <p><strong>Brand / Corporate Name:</strong> ${data.brand_name}</p>
                     <p><strong>Singapore UEN:</strong> ${data.uen}</p>
@@ -55,7 +49,6 @@ export async function POST(request: Request) {
             emailHtml = `
                 <div style="font-family: sans-serif; padding: 20px; color: #0f172a;">
                     <h2 style="color: #2563eb; margin-bottom: 4px;">New Franchisee Lead Captured</h2>
-                    <p style="font-size: 12px; color: #64748b; margin-top: 0;">Origin Location: Inline Profile Request Component</p>
                     <hr style="border: 0; border-top: 1px solid #e2e8f0; margin: 20px 0;" />
                     <p><strong>Target Franchise Asset:</strong> ${data.brand_name}</p>
                     <p><strong>Prospective Investor Name:</strong> ${data.name}</p>
@@ -69,9 +62,9 @@ export async function POST(request: Request) {
             `;
         }
 
-        // 3. Dispatch the formatted lead directly to your executive mailbox
+        // Hardcoding 'onboarding@resend.dev' ensures delivery works immediately, bypassing the Vercel string typo
         await resend.emails.send({
-            from: process.env.NOTIFICATION_FROM_EMAIL || 'onboarding@resend.dev',
+            from: 'onboarding@resend.dev',
             to: 'fredtan@ftsynergist.com',
             subject: emailSubject,
             html: emailHtml,
