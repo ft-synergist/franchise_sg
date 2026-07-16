@@ -41,7 +41,7 @@ export default function ApplyForm() {
 
         try {
             // 1. Core transactional database insertion
-            const { error } = await supabase.from('franchise_applications').insert([
+            const { error } = await supabase.from('crm_franchise_applications').insert([
                 {
                     brand_name: formData.brand_name,
                     uen: formData.uen,

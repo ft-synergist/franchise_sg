@@ -363,7 +363,7 @@ export async function generateMetadata({ params }: PageProps) {
 
     // Execution Block 1: Handle dynamic Supabase franchise directory configurations
     const { data: franchise } = await supabase
-        .from('franchises')
+        .from('crm_franchises')
         .select('brand_name, description')
         .eq('slug', slug)
         .single();
@@ -436,7 +436,7 @@ export default async function DynamicInsightRouter({ params }: PageProps) {
 
     // Execution Sequence 1: Attempt to pull Franchise profile data from Supabase
     const { data: franchise } = await supabase
-        .from('franchises')
+        .from('crm_franchises')
         .select('*')
         .eq('slug', slug)
         .single();

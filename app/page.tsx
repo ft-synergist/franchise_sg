@@ -28,7 +28,7 @@ export const metadata = {
 export default async function FranchiseDirectoryHome() {
   // Pull production records directly from Supabase server-side for elite bot crawl visibility
   const { data: franchises, error } = await supabase
-    .from('franchises')
+    .from('crm_franchises')
     .select('*')
     .order('is_featured', { ascending: false })
     .order('brand_name', { ascending: true });

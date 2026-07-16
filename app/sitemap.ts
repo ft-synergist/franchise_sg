@@ -31,7 +31,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     try {
         // 2. Fetch Active Franchise Brand Listings dynamically from Supabase
         const { data: franchises } = await supabase
-            .from('franchises')
+            .from('crm_franchises')
             .select('slug, updated_at');
 
         // FIXED: Formatted to broadcast the isolated /franchise/ route parameters to search networks

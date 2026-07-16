@@ -36,7 +36,7 @@ export default function FddRequestForm({ brandName }: FddRequestFormProps) {
 
         try {
             // 1. Write transactional lead to Supabase
-            const { error } = await supabase.from('lead_payloads').insert([
+            const { error } = await supabase.from('crm_lead_payloads').insert([
                 {
                     brand_name: brandName,
                     investor_name: formData.name,

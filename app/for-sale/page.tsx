@@ -5,7 +5,7 @@ export const revalidate = 60;
 
 export default async function ForSaleDirectory() {
     const { data: listings, error } = await supabase
-        .from('listings_for_sale')
+        .from('crm_listings_for_sale')
         .select(`
       *,
       franchises (

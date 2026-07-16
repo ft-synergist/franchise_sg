@@ -62,7 +62,7 @@ export default async function CategoryDirectoryPage({ params }: CategoryPageProp
 
     // FIXED: Using .in() with the variant array matrix to pull every single asset node variant without omissions
     const { data: franchises, error } = await supabase
-        .from('franchises')
+        .from('crm_franchises')
         .select('*')
         .in('category', config.dbNames)
         .order('is_featured', { ascending: false })

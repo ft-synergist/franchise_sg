@@ -49,7 +49,7 @@ export default function FranchiseGridEngine() {
             try {
                 setIsLoading(true);
                 const { data, error } = await supabase
-                    .from('franchises')
+                    .from('crm_franchises')
                     .select('id, brand_name, slug, category, min_capital_sgd, franchise_fee_sgd, royalty_fee_text, description, brand_origin, current_outlets')
                     .order('brand_name', { ascending: true });
 
@@ -104,8 +104,8 @@ export default function FranchiseGridEngine() {
                                         onClick={() => setSelectedCategory(cat)}
                                         aria-pressed={isSelected}
                                         className={`px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all duration-150 border ${isSelected
-                                                ? 'bg-teal-700 border-teal-700 text-white shadow-sm'
-                                                : 'bg-slate-50 border-slate-200 text-slate-700 hover:bg-slate-100 focus:ring-2 focus:ring-slate-200'
+                                            ? 'bg-teal-700 border-teal-700 text-white shadow-sm'
+                                            : 'bg-slate-50 border-slate-200 text-slate-700 hover:bg-slate-100 focus:ring-2 focus:ring-slate-200'
                                             }`}
                                     >
                                         {cat}

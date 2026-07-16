@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: PageProps) {
     const { slug } = await params;
 
     const { data: franchise } = await supabase
-        .from('franchises')
+        .from('crm_franchises')
         .select('brand_name, description, category')
         .eq('slug', slug)
         .single();
@@ -59,7 +59,7 @@ export default async function FranchiseProfilePage({ params }: PageProps) {
 
     // Fetch unified financial parameters directly from the newly updated Supabase layer
     const { data: franchise } = await supabase
-        .from('franchises')
+        .from('crm_franchises')
         .select('*')
         .eq('slug', slug)
         .single();
