@@ -8,6 +8,8 @@ const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
 const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
 const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
+const TENANT_ID = '8e04819b-c506-4c6c-955a-473c22ee8c8b';
+
 interface FranchiseItem {
     id: string;
     brand_name: string;
@@ -51,6 +53,7 @@ export default function FranchiseGridEngine() {
                 const { data, error } = await supabase
                     .from('crm_franchises')
                     .select('id, brand_name, slug, category, min_capital_sgd, franchise_fee_sgd, royalty_fee_text, description, brand_origin, current_outlets')
+                    .eq('tenant_id', TENANT_ID)
                     .order('brand_name', { ascending: true });
 
                 if (error) throw error;
@@ -115,7 +118,7 @@ export default function FranchiseGridEngine() {
                         </div>
                     </div>
 
-                    {/* Budget Slider Box: Linked cleanly to clear Accessibility/Agentic Checks */}
+                    {/* Budget Slider Box */}
                     <div className="space-y-3 md:w-80 shrink-0 w-full">
                         <div className="flex justify-between items-center text-xs font-black text-slate-700 uppercase tracking-wider">
                             <label htmlFor="budget-range-input">Max Minimum Capital Required</label>
@@ -134,7 +137,6 @@ export default function FranchiseGridEngine() {
                                 value={maxBudget}
                                 onChange={(e) => setMaxBudget(Number(e.target.value))}
 
-                                // Agentic Tree Bindings
                                 aria-label="Filter directory listings by maximum baseline minimum investment capital required"
                                 aria-valuemin={15000}
                                 aria-valuemax={500000}
@@ -195,7 +197,6 @@ export default function FranchiseGridEngine() {
                                     {item.brand_name}
                                 </h3>
 
-                                {/* Metric Data Block */}
                                 <div className="flex gap-4 text-[10px] text-slate-600 font-black uppercase tracking-wider mb-3 bg-slate-50 p-2 rounded-lg border border-slate-100">
                                     <div>Origin: <span className="text-slate-800 normal-case">{item.brand_origin || 'Singapore'}</span></div>
                                     <div>Outlets: <span className="text-slate-800">{item.current_outlets || '1'}</span></div>
@@ -218,7 +219,6 @@ export default function FranchiseGridEngine() {
                                     </div>
                                 </div>
 
-                                {/* Conversion CTA block matching AAA specifications */}
                                 <div className="mt-4 pt-3 border-t border-slate-100 w-full text-center bg-slate-50 rounded-xl group-hover:bg-teal-50/70 transition-colors py-2.5 text-[10px] font-black text-slate-800 uppercase tracking-wider group-hover:text-teal-800">
                                     Request Franchise Disclosure Document (FDD)
                                 </div>

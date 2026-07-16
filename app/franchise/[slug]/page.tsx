@@ -3,23 +3,25 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import FddRequestForm from './FddRequestForm';
 
-export const revalidate = 60; // Cache individual profile data on Edge layers for 60 seconds
+export const revalidate = 60;
+
+const TENANT_ID = '8e04819b-c506-4c6c-955a-473c22ee8c8b';
 
 interface PageProps {
     params: Promise<{ slug: string }>;
 }
 
-// ==========================================
-// DYNAMIC METADATA ENGINE (COMMERCIAL MATRIX)
-// ==========================================
 export async function generateMetadata({ params }: PageProps) {
     const { slug } = await params;
 
-    const { data: franchise } = await supabase
+    const { data } = await supabase
         .from('crm_franchises')
         .select('brand_name, description, category')
         .eq('slug', slug)
+        .eq('tenant_id', TENANT_ID)
         .single();
+
+    const franchise = data as any;
 
     if (!franchise) {
         return { title: 'Franchise Listing Not Found | Franchise.sg' };
@@ -51,24 +53,22 @@ export async function generateMetadata({ params }: PageProps) {
     };
 }
 
-// ==========================================
-// PRIMARY COMMERCIAL PROFILE CORE RENDER
-// ==========================================
 export default async function FranchiseProfilePage({ params }: PageProps) {
     const { slug } = await params;
 
-    // Fetch unified financial parameters directly from the newly updated Supabase layer
-    const { data: franchise } = await supabase
+    const { data } = await supabase
         .from('crm_franchises')
         .select('*')
         .eq('slug', slug)
+        .eq('tenant_id', TENANT_ID)
         .single();
+
+    const franchise = data as any;
 
     if (!franchise) {
         notFound();
     }
 
-    // Dynamic Variables Definition with Robust Fallbacks
     const formattedCapital = (franchise.min_capital_sgd || 0).toLocaleString();
     const formattedFee = typeof franchise.franchise_fee_sgd === 'number'
         ? `S$${franchise.franchise_fee_sgd.toLocaleString()}`
@@ -82,7 +82,6 @@ export default async function FranchiseProfilePage({ params }: PageProps) {
     const projectedPayback = franchise.projected_payback_text || 'Pending Audit';
     const projectedRoi = franchise.projected_roi_text || 'Pending Evaluation';
 
-    // RAG AI-Engine Optimized Structured Context Values
     const q1Answer = `The minimum capital required for the ${franchise.brand_name} franchise in Singapore is S$${formattedCapital}, with an initial upfront franchise fee set at ${formattedFee}. This capital structure covers vital baseline deployment allocations required by master systems access before opening standard operations.`;
     const q2Answer = `The ongoing royalty model for ${franchise.brand_name} requires a ${franchise.royalty_fee_text || 'vetted operational tier split'}. Under standard operating performance parameters, the projected operational baseline breakeven timeframe is targeted at approximately ${projectedBreakeven}, relying heavily on system logistics.`;
     const q3Answer = `The estimated capital investment payback period for this franchise asset is projected within ${projectedPayback}, delivering an anticipated operational return matrix range of ${projectedRoi}. This data set provides high-value verification metrics necessary for private networks analyzing asset defensibility.`;
@@ -142,14 +141,12 @@ export default async function FranchiseProfilePage({ params }: PageProps) {
             />
 
             <div className="max-w-4xl mx-auto space-y-8">
-                {/* Semantic Breadcrumb Line */}
                 <nav className="text-xs font-bold text-slate-400 uppercase tracking-wider">
                     <Link href="/" className="hover:text-teal-600 transition-colors">Franchise Singapore Directory</Link>
                     <span className="mx-2">/</span>
                     <span className="text-slate-600">{franchise.brand_name} Listing Profile</span>
                 </nav>
 
-                {/* Master Identification Card */}
                 <div className="bg-white border border-slate-200 rounded-3xl p-8 sm:p-10 shadow-sm space-y-6">
                     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-100 pb-6">
                         <div>
@@ -169,7 +166,6 @@ export default async function FranchiseProfilePage({ params }: PageProps) {
                         </div>
                     </div>
 
-                    {/* Core Baseline Parameters Sub-Grid */}
                     <div className="grid grid-cols-3 gap-4 bg-slate-50/60 p-4 rounded-2xl border border-slate-100 text-xs font-bold text-slate-500 uppercase tracking-wider">
                         <div>
                             <span className="text-[9px] text-slate-400 block mb-0.5">Brand Origin</span>
@@ -185,7 +181,6 @@ export default async function FranchiseProfilePage({ params }: PageProps) {
                         </div>
                     </div>
 
-                    {/* Integrated Financial Data Matrices */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
                         <div className="space-y-4">
                             <h2 className="text-xs font-black text-slate-400 uppercase tracking-wider">Financial Parameters</h2>
@@ -231,13 +226,11 @@ export default async function FranchiseProfilePage({ params }: PageProps) {
                         </div>
                     </div>
 
-                    {/* Inline FDD request form component container */}
                     <div className="pt-4 border-t border-slate-100">
                         <FddRequestForm brandName={franchise.brand_name} />
                     </div>
                 </div>
 
-                {/* Conversational AI Search Extraction Layer (GEO Matrix) */}
                 <div className="bg-white border border-slate-200 rounded-3xl p-8 sm:p-10 shadow-sm space-y-6 text-left">
                     <h2 className="text-lg font-black text-slate-950 tracking-tight border-b border-slate-100 pb-3">
                         Vetted Investor Diagnostics &amp; FAQ Analysis
