@@ -106,7 +106,7 @@ export default function FddRequestForm({ brandName }: FddRequestFormProps) {
                     </div>
                     <div>
                         <label className="block text-[9px] font-bold uppercase tracking-wider text-slate-500 mb-1">Contact Number</label>
-                        <input type="text" name="phone" required value={formData.phone} onChange={handleChange} placeholder="+6598208601" className="w-full bg-white border border-slate-200 rounded-lg px-3 py-2 text-xs text-slate-800 focus:outline-none focus:ring-2 focus:ring-teal-500/20" />
+                        <input type="text" name="phone" required value={formData.phone} onChange={handleChange} placeholder="+659XXXXXXX" className="w-full bg-white border border-slate-200 rounded-lg px-3 py-2 text-xs text-slate-800 focus:outline-none focus:ring-2 focus:ring-teal-500/20" />
                     </div>
                 </div>
 
