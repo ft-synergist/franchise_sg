@@ -1,4 +1,5 @@
 import { supabase } from '@/lib/supabase';
+import { EDITORS } from '@/lib/editors';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 
@@ -352,6 +353,177 @@ const insightsMap: Record<string, { title: string; description: string; content:
                 </section>
             </>
         )
+    },
+    'vending-machine-illusion-singapore-franchise-lease': {
+        title: 'The $200,000 Vending Machine Illusion: What Singapore’s Retail Scandals Must Teach Franchise Buyers About Their Leases',
+        description: 'As automated retail scandals shock local investors, commercial property strategist Maggie Png breaks down the 5-point Singapore lease audit every franchisee needs before signing.',
+        content: () => {
+            const author = EDITORS['maggie-png'];
+            return (
+                <>
+                    <header className="bg-gradient-to-r from-teal-900 via-slate-950 to-slate-950 text-white py-20 px-6 border-b border-slate-800 -mx-8 sm:-mx-12 -mt-8 sm:-mt-12 mb-12 rounded-t-3xl">
+                        <div className="max-w-4xl mx-auto px-4 text-left">
+                            <div className="mb-6 inline-flex items-center gap-2 bg-teal-500/10 border border-teal-500/20 px-3 py-1 rounded-full">
+                                <span className="w-2 h-2 rounded-full bg-teal-400"></span>
+                                <span className="text-xs font-semibold text-teal-300 uppercase tracking-wider">Commercial Leasing Audit</span>
+                            </div>
+                            <div className="mb-2">
+                                <span className="text-base font-bold uppercase tracking-wider text-teal-400 block">Insights:</span>
+                            </div>
+                            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white max-w-4xl leading-tight">
+                                The $200,000 Vending Machine Illusion: What Singapore’s Retail Scandals Must Teach Franchise Buyers About Their Leases
+                            </h1>
+                            <div className="flex flex-wrap items-center gap-y-4 gap-x-8 text-xs font-semibold uppercase tracking-wider text-slate-400 border-t border-slate-800/80 mt-8 pt-6">
+                                <Link href={`/author/${author?.slug || 'maggie-png'}`} className="flex items-center gap-3 group">
+                                    <div className="w-9 h-9 rounded-xl bg-teal-700 text-white font-black text-xs flex items-center justify-center shrink-0 border border-teal-500">
+                                        {author?.initials || 'MP'}
+                                    </div>
+                                    <div>
+                                        <strong className="text-white font-bold text-sm normal-case group-hover:text-teal-300 transition-colors">{author?.name || 'Maggie Png'}</strong>
+                                        <span className="text-slate-400 font-normal normal-case"> · {author?.role || 'Commercial Property Strategist'}</span>
+                                    </div>
+                                </Link>
+                                <div className="sm:ml-auto">
+                                    <span className="text-slate-500 block text-[10px] mb-0.5">Published On</span>
+                                    <time className="text-slate-200 font-bold normal-case text-sm">31 July 2026</time>
+                                </div>
+                            </div>
+                        </div>
+                    </header>
+
+                    <section className="prose prose-slate max-w-none text-slate-800 text-lg sm:text-xl font-normal leading-relaxed space-y-8 text-left">
+                        <p className="font-bold text-slate-950 text-2xl sm:text-3xl tracking-tight leading-snug">
+                            The Devastating Gap Between Paperwork and Physical Reality in Commercial Leases
+                        </p>
+                        <p>
+                            A few years back, I had a client who nearly signed a six-figure franchise deal on a &quot;confirmed&quot; mall unit.
+                        </p>
+                        <p>
+                            &quot;Confirmed,&quot; it turned out, meant a casual WhatsApp message from the franchisor claiming the landlord was &quot;very keen.&quot; There was no executed tenancy agreement. There was no approved floor plan. There was absolutely nothing the building&apos;s own management had signed off on. We walked away. Six months later, that mall was still taking inquiries for a commercial space the franchisor had never actually secured.
+                        </p>
+                        <p>
+                            That story came rushing back to me while reading about the recent wave of automated retail and vending machine scandals rocking Singapore&apos;s investment landscape. In cases like the collapse of CloudRetail, investors allegedly lost over $200,000 after paying for investments in machines that never materialized. Similarly, the operators of Vendshare faced dozens of criminal cheating charges for allegedly deceiving individuals into paying thousands for &quot;co-ownership&quot; of coffee vending machines.
+                        </p>
+                        <div className="my-8 p-6 rounded-2xl bg-slate-50 border-l-4 border-teal-600 text-slate-900 font-bold text-xl sm:text-2xl leading-snug">
+                            Money moved. The physical asset it was supposedly buying did not.
+                        </div>
+                        <p>
+                            It is tempting to file these incidents under a &quot;vending machine problem&quot; and move on. But for prospective franchisees in 2026, that is the wrong lesson. The real lesson is about the devastating gap between paperwork and physical reality—and that exact gap shows up constantly in traditional franchise site leases, just far less dramatically.
+                        </p>
+
+                        <hr className="my-12 border-slate-200" />
+
+                        <h2 className="text-3xl font-black text-slate-950 tracking-tight mt-14 mb-4">
+                            Same Failure, Different Asset
+                        </h2>
+                        <p>
+                            Strip the vending machine scandals down to their raw mechanics, and they share a highly familiar shape: yield promises are made, capital is collected early, and absolutely no verified site is locked in before the money changes hands. Once there is no real, leasable location anchoring the business, the entire financial structure collapses.
+                        </p>
+                        <p>
+                            A traditional franchise retail unit can fail this exact same test.
+                        </p>
+                        <p>
+                            A franchisor shows you beautiful 3D renders, impressive footfall estimates, and an &quot;anticipated opening date&quot;—sometimes before a tenancy agreement is even drafted, let alone registered with the building management. You put down your franchise fee, your equipment deposit, and your fit-out budget against a location that only exists in a pitch deck.
+                        </p>
+                        <p>
+                            Nobody calls this a scam; it is usually just optimism running ahead of the paperwork. But the financial exposure to you, the franchisee, is identical.
+                        </p>
+
+                        <hr className="my-12 border-slate-200" />
+
+                        <div className="bg-slate-950 text-white rounded-3xl p-8 sm:p-10 my-10 space-y-8 shadow-xl border border-slate-800">
+                            <div>
+                                <span className="text-xs font-black uppercase tracking-wider text-teal-400 bg-teal-950 px-3 py-1 rounded-full border border-teal-800/80">
+                                    Singapore Commercial Tenancy Framework
+                                </span>
+                                <h2 className="text-2xl sm:text-3xl font-black text-white mt-4 tracking-tight">
+                                    The Strategist’s 5-Point Franchise Lease Audit
+                                </h2>
+                                <p className="text-slate-300 text-sm sm:text-base mt-2 leading-relaxed">
+                                    Since February 1, 2024, the Code of Conduct (CoC) for Leasing of Retail Premises has been mandatory in Singapore. Overseen by the Fair Tenancy Industry Committee (FTIC), this legislation leveled the playing field—if you know what to look for. Before signing any franchise agreement, demand the answers to these five questions:
+                                </p>
+                            </div>
+
+                            <div className="space-y-4 font-sans">
+                                <div className="bg-slate-900/90 border border-slate-800 rounded-2xl p-5 space-y-2">
+                                    <h3 className="text-base font-bold text-teal-400">1. Is there an actual signed tenancy agreement, or is the site still &quot;being finalized&quot;?</h3>
+                                    <p className="text-sm text-slate-300 leading-relaxed">
+                                        These are two very different legal realities, and franchisors often use them interchangeably. Ask to see the executed lease. Better yet, have your commercial property advisor confirm it directly with the landlord.
+                                    </p>
+                                </div>
+
+                                <div className="bg-slate-900/90 border border-slate-800 rounded-2xl p-5 space-y-2">
+                                    <h3 className="text-base font-bold text-teal-400">2. Does the floor area on paper match what you are paying for?</h3>
+                                    <p className="text-sm text-slate-300 leading-relaxed">
+                                        Fit-out costs are quoted per square foot. Gross Floor Area (GFA) versus Net Lettable Area (NLA) is not a technicality; it is your bottom line. Ensure it is measured or confirmed against the tenancy document. Under the CoC, landlords and tenants can only waive floor survey requirements by mutual agreement for spaces 300 square feet and below; otherwise, accept building plans.
+                                    </p>
+                                </div>
+
+                                <div className="bg-slate-900/90 border border-slate-800 rounded-2xl p-5 space-y-2">
+                                    <h3 className="text-base font-bold text-teal-400">3. Who is actually named on the Master Lease?</h3>
+                                    <p className="text-sm text-slate-300 leading-relaxed">
+                                        Are you on the lease, or is the franchisor? If it is a master lease and you are merely sub-leasing, your security of tenure rides entirely on the franchisor&apos;s relationship with the landlord, not yours. Ask exactly what happens to your shop if their master lease ends.
+                                    </p>
+                                </div>
+
+                                <div className="bg-slate-900/90 border border-slate-800 rounded-2xl p-5 space-y-2">
+                                    <h3 className="text-base font-bold text-teal-400">4. Are the exit and pre-termination clauses CoC-compliant?</h3>
+                                    <p className="text-sm text-slate-300 leading-relaxed">
+                                        Ensure the landlord is abiding by 2024 laws:
+                                        <br /><strong className="text-white">• Redevelopment:</strong> Landlords can only pre-terminate your lease for substantial redevelopment (requiring vacant possession), and they must give you no less than 6 months&apos; prior written notice and pay a compensation sum.
+                                        <br /><strong className="text-white">• Security Deposits:</strong> The CoC explicitly states that for qualifying retail premises up to 5,000 sq ft and a term of up to three years, the security deposit must not exceed three months&apos; gross rent.
+                                    </p>
+                                </div>
+
+                                <div className="bg-slate-900/90 border border-slate-800 rounded-2xl p-5 space-y-2">
+                                    <h3 className="text-base font-bold text-teal-400">5. Is the rent one clean number, or a bundled trap?</h3>
+                                    <p className="text-sm text-slate-300 leading-relaxed">
+                                        Is your rent bundled with a service charge, an Advertising &amp; Promotion (A&amp;P) levy, and GST folded in so you cannot actually see what you are paying for? Under the CoC, there must be upfront disclosure of all costs charged, and profiteering on third-party costs is strictly prohibited. Ask for every charge broken out line by line.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr className="my-12 border-slate-200" />
+
+                        <h2 className="text-3xl font-black text-slate-950 tracking-tight mt-14 mb-4">
+                            The Bottom Line for 2026 Investors
+                        </h2>
+                        <p>
+                            Landlords and building managements have become exponentially more careful about who they let into their spaces, partly due to the exact reputational fallout hitting the automated retail sector.
+                        </p>
+                        <p>
+                            This works in your favor. Most serious, institutional landlords have absolutely no problem letting a franchisee&apos;s own advisor verify lease terms directly. If a franchisor aggressively pushes back on that transparency, take it as critical information.
+                        </p>
+                        <p>
+                            The vending machine scandal isn&apos;t really about machines. It is about what happens when capital gets ahead of something you can walk up to, touch, and legally verify. A franchise site deserves the exact same test.
+                        </p>
+                        <p className="font-bold text-slate-950 text-2xl tracking-tight pt-2">
+                            Go see the lease, not just the pitch deck.
+                        </p>
+
+                        <div className="mt-12 p-6 bg-teal-50 border border-teal-200 rounded-2xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 font-sans text-sm">
+                            <div className="flex items-center gap-4">
+                                <div className="w-12 h-12 rounded-xl bg-teal-700 text-white font-black text-sm flex items-center justify-center shrink-0">
+                                    {author?.initials || 'MP'}
+                                </div>
+                                <div>
+                                    <h3 className="font-bold text-slate-950">{author?.name || 'Maggie Png'}</h3>
+                                    <p className="text-xs font-semibold text-teal-800">{author?.role || 'Commercial Property Strategist'}</p>
+                                    <p className="text-xs text-slate-600 mt-0.5">{author?.bio}</p>
+                                </div>
+                            </div>
+                            <Link
+                                href={`/author/${author?.slug || 'maggie-png'}`}
+                                className="text-xs font-black text-teal-800 underline underline-offset-2 shrink-0 hover:text-teal-900"
+                            >
+                                View Analyst Profile →
+                            </Link>
+                        </div>
+                    </section>
+                </>
+            );
+        }
     }
 };
 
@@ -474,7 +646,7 @@ export default async function DynamicInsightRouter({ params }: PageProps) {
                             </div>
                         </div>
 
-                        {/* Financial Disclosure Breakdowns - Swapped container heading nodes to H2 to preserve structural consistency */}
+                        {/* Financial Disclosure Breakdowns */}
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
                             <div className="space-y-4">
                                 <h2 className="text-xs font-black text-slate-400 uppercase tracking-wider">Financial Parameters</h2>
@@ -525,7 +697,7 @@ export default async function DynamicInsightRouter({ params }: PageProps) {
         notFound();
     }
 
-    // FIXED: Formatted sharing assets cleanly to point back to the fully qualified WWW domain parameters
+    // Formatted sharing assets cleanly to point back to the fully qualified WWW domain parameters
     const targetUrl = encodeURIComponent(`https://www.franchise.sg/insights/${slug}`);
     const shareText = encodeURIComponent(`Critical analysis by Franchise.sg: ${insight.title}`);
 

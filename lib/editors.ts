@@ -18,16 +18,13 @@ export const EDITORS: Record<string, Editor> = {
         initials: 'CYL',
         specialties: ['Singapore F&B Unit Economics', 'FDD Disclosures', 'Commercial Lease Negotiation']
     },
-    // Future editors can be added here easily:
-    /*
-    'sarah-tan': {
-      slug: 'sarah-tan',
-      name: 'Sarah Tan',
-      role: 'Senior Analyst',
-      vertical: 'Education & Children Services',
-      bio: 'Specializes in enrichment center operations, licensing frameworks, and preschool franchise valuations in Singapore.',
-      initials: 'ST',
-      specialties: ['Enrichment Franchises', 'MOE Regulatory Alignment', 'Sub-licensing Models']
+    'maggie-png': {
+        slug: 'maggie-png',
+        name: 'Maggie Png',
+        role: 'Commercial Property Strategist',
+        vertical: 'Retail Leasing & Commercial Tenancy Law',
+        bio: 'Maggie Png is a Commercial Property Strategist based in Singapore, advising business owners, investors, and franchisees on office, industrial, retail, and shophouse leasing and acquisition decisions.',
+        initials: 'MP',
+        specialties: ['Singapore Retail Leasing', 'CoC Tenancy Compliance', 'GFA vs NLA Lease Audits', 'Commercial Site Acquisition']
     }
-    */
 };
