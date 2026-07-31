@@ -1,137 +1,128 @@
+import React from 'react';
 import Link from 'next/link';
+import { Metadata } from 'next';
 
-export const metadata = {
-    title: 'Franchise Insights | Franchise Singapore Market Analysis',
-    description: 'Deep dive into verified Franchise Insights. Analyze initial setup fees, franchise opportunities, industry trends, and operational costs across Singapore.',
-    alternates: {
-        canonical: 'https://www.franchise.sg/insights',
-    },
-    openGraph: {
-        title: 'Franchise Insights | Franchise Singapore Market Analysis',
-        description: 'Deep dive into verified Franchise Insights. Analyze initial setup fees, franchise opportunities, industry trends, and operational costs across Singapore.',
-        url: 'https://www.franchise.sg/insights',
-        type: 'website',
-    },
-    twitter: {
-        card: 'summary_large_image',
-        title: 'Franchise Insights | Franchise Singapore Market Analysis',
-        description: 'Deep dive into verified Franchise Insights. Analyze initial setup fees, franchise opportunities, industry trends, and operational costs across Singapore.',
-    }
+export const metadata: Metadata = {
+    title: 'Franchise Market Insights & Intelligence | Franchise.sg',
+    description: 'Data-driven analysis, unit economics, and regulatory compliance reports for Singapore franchise investors.',
 };
 
-// Mirroring the exact active Supabase table rows from the live database
-const articles = [
+const ARTICLES = [
     {
-        title: 'How to Determine the Best F&B Franchise to Invest in Singapore: The Evolution of Singapore F&B Franchise (1968–2026)',
-        slug: 'how-to-determine-the-best-food-franchise-to-invest-in-singapore',
-        excerpt: 'Why are F&B operations in Singapore uniquely resilient? Discover what makes a profitable food franchise opportunity. An unfiltered, data-backed analysis of historical fast-food evolution, rental asymmetries, and top homegrown SG brands.',
-        category: 'Market Strategy',
-        author: 'Chen Yong Lin',
-        role: 'Editor',
-        date: 'July 14, 2026'
+        slug: 'vending-machine-illusion-singapore-franchise-lease',
+        title: 'The $200,000 Vending Machine Illusion: What Singapore’s Retail Scandals Must Teach Franchise Buyers About Their Leases',
+        description: 'As automated retail scandals shock local investors, commercial property strategist Maggie Png breaks down the 5-point Singapore lease audit every franchisee needs before signing.',
+        category: 'Commercial Leasing Audit',
+        categoryColor: 'bg-teal-50 text-teal-700 border-teal-200',
+        date: 'July 31, 2026',
+        authorName: 'Maggie Png',
+        authorRole: 'Commercial Property Strategist',
+        authorSlug: 'maggie-png',
     },
     {
-        title: 'Vending Machine Franchise Scam Alert: The Reality Behind "Hands-Off Passive Income" in Singapore',
+        slug: 'how-to-determine-the-best-food-franchise-to-invest-in-singapore',
+        title: 'How to Determine the Best F&B Franchise to Invest in Singapore: The Evolution of Singapore F&B Franchise (1968–2026)',
+        description: 'Why are F&B operations in Singapore uniquely resilient? Discover what makes a profitable food franchise opportunity. An unfiltered, data-backed analysis of historical fast-food evolution, rental asymmetries, and top homegrown SG brands.',
+        category: 'Market Strategy',
+        categoryColor: 'bg-teal-50 text-teal-700 border-teal-200',
+        date: 'July 14, 2026',
+        authorName: 'Chen Yong Lin',
+        authorRole: 'Editor, Franchise.sg',
+        authorSlug: 'chen-yong-lin',
+    },
+    {
         slug: 'vending-machine-franchise-analysis-singapore',
-        excerpt: 'The promise of 30% passive ROI has collapsed under real criminal court charges in Singapore. Read our hard hitting article on real equipment setup fees, empty location tricks, and how to verify actual unit economics before you lose your capital.',
+        title: 'Vending Machine Franchise Scam Alert: The Reality Behind "Hands-Off Passive Income" in Singapore',
+        description: 'The promise of 30% passive ROI has collapsed under real criminal court charges in Singapore. Read our hard hitting article on real equipment setup fees, empty location tricks, and how to verify actual unit economics before you lose your capital.',
         category: 'Franchise Scam Alert',
-        author: 'Chen Yong Lin',
-        role: 'Editor',
-        date: 'July 12, 2026'
+        categoryColor: 'bg-rose-50 text-rose-700 border-rose-200',
+        date: 'July 12, 2026',
+        authorName: 'Chen Yong Lin',
+        authorRole: 'Editor, Franchise.sg',
+        authorSlug: 'chen-yong-lin',
     }
 ];
 
-export default function InsightsHubPage() {
+export default function InsightsPage() {
     return (
-        <div className="min-h-screen bg-slate-50/60 text-slate-900 antialiased font-sans w-full text-left">
+        <main className="w-full bg-slate-50 min-h-screen pb-20 font-sans antialiased text-slate-900">
 
-            {/* Header Block */}
-            <header className="bg-gradient-to-r from-teal-900 via-slate-950 to-slate-950 text-white py-20 px-6 border-b border-slate-800">
-                <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-left">
-
-                    <div className="mb-6 inline-flex items-center gap-2 bg-teal-500/10 border border-teal-500/20 px-3 py-1 rounded-full">
-                        <span className="w-2 h-2 rounded-full bg-teal-400"></span>
-                        <span className="text-xs font-semibold text-teal-300 uppercase tracking-wider">Singapore Franchise Portal</span>
-                    </div>
-
-                    <h1 className="text-4xl sm:text-5xl font-black tracking-tight text-white max-w-4xl leading-tight">
-                        Franchise Insights
+            {/* Header Banner */}
+            <section className="bg-slate-950 text-white py-14 px-4 sm:px-6 lg:px-8 border-b border-slate-800">
+                <div className="max-w-6xl mx-auto space-y-4">
+                    <Link
+                        href="/"
+                        className="text-xs font-black uppercase tracking-wider text-teal-400 hover:text-teal-300 transition-colors inline-block"
+                    >
+                        ← Return to Franchise Singapore Directory
+                    </Link>
+                    <h1 className="text-3xl sm:text-4xl font-black text-white">
+                        Franchise Market Insights & Intelligence
                     </h1>
-
-                    <p className="text-slate-300 mt-4 text-base sm:text-lg max-w-3xl font-normal leading-relaxed">
-                        Don&apos;t sign a franchise agreement blindly. We break down the real data and numbers investors care about: franchise trends and growth, initial setup fees, ongoing royalties, hidden operational costs, projected breakeven timelines, and transparent EBITDA margins across Singapore and Asia Region.
+                    <p className="text-slate-400 text-sm max-w-2xl leading-relaxed">
+                        Data-backed analysis, commercial tenancy audits, and unit economic teardowns for Singapore franchise investors and brand operators.
                     </p>
-
-                    {/* Return Navigation Anchor - Optimized with strict semantic keyword internal anchor text */}
-                    <div className="mt-6">
-                        <Link
-                            href="/"
-                            className="inline-flex items-center justify-center text-xs font-bold uppercase tracking-wider text-teal-400 hover:text-teal-300 transition-colors"
-                        >
-                            ← Return to Franchise Singapore Directory
-                        </Link>
-                    </div>
                 </div>
-            </header>
+            </section>
 
-            {/* Main Listing Layout */}
-            <main className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-
-                {/* Structural H2 injected to fix heading level hierarchy and anchor semantic search density */}
-                <h2 className="text-2xl font-extrabold text-slate-950 tracking-tight mb-8 text-left">
+            {/* Articles Grid Section */}
+            <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 space-y-8">
+                <h2 className="text-2xl font-black text-slate-950">
                     Latest Franchise Trends & Market Reports
                 </h2>
 
-                {/* Dynamic Card Layout Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    {articles.map((article) => (
-                        <article
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {ARTICLES.map((article) => (
+                        <div
                             key={article.slug}
-                            className="bg-white border border-slate-200 rounded-2xl p-6 flex flex-col transition-all shadow-sm hover:shadow-md hover:border-slate-300"
+                            className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm flex flex-col justify-between hover:border-slate-300 transition-all"
                         >
-                            <div className="flex justify-between items-start mb-4">
-                                <span className={`text-xs font-bold uppercase tracking-wider px-2.5 py-1 rounded-md ${article.category === 'Franchise Scam Alert'
-                                    ? 'text-rose-600 bg-rose-50'
-                                    : 'text-teal-600 bg-teal-50'
-                                    }`}>
-                                    {article.category}
-                                </span>
-                                <span className="text-[10px] font-extrabold bg-slate-100 text-slate-600 px-2 py-0.5 rounded uppercase tracking-wider">
-                                    {article.date}
-                                </span>
+                            <div className="space-y-4">
+                                <div className="flex items-center justify-between">
+                                    <span className={`text-[10px] font-black uppercase tracking-wider px-2.5 py-1 rounded-full border ${article.categoryColor}`}>
+                                        {article.category}
+                                    </span>
+                                    <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">
+                                        {article.date}
+                                    </span>
+                                </div>
+
+                                <h3 className="text-lg font-black text-slate-950 leading-snug">
+                                    <Link href={`/insights/${article.slug}`} className="hover:text-teal-700 transition-colors">
+                                        {article.title}
+                                    </Link>
+                                </h3>
+
+                                <p className="text-slate-600 text-xs leading-relaxed line-clamp-4">
+                                    {article.description}
+                                </p>
                             </div>
 
-                            <Link href={`/insights/${article.slug}`} className="block group flex-1">
-                                <h3 className="text-xl font-black text-slate-950 mt-1 mb-2 group-hover:text-teal-600 transition-colors leading-snug">
-                                    {article.title}
-                                </h3>
-                                <p className="text-slate-600 text-sm leading-relaxed mb-6 line-clamp-4">
-                                    {article.excerpt}
-                                </p>
-                            </Link>
-
-                            {/* Clean, Grounded Contributor Box */}
-                            <div className="mt-4 border-t border-slate-100 pt-4 flex flex-col gap-2">
-                                <div className="bg-slate-50/80 p-3 rounded-xl flex flex-col">
-                                    <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Contributor</span>
-                                    <span className="font-bold text-slate-800 text-xs mt-0.5">
-                                        {article.author} <span className="font-normal text-slate-500">· {article.role}, Franchise.sg</span>
+                            <div className="pt-6 mt-6 border-t border-slate-100 space-y-4">
+                                <div className="bg-slate-50 rounded-xl p-3">
+                                    <span className="text-[9px] font-black uppercase tracking-wider text-slate-400 block mb-0.5">
+                                        Contributor
                                     </span>
+                                    <Link
+                                        href={`/author/${article.authorSlug}`}
+                                        className="text-xs font-bold text-slate-900 hover:text-teal-700 transition-colors"
+                                    >
+                                        {article.authorName} <span className="text-slate-500 font-normal">· {article.authorRole}</span>
+                                    </Link>
                                 </div>
 
                                 <Link
                                     href={`/insights/${article.slug}`}
-                                    className="w-full text-center mt-2 border border-slate-200 bg-white hover:bg-slate-50 text-slate-800 font-bold py-2.5 px-4 rounded-xl text-xs transition-colors block"
+                                    className="w-full text-center block bg-slate-100 hover:bg-slate-200 text-slate-900 text-xs font-black py-2.5 rounded-xl transition-colors"
                                 >
-                                    Read Full Article
+                                    Read Full Article →
                                 </Link>
                             </div>
-
-                        </article>
+                        </div>
                     ))}
                 </div>
-            </main>
+            </section>
 
-        </div>
+        </main>
     );
 }
