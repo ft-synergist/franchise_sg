@@ -4,8 +4,21 @@ import { notFound } from 'next/navigation';
 import { EDITORS } from '@/lib/editors';
 import { Metadata } from 'next';
 
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
-    const editor = EDITORS[params.slug];
+type Props = {
+    params: Promise<{ slug: string }> | { slug: string };
+};
+
+// 1. Pre-render author pages at build time for Vercel
+export async function generateStaticParams() {
+    return Object.keys(EDITORS).map((slug) => ({
+        slug,
+    }));
+}
+
+// 2. Dynamic Metadata Generator
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+    const resolvedParams = await params;
+    const editor = EDITORS[resolvedParams.slug];
     if (!editor) return {};
 
     return {
@@ -14,8 +27,10 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     };
 }
 
-export default function AuthorProfilePage({ params }: { params: { slug: string } }) {
-    const editor = EDITORS[params.slug];
+// 3. Main Async Author Profile Page Component
+export default async function AuthorProfilePage({ params }: Props) {
+    const resolvedParams = await params;
+    const editor = EDITORS[resolvedParams.slug];
 
     if (!editor) {
         notFound();
@@ -40,12 +55,14 @@ export default function AuthorProfilePage({ params }: { params: { slug: string }
     };
 
     return (
-        <main className="w-full bg-slate-50 min-h-screen text-slate-900 pb-20">
+        <main className="w-full bg-slate-50 min-h-screen text-slate-900 pb-20 font-sans antialiased">
+            {/* Author Schema */}
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
             />
 
+            {/* Header Banner */}
             <section className="bg-slate-950 text-white py-14 px-4 sm:px-6 lg:px-8 border-b border-slate-800">
                 <div className="max-w-4xl mx-auto space-y-6">
                     <Link
@@ -68,6 +85,7 @@ export default function AuthorProfilePage({ params }: { params: { slug: string }
                 </div>
             </section>
 
+            {/* Profile Details */}
             <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 space-y-6">
                 <div className="bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 shadow-sm space-y-3">
                     <h2 className="text-xs font-black uppercase tracking-wider text-slate-600">About the Analyst</h2>
