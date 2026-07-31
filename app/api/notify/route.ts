@@ -6,6 +6,38 @@ export async function POST(request: Request) {
         const body = await request.json();
         const { type, data } = body;
 
+        // ==================================================
+        // 🔄 CRM ENGINE INGESTION LAYER (BACKGROUND PUSH)
+        // ==================================================
+        try {
+            // Points to your local instance tunnel by default. Change in production environment settings.
+            const crmUrl = process.env.NEXT_PUBLIC_CRM_URL || 'http://localhost:3000/api/ingest';
+
+            // Map the inbound fields cleanly to your unified crm_leads dataset parameters
+            const crmPayload = {
+                tenant_id: '8e04819b-c506-4c6c-955a-473c22ee8c8b',
+                name: type === 'franchisor_application' ? data.contact_name : data.name,
+                email: type === 'franchisor_application' ? data.contact_email : data.email,
+                phone: type === 'franchisor_application' ? 'Not Provided' : data.phone,
+                web_source: 'franchise.sg',
+                pipeline_stage: 'lead_prospect',
+                status: 'new'
+            };
+
+            // Fire and forget: background execution ensures web traffic speed remains fast
+            fetch(crmUrl, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(crmPayload)
+            }).catch(err => console.error('Background CRM routing network error:', err));
+
+        } catch (crmError) {
+            console.error('CRM Integration Pipeline Error:', crmError);
+        }
+
+        // ==================================================
+        // 📧 ORIGINAL EMAIL BACKUP DISPATCH LOGIC
+        // ==================================================
         const apiKey = process.env.RESEND_API_KEY;
 
         if (!apiKey || apiKey.includes('YOUR_SECRET_API_KEY_HERE') || apiKey === '') {
@@ -15,7 +47,7 @@ export async function POST(request: Request) {
 
             return NextResponse.json({
                 success: true,
-                message: 'Lead saved to Supabase. Email skipped.'
+                message: 'Lead saved to Supabase & CRM routed. Email skipped.'
             });
         }
 
@@ -62,7 +94,6 @@ export async function POST(request: Request) {
             `;
         }
 
-        // Hardcoding 'onboarding@resend.dev' ensures delivery works immediately, bypassing the Vercel string typo
         await resend.emails.send({
             from: 'onboarding@resend.dev',
             to: 'fredtan@ftsynergist.com',
