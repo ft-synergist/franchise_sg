@@ -18,7 +18,19 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
             url: `${baseUrl}/insights`,
             lastModified: new Date(),
             changeFrequency: 'daily',
+            priority: 0.9,
+        },
+        {
+            url: `${baseUrl}/for-sale`,
+            lastModified: new Date(),
+            changeFrequency: 'daily',
             priority: 0.8,
+        },
+        {
+            url: `${baseUrl}/editors`,
+            lastModified: new Date(),
+            changeFrequency: 'monthly',
+            priority: 0.6,
         },
         {
             url: `${baseUrl}/apply`,
@@ -26,7 +38,35 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
             changeFrequency: 'monthly',
             priority: 0.5,
         },
+        {
+            url: `${baseUrl}/author/chen-yong-lin`,
+            lastModified: new Date(),
+            changeFrequency: 'weekly',
+            priority: 0.7,
+        },
+        {
+            url: `${baseUrl}/author/maggie-png`,
+            lastModified: new Date(),
+            changeFrequency: 'weekly',
+            priority: 0.7,
+        },
     ];
+
+    // Core Categories
+    const categorySlugs = [
+        'food-beverage',
+        'education',
+        'retail',
+        'beauty-wellness',
+        'services',
+    ];
+
+    const categoryRoutes: MetadataRoute.Sitemap = categorySlugs.map((slug) => ({
+        url: `${baseUrl}/categories/${slug}`,
+        lastModified: new Date(),
+        changeFrequency: 'weekly',
+        priority: 0.7,
+    }));
 
     try {
         // 2. Fetch Active Franchise Brand Listings dynamically from Supabase
@@ -34,7 +74,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
             .from('crm_franchises')
             .select('slug, updated_at');
 
-        // FIXED: Formatted to broadcast the isolated /franchise/ route parameters to search networks
         const franchiseRoutes: MetadataRoute.Sitemap = (franchises || []).map((item) => ({
             url: `${baseUrl}/franchise/${item.slug}`,
             lastModified: item.updated_at ? new Date(item.updated_at) : new Date(),
@@ -42,20 +81,22 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
             priority: 0.8,
         }));
 
-        // 3. Fallback tracking for static local editorial articles (remains under /insights/)
+        // 3. Editorial articles tracking (under /insights/)
         const staticEditorialSlugs = [
+            'foot-traffic-lies-predicts-franchise-unit-survival-singapore',
             'how-to-determine-the-best-food-franchise-to-invest-in-singapore',
-            'vending-machine-franchise-analysis-singapore'
+            'vending-machine-franchise-analysis-singapore',
+            'vending-machine-illusion-singapore-franchise-lease'
         ];
 
         const editorialRoutes: MetadataRoute.Sitemap = staticEditorialSlugs.map((slug) => ({
             url: `${baseUrl}/insights/${slug}`,
             lastModified: new Date(),
             changeFrequency: 'weekly',
-            priority: 0.7,
+            priority: 0.8,
         }));
 
-        return [...staticRoutes, ...franchiseRoutes, ...editorialRoutes];
+        return [...staticRoutes, ...categoryRoutes, ...franchiseRoutes, ...editorialRoutes];
     } catch (error) {
         console.error('Dynamic sitemap sync engine failure:', error);
         return staticRoutes;

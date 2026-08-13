@@ -3,7 +3,7 @@ import { EDITORS } from '@/lib/editors';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 
-export const revalidate = 60;
+export const revalidate = 0;
 
 interface PageProps {
     params: Promise<{ slug: string }>;
@@ -13,6 +13,157 @@ interface PageProps {
 // ARTICLE DATA ARCHITECTURE
 // ==========================================
 const insightsMap: Record<string, { title: string; description: string; content: () => React.JSX.Element }> = {
+    'foot-traffic-lies-predicts-franchise-unit-survival-singapore': {
+        title: "Foot Traffic Lies. Here's What Actually Predicts a Franchise Unit's Survival",
+        description: "Every leasing pitch in Singapore comes with footfall numbers, yet high-profile F&B units fail within years. Commercial Property Strategist Maggie Png exposes why raw foot traffic lies and reveals the true predictors of 5-year unit survival.",
+        content: () => (
+            <>
+                <header className="bg-gradient-to-r from-teal-900 via-slate-950 to-slate-950 text-white py-20 px-6 border-b border-slate-800 -mx-8 sm:-mx-12 -mt-8 sm:-mt-12 mb-12 rounded-t-3xl">
+                    <div className="max-w-4xl mx-auto px-4 text-left">
+                        <div className="mb-6 inline-flex items-center gap-2 bg-teal-500/10 border border-teal-500/20 px-3 py-1 rounded-full">
+                            <span className="w-2 h-2 rounded-full bg-teal-400"></span>
+                            <span className="text-xs font-semibold text-teal-300 uppercase tracking-wider">Commercial Leasing Strategy</span>
+                        </div>
+                        <div className="mb-2">
+                            <span className="text-base font-bold uppercase tracking-wider text-teal-400 block">Insights:</span>
+                        </div>
+                        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white max-w-4xl leading-tight">
+                            Foot Traffic Lies. Here&apos;s What Actually Predicts a Franchise Unit&apos;s Survival
+                        </h1>
+                        <div className="flex flex-wrap items-center gap-y-4 gap-x-8 text-xs font-semibold uppercase tracking-wider text-slate-400 border-t border-slate-800/80 mt-8 pt-6">
+                            <div>
+                                <strong className="text-white font-bold text-sm normal-case">
+                                    <Link href="/author/maggie-png" className="hover:text-teal-400 transition-colors">Maggie Png</Link>
+                                </strong>
+                                <span className="text-slate-400 font-normal normal-case"> · Commercial Property Strategist</span>
+                            </div>
+                            <div className="sm:ml-auto">
+                                <span className="text-slate-500 block text-[10px] mb-0.5">Published On</span>
+                                <time className="text-slate-200 font-bold normal-case text-sm">13 August 2026</time>
+                            </div>
+                        </div>
+                    </div>
+                </header>
+
+                <section className="prose prose-slate max-w-none text-slate-800 text-lg sm:text-xl font-normal leading-relaxed space-y-8 text-left">
+                    <p className="font-bold text-slate-950 text-2xl sm:text-3xl tracking-tight leading-snug">
+                        The Mall Footfall Trap: Why 50,000 Visitors a Day Won&apos;t Save Your Franchise Unit
+                    </p>
+
+                    <p>
+                        Every leasing pitch in Singapore comes with a number. <em>&quot;This mall sees 50,000 visitors a day.&quot;</em> <em>&quot;This MRT exit has the highest footfall on the line.&quot;</em> Franchisors love this number, landlords love this number, and it is, on its own, almost useless for predicting whether your unit survives.
+                    </p>
+
+                    <p>
+                        Here&apos;s why. Singapore&apos;s Food Agency data shows the total number of licensed food establishments has stayed roughly flat even as closures have sped up — meaning new outlets are replacing failed ones at almost the same pace they die. F&amp;B businesses shut down in Singapore at the fastest rate in close to twenty years recently, with over three thousand establishments closing in a single year and well over a thousand more gone within the first six months of the next.
+                    </p>
+
+                    <p>
+                        Some of the names on that list were not struggling unknowns. Michelin-listed restaurants with a decade of history closed. A brand that once had queues down the block was gone within a few years of opening. Fame, acclaim, and yes, plenty of foot traffic, were not enough to keep the lights on.
+                    </p>
+
+                    <hr className="my-12 border-slate-200" />
+
+                    <h2 className="text-3xl font-black text-slate-950 tracking-tight mt-14 mb-4">
+                        The Pattern Almost Every Failed Franchise Shares
+                    </h2>
+
+                    <p>
+                        There&apos;s a shape to how F&amp;B units die in Singapore, and once you&apos;ve seen it a few times you start recognising it everywhere.
+                    </p>
+
+                    <div className="bg-slate-950 text-slate-200 p-6 rounded-2xl font-mono text-xs my-6 border border-slate-800 space-y-3 max-w-2xl mx-auto">
+                        <div className="flex items-center gap-3 text-teal-400 font-bold">
+                            <span>Months 1–3 (The Novelty Spike):</span>
+                        </div>
+                        <p className="text-slate-300 pl-4">Queues around the block, strong top-line revenue driven by novelty &amp; social buzz.</p>
+                        <div className="text-slate-600 pl-4">│</div>
+                        <div className="flex items-center gap-3 text-amber-400 font-bold">
+                            <span>Months 4–12 (The Reality Drop):</span>
+                        </div>
+                        <p className="text-slate-300 pl-4">First-time visitors dry up. Repeat-visit rate fails to materialize. Cash flow turns quiet negative.</p>
+                        <div className="text-slate-600 pl-4">│</div>
+                        <div className="flex items-center gap-3 text-rose-400 font-bold">
+                            <span>Buffer Depletion &amp; Shutdown:</span>
+                        </div>
+                        <p className="text-slate-300 pl-4">Unit burns through initial capital runway. Shutdown occurs before Year 5 lease renewal.</p>
+                    </div>
+
+                    <p>
+                        A unit opens. The first quarter is strong — genuinely strong, queues and all — because novelty does real work in a market this dense with food options. Then months four through twelve happen, and this is where the truth comes out: <strong>do the people who tried it once actually come back?</strong>
+                    </p>
+
+                    <p>
+                        For a large share of failed outlets, the answer is no. Traffic looks fine on the surface because new people keep discovering the place for the first time, but the repeat-visit rate never builds, the economics quietly go negative, and the business survives on its opening capital buffer until that buffer runs out. By the time the owner notices the trend, there usually isn&apos;t enough runway left to fix it.
+                    </p>
+
+                    <p>
+                        Among F&amp;B outlets that closed before reaching five years in Singapore, the overwhelming majority never turned a profit at all. Not a bad year. Never. That&apos;s not a story about bad luck or a slow month. That&apos;s a story about a location and concept that never generated the one thing that actually matters: <strong>people who come back on their own, without a promotion, without novelty, just because it&apos;s part of their week now.</strong>
+                    </p>
+
+                    <hr className="my-12 border-slate-200" />
+
+                    <h2 className="text-3xl font-black text-slate-950 tracking-tight mt-14 mb-4">
+                        What Repeat-Visit Potential Actually Looks Like (Before You Sign)
+                    </h2>
+
+                    <p>
+                        You cannot get this number from a landlord&apos;s footfall report, because footfall reports count bodies, not behavior. What you can do instead, before committing to any unit, is spend real time in the location and watch for the signals that predict habitual return rather than one-time curiosity:
+                    </p>
+
+                    <div className="space-y-6 my-8">
+                        <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm space-y-2">
+                            <h3 className="text-xl font-bold text-slate-950">1. Look for Anchors of Habitual Rhythm</h3>
+                            <p className="text-slate-700 text-base">
+                                Look at who else in the immediate vicinity gets repeat business, not just visits. A clinic, a hair salon, a bank branch, a supermarket — these generate scheduled, recurring foot traffic from people who are there for a reason unrelated to novelty. A unit near several of these inherits some of that habitual rhythm. A unit surrounded only by other F&amp;B and fashion retail is competing purely on novelty appeal, which is exactly the trap that catches most failed concepts.
+                            </p>
+                        </div>
+
+                        <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm space-y-2">
+                            <h3 className="text-xl font-bold text-slate-950">2. Measure Behavioral Stickiness, Not Passersby</h3>
+                            <p className="text-slate-700 text-base">
+                                Watch how long people actually linger, and whether the same faces show up across different visits to the location, not just your specific unit. If you can spend two afternoons in a spot and start recognising repeat faces in the general area, that&apos;s a location with real behavioral stickiness. If every face is new every time, you&apos;re looking at a location that runs entirely on first impressions, and first impressions alone have never sustained a five-year lease.
+                            </p>
+                        </div>
+
+                        <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm space-y-2">
+                            <h3 className="text-xl font-bold text-slate-950">3. The Ordinary Tuesday Test</h3>
+                            <p className="text-slate-700 text-base">
+                                Check whether the location gives people a reason to be there even on an ordinary, unremarkable Tuesday. Singapore&apos;s dining culture is dense enough that people will try almost anything once out of curiosity. What determines survival is whether they had a reason to come back on a Tuesday when there was no special occasion, no new menu item, nothing to post about — just an ordinary day where your shop happened to be the easy, obvious choice.
+                            </p>
+                        </div>
+                    </div>
+
+                    <p className="font-bold text-slate-950 text-xl tracking-tight">
+                        None of this shows up in a footfall count. All of it shows up if you&apos;re willing to sit in a location for a few afternoons before you sign anything, watching not how many people pass by, but how many of them look like they&apos;ve been there before.
+                    </p>
+
+                    <hr className="my-12 border-slate-200" />
+
+                    {/* Author Bio Box */}
+                    <div className="bg-slate-950 text-white rounded-2xl p-8 my-8 space-y-4">
+                        <div className="flex items-center gap-4">
+                            <div className="w-12 h-12 rounded-full bg-teal-500/20 border border-teal-500/40 flex items-center justify-center font-bold text-teal-300 text-lg">
+                                MP
+                            </div>
+                            <div>
+                                <h4 className="text-lg font-bold text-white">Maggie Png</h4>
+                                <p className="text-xs text-teal-400 font-semibold uppercase tracking-wider">Commercial Property Strategist</p>
+                            </div>
+                        </div>
+                        <p className="text-slate-300 text-sm leading-relaxed">
+                            Maggie Png is a Commercial Property Strategist based in Singapore, advising businesses on site selection, lease negotiation, and long-term property strategy.
+                        </p>
+                        <div className="pt-2">
+                            <Link href="/author/maggie-png" className="text-xs font-bold text-teal-400 hover:text-teal-300 underline">
+                                View All Commercial Property Audits by Maggie Png →
+                            </Link>
+                        </div>
+                    </div>
+                </section>
+            </>
+        )
+    },
     'how-to-determine-the-best-food-franchise-to-invest-in-singapore': {
         title: 'How to Determine the Best F&B Franchise to Invest in Singapore: The Evolution of Singapore F&B Franchise (1968–2026)',
         description: 'Discover what makes a resilient food franchise opportunity in Singapore. An unfiltered analysis of historical fast-food evolution, rental traps, and navigating the manpower squeeze.',

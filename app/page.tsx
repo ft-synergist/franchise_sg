@@ -65,9 +65,40 @@ export default async function FranchiseDirectoryHome() {
             }
           })) || []
         }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://www.franchise.sg/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How much does it cost to buy a franchise in Singapore?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Franchise investment costs in Singapore typically range from S$30,000 for low-overhead kiosk or service models up to S$500,000+ for prime F&B restaurant concepts. Key capital items include initial franchise fees, renovation, rental deposits, and operational runway."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What are the best franchise opportunities in Singapore?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Top resilient franchise sectors in Singapore include Food & Beverage (F&B), Early Childhood Education & Enrichment, Beauty & Wellness, and Specialty Retail. Look for concepts with central kitchen supply chains and low labor dependency."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do I evaluate verified franchise listings in Singapore?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Franchise.sg provides a verified directory of active Singapore franchise opportunities, listing capital requirements, initial fees, royalty percentages, and in-depth expert advisory insights."
+            }
+          }
+        ]
       }
     ]
   };
+
 
   return (
     <div className="min-h-screen bg-slate-50/60 text-slate-900 antialiased font-sans w-full text-left">

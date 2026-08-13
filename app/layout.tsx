@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Footer from "./components/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -55,6 +56,37 @@ export const metadata: Metadata = {
   }
 };
 
+const publisherSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://www.franchise.sg/#website",
+      "name": "Franchise SG",
+      "url": "https://www.franchise.sg/",
+      "description": "Singapore's Premier Franchise & Master Licensing Portal.",
+      "publisher": {
+        "@type": "Organization",
+        "name": "FT Synergist Advisory",
+        "url": "https://www.ftsynergist.com/",
+        "sameAs": [
+          "https://www.ftsynergist.com/franchise-consultant",
+          "https://ipgrow.gobusiness.gov.sg/service-provider-directory/ft-synergist-pte-ltd"
+        ]
+      }
+    },
+    {
+      "@type": "Service",
+      "name": "Franchise Consulting & Advisory Singapore",
+      "provider": {
+        "@type": "ConsultingBusiness",
+        "name": "FT Synergist",
+        "url": "https://www.ftsynergist.com/franchise-consultant"
+      }
+    }
+  ]
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -62,8 +94,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} min-h-screen flex flex-col antialiased`}>
-        {children}
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(publisherSchema) }}
+        />
+      </head>
+      <body className={`${geistSans.variable} ${geistMono.variable} min-h-screen flex flex-col antialiased bg-slate-50 text-slate-900`}>
+        <div className="flex-1">
+          {children}
+        </div>
+        <Footer />
       </body>
     </html>
   );

@@ -12,6 +12,13 @@ type Props = {
 const AUTHOR_ARTICLES: Record<string, Array<{ slug: string; title: string; description: string; date: string; category: string }>> = {
     'maggie-png': [
         {
+            slug: 'foot-traffic-lies-predicts-franchise-unit-survival-singapore',
+            title: "Foot Traffic Lies. Here's What Actually Predicts a Franchise Unit's Survival",
+            description: "Every leasing pitch in Singapore comes with footfall numbers, yet high-profile F&B units fail within years. Commercial Property Strategist Maggie Png exposes why raw foot traffic lies and reveals the true predictors of 5-year unit survival.",
+            date: 'August 13, 2026',
+            category: 'Commercial Leasing Strategy',
+        },
+        {
             slug: 'vending-machine-illusion-singapore-franchise-lease',
             title: 'The $200,000 Vending Machine Illusion: What Singapore’s Retail Scandals Must Teach Franchise Buyers About Their Leases',
             description: 'As automated retail scandals shock local investors, commercial property strategist Maggie Png breaks down the 5-point Singapore lease audit every franchisee needs before signing.',

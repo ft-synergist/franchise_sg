@@ -2,12 +2,26 @@ import React from 'react';
 import Link from 'next/link';
 import { Metadata } from 'next';
 
+export const revalidate = 0; // Force immediate fresh rendering on insights index
+
 export const metadata: Metadata = {
     title: 'Franchise Market Insights & Intelligence | Franchise.sg',
     description: 'Data-driven analysis, unit economics, and regulatory compliance reports for Singapore franchise investors.',
 };
 
+
 const ARTICLES = [
+    {
+        slug: 'foot-traffic-lies-predicts-franchise-unit-survival-singapore',
+        title: "Foot Traffic Lies. Here's What Actually Predicts a Franchise Unit's Survival",
+        description: "Every leasing pitch in Singapore comes with footfall numbers, yet high-profile F&B units fail within years. Commercial Property Strategist Maggie Png exposes why raw foot traffic lies and reveals the true predictors of 5-year unit survival.",
+        category: 'Commercial Leasing Strategy',
+        categoryColor: 'bg-teal-50 text-teal-700 border-teal-200',
+        date: 'August 13, 2026',
+        authorName: 'Maggie Png',
+        authorRole: 'Commercial Property Strategist',
+        authorSlug: 'maggie-png',
+    },
     {
         slug: 'vending-machine-illusion-singapore-franchise-lease',
         title: 'The $200,000 Vending Machine Illusion: What Singapore’s Retail Scandals Must Teach Franchise Buyers About Their Leases',
