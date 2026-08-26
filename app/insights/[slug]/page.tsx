@@ -686,24 +686,27 @@ const insightsMap: Record<string, { title: string; description: string; content:
                     <header className="bg-gradient-to-r from-teal-900 via-slate-950 to-slate-950 text-white py-20 px-6 border-b border-slate-800 -mx-8 sm:-mx-12 -mt-8 sm:-mt-12 mb-12 rounded-t-3xl">
                         <div className="max-w-4xl mx-auto px-4 text-left">
                             <div className="mb-6 inline-flex items-center gap-2 bg-teal-500/10 border border-teal-500/20 px-3 py-1 rounded-full">
-                                <span className="w-2 h-2 rounded-full bg-teal-400 animate-pulse"></span>
+                                <span className="w-2 h-2 rounded-full bg-teal-400"></span>
                                 <span className="text-xs font-semibold text-teal-300 uppercase tracking-wider">Franchise Unit Economics &amp; Strategy</span>
                             </div>
                             <div className="mb-2">
-                                <span className="text-base font-bold uppercase tracking-wider text-teal-400 block">Insights: Beverage Retail Teardown</span>
+                                <span className="text-base font-bold uppercase tracking-wider text-teal-400 block">Insights:</span>
                             </div>
                             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white max-w-4xl leading-tight">
                                 The $3.7 Billion Bubble Tea Illusion: Franchise Hype vs. Reality in Singapore (2026 Breakdown)
                             </h1>
                             <div className="flex flex-wrap items-center gap-y-4 gap-x-8 text-xs font-semibold uppercase tracking-wider text-slate-400 border-t border-slate-800/80 mt-8 pt-6">
-                                <div>
-                                    <strong className="text-white font-bold text-sm normal-case">
-                                        <Link href="/author/frederick-tan" className="hover:text-teal-400 transition-colors">
+                                <Link href={`/author/${author?.slug || 'frederick-tan'}`} className="flex items-center gap-3 group">
+                                    <div className="w-9 h-9 rounded-xl bg-teal-700 text-white font-black text-xs flex items-center justify-center shrink-0 border border-teal-500">
+                                        {author?.initials || 'FT'}
+                                    </div>
+                                    <div>
+                                        <strong className="text-white font-bold text-sm normal-case group-hover:text-teal-300 transition-colors">
                                             {author?.name || 'Frederick Tan'}
-                                        </Link>
-                                    </strong>
-                                    <span className="text-slate-400 font-normal normal-case"> · Certified Franchise Consultant, FT Synergist Advisory</span>
-                                </div>
+                                        </strong>
+                                        <span className="text-slate-400 font-normal normal-case"> · {author?.role || 'Certified Franchise Consultant, FT Synergist Advisory'}</span>
+                                    </div>
+                                </Link>
                                 <div className="sm:ml-auto">
                                     <span className="text-slate-500 block text-[10px] mb-0.5">Published On</span>
                                     <time className="text-slate-200 font-bold normal-case text-sm">26 August 2026</time>
@@ -714,55 +717,25 @@ const insightsMap: Record<string, { title: string; description: string; content:
 
                     <section className="prose prose-slate max-w-none text-slate-800 text-lg sm:text-xl font-normal leading-relaxed space-y-8 text-left">
                         
-                        {/* Executive GEO Summary Card */}
-                        <div className="bg-slate-900 text-white rounded-2xl p-6 sm:p-8 border border-slate-800 not-prose space-y-4">
-                            <div className="flex items-center gap-2">
-                                <span className="w-2.5 h-2.5 rounded-full bg-teal-400"></span>
-                                <h3 className="text-sm font-black uppercase tracking-wider text-teal-400">
-                                    Executive Financial Summary · Key Metrics at a Glance
-                                </h3>
-                            </div>
-                            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-2">
-                                <div className="bg-slate-800/80 p-4 rounded-xl border border-slate-700">
-                                    <span className="text-[11px] text-slate-400 uppercase font-semibold">Initial Franchise Fee</span>
-                                    <div className="text-xl font-black text-white mt-1">S$30,000 – S$55,000</div>
-                                    <span className="text-[10px] text-slate-400">Single-unit license fee</span>
-                                </div>
-                                <div className="bg-slate-800/80 p-4 rounded-xl border border-slate-700">
-                                    <span className="text-[11px] text-slate-400 uppercase font-semibold">Total Fit-Out &amp; Hardware</span>
-                                    <div className="text-xl font-black text-white mt-1">S$55,000 – S$145,000</div>
-                                    <span className="text-[10px] text-slate-400">Kiosk plumbing &amp; POS</span>
-                                </div>
-                                <div className="bg-slate-800/80 p-4 rounded-xl border border-slate-700">
-                                    <span className="text-[11px] text-slate-400 uppercase font-semibold">Monthly Mall Rent</span>
-                                    <div className="text-xl font-black text-white mt-1">S$3,500 – S$14,500</div>
-                                    <span className="text-[10px] text-slate-400">Plus 1%–2% GTO turnover</span>
-                                </div>
-                                <div className="bg-slate-800/80 p-4 rounded-xl border border-slate-700">
-                                    <span className="text-[11px] text-slate-400 uppercase font-semibold">Gross Margin vs COGS</span>
-                                    <div className="text-xl font-black text-teal-300 mt-1">65% – 75%</div>
-                                    <span className="text-[10px] text-slate-400">COGS: 25% – 35% of revenue</span>
-                                </div>
-                            </div>
-                        </div>
-
                         <p className="font-bold text-slate-950 text-2xl sm:text-3xl tracking-tight leading-snug">
                             It is sweet, it is chewy, and behind the counter, it is one of the most brutal retail sectors on the planet.
                         </p>
 
                         <p>
-                            The bubble tea industry has transitioned from a localized Taiwanese novelty into a massive Southeast Asian retail sector driving an estimated annual consumer spend of <strong>US$3.7 billion</strong>. Within this booming regional ecosystem, Singapore stands as the absolute crown jewel—commanding an annual turnover of <strong>US$342 million</strong> and acting as the premium testbed and regional brand launchpad for global heavyweights.
+                            The bubble tea industry has transitioned from a localized Taiwanese novelty into a massive Southeast Asian retail sector driving an estimated annual consumer spend of <strong className="text-slate-950 font-bold">US$3.7 billion</strong>. Within this booming regional ecosystem, Singapore stands as the absolute crown jewel—commanding an annual turnover of <strong className="text-slate-950 font-bold">US$342 million</strong> and acting as the premium testbed and regional brand launchpad for global heavyweights.
                         </p>
 
                         <p>
-                            But beneath the massive top-line revenues and the seemingly infinite lines of Gen Z consumers lies a stark reality: <strong>up to 90% of independent bubble tea outlets fail to sustain continuous, multi-year profitability</strong>.
+                            But beneath the massive top-line revenues and the seemingly infinite lines of Gen Z consumers lies a stark reality: <strong className="text-slate-950 font-bold">up to 90% of independent bubble tea outlets fail to sustain continuous, multi-year profitability.</strong>
                         </p>
 
                         <p>
-                            For entrepreneurs, institutional investors, and prospective franchisees eyeing a slice of this hyper-competitive market on <Link href="/" className="font-bold text-teal-700 hover:text-teal-800 underline">Franchise.sg</Link>, here is the definitive, data-driven editorial breakdown of how the Singapore bubble tea market actually operates in 2026.
+                            For entrepreneurs, institutional investors, and prospective franchisees eyeing a slice of this hyper-competitive market on <Link href="/" className="text-teal-600 font-medium underline hover:text-teal-700">Franchise.sg</Link>, here is the definitive, data-driven editorial breakdown of how the Singapore bubble tea market actually operates in 2026.
                         </p>
 
-                        <h2 className="text-3xl font-black text-slate-950 tracking-tight mt-12 mb-4">
+                        <hr className="my-12 border-slate-200" />
+
+                        <h2 className="text-3xl font-black text-slate-950 tracking-tight mt-14 mb-4">
                             From Taiwan to Singapore: A Cycle of Boom and Bust
                         </h2>
 
@@ -774,52 +747,78 @@ const insightsMap: Record<string, { title: string; description: string; content:
                             Unburdened by patents, the model exploded globally, landing in Singapore and moving through three distinct generational waves:
                         </p>
 
-                        {/* Wave 1 */}
-                        <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6 space-y-3 not-prose">
-                            <span className="text-xs font-bold text-teal-800 uppercase tracking-wider bg-teal-100 px-2.5 py-1 rounded-md">Wave 1 (1992–2003)</span>
-                            <h3 className="text-xl font-bold text-slate-950">Novelty Boom and Structural Collapse</h3>
-                            <ul className="text-sm text-slate-700 space-y-2 list-disc list-inside">
-                                <li>By 2001, Singapore was flooded with a high-density, grab-and-go kiosk model led by Taiwanese franchisors such as Quickly, Cool Station, and Milk Girl Ice Cup.</li>
-                                <li>Homegrown pioneer Each-A-Cup was established in 1999 by Michael Chua, a former touring guitarist for Taiwanese singer Teresa Teng.</li>
-                                <li><strong>The Crash:</strong> Lacking product differentiation, brands engaged in destructive price wars. The market collapsed between 2002 and 2003 due to consumer fatigue, quality control issues, and poor staff training. Each-A-Cup survived by maintaining strict standards, controlling overhead through heartland real estate, and pivoting to wellness-oriented herbal blends.</li>
-                            </ul>
+                        {/* 4-Box Generative Phase Cards (Exact Match to Vending Machine Format) */}
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-8">
+                            <div className="p-6 rounded-2xl bg-slate-950 border border-slate-800 flex flex-col justify-between">
+                                <div>
+                                    <span className="text-[10px] font-bold text-teal-400 uppercase tracking-wider block mb-1">Wave 1 (1992–2003)</span>
+                                    <h4 className="text-lg font-bold text-white mb-2">Novelty Boom &amp; Price Collapse</h4>
+                                    <p className="text-sm text-slate-400 leading-relaxed">
+                                        Grab-and-go kiosks led by Quickly and Cool Station flooded the island before consumer fatigue and price wars triggered a total crash. Each-A-Cup survived by controlling heartland overheads and pivoting to herbal wellness.
+                                    </p>
+                                </div>
+                            </div>
+                            <div className="p-6 rounded-2xl bg-slate-950 border border-slate-800 flex flex-col justify-between">
+                                <div>
+                                    <span className="text-[10px] font-bold text-teal-400 uppercase tracking-wider block mb-1">Wave 2 (2007–2018)</span>
+                                    <h4 className="text-lg font-bold text-white mb-2">Artisanal &amp; Corporate Rebrands</h4>
+                                    <p className="text-sm text-slate-400 leading-relaxed">
+                                        KOI Thé and Gong Cha introduced customizable sugar levels. In 2017, master franchisee Rodney Tang converted 80 outlets into LiHO Tea within days, while Bober Tea drove premiumization outside Bishan MRT.
+                                    </p>
+                                </div>
+                            </div>
+                            <div className="p-6 rounded-2xl bg-slate-950 border border-slate-800 flex flex-col justify-between">
+                                <div>
+                                    <span className="text-[10px] font-bold text-teal-400 uppercase tracking-wider block mb-1">Wave 3 (2018–Present)</span>
+                                    <h4 className="text-lg font-bold text-white mb-2">Premium Tech &amp; Fresh Fruit</h4>
+                                    <p className="text-sm text-slate-400 leading-relaxed">
+                                        Chinese conglomerates like HEYTEA and Chagee brought real fruit, premium leaf teas, and automated tea-brewing hardware, raising consumer expectations for beverage quality.
+                                    </p>
+                                </div>
+                            </div>
+                            <div className="p-6 rounded-2xl bg-slate-950 border border-slate-800 flex flex-col justify-between">
+                                <div>
+                                    <span className="text-[10px] font-bold text-rose-400 uppercase tracking-wider block mb-1">Wave 3 Value Tier</span>
+                                    <h4 className="text-lg font-bold text-white mb-2">Ultra-Value Supply Chain Giants</h4>
+                                    <p className="text-sm text-slate-400 leading-relaxed">
+                                        Mixue (&gt;45,000 stores) and Bingxue (&gt;3,000 stores) disrupted Singapore with $1 soft-serve ice cream and $2.50 drinks, weaponizing mega-scale supply chains to crush competitors on volume.
+                                    </p>
+                                </div>
+                            </div>
                         </div>
 
-                        {/* Wave 2 */}
-                        <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6 space-y-3 not-prose">
-                            <span className="text-xs font-bold text-indigo-800 uppercase tracking-wider bg-indigo-100 px-2.5 py-1 rounded-md">Wave 2 (2007–2018)</span>
-                            <h3 className="text-xl font-bold text-slate-950">Modern Franchising and Artisanal Pivots</h3>
-                            <ul className="text-sm text-slate-700 space-y-2 list-disc list-inside">
-                                <li>The market professionalized with the entry of KOI Thé in 2007 and Gong Cha in 2009, introducing fresh brewing equipment and customizable sugar levels.</li>
-                                <li><strong>The LiHO Masterstroke:</strong> In May 2017, master franchisee Rodney Tang converted all 80 Gong Cha outlets across the island into a new homegrown brand, LiHO Tea, within days. This rapid transition minimized downtime by leveraging existing real estate leases, supplier relationships, and POS infrastructure.</li>
-                                <li>In late 2017, local artisanal player Bober Tea launched from a single kiosk outside Bishan MRT station, driving premiumization with visual presentation and Gen Z-targeted marketing.</li>
-                            </ul>
+                        {/* Callout Quote Box */}
+                        <div className="my-8 p-6 rounded-2xl bg-slate-50 border-l-4 border-teal-600 text-slate-800 font-normal leading-relaxed">
+                            &quot;Liquid beverage ingredients maintain incredibly strong gross margins between 60% and 70%, with COGS ranging from just 25% to 35% of revenue. Yet, profitability remains elusive for many. Why? Fixed overheads. If an outlet experiences even a minor drop in daily cup volume, fixed shopping mall rent rapidly consumes the store&apos;s gross margin.&quot;
                         </div>
 
-                        {/* Wave 3 */}
-                        <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6 space-y-3 not-prose">
-                            <span className="text-xs font-bold text-rose-800 uppercase tracking-wider bg-rose-100 px-2.5 py-1 rounded-md">Wave 3 (2018–Present)</span>
-                            <h3 className="text-xl font-bold text-slate-950">The Chinese Scale Giants</h3>
-                            <ul className="text-sm text-slate-700 space-y-2 list-disc list-inside">
-                                <li>Facing saturation at home, Chinese &quot;New Tea&quot; conglomerates expanded into Southeast Asia, utilizing Singapore as their regional anchor.</li>
-                                <li><strong>Premium Tech &amp; Fresh Fruit:</strong> Led by HEYTEA and Chagee, leveraging real fruit, premium leaf teas, and automated tea-brewing hardware.</li>
-                                <li><strong>Ultra-Value Mass Scale:</strong> Spearheaded by Mixue and Bingxue, creating a distinct &quot;Value Tier&quot; in Singapore.</li>
-                            </ul>
-                        </div>
+                        <hr className="my-12 border-slate-200" />
 
                         <h2 className="text-3xl font-black text-slate-950 tracking-tight mt-14 mb-4">
                             The $1 Ice Cream Disruption: How Mixue and Bingxue Changed the Math
                         </h2>
 
                         <p>
-                            Mixue (&gt;45,000 global stores) and Bingxue (&gt;3,000 global stores) represent a masterclass in ultra-value retail engineering. Selling a fresh soft-serve ice cream cone in high-cost Singapore for just <strong>SGD 1.00</strong> seems economically suicidal, but it is a highly calculated hook.
+                            Mixue and Bingxue represent a masterclass in ultra-value retail engineering. Selling a fresh soft-serve ice cream cone in high-cost Singapore for just <strong className="text-slate-950 font-bold">SGD 1.00</strong> seems economically suicidal, but it is a highly calculated hook:
                         </p>
 
-                        <ul className="space-y-3">
-                            <li><strong>The Loss-Leader Hook:</strong> The SGD 1.00 ice cream eliminates consumer friction, creating massive daily queues that drive brand awareness.</li>
-                            <li><strong>Basket Expansion:</strong> Customers line up for a $1 cone but frequently add higher-margin items, such as freshly squeezed lemonade for SGD 2.50 or boba milk teas for SGD 3.00 to SGD 3.50.</li>
-                            <li><strong>Supply Chain Dominance:</strong> Both parent companies operate massive processing plants and global logistics networks, manufacturing their own dairy powders, syrups, and tea leaves at extreme volumes to drop the unit Cost of Goods Sold (COGS) to mere cents.</li>
+                        {/* Checklist with Green Checkmarks */}
+                        <ul className="space-y-4 my-6 list-none pl-0 text-slate-700">
+                            <li className="flex items-start gap-3">
+                                <span className="text-teal-600 font-bold select-none mt-0.5">✓</span>
+                                <span><strong>The Loss-Leader Hook:</strong> The SGD 1.00 ice cream eliminates consumer friction, creating massive daily queues that drive organic footfall and islandwide brand awareness.</span>
+                            </li>
+                            <li className="flex items-start gap-3">
+                                <span className="text-teal-600 font-bold select-none mt-0.5">✓</span>
+                                <span><strong>Basket Expansion:</strong> Customers line up for a $1 cone but frequently add higher-margin items, such as freshly squeezed lemonade for SGD 2.50 or boba milk teas for SGD 3.00 to SGD 3.50.</span>
+                            </li>
+                            <li className="flex items-start gap-3">
+                                <span className="text-teal-600 font-bold select-none mt-0.5">✓</span>
+                                <span><strong>Supply Chain Dominance:</strong> Both parent companies operate massive ingredient processing plants and global logistics networks, manufacturing their own dairy powders, syrups, and tea leaves at extreme volumes to drop unit COGS to mere cents.</span>
+                            </li>
                         </ul>
+
+                        <hr className="my-12 border-slate-200" />
 
                         <h2 className="text-3xl font-black text-slate-950 tracking-tight mt-14 mb-4">
                             Singapore&apos;s Homegrown Champions: A Comparative Analysis
@@ -829,98 +828,98 @@ const insightsMap: Record<string, { title: string; description: string; content:
                             How do local brands fight back against foreign juggernauts? They segment the market ruthlessly.
                         </p>
 
-                        {/* Comparative Brand Table */}
-                        <div className="overflow-x-auto not-prose my-6">
-                            <table className="w-full text-left text-sm border-collapse border border-slate-200 rounded-xl overflow-hidden shadow-sm">
-                                <thead className="bg-slate-900 text-white">
+                        {/* Comparative Brand Table (Matching Vending Machine Table CSS) */}
+                        <div className="overflow-x-auto rounded-2xl border border-slate-200 my-8 shadow-sm w-full bg-white">
+                            <table className="min-w-full table-fixed border-collapse text-sm sm:text-base text-left">
+                                <thead className="bg-slate-50 border-b border-slate-200">
                                     <tr>
-                                        <th className="p-4 font-bold border-b border-slate-800">Brand Dimension</th>
-                                        <th className="p-4 font-bold border-b border-slate-800">Each-A-Cup (The Heartland OG)</th>
-                                        <th className="p-4 font-bold border-b border-slate-800">LiHO Tea (The Scaled Innovator)</th>
-                                        <th className="p-4 font-bold border-b border-slate-800">Bober Tea (The Artisanal Kiosk)</th>
+                                        <th className="px-5 py-4 text-left font-black text-slate-950 uppercase text-xs tracking-wider w-1/4">Brand Dimension</th>
+                                        <th className="px-5 py-4 text-left font-bold text-slate-700 uppercase text-xs tracking-wider w-1/4">Each-A-Cup (Heartland OG)</th>
+                                        <th className="px-5 py-4 text-left font-bold text-slate-700 uppercase text-xs tracking-wider w-1/4">LiHO Tea (Scaled Innovator)</th>
+                                        <th className="px-5 py-4 text-left font-bold text-teal-700 uppercase text-xs tracking-wider bg-teal-50/20 w-1/4">Bober Tea (Artisanal Kiosk)</th>
                                     </tr>
                                 </thead>
-                                <tbody className="divide-y divide-slate-200 bg-white">
+                                <tbody className="divide-y divide-slate-200 bg-white text-slate-700">
                                     <tr>
-                                        <td className="p-4 font-bold text-slate-900 bg-slate-50">Founding Year</td>
-                                        <td className="p-4 text-slate-700">1999</td>
-                                        <td className="p-4 text-slate-700">2017 (Rebranded from Gong Cha)</td>
-                                        <td className="p-4 text-slate-700">2017</td>
+                                        <td className="px-5 py-5 font-bold text-slate-950">Founding Year</td>
+                                        <td className="px-5 py-5 text-slate-700">1999</td>
+                                        <td className="px-5 py-5 text-slate-700">2017 (Rebranded from Gong Cha)</td>
+                                        <td className="px-5 py-5 font-semibold text-teal-800 bg-teal-50/10">2017</td>
                                     </tr>
                                     <tr>
-                                        <td className="p-4 font-bold text-slate-900 bg-slate-50">Store Footprint</td>
-                                        <td className="p-4 text-slate-700">~40 heartland &amp; transit outlets across Singapore</td>
-                                        <td className="p-4 text-slate-700">Over 90 commercial, mall, and heartland outlets islandwide</td>
-                                        <td className="p-4 text-slate-700">Multi-outlet presence in prime suburban hubs &amp; MRT stops</td>
+                                        <td className="px-5 py-5 font-bold text-slate-950">Store Footprint</td>
+                                        <td className="px-5 py-5 text-slate-700">~40 heartland &amp; transit outlets across Singapore</td>
+                                        <td className="px-5 py-5 text-slate-700">Over 90 commercial, mall, and heartland outlets islandwide</td>
+                                        <td className="px-5 py-5 font-semibold text-teal-800 bg-teal-50/10">Multi-outlet presence in prime suburban hubs &amp; MRT stops</td>
                                     </tr>
                                     <tr>
-                                        <td className="p-4 font-bold text-slate-900 bg-slate-50">Differentiation</td>
-                                        <td className="p-4 text-slate-700">Comforting classics, brown rice milk teas, and health-focused brews</td>
-                                        <td className="p-4 text-slate-700">Localized flavor innovations like Cheese Tea and Pandan series</td>
-                                        <td className="p-4 text-slate-700">Aesthetic packaging, Mochi series, and ultra-bouncy pearls</td>
+                                        <td className="px-5 py-5 font-bold text-slate-950">Differentiation</td>
+                                        <td className="px-5 py-5 text-slate-700">Comforting classics, brown rice milk teas, and health-focused brews</td>
+                                        <td className="px-5 py-5 text-slate-700">Localized flavor innovations like Cheese Tea and Pandan series</td>
+                                        <td className="px-5 py-5 font-semibold text-teal-800 bg-teal-50/10">Aesthetic packaging, Mochi series, and ultra-bouncy pearls</td>
                                     </tr>
                                     <tr>
-                                        <td className="p-4 font-bold text-slate-900 bg-slate-50">Growth Model</td>
-                                        <td className="p-4 text-slate-700">Hybrid model (50% corporate-owned, 50% local franchisees)</td>
-                                        <td className="p-4 text-slate-700">Heavily corporate-controlled with selective regional licensing</td>
-                                        <td className="p-4 text-slate-700">Local corporate kiosks paired with international master franchising (e.g., USA expansion)</td>
+                                        <td className="px-5 py-5 font-bold text-slate-950">Growth Model</td>
+                                        <td className="px-5 py-5 text-slate-700">Hybrid model (50% corporate-owned, 50% local franchisees)</td>
+                                        <td className="px-5 py-5 text-slate-700">Heavily corporate-controlled with selective regional licensing</td>
+                                        <td className="px-5 py-5 font-semibold text-teal-800 bg-teal-50/10">Local corporate kiosks paired with international master franchising (e.g., USA expansion)</td>
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
+
+                        <hr className="my-12 border-slate-200" />
 
                         <h2 className="text-3xl font-black text-slate-950 tracking-tight mt-14 mb-4">
                             The Profitability Paradox: Unit Economics and Hidden Costs
                         </h2>
 
                         <p>
-                            Liquid beverage ingredients maintain incredibly strong gross margins between <strong>60% and 70%</strong>, with COGS ranging from just 25% to 35% of revenue. Yet, profitability remains elusive for many. Why? Fixed overheads.
-                        </p>
-
-                        <p>
                             Opening a standard 15 to 40 square meter kiosk in a Singapore shopping mall requires significant upfront capital alongside high recurring operational expenditures.
                         </p>
 
-                        {/* Unit Economics Table */}
-                        <div className="overflow-x-auto not-prose my-6">
-                            <table className="w-full text-left text-sm border-collapse border border-slate-200 rounded-xl overflow-hidden shadow-sm">
-                                <thead className="bg-slate-900 text-white">
+                        {/* Unit Economics Table (Matching Vending Machine Table CSS) */}
+                        <div className="overflow-x-auto rounded-2xl border border-slate-200 my-8 shadow-sm w-full bg-white">
+                            <table className="min-w-full table-fixed border-collapse text-sm sm:text-base text-left">
+                                <thead className="bg-slate-50 border-b border-slate-200">
                                     <tr>
-                                        <th className="p-4 font-bold border-b border-slate-800">Expense Category</th>
-                                        <th className="p-4 font-bold border-b border-slate-800">Estimated Outlay / Monthly Cost (SGD)</th>
-                                        <th className="p-4 font-bold border-b border-slate-800">Operational Reality</th>
+                                        <th className="px-5 py-4 text-left font-black text-slate-950 uppercase text-xs tracking-wider w-1/4">Expense Category</th>
+                                        <th className="px-5 py-4 text-left font-bold text-teal-700 uppercase text-xs tracking-wider bg-teal-50/20 w-1/3">Estimated Outlay / Monthly Cost (SGD)</th>
+                                        <th className="px-5 py-4 text-left font-bold text-slate-950 uppercase text-xs tracking-wider w-5/12">Operational Reality</th>
                                     </tr>
                                 </thead>
-                                <tbody className="divide-y divide-slate-200 bg-white">
+                                <tbody className="divide-y divide-slate-200 bg-white text-slate-700">
                                     <tr>
-                                        <td className="p-4 font-bold text-slate-900 bg-slate-50">Initial Franchise Fee</td>
-                                        <td className="p-4 text-slate-700 font-semibold">$30,000 – $55,000</td>
-                                        <td className="p-4 text-slate-700">Single-unit license fee; master territorial rights command significantly higher capital.</td>
+                                        <td className="px-5 py-5 font-bold text-slate-950">Initial Franchise Fee</td>
+                                        <td className="px-5 py-5 font-bold text-teal-800 bg-teal-50/10">S$30,000 – S$55,000</td>
+                                        <td className="px-5 py-5 text-slate-700">Single-unit license fee; master territorial rights command significantly higher capital.</td>
                                     </tr>
                                     <tr>
-                                        <td className="p-4 font-bold text-slate-900 bg-slate-50">Lease Deposit &amp; Rent</td>
-                                        <td className="p-4 text-slate-700 font-semibold">$20,000 – $66,000 (Initial) / $3,500 – $14,500 (Monthly)</td>
-                                        <td className="p-4 text-slate-700">
-                                            Mall lease deposits typically equal 3–6 months of base rent. Retail real estate often includes a Percentage of Gross Turnover (GTO). See our <Link href="/insights/foot-traffic-lies-predicts-franchise-unit-survival-singapore" className="text-teal-700 underline font-semibold">retail leasing audit breakdown</Link>.
+                                        <td className="px-5 py-5 font-bold text-slate-950">Lease Deposit &amp; Rent</td>
+                                        <td className="px-5 py-5 font-bold text-teal-800 bg-teal-50/10">S$20,000 – S$66,000 (Initial)<br />S$3,500 – S$14,500 (Monthly)</td>
+                                        <td className="px-5 py-5 text-slate-700">
+                                            Mall lease deposits typically equal 3–6 months of base rent. Retail real estate often includes a Percentage of Gross Turnover (GTO). See our <Link href="/insights/foot-traffic-lies-predicts-franchise-unit-survival-singapore" className="text-teal-600 font-medium underline hover:text-teal-700">retail leasing audit breakdown</Link>.
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td className="p-4 font-bold text-slate-900 bg-slate-50">Fit-Out &amp; Hardware</td>
-                                        <td className="p-4 text-slate-700 font-semibold">$55,000 – $145,000</td>
-                                        <td className="p-4 text-slate-700">Includes specialized plumbing, grease traps, commercial tea brewers, water filtration, and POS hardware.</td>
+                                        <td className="px-5 py-5 font-bold text-slate-950">Fit-Out &amp; Hardware</td>
+                                        <td className="px-5 py-5 font-bold text-teal-800 bg-teal-50/10">S$55,000 – S$145,000</td>
+                                        <td className="px-5 py-5 text-slate-700">Includes specialized plumbing, grease traps, commercial tea brewers, water filtration, and POS hardware.</td>
                                     </tr>
                                     <tr>
-                                        <td className="p-4 font-bold text-slate-900 bg-slate-50">Franchise Royalties</td>
-                                        <td className="p-4 text-slate-700 font-semibold">4.5% – 6.5% of Sales (Monthly)</td>
-                                        <td className="p-4 text-slate-700">Monthly gross revenue royalty plus Advertising &amp; Promotion (A&amp;P) fund contributions.</td>
+                                        <td className="px-5 py-5 font-bold text-slate-950">Franchise Royalties</td>
+                                        <td className="px-5 py-5 font-bold text-teal-800 bg-teal-50/10">4.5% – 6.5% of Sales</td>
+                                        <td className="px-5 py-5 text-slate-700">Monthly gross revenue royalty plus Advertising &amp; Promotion (A&amp;P) fund contributions.</td>
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
 
                         <p>
-                            <strong>The Failure Vector:</strong> If an outlet experiences even a minor drop in daily cup volume, fixed rental overhead rapidly consumes the store&apos;s gross margin. Furthermore, revenue is constrained by manual throughput speed during narrow peak lunch and dinner windows.
+                            <strong className="text-slate-950 font-bold">The Failure Vector:</strong> If an outlet experiences even a minor drop in daily cup volume, fixed rental overhead rapidly consumes the store&apos;s gross margin. Furthermore, revenue is constrained by manual throughput speed during narrow peak lunch and dinner windows.
                         </p>
+
+                        <hr className="my-12 border-slate-200" />
 
                         <h2 className="text-3xl font-black text-slate-950 tracking-tight mt-14 mb-4">
                             2026 Megatrends: AI Automation and the Sugar Tax
@@ -930,21 +929,17 @@ const insightsMap: Record<string, { title: string; description: string; content:
                             To survive the modern landscape, franchisors and franchisees must adapt to two structural vectors:
                         </p>
 
-                        <div className="space-y-4">
-                            <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm space-y-2">
-                                <h3 className="text-xl font-bold text-slate-900">1. The Nutri-Grade Squeeze</h3>
-                                <p className="text-slate-700 text-sm leading-relaxed">
-                                    The Ministry of Health&apos;s (MOH) mandatory Nutri-Grade labeling grades freshly prepared drinks from A to D based on sugar and saturated fat content. Grade C requires mandatory menu labeling, while Grade D triggers a complete prohibition from advertising across all media channels. Brands are scrambling to substitute artificial syrups with real fruit purees and promote zero-calorie natural sweeteners.
-                                </p>
-                            </div>
+                        <h3 className="text-2xl font-bold text-slate-950 mt-8 mb-3">1. The Nutri-Grade Squeeze</h3>
+                        <p>
+                            The Ministry of Health&apos;s (MOH) mandatory Nutri-Grade labeling grades freshly prepared drinks from A to D based on sugar and saturated fat content. Grade C requires mandatory menu labeling, while Grade D triggers a complete prohibition from advertising across all media channels. Brands are scrambling to substitute artificial syrups with real fruit purees and promote zero-calorie natural sweeteners.
+                        </p>
 
-                            <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm space-y-2">
-                                <h3 className="text-xl font-bold text-slate-900">2. Digitization and Process Automation</h3>
-                                <p className="text-slate-700 text-sm leading-relaxed">
-                                    Top operators like Chagee have integrated AI-driven Enterprise Resource Planning (ERP), automated tea-brewing hardware, and digital Customer Relationship Management (CRM) mini-programs. This drops drink production cycles to under 30 seconds per cup, expands peak-hour processing capacity, and eliminates human error.
-                                </p>
-                            </div>
-                        </div>
+                        <h3 className="text-2xl font-bold text-slate-950 mt-8 mb-3">2. Digitization and Process Automation</h3>
+                        <p>
+                            Top operators like Chagee have integrated AI-driven Enterprise Resource Planning (ERP), automated tea-brewing hardware, and digital Customer Relationship Management (CRM) mini-programs. This drops drink production cycles to under 30 seconds per cup, expands peak-hour processing capacity, and eliminates human error.
+                        </p>
+
+                        <hr className="my-12 border-slate-200" />
 
                         <h2 className="text-3xl font-black text-slate-950 tracking-tight mt-14 mb-4">
                             The Editor&apos;s Strategic Playbook for Investors
@@ -954,74 +949,51 @@ const insightsMap: Record<string, { title: string; description: string; content:
                             Whether you are buying a single unit or acquiring master country rights in Singapore or Southeast Asia, historical data dictates a clear framework:
                         </p>
 
-                        <div className="space-y-4 not-prose">
-                            <div className="bg-teal-50/70 border border-teal-200 rounded-2xl p-6 space-y-2">
-                                <h3 className="text-lg font-bold text-teal-950">For Independent Entrepreneurs</h3>
-                                <p className="text-xs sm:text-sm text-teal-900 leading-relaxed">
-                                    Avoid building a business around a single viral menu item. Select compact kiosk footprints (15–25 sqm) with high commuter traffic, ensuring base rent does not exceed 15% to 18% of projected gross revenues. Ensure 60% of your menu is naturally Nutri-Grade A or B compliant.
-                                </p>
-                            </div>
+                        <ul className="space-y-4 my-6 list-none pl-0 text-slate-700">
+                            <li className="flex items-start gap-3">
+                                <span className="text-teal-600 font-bold select-none mt-0.5">✓</span>
+                                <span><strong>For Independent Entrepreneurs:</strong> Avoid building a business around a single viral menu item. Select compact kiosk footprints (15–25 sqm) with high commuter traffic, ensuring base rent does not exceed 15% to 18% of projected gross revenues. Ensure 60% of your menu is naturally Nutri-Grade A or B compliant.</span>
+                            </li>
+                            <li className="flex items-start gap-3">
+                                <span className="text-teal-600 font-bold select-none mt-0.5">✓</span>
+                                <span><strong>For Franchisees:</strong> Prioritize franchisors that utilize automated beverage dispensing systems and integrated ERP solutions. Ensure they control their ingredient logistics rather than treating franchisees as captive margin centers. Model your break-even assuming rental escalations upon lease renewal.</span>
+                            </li>
+                            <li className="flex items-start gap-3">
+                                <span className="text-teal-600 font-bold select-none mt-0.5">✓</span>
+                                <span><strong>For Institutional Investors:</strong> Focus capital on chains that own upstream processing infrastructure and central kitchens. Look for defensible core products (like Each-A-Cup&apos;s Classic Brown Rice Milk Tea or KOI&apos;s Jumbo Milk Tea) that drive consistent baseline demand.</span>
+                            </li>
+                        </ul>
 
-                            <div className="bg-indigo-50/70 border border-indigo-200 rounded-2xl p-6 space-y-2">
-                                <h3 className="text-lg font-bold text-indigo-950">For Franchisees</h3>
-                                <p className="text-xs sm:text-sm text-indigo-900 leading-relaxed">
-                                    Prioritize franchisors that utilize automated beverage dispensing systems and integrated ERP solutions. Ensure they control their ingredient logistics rather than treating franchisees as captive margin centers. Model your break-even assuming rental escalations upon lease renewal.
-                                </p>
-                            </div>
-
-                            <div className="bg-amber-50/70 border border-amber-200 rounded-2xl p-6 space-y-2">
-                                <h3 className="text-lg font-bold text-amber-950">For Institutional Investors</h3>
-                                <p className="text-xs sm:text-sm text-amber-900 leading-relaxed">
-                                    Focus capital on chains that own upstream processing infrastructure and central kitchens. Look for defensible core products (like Each-A-Cup&apos;s Classic Brown Rice Milk Tea or KOI&apos;s Jumbo Milk Tea) that drive consistent baseline demand.
-                                </p>
-                            </div>
-                        </div>
-
-                        <p className="font-bold text-slate-950 text-xl tracking-tight pt-4">
+                        <p className="font-bold text-slate-950 text-2xl tracking-tight pt-2">
                             The land grab of the early 2000s is over. In 2026, winning the bubble tea wars requires controlled real estate overheads, automated beverage production, direct supply chain integration, and flawless menu engineering.
                         </p>
 
-                        {/* Author Bio & Strategic Advisory CTA Box */}
-                        <div className="mt-12 p-8 bg-gradient-to-br from-slate-900 via-slate-950 to-slate-950 text-white rounded-3xl border border-slate-800 not-prose space-y-6">
-                            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-5">
-                                <div className="w-16 h-16 rounded-2xl bg-teal-600 text-white font-black text-xl flex items-center justify-center shrink-0 border-2 border-teal-400 shadow-lg">
-                                    FT
+                        {/* Author Card at base of article (Exact Match to Vending Machine / Insights Design System) */}
+                        <div className="mt-12 p-6 bg-teal-50 border border-teal-200 rounded-2xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 font-sans text-sm">
+                            <div className="flex items-center gap-4">
+                                <div className="w-12 h-12 rounded-xl bg-teal-700 text-white font-black text-sm flex items-center justify-center shrink-0">
+                                    {author?.initials || 'FT'}
                                 </div>
                                 <div>
-                                    <span className="text-[11px] font-black uppercase tracking-wider text-teal-400 bg-teal-950/80 px-2.5 py-1 rounded-md border border-teal-800">
-                                        Author &amp; Strategic Advisory Contributor
-                                    </span>
-                                    <h3 className="text-2xl font-black text-white mt-1">Frederick Tan</h3>
-                                    <p className="text-xs text-slate-300 font-medium mt-0.5">
-                                        Certified Franchise Consultant · Founder, FT Synergist Advisory
-                                    </p>
+                                    <h3 className="font-bold text-slate-950">{author?.name || 'Frederick Tan'}</h3>
+                                    <p className="text-xs font-semibold text-teal-800">{author?.role || 'Certified Franchise Consultant'}</p>
+                                    <p className="text-xs text-slate-600 mt-0.5">{author?.bio}</p>
                                 </div>
                             </div>
-
-                            <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                                Frederick Tan is an accredited consultant listed on the Singapore Government <strong>GoBusiness IP Grow Directory</strong>. He specializes in franchise system architecture, intellectual property commercialization, and cross-border master licensing across Southeast Asia.
-                            </p>
-
-                            <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+                            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 shrink-0">
                                 <a
                                     href="https://www.ftsynergist.com/franchise-consultant"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="bg-teal-600 hover:bg-teal-700 text-white font-bold py-3 px-6 rounded-xl text-xs uppercase tracking-wider text-center shadow-sm transition-all"
+                                    className="text-xs font-black text-teal-800 underline underline-offset-2 hover:text-teal-900"
                                 >
                                     Consult FT Synergist Advisory →
                                 </a>
                                 <Link
-                                    href="/categories/food-beverage"
-                                    className="bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-200 font-bold py-3 px-6 rounded-xl text-xs uppercase tracking-wider text-center transition-all"
+                                    href={`/author/${author?.slug || 'frederick-tan'}`}
+                                    className="text-xs font-black text-slate-600 underline underline-offset-2 hover:text-slate-900"
                                 >
-                                    Explore F&amp;B Franchise Listings
-                                </Link>
-                                <Link
-                                    href="/author/frederick-tan"
-                                    className="text-slate-400 hover:text-slate-300 font-bold text-xs py-3 px-4 text-center transition-all"
-                                >
-                                    View Full Profile
+                                    View Profile →
                                 </Link>
                             </div>
                         </div>
