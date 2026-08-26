@@ -704,7 +704,7 @@ const insightsMap: Record<string, { title: string; description: string; content:
                                         <strong className="text-white font-bold text-sm normal-case group-hover:text-teal-300 transition-colors">
                                             {author?.name || 'Frederick Tan'}
                                         </strong>
-                                        <span className="text-slate-400 font-normal normal-case"> · {author?.role || 'Certified Franchise Consultant, FT Synergist Advisory'}</span>
+                                        <span className="text-slate-400 font-normal normal-case"> · {author?.role || 'Guest Contributor · Certified Management Consultant'}</span>
                                     </div>
                                 </Link>
                                 <div className="sm:ml-auto">
@@ -975,8 +975,11 @@ const insightsMap: Record<string, { title: string; description: string; content:
                                     {author?.initials || 'FT'}
                                 </div>
                                 <div>
-                                    <h3 className="font-bold text-slate-950">{author?.name || 'Frederick Tan'}</h3>
-                                    <p className="text-xs font-semibold text-teal-800">{author?.role || 'Certified Franchise Consultant'}</p>
+                                    <span className="text-[10px] font-black uppercase tracking-wider text-teal-800 bg-teal-100 px-2 py-0.5 rounded">
+                                        About the Contributor
+                                    </span>
+                                    <h3 className="font-bold text-slate-950 mt-1">{author?.name || 'Frederick Tan'}</h3>
+                                    <p className="text-xs font-semibold text-teal-800">{author?.role || 'Guest Contributor · Certified Management Consultant'}</p>
                                     <p className="text-xs text-slate-600 mt-0.5">{author?.bio}</p>
                                 </div>
                             </div>

@@ -30,7 +30,7 @@ const ARTICLES = [
         categoryColor: 'bg-emerald-50 text-emerald-700 border-emerald-200',
         date: 'August 26, 2026',
         authorName: 'Frederick Tan',
-        authorRole: 'Certified Franchise Consultant',
+        authorRole: 'Guest Contributor · Certified Management Consultant',
         authorSlug: 'frederick-tan',
     },
     {

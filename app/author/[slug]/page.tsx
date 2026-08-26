@@ -130,8 +130,22 @@ export default async function AuthorProfilePage({ params }: Props) {
 
             {/* Profile Details & Articles */}
             <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 space-y-6">
-                <div className="bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 shadow-sm space-y-3">
-                    <h2 className="text-xs font-black uppercase tracking-wider text-slate-600">About the Analyst</h2>
+                <div className="bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 shadow-sm space-y-4">
+                    <div className="flex items-center justify-between">
+                        <h2 className="text-xs font-black uppercase tracking-wider text-slate-600">
+                            {editor.slug === 'frederick-tan' ? 'About the Contributor' : 'About the Analyst'}
+                        </h2>
+                        {editor.slug === 'frederick-tan' && (
+                            <a
+                                href="https://www.ftsynergist.com/franchise-consultant"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-xs font-black text-teal-700 hover:text-teal-800 underline uppercase tracking-wider"
+                            >
+                                FT Synergist Advisory →
+                            </a>
+                        )}
+                    </div>
                     <p className="text-slate-700 text-sm sm:text-base leading-relaxed">{editor.bio}</p>
                 </div>
 
