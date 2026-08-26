@@ -41,6 +41,15 @@ const AUTHOR_ARTICLES: Record<string, Array<{ slug: string; title: string; descr
             date: 'July 12, 2026',
             category: 'Franchise Scam Alert',
         }
+    ],
+    'frederick-tan': [
+        {
+            slug: 'bubble-tea-franchise-singapore-cost-profitability-analysis',
+            title: 'The $3.7 Billion Bubble Tea Illusion: Franchise Hype vs. Reality in Singapore (2026 Breakdown)',
+            description: 'From 1999 Each-A-Cup survival pivots to 2026 Mixue $1 ice cream disruption and Chagee automated brewing: an unfiltered unit economic teardown of bubble tea franchising in Singapore.',
+            date: 'August 26, 2026',
+            category: 'Franchise Unit Economics',
+        }
     ]
 };
 

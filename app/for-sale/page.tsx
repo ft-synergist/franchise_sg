@@ -1,7 +1,25 @@
 import { supabase } from '@/lib/supabase';
 import Link from 'next/link';
 
+import { Metadata } from 'next';
+
 export const revalidate = 60;
+
+export const metadata: Metadata = {
+    title: 'Franchise Businesses For Sale Singapore | Resale Franchise Opportunities',
+    description: 'Explore verified franchise businesses for sale in Singapore. Acquire cash-flowing established franchise locations with operational infrastructure and historical financial data.',
+    alternates: {
+        canonical: 'https://www.franchise.sg/for-sale',
+    },
+    openGraph: {
+        title: 'Franchise Businesses For Sale Singapore | Resale Franchise Opportunities',
+        description: 'Explore verified franchise businesses for sale in Singapore. Acquire cash-flowing established franchise locations with operational infrastructure.',
+        url: 'https://www.franchise.sg/for-sale',
+        siteName: 'Franchise.sg',
+        locale: 'en_SG',
+        type: 'website',
+    }
+};
 
 export default async function ForSaleDirectory() {
     const { data: listings, error } = await supabase

@@ -5,12 +5,34 @@ import { Metadata } from 'next';
 export const revalidate = 0; // Force immediate fresh rendering on insights index
 
 export const metadata: Metadata = {
-    title: 'Franchise Market Insights & Intelligence | Franchise.sg',
-    description: 'Data-driven analysis, unit economics, and regulatory compliance reports for Singapore franchise investors.',
+    title: 'Franchise Insights Singapore | Market Intelligence, Due Diligence & Unit Economics',
+    description: 'Proprietary Franchise Insights Singapore. Data-driven unit economics, commercial mall lease audits, F&B market trends, and scam prevention for Singapore franchise investors.',
+    alternates: {
+        canonical: 'https://www.franchise.sg/insights',
+    },
+    openGraph: {
+        title: 'Franchise Insights Singapore | Market Intelligence, Due Diligence & Unit Economics',
+        description: 'Proprietary Franchise Insights Singapore. Data-driven unit economics, commercial mall lease audits, F&B market trends, and scam prevention.',
+        url: 'https://www.franchise.sg/insights',
+        siteName: 'Franchise.sg',
+        locale: 'en_SG',
+        type: 'website',
+    }
 };
 
 
 const ARTICLES = [
+    {
+        slug: 'bubble-tea-franchise-singapore-cost-profitability-analysis',
+        title: 'The $3.7 Billion Bubble Tea Illusion: Franchise Hype vs. Reality in Singapore (2026 Breakdown)',
+        description: 'From 1999 Each-A-Cup survival pivots to 2026 Mixue $1 ice cream disruption and Chagee automated brewing: an unfiltered unit economic teardown of bubble tea franchising in Singapore.',
+        category: 'Franchise Unit Economics',
+        categoryColor: 'bg-emerald-50 text-emerald-700 border-emerald-200',
+        date: 'August 26, 2026',
+        authorName: 'Frederick Tan',
+        authorRole: 'Certified Franchise Consultant',
+        authorSlug: 'frederick-tan',
+    },
     {
         slug: 'foot-traffic-lies-predicts-franchise-unit-survival-singapore',
         title: "Foot Traffic Lies. Here's What Actually Predicts a Franchise Unit's Survival",
@@ -58,8 +80,33 @@ const ARTICLES = [
 ];
 
 export default function InsightsPage() {
+    const jsonLd = {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "@id": "https://www.franchise.sg/insights#webpage",
+        "url": "https://www.franchise.sg/insights",
+        "name": "Franchise Insights Singapore | Market Intelligence & Unit Economics",
+        "description": "Data-driven analysis, unit economics, and regulatory compliance reports for Singapore franchise investors.",
+        "isPartOf": {
+            "@id": "https://www.franchise.sg/#website"
+        },
+        "about": {
+            "@type": "ItemList",
+            "itemListElement": ARTICLES.map((article, idx) => ({
+                "@type": "ListItem",
+                "position": idx + 1,
+                "url": `https://www.franchise.sg/insights/${article.slug}`,
+                "name": article.title
+            }))
+        }
+    };
+
     return (
         <main className="w-full bg-slate-50 min-h-screen pb-20 font-sans antialiased text-slate-900">
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+            />
 
             {/* Header Banner */}
             <section className="bg-slate-950 text-white py-14 px-4 sm:px-6 lg:px-8 border-b border-slate-800">
@@ -71,7 +118,7 @@ export default function InsightsPage() {
                         ← Return to Franchise Singapore Directory
                     </Link>
                     <h1 className="text-3xl sm:text-4xl font-black text-white">
-                        Franchise Market Insights & Intelligence
+                        Franchise Insights Singapore | Market Intelligence &amp; Due Diligence
                     </h1>
                     <p className="text-slate-400 text-sm max-w-2xl leading-relaxed">
                         Data-backed analysis, commercial tenancy audits, and unit economic teardowns for Singapore franchise investors and brand operators.
@@ -82,7 +129,7 @@ export default function InsightsPage() {
             {/* Articles Grid Section */}
             <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 space-y-8">
                 <h2 className="text-2xl font-black text-slate-950">
-                    Latest Franchise Trends & Market Reports
+                    Latest Franchise Trends &amp; Market Reports
                 </h2>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -134,6 +181,49 @@ export default function InsightsPage() {
                             </div>
                         </div>
                     ))}
+                </div>
+
+                {/* Ecosystem Advisory & International Expansion Cards */}
+                <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-6 pt-6 border-t border-slate-200">
+                    <div className="bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 space-y-4">
+                        <div className="inline-flex items-center gap-2 bg-teal-50 border border-teal-200 px-3 py-1 rounded-full text-teal-800 text-xs font-bold uppercase tracking-wider">
+                            Singapore Advisory
+                        </div>
+                        <h3 className="text-xl font-bold text-slate-950">
+                            Franchise Feasibility &amp; IP Strategy
+                        </h3>
+                        <p className="text-slate-600 text-sm leading-relaxed">
+                            Looking to transform your existing Singapore business into a certified franchise system? Consult with recognized Singapore IP &amp; franchise specialists.
+                        </p>
+                        <a
+                            href="https://www.ftsynergist.com/franchise-consultant"
+                            target="_blank"
+                            rel="noopener"
+                            className="inline-flex items-center gap-2 text-teal-600 hover:text-teal-700 font-bold text-sm transition-colors pt-2"
+                        >
+                            Explore FT Synergist Advisory →
+                        </a>
+                    </div>
+
+                    <div className="bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 space-y-4">
+                        <div className="inline-flex items-center gap-2 bg-sky-50 border border-sky-200 px-3 py-1 rounded-full text-sky-800 text-xs font-bold uppercase tracking-wider">
+                            Global Scaling
+                        </div>
+                        <h3 className="text-xl font-bold text-slate-950">
+                            Cross-Border Master Licensing
+                        </h3>
+                        <p className="text-slate-600 text-sm leading-relaxed">
+                            Scale your franchise brand across Southeast Asia, Australia, and international markets through regional master franchise networks.
+                        </p>
+                        <a
+                            href="https://www.growingbeyondborders.com/"
+                            target="_blank"
+                            rel="noopener"
+                            className="inline-flex items-center gap-2 text-sky-600 hover:text-sky-700 font-bold text-sm transition-colors pt-2"
+                        >
+                            Explore Growing Beyond Borders →
+                        </a>
+                    </div>
                 </div>
             </section>
 

@@ -19,18 +19,26 @@ export const metadata: Metadata = {
     default: "Franchise Singapore | Verified Franchise Opportunities & Listings",
     template: "%s | Franchise.sg"
   },
-  description: "Top Franchise Singapore portal for verified franchise opportunities. Explore our active franchise listing directory and gain expert franchise insights.",
+  description: "Top Franchise Singapore portal for verified franchise opportunities. Explore our active franchise listing directory, minimum capital requirements, and expert franchise insights.",
   keywords: [
     "franchise singapore",
-    "franchise opportunities",
-    "franchise listing",
-    "franchise insights",
+    "franchise opportunities singapore",
+    "franchise listing singapore",
+    "franchise insights singapore",
     "business for sale singapore",
-    "f&b franchise singapore"
+    "f&b franchise singapore",
+    "franchise consultant singapore",
+    "master franchise southeast asia"
   ],
   metadataBase: new URL("https://www.franchise.sg"),
   alternates: {
     canonical: "/",
+  },
+  other: {
+    "geo.region": "SG",
+    "geo.placename": "Singapore",
+    "geo.position": "1.3521;103.8198",
+    "ICBM": "1.3521, 103.8198",
   },
   robots: {
     index: true,
@@ -67,22 +75,55 @@ const publisherSchema = {
       "description": "Singapore's Premier Franchise & Master Licensing Portal.",
       "publisher": {
         "@type": "Organization",
-        "name": "FT Synergist Advisory",
-        "url": "https://www.ftsynergist.com/",
-        "sameAs": [
-          "https://www.ftsynergist.com/franchise-consultant",
-          "https://ipgrow.gobusiness.gov.sg/service-provider-directory/ft-synergist-pte-ltd"
+        "@id": "https://www.franchise.sg/#organization",
+        "name": "Franchise Singapore",
+        "url": "https://www.franchise.sg/",
+        "logo": "https://www.franchise.sg/favicon.ico",
+        "sponsor": [
+          {
+            "@type": "ConsultingBusiness",
+            "@id": "https://www.ftsynergist.com/#organization",
+            "name": "FT Synergist Advisory",
+            "url": "https://www.ftsynergist.com/",
+            "sameAs": [
+              "https://www.ftsynergist.com/franchise-consultant",
+              "https://ipgrow.gobusiness.gov.sg/service-provider-directory/ft-synergist-pte-ltd"
+            ]
+          },
+          {
+            "@type": "Organization",
+            "@id": "https://www.growingbeyondborders.com/#organization",
+            "name": "Growing Beyond Borders",
+            "url": "https://www.growingbeyondborders.com/",
+            "description": "International master franchise licensing and cross-border expansion platform."
+          }
         ]
       }
     },
     {
-      "@type": "Service",
-      "name": "Franchise Consulting & Advisory Singapore",
-      "provider": {
-        "@type": "ConsultingBusiness",
-        "name": "FT Synergist",
-        "url": "https://www.ftsynergist.com/franchise-consultant"
-      }
+      "@type": "ConsultingBusiness",
+      "@id": "https://www.ftsynergist.com/#organization",
+      "name": "FT Synergist",
+      "url": "https://www.ftsynergist.com/franchise-consultant",
+      "description": "Certified Franchise Consulting & Intellectual Property Commercialization Advisory in Singapore.",
+      "areaServed": "Singapore",
+      "sameAs": [
+        "https://www.ftsynergist.com/",
+        "https://ipgrow.gobusiness.gov.sg/service-provider-directory/ft-synergist-pte-ltd"
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://www.ftsynergist.com/#frederick-tan",
+      "name": "Frederick Tan",
+      "jobTitle": "Certified Franchise Consultant",
+      "worksFor": {
+        "@id": "https://www.ftsynergist.com/#organization"
+      },
+      "sameAs": [
+        "https://www.ftsynergist.com/franchise-consultant",
+        "https://www.growingbeyondborders.com/"
+      ]
     }
   ]
 };

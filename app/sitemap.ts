@@ -50,6 +50,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
             changeFrequency: 'weekly',
             priority: 0.7,
         },
+        {
+            url: `${baseUrl}/author/frederick-tan`,
+            lastModified: new Date(),
+            changeFrequency: 'weekly',
+            priority: 0.7,
+        },
     ];
 
     // Core Categories
@@ -83,6 +89,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
         // 3. Editorial articles tracking (under /insights/)
         const staticEditorialSlugs = [
+            'bubble-tea-franchise-singapore-cost-profitability-analysis',
             'foot-traffic-lies-predicts-franchise-unit-survival-singapore',
             'how-to-determine-the-best-food-franchise-to-invest-in-singapore',
             'vending-machine-franchise-analysis-singapore',
