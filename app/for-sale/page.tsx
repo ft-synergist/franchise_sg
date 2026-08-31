@@ -6,13 +6,13 @@ import { Metadata } from 'next';
 export const revalidate = 60;
 
 export const metadata: Metadata = {
-    title: 'Franchise Businesses For Sale Singapore | Resale Franchise Opportunities',
+    title: 'Franchise Businesses For Sale Singapore (2026) | Verified Resale Units',
     description: 'Explore verified franchise businesses for sale in Singapore. Acquire cash-flowing established franchise locations with operational infrastructure and historical financial data.',
     alternates: {
         canonical: 'https://www.franchise.sg/for-sale',
     },
     openGraph: {
-        title: 'Franchise Businesses For Sale Singapore | Resale Franchise Opportunities',
+        title: 'Franchise Businesses For Sale Singapore (2026) | Verified Resale Units',
         description: 'Explore verified franchise businesses for sale in Singapore. Acquire cash-flowing established franchise locations with operational infrastructure.',
         url: 'https://www.franchise.sg/for-sale',
         siteName: 'Franchise.sg',
@@ -33,8 +33,34 @@ export default async function ForSaleDirectory() {
     `)
         .eq('status', 'active');
 
+    const schemaMarkup = {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "@id": "https://www.franchise.sg/for-sale/#webpage",
+        "url": "https://www.franchise.sg/for-sale",
+        "name": "Franchise Businesses For Sale Singapore",
+        "description": "Verified franchise resale opportunities in Singapore with active operational infrastructure.",
+        "about": {
+            "@type": "ItemList",
+            "name": "Franchise Businesses For Sale",
+            "itemListElement": listings?.map((item, index) => ({
+                "@type": "ListItem",
+                "position": index + 1,
+                "item": {
+                    "@type": "BusinessWithPhysicalSystem",
+                    "name": item.title,
+                    "location": item.location_region
+                }
+            })) || []
+        }
+    };
+
     return (
         <div className="min-h-screen bg-slate-50/60 text-slate-900 antialiased font-sans">
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaMarkup) }}
+            />
             {/* Exact Homepage Header Match */}
             <header className="bg-gradient-to-r from-teal-900 via-slate-950 to-slate-950 text-white py-20 px-6">
                 <div className="max-w-6xl mx-auto">

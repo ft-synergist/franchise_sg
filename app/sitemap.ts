@@ -61,9 +61,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     // Core Categories
     const categorySlugs = [
         'food-beverage',
-        'education',
-        'retail',
-        'beauty-wellness',
+        'education-enrichment',
+        'retail-services',
+        'health-wellness',
         'services',
     ];
 

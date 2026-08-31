@@ -5,14 +5,14 @@ import FranchiseGridEngine from './components/FranchiseGridEngine';
 export const revalidate = 60; // Cache index pages globally on Vercel Edge nodes for 60 seconds
 
 export const metadata = {
-  title: 'Franchise Singapore | Verified Franchise Opportunities & Listings',
-  description: 'The authoritative Franchise Singapore directory for verified franchise opportunities, active franchise listings, minimum capital requirements (SGD), and expert franchise insights.',
+  title: 'Franchise Singapore (2026) | Verified Franchise Opportunities & Listings Directory',
+  description: 'The authoritative Franchise Singapore portal. Explore verified franchise opportunities, compare minimum capital requirements (S$30K–S$500K+), franchise fees, royalties, and expert franchise insights.',
   alternates: {
     canonical: 'https://www.franchise.sg',
   },
   openGraph: {
-    title: 'Franchise Singapore | Verified Franchise Opportunities & Listings',
-    description: 'The authoritative Franchise Singapore directory for verified franchise opportunities, active franchise listings, minimum capital requirements (SGD), and expert franchise insights.',
+    title: 'Franchise Singapore (2026) | Verified Franchise Opportunities & Listings Directory',
+    description: 'The authoritative Franchise Singapore portal. Explore verified franchise opportunities, compare minimum capital requirements (S$30K–S$500K+), franchise fees, royalties, and expert franchise insights.',
     url: 'https://www.franchise.sg',
     siteName: 'Franchise Singapore',
     type: 'website',
@@ -20,8 +20,8 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Franchise Singapore | Verified Franchise Opportunities & Listings',
-    description: 'The authoritative Franchise Singapore directory for verified franchise opportunities, active franchise listings, minimum capital requirements (SGD), and expert franchise insights.',
+    title: 'Franchise Singapore (2026) | Verified Franchise Opportunities & Listings Directory',
+    description: 'The authoritative Franchise Singapore portal. Explore verified franchise opportunities, compare minimum capital requirements (S$30K–S$500K+), franchise fees, royalties, and expert franchise insights.',
   }
 };
 
@@ -75,7 +75,7 @@ export default async function FranchiseDirectoryHome() {
             "name": "How much does it cost to buy a franchise in Singapore?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Franchise investment costs in Singapore typically range from S$30,000 for low-overhead kiosk or service models up to S$500,000+ for prime F&B restaurant concepts. Key capital items include initial franchise fees, renovation, rental deposits, working capital, and operational runway."
+              "text": "Franchise investment costs in Singapore typically range from S$30,000 for low-overhead kiosk or service models up to S$500,000+ for prime F&B restaurant concepts. Key capital items audited include initial franchise fees, commercial fitout, security rental deposits (typically 3–6 months per URA commercial leasing standards), initial inventory, and working capital runway."
             }
           },
           {
@@ -83,7 +83,7 @@ export default async function FranchiseDirectoryHome() {
             "name": "What are the most profitable franchise opportunities in Singapore?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Top performing franchise sectors in Singapore include Food & Beverage (F&B), Early Childhood Education & Enrichment, Health & Wellness, and Automated Retail. Brands with central supply chains, established IP, and low labor reliance consistently demonstrate the highest unit-level profitability."
+              "text": "According to SingStat Food & Beverage Services and Retail Trade industry benchmarks, resilient franchise sectors in Singapore include Food & Beverage (F&B), Early Childhood Education & Enrichment, Health & Wellness, and Automated Retail. Brands with centralized supply chains, registered trademarks with IPOS, and optimized labor productivity consistently demonstrate defensible unit economics."
             }
           },
           {
@@ -91,7 +91,7 @@ export default async function FranchiseDirectoryHome() {
             "name": "How do I evaluate verified franchise listings in Singapore?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Before committing capital, verify the franchisor's registered trademark with IPOS, examine historical franchisee unit economics, audit shopping mall lease covenants, and verify whether government grants such as Enterprise Development Grant (EDG) or MRA apply."
+              "text": "Before committing capital, verify the franchisor's corporate registration with ACRA, confirm registered trademarks on the IPOS IP Grow registry, audit shopping mall lease covenants against URA retail benchmarks, and verify eligibility for Enterprise Singapore support schemes such as EDG or MRA."
             }
           },
           {
@@ -261,34 +261,64 @@ export default async function FranchiseDirectoryHome() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 pt-2">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-2">
+              <Link
+                href="/insights/bubble-tea-franchise-singapore-cost-profitability-analysis"
+                className="bg-slate-800/80 hover:bg-slate-800 border border-slate-700/80 p-4 rounded-xl transition-all group flex flex-col justify-between"
+              >
+                <div>
+                  <div className="text-xs font-semibold text-teal-300">F&amp;B Unit Economics</div>
+                  <div className="text-sm font-bold text-white group-hover:text-teal-200 mt-1 line-clamp-2">
+                    Bubble Tea Franchise Singapore: Cost &amp; Profitability Breakdown (2026)
+                  </div>
+                </div>
+                <div className="text-[11px] text-slate-400 mt-3 flex items-center gap-1">
+                  Read Case Study &rarr;
+                </div>
+              </Link>
+
               <Link
                 href="/insights/foot-traffic-lies-predicts-franchise-unit-survival-singapore"
-                className="bg-slate-800/80 hover:bg-slate-800 border border-slate-700/80 p-4 rounded-xl transition-all group"
+                className="bg-slate-800/80 hover:bg-slate-800 border border-slate-700/80 p-4 rounded-xl transition-all group flex flex-col justify-between"
               >
-                <div className="text-xs font-semibold text-teal-300">Commercial Leasing</div>
-                <div className="text-sm font-bold text-white group-hover:text-teal-200 mt-1 line-clamp-2">
-                  Foot Traffic Lies: What Actually Predicts Franchise Unit Survival
+                <div>
+                  <div className="text-xs font-semibold text-teal-300">Commercial Leasing</div>
+                  <div className="text-sm font-bold text-white group-hover:text-teal-200 mt-1 line-clamp-2">
+                    Foot Traffic Lies: What Actually Predicts Franchise Unit Survival
+                  </div>
+                </div>
+                <div className="text-[11px] text-slate-400 mt-3 flex items-center gap-1">
+                  Read Lease Audit &rarr;
                 </div>
               </Link>
 
               <Link
                 href="/insights/how-to-determine-the-best-food-franchise-to-invest-in-singapore"
-                className="bg-slate-800/80 hover:bg-slate-800 border border-slate-700/80 p-4 rounded-xl transition-all group"
+                className="bg-slate-800/80 hover:bg-slate-800 border border-slate-700/80 p-4 rounded-xl transition-all group flex flex-col justify-between"
               >
-                <div className="text-xs font-semibold text-teal-300">F&amp;B Economics</div>
-                <div className="text-sm font-bold text-white group-hover:text-teal-200 mt-1 line-clamp-2">
-                  Best Food Franchise to Invest in Singapore: 1968–2026 Analysis
+                <div>
+                  <div className="text-xs font-semibold text-teal-300">F&amp;B Evolution</div>
+                  <div className="text-sm font-bold text-white group-hover:text-teal-200 mt-1 line-clamp-2">
+                    Best Food Franchise to Invest in Singapore: 1968–2026 Analysis
+                  </div>
+                </div>
+                <div className="text-[11px] text-slate-400 mt-3 flex items-center gap-1">
+                  Read F&amp;B Guide &rarr;
                 </div>
               </Link>
 
               <Link
                 href="/insights/vending-machine-franchise-analysis-singapore"
-                className="bg-slate-800/80 hover:bg-slate-800 border border-slate-700/80 p-4 rounded-xl transition-all group"
+                className="bg-slate-800/80 hover:bg-slate-800 border border-slate-700/80 p-4 rounded-xl transition-all group flex flex-col justify-between"
               >
-                <div className="text-xs font-semibold text-rose-300">Scam Prevention</div>
-                <div className="text-sm font-bold text-white group-hover:text-rose-200 mt-1 line-clamp-2">
-                  Vending Machine Franchise Scam Alert: Hands-Off Income Reality
+                <div>
+                  <div className="text-xs font-semibold text-rose-300">Scam Prevention</div>
+                  <div className="text-sm font-bold text-white group-hover:text-rose-200 mt-1 line-clamp-2">
+                    Vending Machine Franchise Scam Alert: Hands-Off Income Reality
+                  </div>
+                </div>
+                <div className="text-[11px] text-slate-400 mt-3 flex items-center gap-1">
+                  Read Warning Report &rarr;
                 </div>
               </Link>
             </div>
@@ -299,6 +329,53 @@ export default async function FranchiseDirectoryHome() {
                 className="inline-flex items-center text-sm font-bold text-teal-400 hover:text-teal-300 transition-colors"
               >
                 Read All Franchise Insights Singapore &rarr;
+              </Link>
+            </div>
+          </div>
+
+          {/* Core Category Navigation Hub */}
+          <div className="space-y-4 pt-4">
+            <h3 className="text-2xl font-black text-slate-950 tracking-tight">
+              Explore High-Demand Franchise Categories in Singapore
+            </h3>
+            <p className="text-slate-600 text-sm">
+              Discover vetted franchise opportunities categorized by verified industry sectors in Singapore.
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 pt-2">
+              <Link
+                href="/categories/food-beverage"
+                className="bg-white p-5 rounded-2xl border border-slate-200 hover:border-teal-500 shadow-sm hover:shadow-md transition-all group"
+              >
+                <div className="text-xs font-bold text-teal-700 uppercase tracking-wider bg-teal-50 px-2 py-0.5 rounded w-fit mb-2">F&amp;B Sector</div>
+                <h4 className="text-base font-black text-slate-950 group-hover:text-teal-700 transition-colors">Food &amp; Beverage Franchises</h4>
+                <p className="text-xs text-slate-500 mt-1.5 leading-relaxed">Fast-casual, cafes, bubble tea kiosks, and full-service restaurant brands.</p>
+              </Link>
+
+              <Link
+                href="/categories/education-enrichment"
+                className="bg-white p-5 rounded-2xl border border-slate-200 hover:border-teal-500 shadow-sm hover:shadow-md transition-all group"
+              >
+                <div className="text-xs font-bold text-indigo-700 uppercase tracking-wider bg-indigo-50 px-2 py-0.5 rounded w-fit mb-2">Education</div>
+                <h4 className="text-base font-black text-slate-950 group-hover:text-teal-700 transition-colors">Education &amp; Enrichment</h4>
+                <p className="text-xs text-slate-500 mt-1.5 leading-relaxed">Tuition centers, coding academies, preschools, and specialized learning.</p>
+              </Link>
+
+              <Link
+                href="/categories/retail-services"
+                className="bg-white p-5 rounded-2xl border border-slate-200 hover:border-teal-500 shadow-sm hover:shadow-md transition-all group"
+              >
+                <div className="text-xs font-bold text-amber-700 uppercase tracking-wider bg-amber-50 px-2 py-0.5 rounded w-fit mb-2">Retail &amp; Ops</div>
+                <h4 className="text-base font-black text-slate-950 group-hover:text-teal-700 transition-colors">Retail &amp; Convenience</h4>
+                <p className="text-xs text-slate-500 mt-1.5 leading-relaxed">Automated retail kiosks, convenience concepts, and boutique lifestyle outlets.</p>
+              </Link>
+
+              <Link
+                href="/for-sale"
+                className="bg-white p-5 rounded-2xl border border-slate-200 hover:border-teal-500 shadow-sm hover:shadow-md transition-all group"
+              >
+                <div className="text-xs font-bold text-emerald-700 uppercase tracking-wider bg-emerald-50 px-2 py-0.5 rounded w-fit mb-2">Resale Market</div>
+                <h4 className="text-base font-black text-slate-950 group-hover:text-teal-700 transition-colors">Franchises For Sale</h4>
+                <p className="text-xs text-slate-500 mt-1.5 leading-relaxed">Acquire operational, cash-flowing franchise resale units with audited accounts.</p>
               </Link>
             </div>
           </div>

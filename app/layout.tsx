@@ -16,13 +16,16 @@ const geistMono = Geist_Mono({
 // CRITICAL GEO/SEO ENTERPRISE METADATA INJECTION - OPTIMIZED FOR WWW.FRANCHISE.SG
 export const metadata: Metadata = {
   title: {
-    default: "Franchise Singapore | Verified Franchise Opportunities & Listings",
+    default: "Franchise Singapore (2026) | Verified Franchise Opportunities & Directory",
     template: "%s | Franchise.sg"
   },
-  description: "Top Franchise Singapore portal for verified franchise opportunities. Explore our active franchise listing directory, minimum capital requirements, and expert franchise insights.",
+  description: "The authoritative Singapore franchise directory. Explore verified franchise opportunities, compare minimum capital requirements (S$30K–S$500K+), franchise fees, royalties, and expert franchise insights.",
   keywords: [
     "franchise singapore",
+    "franchise sg",
     "franchise opportunities singapore",
+    "franchise business in singapore",
+    "franchise in singapore",
     "franchise listing singapore",
     "franchise insights singapore",
     "business for sale singapore",
