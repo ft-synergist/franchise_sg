@@ -36,6 +36,14 @@ const AUTHOR_ARTICLES: Record<string, Array<{ slug: string; title: string; descr
     ],
     'chen-yong-lin': [
         {
+            slug: 'psychology-singaporean-plate-franchise-evolution-super-brands-1970-2026',
+            title: 'The Psychology of the Singaporean Plate: Evolution & Hyper-Profitability of Franchise Super-Brands (1970–2026)',
+            description: 'From 1968 A&W and 1987 MUIS Halal certification breakthroughs to BreadTalk\'s global scaling and 2026 viral powerhouses like Pawa Bakery: the definitive sociological and financial audit of Singapore\'s franchise super-brands.',
+            date: 'September 15, 2026',
+            publishAt: '2026-09-15T08:00:00+08:00',
+            category: 'Macro Strategy & Evolution',
+        },
+        {
             slug: 'mr-coconut-old-chang-kee-top-food-franchise-costs-singapore',
             title: 'Mr Coconut, Old Chang Kee & Top F&B Franchise Costs in Singapore (2026 Financial Audit)',
             description: 'Unfiltered 2026 financial audit of Singapore\'s leading F&B franchises. Compare real startup capital (S$150K–S$350K), store EBITDA margins, supply chain moats, Nutri-Grade laws, and SGX audited cash flows.',
