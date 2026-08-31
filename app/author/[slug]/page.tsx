@@ -9,13 +9,14 @@ type Props = {
 };
 
 // Registered articles mapped by author slug
-const AUTHOR_ARTICLES: Record<string, Array<{ slug: string; title: string; description: string; date: string; category: string }>> = {
+const AUTHOR_ARTICLES: Record<string, Array<{ slug: string; title: string; description: string; date: string; category: string; publishAt?: string }>> = {
     'maggie-png': [
         {
             slug: 'lease-or-own-franchise-commercial-property-singapore',
             title: 'Lease or Own? What Franchisees in Singapore Must Calculate Before Deciding (2026 Commercial Guide)',
             description: 'Commercial Property Strategist Maggie Png breaks down the true financial and operational comparison between leasing vs buying franchise premises in Singapore, covering BSD, MAS LTV rules, CoC protections, and capital allocation.',
             date: 'September 1, 2026',
+            publishAt: '2026-09-01T08:00:00+08:00',
             category: 'Commercial Real Estate Strategy',
         },
         {
@@ -85,7 +86,10 @@ export default async function AuthorProfilePage({ params }: Props) {
         notFound();
     }
 
-    const articles = AUTHOR_ARTICLES[resolvedParams.slug] || [];
+    const articles = (AUTHOR_ARTICLES[resolvedParams.slug] || []).filter((article) => {
+        if (!article.publishAt) return true;
+        return new Date(article.publishAt).getTime() <= Date.now();
+    });
 
     const jsonLd = {
         '@context': 'https://schema.org',

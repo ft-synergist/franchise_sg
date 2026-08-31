@@ -29,6 +29,7 @@ const ARTICLES = [
         category: 'Commercial Property Strategy',
         categoryColor: 'bg-teal-50 text-teal-700 border-teal-200',
         date: 'September 1, 2026',
+        publishAt: '2026-09-01T08:00:00+08:00',
         authorName: 'Maggie Png',
         authorRole: 'Commercial Property Strategist',
         authorSlug: 'maggie-png',
@@ -91,6 +92,11 @@ const ARTICLES = [
 ];
 
 export default function InsightsPage() {
+    const visibleArticles = ARTICLES.filter((article) => {
+        if (!('publishAt' in article) || !article.publishAt) return true;
+        return new Date(article.publishAt).getTime() <= Date.now();
+    });
+
     const jsonLd = {
         "@context": "https://schema.org",
         "@type": "CollectionPage",
@@ -103,7 +109,7 @@ export default function InsightsPage() {
         },
         "about": {
             "@type": "ItemList",
-            "itemListElement": ARTICLES.map((article, idx) => ({
+            "itemListElement": visibleArticles.map((article, idx) => ({
                 "@type": "ListItem",
                 "position": idx + 1,
                 "url": `https://www.franchise.sg/insights/${article.slug}`,
@@ -144,7 +150,7 @@ export default function InsightsPage() {
                 </h2>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {ARTICLES.map((article) => (
+                    {visibleArticles.map((article) => (
                         <div
                             key={article.slug}
                             className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm flex flex-col justify-between hover:border-slate-300 transition-all"

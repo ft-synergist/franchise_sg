@@ -12,7 +12,7 @@ interface PageProps {
 // ==========================================
 // ARTICLE DATA ARCHITECTURE
 // ==========================================
-const insightsMap: Record<string, { title: string; description: string; content: () => React.JSX.Element }> = {
+const insightsMap: Record<string, { title: string; description: string; publishAt?: string; content: () => React.JSX.Element }> = {
     'foot-traffic-lies-predicts-franchise-unit-survival-singapore': {
         title: "Foot Traffic Lies. Here's What Actually Predicts a Franchise Unit's Survival",
         description: "Every leasing pitch in Singapore comes with footfall numbers, yet high-profile F&B units fail within years. Commercial Property Strategist Maggie Png exposes why raw foot traffic lies and reveals the true predictors of 5-year unit survival.",
@@ -1101,6 +1101,7 @@ const insightsMap: Record<string, { title: string; description: string; content:
     'lease-or-own-franchise-commercial-property-singapore': {
         title: "Lease or Own? What Franchisees in Singapore Must Calculate Before Deciding (2026 Commercial Guide)",
         description: "Commercial Property Strategist Maggie Png breaks down the true financial and operational comparison between leasing vs buying franchise premises in Singapore, covering BSD, MAS LTV rules, CoC protections, and capital allocation.",
+        publishAt: '2026-09-01T08:00:00+08:00',
         content: () => {
             const author = EDITORS['maggie-png'];
             return (
@@ -1548,6 +1549,9 @@ export async function generateMetadata({ params }: PageProps) {
     // Execution Block 2: Fallback to local hardcoded editorial articles
     const insight = insightsMap[slug];
     if (insight) {
+        if (insight.publishAt && new Date(insight.publishAt).getTime() > Date.now()) {
+            return {};
+        }
         const itemUrl = `https://www.franchise.sg/insights/${slug}`;
         return {
             title: insight.title,
@@ -1671,7 +1675,7 @@ export default async function DynamicInsightRouter({ params }: PageProps) {
 
     // Execution Sequence 2: Fall back to static marketing insights if database item yields empty results
     const insight = insightsMap[slug];
-    if (!insight) {
+    if (!insight || (insight.publishAt && new Date(insight.publishAt).getTime() > Date.now())) {
         notFound();
     }
 
