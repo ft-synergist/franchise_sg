@@ -263,13 +263,43 @@ export default async function FranchiseDirectoryHome() {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-2">
               <Link
+                href="/insights/mr-coconut-old-chang-kee-top-food-franchise-costs-singapore"
+                className="bg-slate-800/80 hover:bg-slate-800 border border-slate-700/80 p-4 rounded-xl transition-all group flex flex-col justify-between"
+              >
+                <div>
+                  <div className="text-xs font-semibold text-teal-300">F&amp;B Financial Audit</div>
+                  <div className="text-sm font-bold text-white group-hover:text-teal-200 mt-1 line-clamp-2">
+                    Mr Coconut, Old Chang Kee &amp; Top F&amp;B Franchise Costs (2026)
+                  </div>
+                </div>
+                <div className="text-[11px] text-slate-400 mt-3 flex items-center gap-1">
+                  Read Financial Audit &rarr;
+                </div>
+              </Link>
+
+              <Link
+                href="/insights/lease-or-own-franchise-commercial-property-singapore"
+                className="bg-slate-800/80 hover:bg-slate-800 border border-slate-700/80 p-4 rounded-xl transition-all group flex flex-col justify-between"
+              >
+                <div>
+                  <div className="text-xs font-semibold text-teal-300">Commercial Property</div>
+                  <div className="text-sm font-bold text-white group-hover:text-teal-200 mt-1 line-clamp-2">
+                    Lease or Own? What Franchisees Must Calculate Before Deciding
+                  </div>
+                </div>
+                <div className="text-[11px] text-slate-400 mt-3 flex items-center gap-1">
+                  Read Property Guide &rarr;
+                </div>
+              </Link>
+
+              <Link
                 href="/insights/bubble-tea-franchise-singapore-cost-profitability-analysis"
                 className="bg-slate-800/80 hover:bg-slate-800 border border-slate-700/80 p-4 rounded-xl transition-all group flex flex-col justify-between"
               >
                 <div>
-                  <div className="text-xs font-semibold text-teal-300">F&amp;B Unit Economics</div>
-                  <div className="text-sm font-bold text-white group-hover:text-teal-200 mt-1 line-clamp-2">
-                    Bubble Tea Franchise Singapore: Cost &amp; Profitability Breakdown (2026)
+                  <div className="text-xs font-semibold text-emerald-300">F&amp;B Unit Economics</div>
+                  <div className="text-sm font-bold text-white group-hover:text-emerald-200 mt-1 line-clamp-2">
+                    Bubble Tea Franchise Singapore: Cost &amp; Profitability Breakdown
                   </div>
                 </div>
                 <div className="text-[11px] text-slate-400 mt-3 flex items-center gap-1">
@@ -289,36 +319,6 @@ export default async function FranchiseDirectoryHome() {
                 </div>
                 <div className="text-[11px] text-slate-400 mt-3 flex items-center gap-1">
                   Read Lease Audit &rarr;
-                </div>
-              </Link>
-
-              <Link
-                href="/insights/how-to-determine-the-best-food-franchise-to-invest-in-singapore"
-                className="bg-slate-800/80 hover:bg-slate-800 border border-slate-700/80 p-4 rounded-xl transition-all group flex flex-col justify-between"
-              >
-                <div>
-                  <div className="text-xs font-semibold text-teal-300">F&amp;B Evolution</div>
-                  <div className="text-sm font-bold text-white group-hover:text-teal-200 mt-1 line-clamp-2">
-                    Best Food Franchise to Invest in Singapore: 1968–2026 Analysis
-                  </div>
-                </div>
-                <div className="text-[11px] text-slate-400 mt-3 flex items-center gap-1">
-                  Read F&amp;B Guide &rarr;
-                </div>
-              </Link>
-
-              <Link
-                href="/insights/vending-machine-franchise-analysis-singapore"
-                className="bg-slate-800/80 hover:bg-slate-800 border border-slate-700/80 p-4 rounded-xl transition-all group flex flex-col justify-between"
-              >
-                <div>
-                  <div className="text-xs font-semibold text-rose-300">Scam Prevention</div>
-                  <div className="text-sm font-bold text-white group-hover:text-rose-200 mt-1 line-clamp-2">
-                    Vending Machine Franchise Scam Alert: Hands-Off Income Reality
-                  </div>
-                </div>
-                <div className="text-[11px] text-slate-400 mt-3 flex items-center gap-1">
-                  Read Warning Report &rarr;
                 </div>
               </Link>
             </div>

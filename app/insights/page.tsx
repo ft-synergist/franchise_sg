@@ -23,6 +23,18 @@ export const metadata: Metadata = {
 
 const ARTICLES = [
     {
+        slug: 'mr-coconut-old-chang-kee-top-food-franchise-costs-singapore',
+        title: 'Mr Coconut, Old Chang Kee & Top F&B Franchise Costs in Singapore (2026 Financial Audit)',
+        description: 'Unfiltered 2026 financial audit of Singapore\'s leading F&B franchises. Compare real startup capital (S$150K–S$350K), store EBITDA margins, supply chain moats, Nutri-Grade laws, and SGX audited cash flows.',
+        category: 'F&B Financial Audit',
+        categoryColor: 'bg-emerald-50 text-emerald-700 border-emerald-200',
+        date: 'September 1, 2026',
+        publishAt: '2026-09-01T08:00:00+08:00',
+        authorName: 'Chen Yong Lin',
+        authorRole: 'Editor-in-Chief & Lead Analyst',
+        authorSlug: 'chen-yong-lin',
+    },
+    {
         slug: 'lease-or-own-franchise-commercial-property-singapore',
         title: 'Lease or Own? What Franchisees in Singapore Must Calculate Before Deciding (2026 Commercial Guide)',
         description: 'Should your franchise lease or buy its commercial unit? Commercial Property Strategist Maggie Png compares IRAS stamp duties, MAS commercial LTV limits, CoC retail tenant protections, and the 3-year cash flow model.',

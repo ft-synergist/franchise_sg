@@ -36,6 +36,14 @@ const AUTHOR_ARTICLES: Record<string, Array<{ slug: string; title: string; descr
     ],
     'chen-yong-lin': [
         {
+            slug: 'mr-coconut-old-chang-kee-top-food-franchise-costs-singapore',
+            title: 'Mr Coconut, Old Chang Kee & Top F&B Franchise Costs in Singapore (2026 Financial Audit)',
+            description: 'Unfiltered 2026 financial audit of Singapore\'s leading F&B franchises. Compare real startup capital (S$150K–S$350K), store EBITDA margins, supply chain moats, Nutri-Grade laws, and SGX audited cash flows.',
+            date: 'September 1, 2026',
+            publishAt: '2026-09-01T08:00:00+08:00',
+            category: 'F&B Financial Audit',
+        },
+        {
             slug: 'how-to-determine-the-best-food-franchise-to-invest-in-singapore',
             title: 'How to Determine the Best F&B Franchise to Invest in Singapore: The Evolution of Singapore F&B Franchise (1968–2026)',
             description: 'Discover what makes a resilient food franchise opportunity in Singapore. An unfiltered analysis of historical fast-food evolution, rental traps, and navigating the manpower squeeze.',
