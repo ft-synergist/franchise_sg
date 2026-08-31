@@ -15,8 +15,8 @@ const AUTHOR_ARTICLES: Record<string, Array<{ slug: string; title: string; descr
             slug: 'lease-or-own-franchise-commercial-property-singapore',
             title: 'Lease or Own? What Franchisees in Singapore Must Calculate Before Deciding (2026 Commercial Guide)',
             description: 'Commercial Property Strategist Maggie Png breaks down the true financial and operational comparison between leasing vs buying franchise premises in Singapore, covering BSD, MAS LTV rules, CoC protections, and capital allocation.',
-            date: 'September 1, 2026',
-            publishAt: '2026-09-01T08:00:00+08:00',
+            date: 'September 8, 2026',
+            publishAt: '2026-09-08T08:00:00+08:00',
             category: 'Commercial Real Estate Strategy',
         },
         {

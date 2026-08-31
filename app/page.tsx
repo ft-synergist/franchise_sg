@@ -278,21 +278,6 @@ export default async function FranchiseDirectoryHome() {
               </Link>
 
               <Link
-                href="/insights/lease-or-own-franchise-commercial-property-singapore"
-                className="bg-slate-800/80 hover:bg-slate-800 border border-slate-700/80 p-4 rounded-xl transition-all group flex flex-col justify-between"
-              >
-                <div>
-                  <div className="text-xs font-semibold text-teal-300">Commercial Property</div>
-                  <div className="text-sm font-bold text-white group-hover:text-teal-200 mt-1 line-clamp-2">
-                    Lease or Own? What Franchisees Must Calculate Before Deciding
-                  </div>
-                </div>
-                <div className="text-[11px] text-slate-400 mt-3 flex items-center gap-1">
-                  Read Property Guide &rarr;
-                </div>
-              </Link>
-
-              <Link
                 href="/insights/bubble-tea-franchise-singapore-cost-profitability-analysis"
                 className="bg-slate-800/80 hover:bg-slate-800 border border-slate-700/80 p-4 rounded-xl transition-all group flex flex-col justify-between"
               >
@@ -319,6 +304,21 @@ export default async function FranchiseDirectoryHome() {
                 </div>
                 <div className="text-[11px] text-slate-400 mt-3 flex items-center gap-1">
                   Read Lease Audit &rarr;
+                </div>
+              </Link>
+
+              <Link
+                href="/insights/how-to-determine-the-best-food-franchise-to-invest-in-singapore"
+                className="bg-slate-800/80 hover:bg-slate-800 border border-slate-700/80 p-4 rounded-xl transition-all group flex flex-col justify-between"
+              >
+                <div>
+                  <div className="text-xs font-semibold text-teal-300">F&amp;B Evolution</div>
+                  <div className="text-sm font-bold text-white group-hover:text-teal-200 mt-1 line-clamp-2">
+                    Best Food Franchise to Invest in Singapore: 1968–2026 Analysis
+                  </div>
+                </div>
+                <div className="text-[11px] text-slate-400 mt-3 flex items-center gap-1">
+                  Read F&amp;B Guide &rarr;
                 </div>
               </Link>
             </div>

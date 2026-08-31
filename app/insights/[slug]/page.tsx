@@ -1101,7 +1101,7 @@ const insightsMap: Record<string, { title: string; description: string; publishA
     'lease-or-own-franchise-commercial-property-singapore': {
         title: "Lease or Own? What Franchisees in Singapore Must Calculate Before Deciding (2026 Commercial Guide)",
         description: "Commercial Property Strategist Maggie Png breaks down the true financial and operational comparison between leasing vs buying franchise premises in Singapore, covering BSD, MAS LTV rules, CoC protections, and capital allocation.",
-        publishAt: '2026-09-01T08:00:00+08:00',
+        publishAt: '2026-09-08T08:00:00+08:00',
         content: () => {
             const author = EDITORS['maggie-png'];
             return (
@@ -1130,7 +1130,7 @@ const insightsMap: Record<string, { title: string; description: string; publishA
                                 </Link>
                                 <div className="sm:ml-auto">
                                     <span className="text-slate-500 block text-[10px] mb-0.5">Published On</span>
-                                    <time className="text-slate-200 font-bold normal-case text-sm">1 September 2026</time>
+                                    <time className="text-slate-200 font-bold normal-case text-sm">8 September 2026</time>
                                 </div>
                             </div>
                         </div>
