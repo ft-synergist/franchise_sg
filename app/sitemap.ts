@@ -89,6 +89,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
         // 3. Editorial articles tracking (under /insights/)
         const staticEditorialSlugs = [
+            'lease-or-own-franchise-commercial-property-singapore',
             'bubble-tea-franchise-singapore-cost-profitability-analysis',
             'foot-traffic-lies-predicts-franchise-unit-survival-singapore',
             'how-to-determine-the-best-food-franchise-to-invest-in-singapore',

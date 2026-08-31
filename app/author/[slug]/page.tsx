@@ -12,6 +12,13 @@ type Props = {
 const AUTHOR_ARTICLES: Record<string, Array<{ slug: string; title: string; description: string; date: string; category: string }>> = {
     'maggie-png': [
         {
+            slug: 'lease-or-own-franchise-commercial-property-singapore',
+            title: 'Lease or Own? What Franchisees in Singapore Must Calculate Before Deciding (2026 Commercial Guide)',
+            description: 'Commercial Property Strategist Maggie Png breaks down the true financial and operational comparison between leasing vs buying franchise premises in Singapore, covering BSD, MAS LTV rules, CoC protections, and capital allocation.',
+            date: 'September 1, 2026',
+            category: 'Commercial Real Estate Strategy',
+        },
+        {
             slug: 'foot-traffic-lies-predicts-franchise-unit-survival-singapore',
             title: "Foot Traffic Lies. Here's What Actually Predicts a Franchise Unit's Survival",
             description: "Every leasing pitch in Singapore comes with footfall numbers, yet high-profile F&B units fail within years. Commercial Property Strategist Maggie Png exposes why raw foot traffic lies and reveals the true predictors of 5-year unit survival.",

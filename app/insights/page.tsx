@@ -23,6 +23,17 @@ export const metadata: Metadata = {
 
 const ARTICLES = [
     {
+        slug: 'lease-or-own-franchise-commercial-property-singapore',
+        title: 'Lease or Own? What Franchisees in Singapore Must Calculate Before Deciding (2026 Commercial Guide)',
+        description: 'Should your franchise lease or buy its commercial unit? Commercial Property Strategist Maggie Png compares IRAS stamp duties, MAS commercial LTV limits, CoC retail tenant protections, and the 3-year cash flow model.',
+        category: 'Commercial Property Strategy',
+        categoryColor: 'bg-teal-50 text-teal-700 border-teal-200',
+        date: 'September 1, 2026',
+        authorName: 'Maggie Png',
+        authorRole: 'Commercial Property Strategist',
+        authorSlug: 'maggie-png',
+    },
+    {
         slug: 'bubble-tea-franchise-singapore-cost-profitability-analysis',
         title: 'The $3.7 Billion Bubble Tea Illusion: Franchise Hype vs. Reality in Singapore (2026 Breakdown)',
         description: 'From 1999 Each-A-Cup survival pivots to 2026 Mixue $1 ice cream disruption and Chagee automated brewing: an unfiltered unit economic teardown of bubble tea franchising in Singapore.',

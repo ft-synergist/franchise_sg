@@ -1097,6 +1097,411 @@ const insightsMap: Record<string, { title: string; description: string; content:
                 </>
             );
         }
+    },
+    'lease-or-own-franchise-commercial-property-singapore': {
+        title: "Lease or Own? What Franchisees in Singapore Must Calculate Before Deciding (2026 Commercial Guide)",
+        description: "Commercial Property Strategist Maggie Png breaks down the true financial and operational comparison between leasing vs buying franchise premises in Singapore, covering BSD, MAS LTV rules, CoC protections, and capital allocation.",
+        content: () => {
+            const author = EDITORS['maggie-png'];
+            return (
+                <>
+                    <header className="bg-gradient-to-r from-teal-900 via-slate-950 to-slate-950 text-white py-20 px-6 border-b border-slate-800 -mx-8 sm:-mx-12 -mt-8 sm:-mt-12 mb-12 rounded-t-3xl">
+                        <div className="max-w-4xl mx-auto px-4 text-left">
+                            <div className="mb-6 inline-flex items-center gap-2 bg-teal-500/10 border border-teal-500/20 px-3 py-1 rounded-full">
+                                <span className="w-2 h-2 rounded-full bg-teal-400"></span>
+                                <span className="text-xs font-semibold text-teal-300 uppercase tracking-wider">Commercial Real Estate &amp; Franchising Strategy</span>
+                            </div>
+                            <div className="mb-2">
+                                <span className="text-base font-bold uppercase tracking-wider text-teal-400 block">Insights:</span>
+                            </div>
+                            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white max-w-4xl leading-tight">
+                                Lease or Own? What Franchisees in Singapore Must Calculate Before Deciding
+                            </h1>
+                            <div className="flex flex-wrap items-center gap-y-4 gap-x-8 text-xs font-semibold uppercase tracking-wider text-slate-400 border-t border-slate-800/80 mt-8 pt-6">
+                                <Link href={`/author/${author?.slug || 'maggie-png'}`} className="flex items-center gap-3 group">
+                                    <div className="w-9 h-9 rounded-xl bg-teal-700 text-white font-black text-xs flex items-center justify-center shrink-0 border border-teal-500">
+                                        {author?.initials || 'MP'}
+                                    </div>
+                                    <div>
+                                        <strong className="text-white font-bold text-sm normal-case group-hover:text-teal-300 transition-colors">{author?.name || 'Maggie Png'}</strong>
+                                        <span className="text-slate-400 font-normal normal-case"> · {author?.role || 'Commercial Property Strategist'}</span>
+                                    </div>
+                                </Link>
+                                <div className="sm:ml-auto">
+                                    <span className="text-slate-500 block text-[10px] mb-0.5">Published On</span>
+                                    <time className="text-slate-200 font-bold normal-case text-sm">1 September 2026</time>
+                                </div>
+                            </div>
+                        </div>
+                    </header>
+
+                    <section className="prose prose-slate max-w-none text-slate-800 text-lg sm:text-xl font-normal leading-relaxed space-y-8 text-left">
+                        <p className="font-bold text-slate-950 text-2xl sm:text-3xl tracking-tight leading-snug">
+                            The Capital Illusion: Why the Lease vs. Own Debate Starts with the Wrong Math
+                        </p>
+
+                        <p>
+                            When franchisees begin looking for commercial premises in Singapore, the opening conversation almost always revolves around monthly rent:
+                        </p>
+
+                        <div className="bg-slate-100/80 border-l-4 border-teal-600 p-5 rounded-r-2xl my-6 space-y-2 text-slate-800 italic text-base sm:text-lg font-medium">
+                            <p>&quot;How much is the monthly asking rent per square foot?&quot;</p>
+                            <p>&quot;Can the landlord absorb a portion of the fitout or reduce base rent?&quot;</p>
+                            <p>&quot;If monthly mortgage payments are comparable to mall rent, wouldn&apos;t buying a strata unit or shophouse be smarter?&quot;</p>
+                        </div>
+
+                        <p>
+                            These are intuitive questions, but in Singapore&apos;s commercial landscape, they do not tell the whole story. Leasing and owning place fundamentally different demands on a business. The right decision depends not only on prevailing commercial real estate valuations, but on the franchise&apos;s cash flow velocity, expansion roadmap, technical fitout requirements, and developmental lifecycle stage.
+                        </p>
+
+                        <p>
+                            For most franchise operators, the core strategic question is not simply whether owning an asset is better than renting. It is: <strong>Which option gives the franchise enterprise the optimal balance of capital flexibility, operational control, and financial resilience?</strong>
+                        </p>
+
+                        <hr className="my-12 border-slate-200" />
+
+                        <h2 className="text-3xl font-black text-slate-950 tracking-tight mt-14 mb-4">
+                            Start with the Business Model, Not the Property Asset
+                        </h2>
+
+                        <p>
+                            A commercial property in Singapore can be an exceptional real estate investment on paper and still be completely catastrophic for a specific franchise concept.
+                        </p>
+
+                        <p>
+                            Before comparing lease contracts against purchase options, a franchisee must establish the exact operational mission of the unit:
+                        </p>
+
+                        <ul className="space-y-3 my-6 pl-6 list-disc text-slate-700 text-base sm:text-lg">
+                            <li><strong>Is this the brand&apos;s inaugural pilot outlet in Singapore?</strong> Initial units carry significant market testing risks. Consumer purchasing behavior, foot traffic seasonality, product-market fit, and local labor staffing must be validated under live conditions. Leasing provides the agility to pivot or relocate if initial revenue assumptions require adjustment.</li>
+                            <li><strong>Is this an established multi-unit franchise scaling its core footprint?</strong> A brand with 5–10 profitable outlets may seek to anchor a flagship location, eliminate landlord displacement risk, or build corporate balance sheet equity through strategic commercial asset ownership.</li>
+                            <li><strong>Is the space intended for back-of-house infrastructure?</strong> Central production kitchens, cloud preparation hubs, and automated logistics centers have different real estate dynamics than front-facing retail units, making industrial and food factory assets (B2 zoning under URA) strong candidates for ownership.</li>
+                        </ul>
+
+                        <p>
+                            The property decision must follow the business expansion strategy—never the other way around.
+                        </p>
+
+                        <hr className="my-12 border-slate-200" />
+
+                        <h2 className="text-3xl font-black text-slate-950 tracking-tight mt-14 mb-4">
+                            1. Compare the Full Cash Commitment (The Upfront Capital Gap)
+                        </h2>
+
+                        <p>
+                            The most immediate divergence between leasing and buying is the sheer magnitude of upfront liquid capital required to execute the transaction.
+                        </p>
+
+                        <p>
+                            Under Singapore&apos;s <strong>Code of Conduct for Leasing of Retail Premises (CoC)</strong>—mandated under the Lease Agreements for Retail Premises Act (LARPA)—tenants in qualifying retail premises (up to 5,000 sq ft and terms up to 3 years) enjoy strict security deposit caps (maximum 3 months&apos; gross rent). In addition, tenants budget for advance rent, IRAS Lease Duty (0.4% on total contractual rent), renovation fitout, SFA/MOH licensing fees, and operational working capital.
+                        </p>
+
+                        <p>
+                            By contrast, purchasing commercial real estate in Singapore triggers substantial statutory outlays:
+                        </p>
+
+                        <div className="bg-slate-950 text-slate-200 p-6 sm:p-8 rounded-2xl font-mono text-xs sm:text-sm my-6 border border-slate-800 space-y-3 max-w-3xl mx-auto">
+                            <div className="text-teal-400 font-bold uppercase tracking-wider">Commercial Real Estate Acquisition Outlay Breakdown:</div>
+                            <div className="border-t border-slate-800 pt-3 space-y-2 text-slate-300">
+                                <p>• <strong>Cash Equity Downpayment:</strong> 20% to 30% of purchase price (governed by MAS commercial Loan-to-Value limits).</p>
+                                <p>• <strong>IRAS Buyer&apos;s Stamp Duty (BSD):</strong> Tiered up to 5% for non-residential commercial properties.</p>
+                                <p>• <strong>Goods and Services Tax (GST):</strong> 9% on purchase price (unless qualifying for Transfer of Going Concern TOGC relief).</p>
+                                <p>• <strong>Legal, Valuation &amp; Conveyancing Fees:</strong> S$10,000 to S$30,000+ depending on property complexity.</p>
+                                <p>• <strong>Post-Completion Fitout:</strong> Commercial renovation, M&amp;E engineering, and trade equipment must still be funded in cash.</p>
+                            </div>
+                        </div>
+
+                        <p>
+                            This is where undercapitalized buyers face dangerous liquidity constraints. If S$1.2M to S$1.5M of liquid capital is tied up in a property downpayment and statutory duties, does the operating company retain adequate cash runway for initial payroll, marketing, raw ingredient inventory, and opening ramp-up?
+                        </p>
+
+                        <hr className="my-12 border-slate-200" />
+
+                        <h2 className="text-3xl font-black text-slate-950 tracking-tight mt-14 mb-4">
+                            2. Financial Deep Dive: 3-Year Prime Commercial Lease vs. Strata Purchase
+                        </h2>
+
+                        <p>
+                            It is tempting to compare monthly rent against a monthly mortgage instalment and conclude that buying builds equity for roughly the same monthly cash outflow. That comparison is deeply incomplete.
+                        </p>
+
+                        <p>
+                            Below is an institutional financial comparison between leasing a prime 800 sq ft commercial unit at S$18,000/month versus acquiring an equivalent strata commercial/shophouse property at S$3,500,000 in Singapore:
+                        </p>
+
+                        {/* Comparative Institutional Table */}
+                        <div className="overflow-x-auto rounded-2xl border border-slate-200 my-8 shadow-sm w-full bg-white">
+                            <table className="min-w-full table-fixed border-collapse text-sm sm:text-base text-left">
+                                <thead className="bg-slate-50 border-b border-slate-200">
+                                    <tr>
+                                        <th className="px-5 py-4 text-left font-black text-slate-950 uppercase text-xs tracking-wider w-1/3">Financial &amp; Operational Metric</th>
+                                        <th className="px-5 py-4 text-left font-bold text-slate-700 uppercase text-xs tracking-wider w-1/3">3-Year Prime Lease (S$18K/mo)</th>
+                                        <th className="px-5 py-4 text-left font-bold text-teal-700 uppercase text-xs tracking-wider bg-teal-50/20 w-1/3">Strata Purchase (S$3.5M Property)</th>
+                                    </tr>
+                                </thead>
+                                <tbody className="divide-y divide-slate-200 bg-white text-slate-700">
+                                    <tr>
+                                        <td className="px-5 py-5 font-bold text-slate-950">Upfront Cash Outlay</td>
+                                        <td className="px-5 py-5 text-slate-700">
+                                            <strong>~S$156,600</strong>
+                                            <br /><span className="text-xs text-slate-500">(3-mo deposit S$54K + IRAS Lease Duty S$2.6K + fitout reserve S$100K)</span>
+                                        </td>
+                                        <td className="px-5 py-5 font-semibold text-teal-900 bg-teal-50/10">
+                                            <strong>~S$1,381,600</strong>
+                                            <br /><span className="text-xs text-teal-700">(25% cash down S$875K + BSD S$141.6K + 9% GST S$315K + legal S$50K)</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td className="px-5 py-5 font-bold text-slate-950">Monthly Occupancy Outflow</td>
+                                        <td className="px-5 py-5 text-slate-700">
+                                            <strong>S$18,000 Gross Rent</strong>
+                                            <br /><span className="text-xs text-slate-500">(Inclusive of building maintenance and service charges)</span>
+                                        </td>
+                                        <td className="px-5 py-5 font-semibold text-teal-900 bg-teal-50/10">
+                                            <strong>~S$17,200 Monthly Cost</strong>
+                                            <br /><span className="text-xs text-teal-700">(S$14,500 Mortgage @ 3.5% + S$1,200 MCST + S$1,500 IRAS Prop Tax @ 10% AV)</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td className="px-5 py-5 font-bold text-slate-950">Capital Opportunity Cost</td>
+                                        <td className="px-5 py-5 text-slate-700">
+                                            <strong className="text-emerald-700">High Liquid Efficiency</strong>
+                                            <br /><span className="text-xs text-slate-500">Preserves ~S$1.2M cash to fund 3–4 additional franchise outlets.</span>
+                                        </td>
+                                        <td className="px-5 py-5 font-semibold text-rose-700 bg-teal-50/10">
+                                            <strong>Capital Locked in Single Asset</strong>
+                                            <br /><span className="text-xs text-slate-500">Ties corporate liquidity into an illiquid commercial real estate node.</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td className="px-5 py-5 font-bold text-slate-950">Mobility &amp; Relocation Agility</td>
+                                        <td className="px-5 py-5 text-slate-700">
+                                            <strong>High</strong> (Exit or upgrade unit upon 3-year lease expiry).
+                                        </td>
+                                        <td className="px-5 py-5 font-semibold text-teal-900 bg-teal-50/10">
+                                            <strong>Low</strong> (Must find replacement tenant or sell during property cycles).
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td className="px-5 py-5 font-bold text-slate-950">Statutory Protections</td>
+                                        <td className="px-5 py-5 text-slate-700">
+                                            Protected by <strong>Code of Conduct for Retail Leases (LARPA)</strong>.
+                                        </td>
+                                        <td className="px-5 py-5 font-semibold text-teal-900 bg-teal-50/10">
+                                            Full title ownership; subject to MCST by-laws &amp; URA trade use.
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <hr className="my-12 border-slate-200" />
+
+                        <h2 className="text-3xl font-black text-slate-950 tracking-tight mt-14 mb-4">
+                            3. Flexibility vs. Security of Tenure
+                        </h2>
+
+                        <p>
+                            Leasing provides expansion flexibility, but exposes the business to renewal risks. If an outlet achieves viral success, a landlord may demand sharp rental escalations upon lease expiry or redevelop the property. A thriving franchise can find itself forced to relocate after spending years establishing local customer goodwill.
+                        </p>
+
+                        <p>
+                            Conversely, property ownership eliminates landlord displacement risk entirely. The business gains uninterrupted security of tenure and can amortize long-term capital investments over 10–20 years.
+                        </p>
+
+                        <p>
+                            However, ownership severely restricts geographic mobility. If foot traffic patterns migrate due to new MRT line alignments, surrounding mall developments, or demographic shifts, an owner-occupier cannot simply pack up and move. The franchisee must decide whether to continue operating from a sub-optimal location or lease out the unit to a third party.
+                        </p>
+
+                        <hr className="my-12 border-slate-200" />
+
+                        <h2 className="text-3xl font-black text-slate-950 tracking-tight mt-14 mb-4">
+                            4. Separate Business Risk from Property Risk
+                        </h2>
+
+                        <p>
+                            When a franchise operating entity buys its commercial premises, two distinct investment risks become concentrated in a single geographic node: <strong>the franchise operational risk</strong> and <strong>the commercial property asset risk</strong>.
+                        </p>
+
+                        <p>
+                            If the franchise outperforms, the synergy is powerful: the operating business enjoys stable occupancy while the underlying real estate may appreciate. But if the franchise faces macroeconomic headwinds, rising manpower costs, or food trend decay, the mortgage obligation remains fixed. The business owner must continue servicing commercial loan payments regardless of top-line sales.
+                        </p>
+
+                        <p>
+                            Furthermore, the <strong>approved trade use (URA Planning Act)</strong> and M&amp;E infrastructure heavily dictate future liquidity:
+                        </p>
+
+                        <ul className="space-y-2 my-4 pl-6 list-disc text-slate-700 text-base">
+                            <li>Does the unit possess dedicated kitchen exhaust shafts, high-capacity grease traps, and 3-phase electrical load (100A–200A)?</li>
+                            <li>Is the property restricted to retail/office use, limiting the pool of future F&amp;B replacement tenants?</li>
+                            <li>Are there strict MCST by-laws governing operating hours, delivery access, and customer loading?</li>
+                        </ul>
+
+                        <div className="my-8 p-6 rounded-2xl bg-slate-50 border-l-4 border-teal-600 text-slate-900 font-bold text-xl sm:text-2xl leading-snug">
+                            Never buy a commercial property solely because it fits your current franchise concept. Buy it only if it represents a sound real estate asset that any qualified tenant would lease if you vacated.
+                        </div>
+
+                        <hr className="my-12 border-slate-200" />
+
+                        <h2 className="text-3xl font-black text-slate-950 tracking-tight mt-14 mb-4">
+                            5. Leasehold Decay &amp; SLA / JTC Realities (30-Year vs. Freehold)
+                        </h2>
+
+                        <p>
+                            In Singapore, commercial property appreciation is not universal. Capital preservation depends heavily on land tenure governed by the <strong>Singapore Land Authority (SLA)</strong> and <strong>JTC Corporation</strong>:
+                        </p>
+
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 my-6">
+                            <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-3">
+                                <span className="text-xs font-bold text-teal-700 uppercase tracking-wider bg-teal-50 px-2.5 py-1 rounded-md border border-teal-200">Industrial &amp; Food Factory</span>
+                                <h4 className="text-lg font-bold text-slate-900">30-Year / 60-Year JTC Leaseholds</h4>
+                                <p className="text-xs text-slate-600 leading-relaxed">
+                                    High initial rental yields (5%–7%), but subject to rapid lease decay. Bank loan tenures compress significantly when remaining lease drops below 30 years.
+                                </p>
+                            </div>
+
+                            <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-3">
+                                <span className="text-xs font-bold text-indigo-700 uppercase tracking-wider bg-indigo-50 px-2.5 py-1 rounded-md border border-indigo-200">Strata Commercial</span>
+                                <h4 className="text-lg font-bold text-slate-900">99-Year Leasehold Units</h4>
+                                <p className="text-xs text-slate-600 leading-relaxed">
+                                    Common in modern commercial malls and mixed developments. Value tracks commercial rental indices and overall building management (MCST) performance.
+                                </p>
+                            </div>
+
+                            <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-3">
+                                <span className="text-xs font-bold text-amber-700 uppercase tracking-wider bg-amber-50 px-2.5 py-1 rounded-md border border-amber-200">Conservation Shophouses</span>
+                                <h4 className="text-lg font-bold text-slate-900">999-Year / Freehold Assets</h4>
+                                <p className="text-xs text-slate-600 leading-relaxed">
+                                    Defensive wealth preservation assets with zero lease decay. High capital entry barrier (S$6M–S$15M+), lower immediate cash yields (2%–3.5%).
+                                </p>
+                            </div>
+                        </div>
+
+                        <hr className="my-12 border-slate-200" />
+
+                        <h2 className="text-3xl font-black text-slate-950 tracking-tight mt-14 mb-4">
+                            Strategic Blueprint: The &quot;Lease-First, Own-Later&quot; Scaling Funnel
+                        </h2>
+
+                        <p>
+                            The decision between leasing and ownership does not have to be binary or permanent. The most successful multi-unit franchise groups in Singapore execute a phased <strong>&quot;Lease-First, Own-Later&quot;</strong> playbook:
+                        </p>
+
+                        <div className="bg-slate-950 text-slate-200 p-6 sm:p-8 rounded-2xl font-mono text-xs sm:text-sm my-6 border border-slate-800 space-y-4 max-w-3xl mx-auto">
+                            <div className="flex items-center gap-3 text-teal-400 font-bold">
+                                <span>Phase 1: Proof-of-Concept Validation (Years 1–3)</span>
+                            </div>
+                            <p className="text-slate-300 pl-4">Lease 2–3 commercial units in distinct suburban/transit nodes. Preserve liquid capital, stress-test customer repeat rates, and optimize unit labor models.</p>
+                            <div className="text-slate-600 pl-4">│</div>
+                            <div className="flex items-center gap-3 text-indigo-400 font-bold">
+                                <span>Phase 2: Cash-Flow Stabilization (Years 4–6)</span>
+                            </div>
+                            <p className="text-slate-300 pl-4">Establish audited operating track records. Generate retained earnings and build corporate credit profiles with commercial banks.</p>
+                            <div className="text-slate-600 pl-4">│</div>
+                            <div className="flex items-center gap-3 text-amber-400 font-bold">
+                                <span>Phase 3: Strategic Asset Acquisition (Year 7+)</span>
+                            </div>
+                            <p className="text-slate-300 pl-4">Deploy retained profits into acquiring central production kitchens (B2 food factories), administrative HQs, or flagship shophouse premises.</p>
+                        </div>
+
+                        <hr className="my-12 border-slate-200" />
+
+                        <h2 className="text-3xl font-black text-slate-950 tracking-tight mt-14 mb-4">
+                            The Definitive Pre-Decision Checklist for Franchisees
+                        </h2>
+
+                        <p>
+                            Before signing a lease agreement or issuing an Option to Purchase (OTP) for commercial premises in Singapore, evaluate these five criteria:
+                        </p>
+
+                        <div className="space-y-3 my-6">
+                            <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex items-start gap-4">
+                                <span className="w-8 h-8 rounded-xl bg-teal-50 border border-teal-200 text-teal-700 font-bold flex items-center justify-center shrink-0 text-sm">1</span>
+                                <div>
+                                    <h4 className="font-bold text-slate-950 text-base">Liquidity Preservation Check</h4>
+                                    <p className="text-xs text-slate-600 mt-1 leading-relaxed">Will the business retain at least 6 months of operational working capital runway after paying all upfront security deposits or property acquisition stamp duties?</p>
+                                </div>
+                            </div>
+
+                            <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex items-start gap-4">
+                                <span className="w-8 h-8 rounded-xl bg-teal-50 border border-teal-200 text-teal-700 font-bold flex items-center justify-center shrink-0 text-sm">2</span>
+                                <div>
+                                    <h4 className="font-bold text-slate-950 text-base">Growth Opportunity Cost Audit</h4>
+                                    <p className="text-xs text-slate-600 mt-1 leading-relaxed">Does locking capital into a property purchase prevent the franchise from seizing 2–3 high-performing expansion locations over the next 36 months?</p>
+                                </div>
+                            </div>
+
+                            <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex items-start gap-4">
+                                <span className="w-8 h-8 rounded-xl bg-teal-50 border border-teal-200 text-teal-700 font-bold flex items-center justify-center shrink-0 text-sm">3</span>
+                                <div>
+                                    <h4 className="font-bold text-slate-950 text-base">Trade &amp; Regulatory Permissibility</h4>
+                                    <p className="text-xs text-slate-600 mt-1 leading-relaxed">Has the space secured written URA planning permission, SFA food safety clearance, and building management sign-off for heavy M&amp;E requirements?</p>
+                                </div>
+                            </div>
+
+                            <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex items-start gap-4">
+                                <span className="w-8 h-8 rounded-xl bg-teal-50 border border-teal-200 text-teal-700 font-bold flex items-center justify-center shrink-0 text-sm">4</span>
+                                <div>
+                                    <h4 className="font-bold text-slate-950 text-base">Independent Tenancy Marketability</h4>
+                                    <p className="text-xs text-slate-600 mt-1 leading-relaxed">If buying: Could this unit be easily leased out to third-party commercial tenants at market rates if the franchise relocated or ceased operations?</p>
+                                </div>
+                            </div>
+
+                            <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex items-start gap-4">
+                                <span className="w-8 h-8 rounded-xl bg-teal-50 border border-teal-200 text-teal-700 font-bold flex items-center justify-center shrink-0 text-sm">5</span>
+                                <div>
+                                    <h4 className="font-bold text-slate-950 text-base">Remaining Leasehold Horizon</h4>
+                                    <p className="text-xs text-slate-600 mt-1 leading-relaxed">If purchasing leasehold: Does the property retain sufficient tenure (ideally 40+ years remaining) to ensure future commercial financing eligibility and resale liquidity?</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Due Diligence & Verified Directory Bridge */}
+                        <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 sm:p-8 text-white my-8 space-y-4">
+                            <div className="flex items-center gap-2 text-teal-400 font-bold text-xs uppercase tracking-wider">
+                                <span className="w-2 h-2 rounded-full bg-teal-400 animate-pulse"></span>
+                                <span>Singapore Commercial Property &amp; Franchise Due Diligence</span>
+                            </div>
+                            <h4 className="text-xl font-black text-white">Compare Verified Franchise Opportunities in Singapore</h4>
+                            <p className="text-slate-300 text-xs sm:text-sm leading-relaxed">
+                                Review verified startup costs, initial franchise fees, and commercial setup models on <Link href="/" className="text-teal-400 font-bold hover:underline">Franchise.sg</Link> before committing capital.
+                            </p>
+                            <div className="flex flex-wrap gap-3 pt-2">
+                                <Link href="/" className="bg-teal-600 hover:bg-teal-700 text-white font-bold text-xs py-2.5 px-4 rounded-xl transition-colors inline-block">
+                                    Explore Singapore Franchise Directory →
+                                </Link>
+                                <Link href="/categories/food-beverage" className="border border-slate-700 hover:bg-slate-800 text-slate-300 hover:text-white font-bold text-xs py-2.5 px-4 rounded-xl transition-colors inline-block">
+                                    Browse F&amp;B Franchises
+                                </Link>
+                                <Link href="/for-sale" className="border border-slate-700 hover:bg-slate-800 text-slate-300 hover:text-white font-bold text-xs py-2.5 px-4 rounded-xl transition-colors inline-block">
+                                    Franchises For Sale
+                                </Link>
+                            </div>
+                        </div>
+
+                        {/* Author Bio Box */}
+                        <div className="mt-12 p-6 bg-teal-50 border border-teal-200 rounded-2xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 font-sans text-sm">
+                            <div className="flex items-center gap-4">
+                                <div className="w-12 h-12 rounded-xl bg-teal-700 text-white font-black text-sm flex items-center justify-center shrink-0">
+                                    {author?.initials || 'MP'}
+                                </div>
+                                <div>
+                                    <h3 className="font-bold text-slate-950">{author?.name || 'Maggie Png'}</h3>
+                                    <p className="text-xs font-semibold text-teal-800">{author?.role || 'Commercial Property Strategist'}</p>
+                                    <p className="text-xs text-slate-600 mt-0.5">{author?.bio}</p>
+                                </div>
+                            </div>
+                            <Link
+                                href={`/author/${author?.slug || 'maggie-png'}`}
+                                className="text-xs font-black text-teal-800 underline underline-offset-2 shrink-0 hover:text-teal-900"
+                            >
+                                View Analyst Profile →
+                            </Link>
+                        </div>
+                    </section>
+                </>
+            );
+        }
     }
 };
 
@@ -1271,7 +1676,7 @@ export default async function DynamicInsightRouter({ params }: PageProps) {
     }
 
     // Article author metadata mapping
-    const isMaggie = slug.includes('foot-traffic') || slug.includes('vending-machine-illusion');
+    const isMaggie = slug.includes('foot-traffic') || slug.includes('vending-machine-illusion') || slug.includes('lease-or-own');
     const isFrederick = slug.includes('bubble-tea');
     const authorData = isFrederick ? EDITORS['frederick-tan'] : (isMaggie ? EDITORS['maggie-png'] : EDITORS['chen-yong-lin']);
 
