@@ -10,29 +10,26 @@ export async function POST(request: Request) {
         // 🔄 CRM WEBHOOK INGESTION LAYER
         // ==================================================
         try {
-            const crmUrl = process.env.CRM_WEBHOOK_URL || process.env.NEXT_PUBLIC_CRM_URL || 'https://www.franchise.sg/api/webhook';
+            const crmUrl = process.env.CRM_WEBHOOK_URL || 'https://growingbeyondborders.com/api/v1/leads/capture';
 
             // Map inbound enquiry data into a structured CRM lead payload
             const crmPayload = {
-                tenant_id: '8e04819b-c506-4c6c-955a-473c22ee8c8b',
-                event: 'enquiry_submission',
-                type,
+                tenant_id: '47e5215d-458c-4f7a-928d-15fbebc2058a', // Franchise SG Workspace
                 name: type === 'franchisor_application' ? data.contact_name : data.name,
                 email: type === 'franchisor_application' ? data.contact_email : data.email,
                 phone: type === 'franchisor_application' ? (data.phone || 'Not Provided') : data.phone,
+                brand_name: data.brand_name || undefined,
                 web_source: 'franchise.sg',
                 pipeline_stage: 'lead_prospect',
                 status: 'new',
-                brand_name: data.brand_name || undefined,
-                notes: type === 'franchisor_application' ? data.brand_summary : (data.notes || ''),
-                data,
-                created_at: new Date().toISOString()
+                notes: data.notes || (type === 'franchisor_application' ? data.brand_summary : '') || '',
             };
 
             const crmResponse = await fetch(crmUrl, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
+                    'x-tenant-key': '47e5215d-458c-4f7a-928d-15fbebc2058a',
                     'User-Agent': 'FranchiseSG-Webhook-Dispatcher/1.0'
                 },
                 body: JSON.stringify(crmPayload),
