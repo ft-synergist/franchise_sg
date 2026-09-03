@@ -40,31 +40,8 @@ export default function ApplyForm() {
         setErrorText('');
 
         try {
-            // 1. Core transactional database insertion
-            const { error } = await supabase.from('crm_franchise_applications').insert([
-                {
-                    brand_name: formData.brand_name,
-                    uen: formData.uen,
-                    category: formData.category,
-                    brand_origin: formData.brand_origin,
-                    established_year: formData.established_year ? parseInt(formData.established_year) : null,
-                    current_outlets: formData.current_outlets ? parseInt(formData.current_outlets) : 1,
-                    min_capital_sgd: formData.min_capital ? parseFloat(formData.min_capital) : null,
-                    franchise_fee_sgd: formData.franchise_fee ? parseFloat(formData.franchise_fee) : null,
-                    royalty_fee_text: formData.royalty_structure,
-                    projected_breakeven_text: formData.projected_breakeven,
-                    projected_payback_text: formData.projected_payback,
-                    projected_roi_text: formData.projected_roi,
-                    description: formData.brand_summary,
-                    contact_name: formData.contact_name,
-                    contact_email: formData.contact_email
-                }
-            ]);
-
-            if (error) throw error;
-
-            // 2. Transmit notification request event to short-term centralized email bridge
-            await fetch('/api/notify', {
+            // 1. Transmit notification request event to backend API (handles CRM webhook & email)
+            const apiPromise = fetch('/api/notify', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
@@ -73,10 +50,43 @@ export default function ApplyForm() {
                 })
             });
 
+            // 2. Core transactional database insertion in parallel
+            try {
+                const { error: dbError } = await supabase.from('crm_franchise_applications').insert([
+                    {
+                        brand_name: formData.brand_name,
+                        uen: formData.uen,
+                        category: formData.category,
+                        brand_origin: formData.brand_origin,
+                        established_year: formData.established_year ? parseInt(formData.established_year) : null,
+                        current_outlets: formData.current_outlets ? parseInt(formData.current_outlets) : 1,
+                        min_capital_sgd: formData.min_capital ? parseFloat(formData.min_capital) : null,
+                        franchise_fee_sgd: formData.franchise_fee ? parseFloat(formData.franchise_fee) : null,
+                        royalty_fee_text: formData.royalty_structure,
+                        projected_breakeven_text: formData.projected_breakeven,
+                        projected_payback_text: formData.projected_payback,
+                        projected_roi_text: formData.projected_roi,
+                        description: formData.brand_summary,
+                        contact_name: formData.contact_name,
+                        contact_email: formData.contact_email
+                    }
+                ]);
+                if (dbError) {
+                    console.warn('Supabase franchisor application db notice:', dbError.message);
+                }
+            } catch (dbErr) {
+                console.warn('Supabase database sync exception:', dbErr);
+            }
+
+            const response = await apiPromise;
+            if (!response.ok) {
+                throw new Error('Transmission exception encountered. Please review network status.');
+            }
+
             setSuccess(true);
         } catch (err: any) {
             console.error('Franchisor Registry Failure:', err);
-            setErrorText(err.message || 'Transmission exception encountered. Please review database sync rules.');
+            setErrorText(err.message || 'Transmission exception encountered. Please review network connection.');
         } finally {
             setLoading(false);
         }

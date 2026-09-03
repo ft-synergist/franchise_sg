@@ -7,32 +7,45 @@ export async function POST(request: Request) {
         const { type, data } = body;
 
         // ==================================================
-        // 🔄 CRM ENGINE INGESTION LAYER (BACKGROUND PUSH)
+        // 🔄 CRM WEBHOOK INGESTION LAYER
         // ==================================================
         try {
-            // Points to your local instance tunnel by default. Change in production environment settings.
-            const crmUrl = process.env.NEXT_PUBLIC_CRM_URL || 'http://localhost:3000/api/ingest';
+            const crmUrl = process.env.CRM_WEBHOOK_URL || process.env.NEXT_PUBLIC_CRM_URL || 'https://www.franchise.sg/api/webhook';
 
-            // Map the inbound fields cleanly to your unified crm_leads dataset parameters
+            // Map inbound enquiry data into a structured CRM lead payload
             const crmPayload = {
                 tenant_id: '8e04819b-c506-4c6c-955a-473c22ee8c8b',
+                event: 'enquiry_submission',
+                type,
                 name: type === 'franchisor_application' ? data.contact_name : data.name,
                 email: type === 'franchisor_application' ? data.contact_email : data.email,
-                phone: type === 'franchisor_application' ? 'Not Provided' : data.phone,
+                phone: type === 'franchisor_application' ? (data.phone || 'Not Provided') : data.phone,
                 web_source: 'franchise.sg',
                 pipeline_stage: 'lead_prospect',
-                status: 'new'
+                status: 'new',
+                brand_name: data.brand_name || undefined,
+                notes: type === 'franchisor_application' ? data.brand_summary : (data.notes || ''),
+                data,
+                created_at: new Date().toISOString()
             };
 
-            // Fire and forget: background execution ensures web traffic speed remains fast
-            fetch(crmUrl, {
+            const crmResponse = await fetch(crmUrl, {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(crmPayload)
-            }).catch(err => console.error('Background CRM routing network error:', err));
+                headers: {
+                    'Content-Type': 'application/json',
+                    'User-Agent': 'FranchiseSG-Webhook-Dispatcher/1.0'
+                },
+                body: JSON.stringify(crmPayload),
+                signal: AbortSignal.timeout(8000)
+            });
 
+            if (!crmResponse.ok) {
+                console.warn(`CRM Webhook responded with status: ${crmResponse.status} ${crmResponse.statusText}`);
+            } else {
+                console.log(`CRM Webhook dispatch successful (${type}) to ${crmUrl}`);
+            }
         } catch (crmError) {
-            console.error('CRM Integration Pipeline Error:', crmError);
+            console.error('CRM Webhook Dispatch Error:', crmError);
         }
 
         // ==================================================

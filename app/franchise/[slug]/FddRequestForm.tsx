@@ -35,23 +35,8 @@ export default function FddRequestForm({ brandName }: FddRequestFormProps) {
         setErrorText('');
 
         try {
-            // 1. Write transactional lead to Supabase
-            const { error } = await supabase.from('crm_lead_payloads').insert([
-                {
-                    brand_name: brandName,
-                    investor_name: formData.name,
-                    investor_email: formData.email,
-                    investor_phone: formData.phone,
-                    available_capital: formData.capital,
-                    target_timeline: formData.timeline,
-                    custom_notes: formData.notes
-                }
-            ]);
-
-            if (error) throw error;
-
-            // 2. Fire live notification request packet directly to our API route
-            await fetch('/api/notify', {
+            // 1. Transmit lead directly to API route (which pushes to CRM Webhook & notifications)
+            const apiPromise = fetch('/api/notify', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
@@ -59,6 +44,31 @@ export default function FddRequestForm({ brandName }: FddRequestFormProps) {
                     data: { ...formData, brand_name: brandName }
                 })
             });
+
+            // 2. Write transactional lead to Supabase in parallel
+            try {
+                const { error: dbError } = await supabase.from('crm_lead_payloads').insert([
+                    {
+                        brand_name: brandName,
+                        investor_name: formData.name,
+                        investor_email: formData.email,
+                        investor_phone: formData.phone,
+                        available_capital: formData.capital,
+                        target_timeline: formData.timeline,
+                        custom_notes: formData.notes
+                    }
+                ]);
+                if (dbError) {
+                    console.warn('Supabase db log notice:', dbError.message);
+                }
+            } catch (dbErr) {
+                console.warn('Supabase database sync exception:', dbErr);
+            }
+
+            const response = await apiPromise;
+            if (!response.ok) {
+                throw new Error('Unable to submit enquiry. Please check your network connection.');
+            }
 
             setSuccess(true);
         } catch (err: any) {
