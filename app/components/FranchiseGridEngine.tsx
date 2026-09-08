@@ -3,6 +3,7 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import Link from 'next/link';
 import { createClient } from '@supabase/supabase-js';
+import { VERIFIED_LISTINGS } from '@/lib/verifiedListings';
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
 const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
@@ -20,7 +21,7 @@ interface FranchiseItem {
     royalty_fee_text: string;
     description: string;
     brand_origin?: string;
-    current_outlets?: number;
+    current_outlets?: number | string;
 }
 
 export default function FranchiseGridEngine() {
@@ -57,10 +58,59 @@ export default function FranchiseGridEngine() {
                     .order('brand_name', { ascending: true });
 
                 if (error) throw error;
-                if (data) setFranchises(data);
+                const dbList = data || [];
+                const dbSlugs = new Set(dbList.map((item) => item.slug));
+
+                const enriched = dbList.map((item) => {
+                    const v = VERIFIED_LISTINGS[item.slug];
+                    if (!v) return item;
+                    return {
+                        ...item,
+                        brand_name: v.brand_name || item.brand_name,
+                        category: v.category || item.category,
+                        brand_origin: v.brand_origin || item.brand_origin,
+                        current_outlets: v.current_outlets_sg || item.current_outlets,
+                        min_capital_sgd: v.min_capital_sgd ?? item.min_capital_sgd,
+                        franchise_fee_sgd: typeof v.franchise_fee_sgd === 'number' ? v.franchise_fee_sgd : (item.franchise_fee_sgd || 0),
+                        royalty_fee_text: v.royalty_fee_text || item.royalty_fee_text,
+                        description: v.description || item.description
+                    };
+                });
+
+                const extraVerified = Object.values(VERIFIED_LISTINGS)
+                    .filter((v) => !dbSlugs.has(v.slug))
+                    .map((v) => ({
+                        id: v.slug,
+                        brand_name: v.brand_name,
+                        slug: v.slug,
+                        category: v.category,
+                        brand_origin: v.brand_origin,
+                        current_outlets: v.current_outlets_sg,
+                        min_capital_sgd: v.min_capital_sgd,
+                        franchise_fee_sgd: typeof v.franchise_fee_sgd === 'number' ? v.franchise_fee_sgd : 0,
+                        royalty_fee_text: v.royalty_fee_text,
+                        description: v.description
+                    }));
+
+                const combined = [...enriched, ...extraVerified].sort((a, b) => 
+                    a.brand_name.localeCompare(b.brand_name)
+                );
+                setFranchises(combined);
             } catch (err: any) {
-                console.error("Error fetching franchises:", err);
-                setError("Failed to load franchise listings.");
+                console.error("Error fetching franchises from DB, falling back to verified listings:", err);
+                const allVerified = Object.values(VERIFIED_LISTINGS).map((v) => ({
+                    id: v.slug,
+                    brand_name: v.brand_name,
+                    slug: v.slug,
+                    category: v.category,
+                    brand_origin: v.brand_origin,
+                    current_outlets: v.current_outlets_sg,
+                    min_capital_sgd: v.min_capital_sgd,
+                    franchise_fee_sgd: typeof v.franchise_fee_sgd === 'number' ? v.franchise_fee_sgd : 0,
+                    royalty_fee_text: v.royalty_fee_text,
+                    description: v.description
+                })).sort((a, b) => a.brand_name.localeCompare(b.brand_name));
+                setFranchises(allVerified);
             } finally {
                 setIsLoading(false);
             }

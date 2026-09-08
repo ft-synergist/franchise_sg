@@ -1,5 +1,6 @@
 import { MetadataRoute } from 'next';
 import { supabase } from '@/lib/supabase';
+import { VERIFIED_LISTINGS } from '@/lib/verifiedListings';
 
 export const revalidate = 3600; // Securely cache the structural map on Edge nodes for 1 hour
 
@@ -75,17 +76,27 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     }));
 
     try {
-        // 2. Fetch Active Franchise Brand Listings dynamically from Supabase
+        // 2. Fetch Active Franchise Brand Listings dynamically from Supabase + Verified Listings
         const { data: franchises } = await supabase
             .from('crm_franchises')
             .select('slug, updated_at');
 
-        const franchiseRoutes: MetadataRoute.Sitemap = (franchises || []).map((item) => ({
-            url: `${baseUrl}/franchise/${item.slug}`,
-            lastModified: item.updated_at ? new Date(item.updated_at) : new Date(),
-            changeFrequency: 'weekly',
-            priority: 0.8,
-        }));
+        const allFranchiseSlugs = new Set([
+            ...(franchises || []).map((item) => item.slug),
+            ...Object.keys(VERIFIED_LISTINGS)
+        ]);
+
+        const dbUpdatedMap = new Map((franchises || []).map((item) => [item.slug, item.updated_at]));
+
+        const franchiseRoutes: MetadataRoute.Sitemap = Array.from(allFranchiseSlugs).map((slug) => {
+            const updatedAt = dbUpdatedMap.get(slug);
+            return {
+                url: `${baseUrl}/franchise/${slug}`,
+                lastModified: updatedAt ? new Date(updatedAt) : new Date(),
+                changeFrequency: 'weekly',
+                priority: 0.8,
+            };
+        });
 
         // 3. Editorial articles tracking (under /insights/)
         const staticEditorialSlugs = [

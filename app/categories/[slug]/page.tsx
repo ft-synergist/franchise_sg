@@ -1,6 +1,7 @@
 import { supabase } from '@/lib/supabase';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
+import { VERIFIED_LISTINGS } from '@/lib/verifiedListings';
 
 export const revalidate = 60; // Cache category variants for 60 seconds
 
@@ -105,12 +106,51 @@ export default async function CategoryDirectoryPage({ params }: CategoryPageProp
         notFound();
     }
 
-    const { data: franchises } = await supabase
+    const { data: rawFranchises } = await supabase
         .from('crm_franchises')
         .select('*')
         .in('category', config.dbNames)
         .order('is_featured', { ascending: false })
         .order('brand_name', { ascending: true });
+
+    const dbList = rawFranchises || [];
+    const dbSlugs = new Set(dbList.map((item) => item.slug));
+
+    const enrichedFromDb = dbList.map((item) => {
+        const v = VERIFIED_LISTINGS[item.slug];
+        if (!v) return item;
+        return {
+            ...item,
+            brand_name: v.brand_name || item.brand_name,
+            category: v.category || item.category,
+            brand_origin: v.brand_origin || item.brand_origin,
+            current_outlets: v.current_outlets_sg || item.current_outlets,
+            min_capital_sgd: v.min_capital_sgd ?? item.min_capital_sgd,
+            franchise_fee_sgd: typeof v.franchise_fee_sgd === 'number' ? v.franchise_fee_sgd : (item.franchise_fee_sgd || v.franchise_fee_sgd),
+            royalty_fee_text: v.royalty_fee_text || item.royalty_fee_text,
+            description: v.description || item.description
+        };
+    });
+
+    const extraVerified = Object.values(VERIFIED_LISTINGS)
+        .filter((v) => config.dbNames.includes(v.category) && !dbSlugs.has(v.slug))
+        .map((v) => ({
+            id: v.slug,
+            brand_name: v.brand_name,
+            slug: v.slug,
+            category: v.category,
+            brand_origin: v.brand_origin,
+            current_outlets: v.current_outlets_sg,
+            min_capital_sgd: v.min_capital_sgd,
+            franchise_fee_sgd: v.franchise_fee_sgd,
+            royalty_fee_text: v.royalty_fee_text,
+            description: v.description,
+            is_featured: false
+        }));
+
+    const franchises = [...enrichedFromDb, ...extraVerified].sort((a, b) => 
+        a.brand_name.localeCompare(b.brand_name)
+    );
 
     const schemaMarkup = {
         "@context": "https://schema.org",
@@ -258,7 +298,9 @@ export default async function CategoryDirectoryPage({ params }: CategoryPageProp
                                     </div>
                                     <div>
                                         <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Franchise Fee</span>
-                                        <span className="font-bold text-slate-700 text-sm">S${item.franchise_fee_sgd ? item.franchise_fee_sgd.toLocaleString() : '0'}</span>
+                                        <span className="font-bold text-slate-700 text-sm">
+                                            {typeof item.franchise_fee_sgd === 'number' ? `S$${item.franchise_fee_sgd.toLocaleString()}` : (item.franchise_fee_sgd || 'On Application')}
+                                        </span>
                                     </div>
                                 </div>
 
