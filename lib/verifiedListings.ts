@@ -2,6 +2,7 @@ export interface VerifiedListing {
     slug: string;
     brand_name: string;
     category: string;
+    is_verified_partner?: boolean;
     brand_origin: string;
     established_year: number;
     current_outlets_sg: number | string;
@@ -2184,6 +2185,7 @@ export const VERIFIED_LISTINGS: Record<string, VerifiedListing> = {
         slug: 'beyond-borders-crm',
         brand_name: 'Beyond Borders CRM',
         category: 'Software, AI & Digital Technology',
+        is_verified_partner: true,
         brand_origin: 'Singapore / International (Growing Beyond Borders)',
         established_year: 2024,
         current_outlets_sg: 'APAC Enterprise & Ecosystem Partners',

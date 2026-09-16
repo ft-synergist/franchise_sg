@@ -5,14 +5,14 @@ import FranchiseGridEngine from './components/FranchiseGridEngine';
 export const revalidate = 60; // Cache index pages globally on Vercel Edge nodes for 60 seconds
 
 export const metadata = {
-  title: 'Franchise Singapore (2026) | Verified Franchise Opportunities & Listings Directory',
-  description: 'The authoritative Franchise Singapore portal. Explore verified franchise opportunities, compare minimum capital requirements (S$30K–S$500K+), franchise fees, royalties, and expert franchise insights.',
+  title: 'Franchise Singapore (2026 Directory) | Compare Costs, Fees & Opportunities',
+  description: 'Singapore\'s premier verified franchise directory. Explore active F&B, retail, education & service franchise opportunities. Compare minimum capital (S$30K–S$500K+), franchise fees, royalties, and unfiltered due diligence.',
   alternates: {
     canonical: 'https://www.franchise.sg',
   },
   openGraph: {
-    title: 'Franchise Singapore (2026) | Verified Franchise Opportunities & Listings Directory',
-    description: 'The authoritative Franchise Singapore portal. Explore verified franchise opportunities, compare minimum capital requirements (S$30K–S$500K+), franchise fees, royalties, and expert franchise insights.',
+    title: 'Franchise Singapore (2026 Directory) | Compare Costs, Fees & Opportunities',
+    description: 'Singapore\'s premier verified franchise directory. Explore active F&B, retail, education & service franchise opportunities. Compare minimum capital (S$30K–S$500K+), franchise fees, royalties, and unfiltered due diligence.',
     url: 'https://www.franchise.sg',
     siteName: 'Franchise Singapore',
     type: 'website',
@@ -20,8 +20,8 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Franchise Singapore (2026) | Verified Franchise Opportunities & Listings Directory',
-    description: 'The authoritative Franchise Singapore portal. Explore verified franchise opportunities, compare minimum capital requirements (S$30K–S$500K+), franchise fees, royalties, and expert franchise insights.',
+    title: 'Franchise Singapore (2026 Directory) | Compare Costs, Fees & Opportunities',
+    description: 'Singapore\'s premier verified franchise directory. Explore active F&B, retail, education & service franchise opportunities. Compare minimum capital (S$30K–S$500K+), franchise fees, royalties, and unfiltered due diligence.',
   }
 };
 

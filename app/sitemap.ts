@@ -100,6 +100,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
         // 3. Editorial articles tracking (under /insights/)
         const staticEditorialSlugs = [
+            'true-fitness-collapse-singapore-prepaid-gym-model-audit',
+            'hidden-costs-commercial-lease-franchise-unit-economics-singapore',
             'psychology-singaporean-plate-franchise-evolution-super-brands-1970-2026',
             'mr-coconut-old-chang-kee-top-food-franchise-costs-singapore',
             'lease-or-own-franchise-commercial-property-singapore',

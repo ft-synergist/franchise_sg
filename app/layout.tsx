@@ -16,22 +16,25 @@ const geistMono = Geist_Mono({
 // CRITICAL GEO/SEO ENTERPRISE METADATA INJECTION - OPTIMIZED FOR WWW.FRANCHISE.SG
 export const metadata: Metadata = {
   title: {
-    default: "Franchise Singapore (2026) | Verified Franchise Opportunities & Directory",
+    default: "Franchise Singapore (2026 Directory) | Verified Opportunities & Investment Costs",
     template: "%s | Franchise.sg"
   },
-  description: "The authoritative Singapore franchise directory. Explore verified franchise opportunities, compare minimum capital requirements (S$30K–S$500K+), franchise fees, royalties, and expert franchise insights.",
+  description: "The authoritative Singapore franchise directory. Explore verified franchise opportunities, compare minimum capital requirements (S$30K–S$500K+), franchise fees, royalties, and expert franchise due diligence.",
   keywords: [
     "franchise singapore",
     "franchise sg",
     "franchise opportunities singapore",
     "franchise business in singapore",
     "franchise in singapore",
+    "singapore franchise",
+    "vending machine franchise singapore",
+    "vending machine scam singapore",
+    "franchise opportunities in singapore",
     "franchise listing singapore",
     "franchise insights singapore",
     "business for sale singapore",
     "f&b franchise singapore",
-    "franchise consultant singapore",
-    "master franchise southeast asia"
+    "franchise consultant singapore"
   ],
   metadataBase: new URL("https://www.franchise.sg"),
   alternates: {
@@ -55,8 +58,8 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Franchise Singapore | Verified Franchise Opportunities & Listings",
-    description: "Top Franchise Singapore portal for verified franchise opportunities. Explore our active franchise listing directory and gain expert franchise insights.",
+    title: "Franchise Singapore (2026 Directory) | Verified Opportunities & Investment Costs",
+    description: "The authoritative Singapore franchise directory. Explore verified franchise opportunities, compare minimum capital requirements (S$30K–S$500K+), franchise fees, royalties, and expert franchise due diligence.",
     url: "https://www.franchise.sg",
     siteName: "Franchise.sg",
     locale: "en_SG",
