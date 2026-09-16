@@ -364,7 +364,7 @@ function CheckoutForm() {
                                 <div className="flex items-center justify-between">
                                     <div>
                                         <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest block">PayNow Entity UEN</span>
-                                        <span className="text-sm font-mono font-black text-slate-900">202612345N</span>
+                                        <span className="text-sm font-mono font-black text-slate-900">201538542M</span>
                                         <span className="text-xs text-slate-500 block">FT SYNERGIST PTE. LTD. (Franchise.sg Operator)</span>
                                     </div>
                                     <div className="bg-teal-600 text-white font-black text-xs px-3 py-1.5 rounded-lg uppercase tracking-wider">
@@ -372,7 +372,7 @@ function CheckoutForm() {
                                     </div>
                                 </div>
                                 <p className="text-[11px] text-slate-600 leading-relaxed bg-white border border-slate-200 p-3 rounded-xl">
-                                    💡 <strong>Instructions:</strong> Scan PayNow QR or enter UEN <code>202612345N</code> in your banking app (DBS, OCBC, UOB, HSBC, Standard Chartered). Use reference: <strong>{form.brand_name ? form.brand_name.substring(0, 10).toUpperCase() : 'BRAND'}-LISTING</strong>.
+                                    💡 <strong>Instructions:</strong> Scan PayNow QR or enter UEN <code>201538542M</code> in your banking app (DBS, OCBC, UOB, HSBC, Standard Chartered). Use reference: <strong>{form.brand_name ? form.brand_name.substring(0, 10).toUpperCase() : 'BRAND'}-LISTING</strong>.
                                 </p>
                             </div>
                         )}
