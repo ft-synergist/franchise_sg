@@ -2179,6 +2179,26 @@ export const VERIFIED_LISTINGS: Record<string, VerifiedListing> = {
         description: 'Chem-Dry is the world’s leading carpet, upholstery, and leather cleaning franchise network, utilizing proprietary eco-friendly Hot Carbonating Extraction (HCE) technology with rapid 1-2 hour dry times suitable for Singapore’s climate.',
         verified_source: 'https://chemdry.com.sg / https://chemdryfranchise.com / ACRA',
         verification_notes: 'Patented non-toxic carbonated cleaning formula with high repeat corporate office and residential customer retainers.'
+    },
+    'beyond-borders-crm': {
+        slug: 'beyond-borders-crm',
+        brand_name: 'Beyond Borders CRM',
+        category: 'Software, AI & Digital Technology',
+        brand_origin: 'Singapore / International (Growing Beyond Borders)',
+        established_year: 2024,
+        current_outlets_sg: 'APAC Enterprise & Ecosystem Partners',
+        current_outlets_global: 'Cross-Border Franchise & SaaS Licensees',
+        franchise_model: 'AI-Powered CRM & Franchise Operations SaaS Licensing Partnership',
+        min_capital_sgd: 8000,
+        franchise_fee_sgd: 3000,
+        royalty_fee_text: 'SaaS Revenue Share on Active Client Subscriptions',
+        investment_tier: 'Entry-Tier',
+        projected_breakeven_text: '2 – 3 Months',
+        projected_payback_text: '6 – 10 Months',
+        projected_roi_text: '40% – 60% ROI',
+        description: 'Beyond Borders CRM is an AI-powered Enterprise CRM & APAC Ecosystem platform engineered for franchise expansion, automated lead management, cross-border deal pipelines, and multi-tenant client scaling.',
+        verified_source: 'https://www.growingbeyondborders.com/sustainable-partnership',
+        verification_notes: 'Turnkey SaaS partnership opportunity with USD $6,000 CAPEX (~S$8,000) and rapid 6–10 month capital payback period. Official Contact: Admin@growingbeyondborders.com.'
     }
 };
 
