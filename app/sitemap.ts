@@ -93,8 +93,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
             return {
                 url: `${baseUrl}/franchise/${slug}`,
                 lastModified: updatedAt ? new Date(updatedAt) : new Date(),
-                changeFrequency: 'weekly',
-                priority: 0.8,
+                changeFrequency: 'daily',
+                priority: 0.9,
             };
         });
 

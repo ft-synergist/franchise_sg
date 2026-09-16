@@ -216,6 +216,50 @@ export default function FranchiseGridEngine() {
                                 <span>S$500K+</span>
                             </div>
                         </div>
+
+                        {/* Quick Presets for High-CTR Search Monetization */}
+                        <div className="pt-2 flex flex-wrap gap-1">
+                            <button
+                                onClick={() => setMaxBudget(50000)}
+                                className={`px-2 py-1 rounded text-[10px] font-extrabold transition-all ${
+                                    maxBudget === 50000
+                                        ? 'bg-emerald-600 text-white shadow-sm'
+                                        : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
+                                }`}
+                            >
+                                ⚡ &lt; S$50K (Low-Cost)
+                            </button>
+                            <button
+                                onClick={() => setMaxBudget(100000)}
+                                className={`px-2 py-1 rounded text-[10px] font-extrabold transition-all ${
+                                    maxBudget === 100000
+                                        ? 'bg-emerald-600 text-white shadow-sm'
+                                        : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
+                                }`}
+                            >
+                                💰 &lt; S$100K (Budget)
+                            </button>
+                            <button
+                                onClick={() => setMaxBudget(250000)}
+                                className={`px-2 py-1 rounded text-[10px] font-extrabold transition-all ${
+                                    maxBudget === 250000
+                                        ? 'bg-teal-700 text-white shadow-sm'
+                                        : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
+                                }`}
+                            >
+                                📊 &lt; S$250K (Mid-Tier)
+                            </button>
+                            <button
+                                onClick={() => setMaxBudget(500000)}
+                                className={`px-2 py-1 rounded text-[10px] font-extrabold transition-all ${
+                                    maxBudget === 500000
+                                        ? 'bg-slate-900 text-white shadow-sm'
+                                        : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
+                                }`}
+                            >
+                                All (S$500K+)
+                            </button>
+                        </div>
                     </div>
                 </div>
 
