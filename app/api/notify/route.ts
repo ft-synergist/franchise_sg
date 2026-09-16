@@ -15,14 +15,16 @@ export async function POST(request: Request) {
             // Map inbound enquiry data into a structured CRM lead payload
             const crmPayload = {
                 tenant_id: '47e5215d-458c-4f7a-928d-15fbebc2058a', // Franchise SG Workspace
-                name: type === 'franchisor_application' ? data.contact_name : data.name,
-                email: type === 'franchisor_application' ? data.contact_email : data.email,
-                phone: type === 'franchisor_application' ? (data.phone || 'Not Provided') : data.phone,
+                name: type === 'brand_payment_onboarding' ? data.contact_name : (type === 'franchisor_application' ? data.contact_name : data.name),
+                email: type === 'brand_payment_onboarding' ? data.contact_email : (type === 'franchisor_application' ? data.contact_email : data.email),
+                phone: type === 'brand_payment_onboarding' ? (data.contact_phone || 'Not Provided') : (type === 'franchisor_application' ? (data.phone || 'Not Provided') : data.phone),
                 brand_name: data.brand_name || undefined,
                 web_source: 'franchise.sg',
-                pipeline_stage: 'lead_prospect',
-                status: 'new',
-                notes: data.notes || (type === 'franchisor_application' ? data.brand_summary : '') || '',
+                pipeline_stage: type === 'brand_payment_onboarding' ? 'won_customer' : 'lead_prospect',
+                status: type === 'brand_payment_onboarding' ? 'verified_partner' : 'new',
+                notes: type === 'brand_payment_onboarding'
+                    ? `[S$600 Verified Partner Listing Activated] TxID: ${data.transaction_id} | Payment Method: ${data.payment_method}`
+                    : (data.notes || (type === 'franchisor_application' ? data.brand_summary : '') || ''),
             };
 
             const crmResponse = await fetch(crmUrl, {
@@ -65,7 +67,28 @@ export async function POST(request: Request) {
         let emailSubject = '';
         let emailHtml = '';
 
-        if (type === 'franchisor_application') {
+        if (type === 'brand_payment_onboarding') {
+            emailSubject = `🎉 Paid Listing Onboarding: ${data.brand_name} (S$600.00)`;
+            emailHtml = `
+                <div style="font-family: sans-serif; padding: 20px; color: #0f172a;">
+                    <h2 style="color: #059669; margin-bottom: 4px;">Verified Brand Partner Onboarding Activated!</h2>
+                    <p style="color: #475569; font-size: 14px;"><strong>${data.brand_name}</strong> has activated their S$600/year Verified Listing Agreement.</p>
+                    <hr style="border: 0; border-top: 1px solid #e2e8f0; margin: 20px 0;" />
+                    <p><strong>Brand Name:</strong> ${data.brand_name}</p>
+                    <p><strong>Authorized Officer:</strong> ${data.contact_name}</p>
+                    <p><strong>Corporate Email:</strong> <a href="mailto:${data.contact_email}">${data.contact_email}</a></p>
+                    <p><strong>Singapore UEN:</strong> ${data.uen || 'N/A'}</p>
+                    <hr style="border: 0; border-top: 1px solid #e2e8f0; margin: 20px 0;" />
+                    <p><strong>Payment Method:</strong> ${data.payment_method.toUpperCase()}</p>
+                    <p><strong>Amount Paid / Invoiced:</strong> S$600.00 Net</p>
+                    <p><strong>Transaction Reference:</strong> <code>${data.transaction_id}</code></p>
+                    <hr style="border: 0; border-top: 1px solid #e2e8f0; margin: 20px 0;" />
+                    <p style="background: #ecfdf5; padding: 12px; border-radius: 8px; color: #065f46;">
+                        <strong>Action Required:</strong> Lead routing rules updated. Unlock and release active buyer lead details to ${data.contact_email}.
+                    </p>
+                </div>
+            `;
+        } else if (type === 'franchisor_application') {
             emailSubject = `🚨 New Franchisor Registration: ${data.brand_name}`;
             emailHtml = `
                 <div style="font-family: sans-serif; padding: 20px; color: #0f172a;">
