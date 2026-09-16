@@ -183,7 +183,7 @@ export const VERIFIED_LISTINGS: Record<string, VerifiedListing> = {
     'cleanpro-express': {
         slug: 'cleanpro-express',
         brand_name: 'Cleanpro Express',
-        category: 'Retail & Convenience',
+        category: 'Commercial & Residential Services',
         brand_origin: 'Malaysia (Founded 2008 in Petaling Jaya)',
         established_year: 2008,
         current_outlets_sg: '30+',
@@ -543,7 +543,7 @@ export const VERIFIED_LISTINGS: Record<string, VerifiedListing> = {
     'laundrymart': {
         slug: 'laundrymart',
         brand_name: 'Laundrymart',
-        category: 'Retail & Convenience',
+        category: 'Commercial & Residential Services',
         brand_origin: 'Singapore (Founded 2010 by LaundryMart Pte Ltd)',
         established_year: 2010,
         current_outlets_sg: '25+',
@@ -1163,7 +1163,7 @@ export const VERIFIED_LISTINGS: Record<string, VerifiedListing> = {
     'wonderwash': {
         slug: 'wonderwash',
         brand_name: 'WonderWash',
-        category: 'Retail & Convenience',
+        category: 'Commercial & Residential Services',
         brand_origin: 'Singapore (Founded 2010 by Wonderwash Laundromat Pte Ltd)',
         established_year: 2010,
         current_outlets_sg: '60+',
@@ -2003,7 +2003,7 @@ export const VERIFIED_LISTINGS: Record<string, VerifiedListing> = {
     'mister-minit': {
         slug: 'mister-minit',
         brand_name: 'Mister Minit (Singapore)',
-        category: 'Retail & Convenience',
+        category: 'Commercial & Residential Services',
         brand_origin: 'Belgium / Australia (Founded 1957; SG: Mister Minit Singapore)',
         established_year: 1957,
         current_outlets_sg: '35+',
@@ -2159,6 +2159,26 @@ export const VERIFIED_LISTINGS: Record<string, VerifiedListing> = {
         description: 'Choice Hotels Asia-Pac is a global hotel franchisor (Quality Inn, Comfort Inn, Choice Edition) providing independent hotel owners in Singapore & APAC with global distribution, revenue management, and branding.',
         verified_source: 'https://choicehotelsdevelopment.com / NYSE: CHH',
         verification_notes: 'Soft-branding and franchise affiliation options for independent boutique hotel operators in Singapore.'
+    },
+    'chem-dry-singapore': {
+        slug: 'chem-dry-singapore',
+        brand_name: 'Chem-Dry Singapore',
+        category: 'Commercial & Residential Services',
+        brand_origin: 'United States (Founded 1977; SG: Chem-Dry Singapore Pte Ltd)',
+        established_year: 1977,
+        current_outlets_sg: 'National Commercial & Residential Unit Operations',
+        current_outlets_global: '3,000+ Franchise Outlets (55+ Countries)',
+        franchise_model: 'Commercial & Residential Upholstery & Carpet Cleaning Franchise',
+        min_capital_sgd: 70000,
+        franchise_fee_sgd: 30000,
+        royalty_fee_text: 'Flat Monthly License & Royalty Fee',
+        investment_tier: 'Entry-Tier',
+        projected_breakeven_text: '2 – 4 Months',
+        projected_payback_text: '12 – 16 Months',
+        projected_roi_text: '32% – 45% ROI',
+        description: 'Chem-Dry is the world’s leading carpet, upholstery, and leather cleaning franchise network, utilizing proprietary eco-friendly Hot Carbonating Extraction (HCE) technology with rapid 1-2 hour dry times suitable for Singapore’s climate.',
+        verified_source: 'https://chemdry.com.sg / https://chemdryfranchise.com / ACRA',
+        verification_notes: 'Patented non-toxic carbonated cleaning formula with high repeat corporate office and residential customer retainers.'
     }
 };
 
