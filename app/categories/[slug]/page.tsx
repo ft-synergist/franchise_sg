@@ -3,8 +3,6 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { VERIFIED_LISTINGS } from '@/lib/verifiedListings';
 
-export const revalidate = 60; // Cache category variants for 60 seconds
-
 // Exact routing taxonomy configuration map with verified third-party citations
 const categoryMap: Record<string, { dbNames: string[]; displayName: string; canonicalSlug: string; marketSummary: string; citation: string }> = {
     'food-beverage': {

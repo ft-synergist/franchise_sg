@@ -3,8 +3,6 @@ import Link from 'next/link';
 import FranchiseGridEngine from './components/FranchiseGridEngine';
 import { VERIFIED_LISTINGS } from '@/lib/verifiedListings';
 
-export const revalidate = 60; // Cache index pages globally on Vercel Edge nodes for 60 seconds
-
 export const metadata = {
   title: 'Franchise Singapore (2026 Directory) | Compare Costs, Fees & Opportunities',
   description: 'Singapore\'s premier verified franchise directory. Explore active F&B, retail, education & service franchise opportunities. Compare minimum capital (S$30K–S$500K+), franchise fees, royalties, and unfiltered due diligence.',

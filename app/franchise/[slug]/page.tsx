@@ -4,8 +4,6 @@ import { notFound } from 'next/navigation';
 import FddRequestForm from './FddRequestForm';
 import { getVerifiedListing, VERIFIED_LISTINGS } from '@/lib/verifiedListings';
 
-export const revalidate = 60;
-
 const TENANT_ID = '8e04819b-c506-4c6c-955a-473c22ee8c8b';
 
 export async function generateStaticParams() {

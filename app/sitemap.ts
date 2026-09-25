@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next';
 import { supabase } from '@/lib/supabase';
 import { VERIFIED_LISTINGS } from '@/lib/verifiedListings';
 
-export const revalidate = 3600; // Securely cache the structural map on Edge nodes for 1 hour
+export const revalidate = 86400; // Securely cache the structural map on Edge nodes for 24 hours
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const baseUrl = 'https://www.franchise.sg';

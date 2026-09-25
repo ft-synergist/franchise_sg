@@ -3,8 +3,6 @@ import Link from 'next/link';
 
 import { Metadata } from 'next';
 
-export const revalidate = 60;
-
 export const metadata: Metadata = {
     title: 'Franchise Businesses For Sale Singapore (2026) | Verified Resale Units',
     description: 'Explore verified franchise businesses for sale in Singapore. Acquire cash-flowing established franchise locations with operational infrastructure and historical financial data.',
