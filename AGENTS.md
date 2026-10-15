@@ -7,11 +7,11 @@ This version has breaking changes — APIs, conventions, and file structure may 
 # Editorial Calendar & Insights Schedule Rules
 - **Source of Truth:** Always reference [docs/EDITORIAL_CALENDAR.md](file:///Users/fredericktan/Documents/franchise_sg/docs/EDITORIAL_CALENDAR.md) for the active publishing schedule, planned queue, and article status.
 - **Mandatory Schedule:**
-  - **22 Sep 8am SGT:** The Collapse of True Fitness Singapore: Forensic Financial Audit & The Structural Failure of the Prepaid Gym Model
-  - **29 Sep 8am SGT:** The Hidden Costs in a Commercial Lease That Sink Franchise Unit Economics
-  - **6 Oct 8am SGT:** Singapore F&B Franchise Capital & Payback Audit 2026
-  - **13 Oct 8am SGT:** Reinstatement Breakdown & Mall Tenancy Audit
-  - **From 20 Oct:** Alert and queue next pipeline releases.
+  - **15 Oct (Today):** The Collapse of True Fitness Singapore: Forensic Financial Audit & The Structural Failure of the Prepaid Gym Model (LIVE)
+  - **20 Oct 8am SGT:** The Hidden Costs in a Commercial Lease That Sink Franchise Unit Economics (Scheduled & Gated)
+  - **27 Oct 8am SGT:** Singapore F&B Franchise Capital & Payback Audit 2026
+  - **3 Nov 8am SGT:** Reinstatement Breakdown & Mall Tenancy Audit
+  - **From 10 Nov:** Alert and queue next pipeline releases.
 - **Strict Distinction:** Never report an article as "LIVE" unless it is committed to `origin/main` and its `publishAt` is strictly in the past. If it is scheduled with a future `publishAt` or in local draft, classify it under "Upcoming / Scheduled" or "In Review".
 
 # Vercel ISR Remediation & Caching Status

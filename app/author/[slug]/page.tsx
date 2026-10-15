@@ -12,6 +12,14 @@ type Props = {
 const AUTHOR_ARTICLES: Record<string, Array<{ slug: string; title: string; description: string; date: string; category: string; publishAt?: string }>> = {
     'maggie-png': [
         {
+            slug: 'hidden-costs-commercial-lease-franchise-unit-economics-singapore',
+            title: 'The Hidden Costs in a Commercial Lease That Sink Franchise Unit Economics',
+            description: 'Commercial Property Strategist Maggie Png exposes the three silent cost leaks in Singapore commercial leases: $25K–$60K reinstatement bills, floating mall service charges, and compounding rent escalation formulas.',
+            date: 'October 20, 2026',
+            publishAt: '2026-10-20T08:00:00+08:00',
+            category: 'Commercial Leasing Strategy',
+        },
+        {
             slug: 'lease-or-own-franchise-commercial-property-singapore',
             title: 'Lease or Own? What Franchisees in Singapore Must Calculate Before Deciding (2026 Commercial Guide)',
             description: 'Commercial Property Strategist Maggie Png breaks down the true financial and operational comparison between leasing vs buying franchise premises in Singapore, covering BSD, MAS LTV rules, CoC protections, and capital allocation.',
@@ -35,6 +43,14 @@ const AUTHOR_ARTICLES: Record<string, Array<{ slug: string; title: string; descr
         }
     ],
     'chen-yong-lin': [
+        {
+            slug: 'true-fitness-collapse-singapore-prepaid-gym-model-audit',
+            title: 'The Collapse of True Fitness Singapore: Forensic Financial Audit & The Structural Failure of the Prepaid Gym Model',
+            description: 'A forensic financial audit into the provisional liquidation of True Fitness & True Yoga Singapore. Deconstruct HKEX regulatory filings, the HK$633.8M liabilities, court-documented precedents, and the systemic vulnerabilities of unescrowed prepaid fitness contracts.',
+            date: 'October 15, 2026',
+            publishAt: '2026-10-15T08:00:00+08:00',
+            category: 'Corporate Governance & Financial Audit',
+        },
         {
             slug: 'psychology-singaporean-plate-franchise-evolution-super-brands-1970-2026',
             title: 'The Psychology of the Singaporean Plate: Evolution & Hyper-Profitability of Franchise Super-Brands (1970–2026)',

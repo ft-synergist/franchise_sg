@@ -12,7 +12,595 @@ interface PageProps {
 // ==========================================
 // ARTICLE DATA ARCHITECTURE
 // ==========================================
-const insightsMap: Record<string, { title: string; description: string; publishAt?: string; content: () => React.JSX.Element }> = {
+const insightsMap: Record<string, { title: string; description: string; publishAt?: string; faqs?: Array<{ question: string; answer: string }>; content: () => React.JSX.Element }> = {
+    'true-fitness-collapse-singapore-prepaid-gym-model-audit': {
+        title: 'The Collapse of True Fitness Singapore: The Analysis of the Prepaid Gym Model and Implications for Singapore Franchise Industry',
+        description: 'A forensic analysis into the provisional liquidation of True Fitness & True Yoga Singapore. Deconstruct HKEX filings, S$105.6M liabilities, cross-border precedents, and the multi-stakeholder implications for Singapore franchising.',
+        publishAt: '2026-10-15T08:00:00+08:00',
+        faqs: [
+            {
+                question: "Why did True Fitness and True Yoga Singapore suddenly enter provisional liquidation in September 2026?",
+                answer: "According to regulatory disclosures lodged with the Hong Kong Exchanges and Clearing Limited (HKEX) by parent company Kontafarma China Holdings Limited, the Singapore operating subsidiaries entered creditors' voluntary liquidation due to an insurmountable accumulation of liabilities totaling HK$633.8 million (approximately S$105.6 million SGD) against net liabilities of HK$429.3 million, compounded by escalating customer acquisition costs, high commercial lease commitments, and intense competition from boutique and 24/7 fitness operators."
+            },
+            {
+                question: "Can affected True Fitness members recover unutilized prepaid packages through credit card chargebacks?",
+                answer: "Under Association of Banks in Singapore (ABS) guidelines and card scheme rules (Visa/Mastercard), chargeback claims for non-delivery of services must generally be filed within 120 days of the transaction date or the last service date (subject to an absolute maximum cap of 540 days). However, for memberships financed via 0% Instalment Payment Plans (IPPs), the issuing bank has already paid the merchant the full lump sum upfront; in an insolvency event, banks typically cannot reverse the charge, leaving the consumer legally obligated to continue monthly loan repayments to the bank."
+            },
+            {
+                question: "Why are fitness centre prepayments not protected by mandatory escrow or insurance in Singapore?",
+                answer: "While Singapore's spa and wellness industry is strictly required under the Massage Establishments Act and Police Licensing & Regulatory Department (PLRD) to maintain CaseTrust accreditation with mandatory prepayment protection (escrow or insurance bonding), the commercial fitness sector operates without a statutory licensing mandate requiring unearned prepaid consumer funds to be ring-fenced."
+            },
+            {
+                question: "What is the corporate relationship between Kontafarma China Holdings and True Fitness Singapore?",
+                answer: "Kontafarma China Holdings Limited (HKEX: 1312) is a Hong Kong-listed entity principally engaged in pharmaceutical manufacturing in mainland China, which generated 76.7% of its revenue and held 78.5% of its assets in 1H 2026. Following the provisional liquidation, the Singapore fitness subsidiaries were de-consolidated under IFRS 10, quarantining HK$429.3 million in net liabilities at the local operating subsidiary level."
+            },
+            {
+                question: "What structural shift is occurring in the Singapore fitness and franchise industry?",
+                answer: "The market is rapidly shifting away from capital-intensive 20,000–35,000 sq ft big-box gyms reliant on multi-year prepaid contracts toward asset-light 3,000–5,000 sq ft franchise models (e.g. 24/7 automated neighborhood hubs) and boutique studios operating on transparent, monthly recurring subscription billing (MRR) with zero consumer prepayment risk."
+            }
+        ],
+        content: () => {
+            const author = EDITORS['chen-yong-lin'];
+            return (
+                <>
+                    <header className="bg-gradient-to-r from-teal-900 via-slate-950 to-slate-950 text-white py-20 px-6 border-b border-slate-800 -mx-8 sm:-mx-12 -mt-8 sm:-mt-12 mb-12 rounded-t-3xl">
+                        <div className="max-w-4xl mx-auto px-4 text-left">
+                            <div className="mb-6 inline-flex items-center gap-2 bg-teal-500/10 border border-teal-500/20 px-3 py-1 rounded-full">
+                                <span className="w-2 h-2 rounded-full bg-teal-400"></span>
+                                <span className="text-xs font-semibold text-teal-300 uppercase tracking-wider">Corporate Governance &amp; Franchise Strategy</span>
+                            </div>
+                            <div className="mb-2">
+                                <span className="text-base font-bold uppercase tracking-wider text-teal-400 block">Insights:</span>
+                            </div>
+                            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white max-w-4xl leading-tight">
+                                The Collapse of True Fitness Singapore: The Analysis of the Prepaid Gym Model and Implications for Singapore Franchise Industry
+                            </h1>
+                            <div className="flex flex-wrap items-center gap-y-4 gap-x-8 text-xs font-semibold uppercase tracking-wider text-slate-400 border-t border-slate-800/80 mt-8 pt-6">
+                                <Link href={`/author/${author?.slug || 'chen-yong-lin'}`} className="flex items-center gap-3 group">
+                                    <div className="w-9 h-9 rounded-xl bg-teal-700 text-white font-black text-xs flex items-center justify-center shrink-0 border border-teal-500">
+                                        {author?.initials || 'CYL'}
+                                    </div>
+                                    <div>
+                                        <strong className="text-white font-bold text-sm normal-case group-hover:text-teal-300 transition-colors">{author?.name || 'Chen Yong Lin'}</strong>
+                                        <span className="text-slate-400 font-normal normal-case"> · {author?.role || 'Editor-in-Chief & Lead Analyst'}</span>
+                                    </div>
+                                </Link>
+                                <div className="sm:ml-auto">
+                                    <span className="text-slate-500 block text-[10px] mb-0.5">Published On</span>
+                                    <time className="text-slate-200 font-bold normal-case text-sm">15 October 2026</time>
+                                </div>
+                            </div>
+                        </div>
+                    </header>
+
+                    <section className="prose prose-slate max-w-none text-slate-800 text-lg sm:text-xl font-normal leading-relaxed space-y-8 text-left">
+                        <p className="font-bold text-slate-950 text-2xl sm:text-3xl tracking-tight leading-snug">
+                            How did a 20-year fitness institution vanish overnight—leaving HK$633.8 million in debt and tens of thousands of members stranded?
+                        </p>
+
+                        <p>
+                            On the night of Wednesday, September 9, 2026, at approximately 10:30 PM, landlord repossession notices were taped across the glass doors of True Fitness at Velocity@Novena Square (<a href="https://www.businesstimes.com.sg/singapore/smes/true-fitness-true-yoga-close-all-outlets-liquidators-start-winding-process" target="_blank" rel="noopener noreferrer" className="text-teal-600 font-medium underline hover:text-teal-700">The Business Times</a>). By the following morning, 10 fitness centres across Singapore—spanning True Fitness, TFX, and Yoga Edition—were padlocked shut. Over 250 employees were abruptly displaced, while tens of thousands of gym-goers holding thousands of dollars in prepaid multi-year packages arrived to find dark gym floors and court-appointed provisional liquidation notices.
+                        </p>
+
+                        <p>
+                            The official corporate explanation was swift and convenient: Hong Kong-listed parent company <strong>Kontafarma China Holdings Limited (HKEX: 1312)</strong> blamed <em>&quot;an increasingly competitive landscape populated by specialized boutique studios, 24/7 fitness franchises, and escalating customer acquisition costs.&quot;</em>
+                        </p>
+
+                        <p>
+                            But evaluating this collapse purely as an unexpected casualty of retail headwinds misses the real story. Behind the public statements lies a documented, 20-year financial high-wire act. A forensic investigation into regulatory disclosures lodged with the <strong>Hong Kong Exchanges and Clearing Limited (HKEX)</strong>, Singapore High Court judgements (<a href="https://www.elitigation.sg/gd/s/2024_SGHC_228" target="_blank" rel="noopener noreferrer" className="text-teal-600 font-medium underline hover:text-teal-700">[2024] SGHC 228</a>), and insolvency filings raises three uncomfortable questions:
+                        </p>
+
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 my-6">
+                            <div className="p-5 rounded-2xl bg-slate-900 text-white border border-slate-800 flex flex-col justify-between">
+                                <span className="text-[10px] font-bold text-teal-400 uppercase tracking-wider block mb-1">Question 01</span>
+                                <h4 className="text-base font-bold text-white mb-1">Debt Accumulation</h4>
+                                <p className="text-xs text-slate-400 leading-relaxed">How a cash-upfront business accumulated S$105.6 million in liabilities while aggressively selling multi-year packages.</p>
+                            </div>
+                            <div className="p-5 rounded-2xl bg-slate-900 text-white border border-slate-800 flex flex-col justify-between">
+                                <span className="text-[10px] font-bold text-teal-400 uppercase tracking-wider block mb-1">Question 02</span>
+                                <h4 className="text-base font-bold text-white mb-1">The True Catalyst</h4>
+                                <p className="text-xs text-slate-400 leading-relaxed">Is Singapore&apos;s macroenvironment and unit economics truly the catalyst behind the closure?</p>
+                            </div>
+                            <div className="p-5 rounded-2xl bg-slate-900 text-white border border-slate-800 flex flex-col justify-between">
+                                <span className="text-[10px] font-bold text-teal-400 uppercase tracking-wider block mb-1">Question 03</span>
+                                <h4 className="text-base font-bold text-white mb-1">Franchise Implications</h4>
+                                <p className="text-xs text-slate-400 leading-relaxed">What are the strategic implications for multi-stakeholders: consumers, landlords, franchise operators, and regulators?</p>
+                            </div>
+                        </div>
+
+                        <hr className="my-12 border-slate-200" />
+
+                        <div className="bg-slate-950 text-slate-200 p-6 sm:p-8 rounded-2xl font-mono text-xs sm:text-sm my-6 border border-slate-800 space-y-3 max-w-4xl mx-auto">
+                            <div className="text-teal-400 font-bold uppercase tracking-wider">Forensic Executive Fact Sheet: True Singapore Group Liquidation</div>
+                            <div className="border-t border-slate-800 pt-3 space-y-2 text-slate-300">
+                                <p>• <strong>Entities in Provisional Liquidation:</strong> True Fitness Pte. Ltd. (UEN: 199705759N) and True Yoga Pte. Ltd. (UEN: 200410345Z) across 10 outlets (including TFX and Yoga Edition brands).</p>
+                                <p>• <strong>Appointed Liquidators:</strong> Goh Wee Teck and Lin Yueh Hung (RSM SG Corporate Advisory Pte Ltd); EGM/Creditors&apos; meeting scheduled for Oct 7, 2026.</p>
+                                <p>• <strong>Official Claims Portal:</strong> Proof of Debt submissions via <a href="https://cdp.rsmsingapore.sg/" target="_blank" rel="noopener noreferrer" className="text-teal-400 underline hover:text-teal-300">RSM Claims Portal</a> (<a href="https://www.rsm.global/singapore/true-fitness-and-true-yoga-provisional-liquidation-faqs-for-members" target="_blank" rel="noopener noreferrer" className="text-teal-400 underline hover:text-teal-300">RSM Official Notice</a>).</p>
+                                <p>• <strong>Parent Company:</strong> Kontafarma China Holdings Limited (HKEX: 1312).</p>
+                                <p>• <strong>FY2025 Audited Baseline:</strong> Total assets of HK$149.7M, net operational loss of HK$34.3M, and net liabilities of HK$405.8M.</p>
+                                <p>• <strong>Jan–Aug 2026 Unaudited Operating Loss:</strong> Net loss of HK$19.1M (US$2.4M / ~S$3.3M SGD) across 8 months.</p>
+                                <p>• <strong>Pre-Liquidation Balance Sheet (as of Aug 31, 2026):</strong> Gross liabilities ballooned to approximately HK$633.8M (~S$105.6M SGD), with net liabilities reaching HK$429.3M (~S$71.5M SGD).</p>
+                                <p>• <strong>Core Parent Asset Allocation:</strong> Pharmaceutical segment represents 76.7% of 1H 2026 revenue and 78.5% of consolidated group assets.</p>
+                            </div>
+                        </div>
+
+                        <hr className="my-12 border-slate-200" />
+
+                        {/* 01 */}
+                        <h2 className="text-3xl font-black text-slate-950 tracking-tight mt-14 mb-4">
+                            01 · How a Cash-Upfront Business Accumulated S$105.6 Million in Liabilities While Aggressively Selling Multi-Year Packages
+                        </h2>
+
+                        <p>
+                            According to official disclosures lodged with the HKEX, the financial deterioration of the True Singapore Group was severe and continuous:
+                        </p>
+
+                        <div className="overflow-x-auto rounded-2xl border border-slate-200 my-8 shadow-sm w-full bg-white">
+                            <table className="min-w-full table-fixed border-collapse text-sm sm:text-base text-left">
+                                <thead className="bg-slate-50 border-b border-slate-200">
+                                    <tr>
+                                        <th className="px-5 py-4 text-left font-black text-slate-950 uppercase text-xs tracking-wider w-1/3">Financial Reporting Window</th>
+                                        <th className="px-5 py-4 text-left font-bold text-slate-700 uppercase text-xs tracking-wider w-1/3">Operating Loss (HKD / SGD Approx.)</th>
+                                        <th className="px-5 py-4 text-left font-bold text-teal-700 uppercase text-xs tracking-wider bg-teal-50/20">Reported Balance Sheet Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody className="divide-y divide-slate-200 bg-white text-slate-700">
+                                    <tr>
+                                        <td className="px-5 py-5 font-bold text-slate-950">FY 2025 Audited Results</td>
+                                        <td className="px-5 py-5 text-rose-700 font-semibold">Net Loss of HK$34.3M (~S$5.9M SGD)</td>
+                                        <td className="px-5 py-5 text-slate-700">Total Assets HK$149.7M; Net Liabilities HK$405.8M</td>
+                                    </tr>
+                                    <tr>
+                                        <td className="px-5 py-5 font-bold text-slate-950">Jan–Aug 2026 (8 Months)</td>
+                                        <td className="px-5 py-5 text-rose-700 font-semibold">Net Loss of HK$19.1M (~US$2.4M / ~S$3.3M SGD)</td>
+                                        <td className="px-5 py-5 text-slate-700">Escalating liquidity pressure despite parent cash injections</td>
+                                    </tr>
+                                    <tr>
+                                        <td className="px-5 py-5 font-bold text-slate-950">Position at Aug 31, 2026</td>
+                                        <td className="px-5 py-5">—</td>
+                                        <td className="px-5 py-5 text-rose-800 font-bold bg-rose-50/40">Gross Liabilities reached HK$633.8M (~S$105.6M SGD); Net Liabilities HK$429.3M</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <p>
+                            In reality, the prepaid mega-gym model operates as an unhedged cash-float mechanism characterized by three structural mechanics:
+                        </p>
+
+                        <div className="space-y-4 my-6">
+                            <div className="p-5 bg-slate-50 border-l-4 border-teal-600 rounded-r-2xl">
+                                <h4 className="font-bold text-slate-950 text-base mb-1">Float Cannibalization</h4>
+                                <p className="text-slate-700 text-sm sm:text-base leading-relaxed">
+                                    Upfront multi-year cash collections are consumed to subsidize immediate fixed lease overheads and capital equipment debt rather than being escrowed to service future member usage.
+                                </p>
+                            </div>
+                            <div className="p-5 bg-slate-50 border-l-4 border-amber-600 rounded-r-2xl">
+                                <h4 className="font-bold text-slate-950 text-base mb-1">The Acquisition Treadmill</h4>
+                                <p className="text-slate-700 text-sm sm:text-base leading-relaxed">
+                                    When customer growth decelerates (due to boutique fitness options or consumer saturation), the incoming float fails to cover legacy operational commitments, triggering sudden corporate liquidation.
+                                </p>
+                            </div>
+                            <div className="p-5 bg-slate-50 border-l-4 border-indigo-600 rounded-r-2xl">
+                                <h4 className="font-bold text-slate-950 text-base mb-1">Sequential Geographic Insulation</h4>
+                                <p className="text-slate-700 text-sm sm:text-base leading-relaxed">
+                                    At each regional failure point (Thailand in 2017, Taiwan in 2025), holding structures issued public assurances that other regional entities were insulated, before eventually winding down the next subsidiary when local operating losses proved unviable.
+                                </p>
+                            </div>
+                        </div>
+
+                        <h3 className="text-2xl font-bold text-slate-950 mt-8 mb-3">The Pharmaceutical Asset Core vs. Fitness Ring-Fencing</h3>
+                        <p>
+                            A key finding in the regulatory filings is the structural composition of the ultimate holding parent. Kontafarma China Holdings is fundamentally a pharmaceutical manufacturer, principally engaged in the production and sales of prescription chemical drugs and prescribed traditional Chinese medicines in the PRC.
+                        </p>
+                        <p>
+                            In Kontafarma’s 2026 Interim Results Announcement, the pharmaceutical division accounted for <strong className="text-slate-950 font-bold">76.7% of total group revenue</strong> and <strong className="text-slate-950 font-bold">78.5% of total consolidated assets</strong>. 
+                        </p>
+                        <p>
+                            By placing the Singapore fitness subsidiaries into court-supervised provisional liquidation under the Singapore Insolvency, Restructuring and Dissolution Act (IRDA), the holding group triggered the de-consolidation of the Singapore entities under International Financial Reporting Standards (IFRS 10). This isolated approximately HK$429.3 million in net liabilities within the local operating subsidiaries, preventing debt attachment to the parent entity&apos;s profitable core pharmaceutical manufacturing assets in mainland China.
+                        </p>
+
+                        <hr className="my-12 border-slate-200" />
+
+                        {/* 02 */}
+                        <h2 className="text-3xl font-black text-slate-950 tracking-tight mt-14 mb-4">
+                            02 · Is Singapore&apos;s Macroenvironment and Unit Economics Truly The Catalyst Behind the Closure?
+                        </h2>
+
+                        <p>
+                            A central question examined by retail analysts is whether Singapore&apos;s high-cost commercial environment (soaring prime mall rental rates and tightening labour policies) was the root catalyst of the collapse, or merely the accelerant trigger.
+                        </p>
+                        <p>
+                            Forensic evidence across three distinct Southeast Asian jurisdictions reveals that the underlying driver was structural failure inherent in the prepaid mega-gym model, rather than Singapore-specific operating friction:
+                        </p>
+
+                        <div className="overflow-x-auto rounded-2xl border border-slate-200 my-6 shadow-sm w-full bg-white">
+                            <table className="min-w-full table-fixed border-collapse text-xs sm:text-sm text-left">
+                                <thead className="bg-slate-950 text-white">
+                                    <tr>
+                                        <th className="px-4 py-3 font-bold uppercase tracking-wider w-1/5">Jurisdiction &amp; Date</th>
+                                        <th className="px-4 py-3 font-bold uppercase tracking-wider w-1/5">Operating Cost Context</th>
+                                        <th className="px-4 py-3 font-bold uppercase tracking-wider w-1/3">Documented Failure Mechanics</th>
+                                        <th className="px-4 py-3 font-bold uppercase tracking-wider w-1/4">Official Public Reassurance</th>
+                                    </tr>
+                                </thead>
+                                <tbody className="divide-y divide-slate-200 bg-white text-slate-700">
+                                    <tr>
+                                        <td className="px-4 py-4 font-bold text-slate-950">Thailand (June 2017)</td>
+                                        <td className="px-4 py-4 text-emerald-700 font-semibold">Low-cost market (Low real estate &amp; labour costs)</td>
+                                        <td className="px-4 py-4">Abrupt closure of all outlets (Asok, CentralWorld); ~39,000 members stranded; sold 3-year contracts until days before closing.</td>
+                                        <td className="px-4 py-4 text-slate-500 italic">&quot;True Fitness shuts in Thailand, outlets in Singapore not affected.&quot; (<a href="https://www.channelnewsasia.com/singapore/true-fitness-shuts-in-thailand-outlets-in-singapore-not-affected-5758846" target="_blank" rel="noopener noreferrer" className="text-teal-600 underline">CNA Report</a>)</td>
+                                    </tr>
+                                    <tr>
+                                        <td className="px-4 py-4 font-bold text-slate-950">Malaysia (June 2017)</td>
+                                        <td className="px-4 py-4 text-emerald-700 font-semibold">Low-to-mid cost market</td>
+                                        <td className="px-4 py-4">Premises sealed by court bailiffs executing writ of seizure for rent arrears; continued selling 1–5 year packages in May 2017 (<a href="https://www.elitigation.sg/gd/s/2024_SGHC_228" target="_blank" rel="noopener noreferrer" className="text-teal-600 underline">[2024] SGHC 228</a>).</td>
+                                        <td className="px-4 py-4 text-slate-500 italic">Public notices claimed branches were closed temporarily for &quot;renovations&quot;.</td>
+                                    </tr>
+                                    <tr>
+                                        <td className="px-4 py-4 font-bold text-slate-950">Taiwan (Oct 2025)</td>
+                                        <td className="px-4 py-4 text-amber-700 font-semibold">Mid-cost market</td>
+                                        <td className="px-4 py-4">All branches in Taipei, New Taipei, and Taoyuan ceased operations abruptly; 163+ consumer complaints; NT$40,000 3-year memberships unrefunded. Parent took HK$169.3M ECL impairment.</td>
+                                        <td className="px-4 py-4 text-slate-500 italic">&quot;Operations in Singapore remain unaffected... operating with full parent company backing.&quot; (<a href="https://mothership.sg/2025/09/true-fitness-close-taiwan/" target="_blank" rel="noopener noreferrer" className="text-teal-600 underline">Mothership Report</a>)</td>
+                                    </tr>
+                                    <tr>
+                                        <td className="px-4 py-4 font-bold text-slate-950">Singapore (Sept 2026)</td>
+                                        <td className="px-4 py-4 text-rose-700 font-semibold">High-cost market (Prime mall anchor leases)</td>
+                                        <td className="px-4 py-4">Provisional liquidation across 10 outlets; HK$633.8M gross liabilities; IFRS 10 parent de-consolidation.</td>
+                                        <td className="px-4 py-4 text-slate-500 italic">Attributed liquidation to boutique studio competition and rising customer acquisition costs.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <p>
+                            This cross-border timeline demonstrates that insolvency was not a unique byproduct of Singaporean commercial leases. Rather, the identical &quot;Singapore is unaffected&quot; reassurance was deployed in three countries before each sequential collapse.
+                        </p>
+
+                        <hr className="my-12 border-slate-200" />
+
+                        {/* 03 */}
+                        <h2 className="text-3xl font-black text-slate-950 tracking-tight mt-14 mb-4">
+                            03 · What Are the Implications for the Multi-Stakeholders? Consumers, Landlords, Franchise Operators and Regulatory Bodies
+                        </h2>
+
+                        <h3 className="text-2xl font-bold text-slate-950 mt-8 mb-3">1. Judicial Findings &amp; Historical Precedents: The Singapore High Court Record</h3>
+
+                        <p>
+                            The operational vulnerability of forward-selling long-term fitness memberships in financial distress is documented in Singapore judicial records.
+                        </p>
+
+                        <p>
+                            In a High Court decision finalized in 2022 and affirmed in 2024 (<a href="https://www.elitigation.sg/gd/s/2024_SGHC_228" target="_blank" rel="noopener noreferrer" className="text-teal-600 font-medium underline hover:text-teal-700">[2024] SGHC 228</a>), the former True Group CEO was found by the Singapore High Court to have breached fiduciary duties regarding the management and sudden closures of True Group operations in Malaysia and Thailand in June 2017. Notably, the civil action was initiated by three Singapore-incorporated companies within the group—<em>True Yoga Pte. Ltd.</em>, <em>True Fitness Pte. Ltd.</em>, and <em>True Fitness (STC) Pte. Ltd.</em>
+                        </p>
+
+                        <div className="bg-slate-50 border border-slate-200 p-6 sm:p-8 rounded-2xl space-y-4 my-6">
+                            <h4 className="font-bold text-slate-950 text-base">Key Factual Findings Documented in [2024] SGHC 228:</h4>
+                            <ul className="space-y-3 text-slate-700 text-sm sm:text-base list-disc pl-5">
+                                <li><strong>Advance Knowledge of Insolvency:</strong> The court established that the executive knew as early as February 2017 that the Malaysian and Thai entities were facing critical cash flow insolvency and impending closure, while actively consulting with restructuring professionals and potential white-knight investors.</li>
+                                <li><strong>Continued Long-Term Contract Sales:</strong> Despite concrete knowledge of imminent failure, True Group (Malaysia) continued promoting long-term memberships ranging from 1 to 5 years, securing 43 long-term contracts in May 2017 alone. True Group (Thailand) continued collecting fees from approximately 39,000 members and selling 3-year contracts until the first week of June 2017—days before the total shutdown.</li>
+                                <li><strong>The Subang Renovation Notice:</strong> On May 10, 2017, a public notice was issued stating a Subang club was closed for &quot;renovations,&quot; when in fact the premises had been sealed by court bailiffs executing a writ of seizure for unpaid rental arrears.</li>
+                                <li><strong>Pre-Negotiated Restructuring Term:</strong> The court record noted that the closure of the Malaysia and Thailand branches was a pre-negotiated condition under a restructuring agreement signed on May 6, 2017 with Tongfang Kontafarma Holdings Ltd. (mandating branch closures no later than December 31, 2017).</li>
+                            </ul>
+                        </div>
+
+                        <p>
+                            These judicial findings underscore the critical structural risk: when large fitness organizations face mounting fixed obligations, executive pressure often leads to continued collection of advance member funds to meet current operational arrears right up to the point of corporate insolvency.
+                        </p>
+
+                        <hr className="my-12 border-slate-200" />
+
+                        <h2 className="text-3xl font-black text-slate-950 tracking-tight mt-14 mb-4">
+                            3. The 10-Year Singapore Fitness Industry Failure Timeline
+                        </h2>
+
+                        <p>
+                            The True Fitness liquidation is the latest in a decade-long sequence of fitness and recreational closures in Singapore characterized by unfulfilled prepaid contracts:
+                        </p>
+
+                        <div className="overflow-x-auto rounded-2xl border border-slate-200 my-8 shadow-sm w-full bg-white">
+                            <table className="min-w-full table-fixed border-collapse text-sm sm:text-base text-left">
+                                <thead className="bg-slate-50 border-b border-slate-200">
+                                    <tr>
+                                        <th className="px-5 py-4 text-left font-black text-slate-950 uppercase text-xs tracking-wider w-1/4">Entity &amp; Year</th>
+                                        <th className="px-5 py-4 text-left font-bold text-slate-700 uppercase text-xs tracking-wider w-1/4">Format &amp; Locations</th>
+                                        <th className="px-5 py-4 text-left font-bold text-teal-700 uppercase text-xs tracking-wider bg-teal-50/20">Documented Failure Mechanics</th>
+                                    </tr>
+                                </thead>
+                                <tbody className="divide-y divide-slate-200 bg-white text-slate-700">
+                                    <tr>
+                                        <td className="px-5 py-5 font-bold text-slate-950">California Fitness (2016)</td>
+                                        <td className="px-5 py-5">Mega-Format (Ngee Ann City, Bugis, Novena)</td>
+                                        <td className="px-5 py-5 text-xs sm:text-sm">Sudden nationwide closure; &gt;600 CASE complaints received regarding unfulfilled prepaid memberships and personal training packages.</td>
+                                    </tr>
+                                    <tr>
+                                        <td className="px-5 py-5 font-bold text-slate-950">True Fitness MY/TH (2017)</td>
+                                        <td className="px-5 py-5">Regional Mega-Format Clubs</td>
+                                        <td className="px-5 py-5 text-xs sm:text-sm">Abrupt multi-club shuttering; court documented continued multi-year sales up to days before closure.</td>
+                                    </tr>
+                                    <tr>
+                                        <td className="px-5 py-5 font-bold text-slate-950">UFC Gym Singapore (2023)</td>
+                                        <td className="px-5 py-5">Franchise (CityLink Mall)</td>
+                                        <td className="px-5 py-5 text-xs sm:text-sm">Abrupt branch closure following marketing of long-term training packages; multiple CASE consumer complaints.</td>
+                                    </tr>
+                                    <tr>
+                                        <td className="px-5 py-5 font-bold text-slate-950">Ritual Gym (2024)</td>
+                                        <td className="px-5 py-5">Boutique HIIT (4 Branches)</td>
+                                        <td className="px-5 py-5 text-xs sm:text-sm">Provisional liquidation; unutilized multi-class credits and prepaid packages rendered unrecoverable.</td>
+                                    </tr>
+                                    <tr>
+                                        <td className="px-5 py-5 font-bold text-slate-950">True Fitness / Yoga SG (2026)</td>
+                                        <td className="px-5 py-5">Mega-Format (5 Commercial Centers)</td>
+                                        <td className="px-5 py-5 text-xs sm:text-sm">Provisional liquidation; HK$633.8M liabilities; de-consolidation from Hong Kong-listed parent.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <hr className="my-12 border-slate-200" />
+
+                        <h2 className="text-3xl font-black text-slate-950 tracking-tight mt-14 mb-4">
+                            4. Deconstructing the Prepaid Model
+                        </h2>
+
+                        <h3 className="text-2xl font-bold text-slate-950 mt-8 mb-3">Behavioral Economics &amp; Sunk Cost Psychology</h3>
+                        <p>
+                            Why do consumers continue to commit thousands of dollars to multi-year fitness packages? In behavioral economics, fitness memberships often function as an <em>aspirational commitment device</em>. Consumers intentionally incur a significant upfront sunk cost in an effort to force their own future behavioral adherence to personal wellness goals. 
+                        </p>
+                        <p>
+                            Operators reinforce this behavior by pricing month-to-month memberships at steep premiums relative to heavily discounted 24-month or 36-month packages, creating strong economic incentives for consumers to select the higher-risk long-term option.
+                        </p>
+
+                        <h3 className="text-2xl font-bold text-slate-950 mt-8 mb-3">The &quot;Ghost Member&quot; Breakage Dependency</h3>
+                        <p>
+                            Traditional mega-gyms rely heavily on statistical <em>breakage</em>—the operational certainty that a substantial percentage of paying members will under-utilize the physical facilities. If every active member utilized the gym daily during peak hours, the square footage and equipment ratios would instantly breach capacity constraints.
+                        </p>
+                        <p>
+                            The core viability vulnerability is a fundamental temporal mismatch: <strong>unearned cash collected today for a 3-year contract is immediately absorbed to pay today&apos;s commercial mall lease and past-due operating expenses</strong>, rather than being amortized or ring-fenced to fund the future operational delivery of services across years two and three.
+                        </p>
+
+                        <h3 className="text-2xl font-bold text-slate-950 mt-8 mb-3">The Asymmetric Regulatory Void</h3>
+                        <p>
+                            The prepaid model remains feasible primarily due to a regulatory distinction in Singapore&apos;s consumer protection framework:
+                        </p>
+
+                        <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 sm:p-8 text-white my-8 space-y-4">
+                            <div className="flex items-center gap-2 text-teal-400 font-bold text-xs uppercase tracking-wider">
+                                <span className="w-2 h-2 rounded-full bg-teal-400"></span>
+                                <span>Regulatory Comparison: Spa Sector vs. Fitness Sector</span>
+                            </div>
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2 text-xs sm:text-sm">
+                                <div className="space-y-2 border-l-2 border-teal-500 pl-4">
+                                    <h4 className="font-bold text-white text-base">💆 Spa &amp; Wellness Sector (Regulated)</h4>
+                                    <p className="text-slate-300 leading-relaxed">
+                                        Under the <em>Massage Establishments Act 2017</em>, operators seeking a Category 1 Massage Establishment license from the Police Licensing &amp; Regulatory Department (PLRD) must attain <strong>CaseTrust Accreditation</strong>.
+                                    </p>
+                                    <p className="text-slate-400">
+                                        Mandates 100% prepayment protection via EZ-Link Trust Cards or insurance bonds (managed by brokers such as bolttech/AVA). Between Feb 2017 and Jun 2022, this protected over <strong>S$263 million</strong> in prepayments, paying out &gt;S$280,000 to 512 consumers across 28 spa closures.
+                                    </p>
+                                </div>
+                                <div className="space-y-2 border-l-2 border-rose-500 pl-4">
+                                    <h4 className="font-bold text-white text-base">🏋️ Commercial Fitness Sector (Unregulated)</h4>
+                                    <p className="text-slate-300 leading-relaxed">
+                                        Fitness centres operate as general commercial entities registered with ACRA without any statutory licensing mandate to ring-fence or insure unearned customer prepayments.
+                                    </p>
+                                    <p className="text-slate-400">
+                                        While voluntary CaseTrust schemes exist for gym operators, industry participation remains minimal. Operators are legally permitted to deploy 100% of upfront multi-year fees directly into immediate operational cash flow.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr className="my-12 border-slate-200" />
+
+                        <h2 className="text-3xl font-black text-slate-950 tracking-tight mt-14 mb-4">
+                            5. Consumer Recourse &amp; The Credit Card IPP Trap
+                        </h2>
+
+                        <h3 className="text-2xl font-bold text-slate-950 mt-8 mb-3">The Limits of the CPFTA &amp; Section 170 IRDA Statutory Moratorium</h3>
+                        <p>
+                            While the <em>Consumer Protection (Fair Trading) Act (CPFTA)</em> provides consumers avenues to seek redress for misleading claims or unfair trade practices via CASE or the Small Claims Tribunals (SCT), the commencement of provisional liquidation alters the legal field.
+                        </p>
+                        <p>
+                            Pursuant to <strong>Section 170 of the Insolvency, Restructuring and Dissolution Act 2018 (IRDA)</strong>, an immediate statutory moratorium takes effect: no legal action or proceeding may be commenced or proceeded with against True Fitness Pte. Ltd. or True Yoga Pte. Ltd. without the express permission of the Singapore High Court.
+                        </p>
+                        <p>
+                            In official guidance issued by appointed provisional liquidators <strong>RSM SG Corporate Advisory</strong> (<a href="https://www.rsm.global/singapore/true-fitness-and-true-yoga-provisional-liquidation-faqs-for-members" target="_blank" rel="noopener noreferrer" className="text-teal-600 font-medium underline hover:text-teal-700">RSM Member FAQ Notice</a>), members holding unutilised packages or sessions are directed to file a formal Proof of Debt via the <a href="https://cdp.rsmsingapore.sg/" target="_blank" rel="noopener noreferrer" className="text-teal-600 font-medium underline hover:text-teal-700">RSM Claims Portal</a>. Crucially, the liquidators have affirmed that consumer claims rank purely as <em>ordinary unsecured debts</em>—subordinated to liquidation costs, preferential employee wages, and secured bank borrowings—meaning that no financial recovery can be guaranteed.
+                        </p>
+
+                        <h3 className="text-2xl font-bold text-slate-950 mt-8 mb-3">The Credit Card 120-Day Chargeback Mechanism</h3>
+                        <p>
+                            Under Association of Banks in Singapore (ABS) guidelines and card network rules (e.g. Visa Reason Code 13.1 for Merchandise/Services Not Received):
+                        </p>
+                        <ul className="space-y-2 text-slate-700 text-sm sm:text-base list-disc pl-5">
+                            <li>Cardholders typically have a window of <strong>120 days from the transaction date</strong> (or the last date service was rendered) to file a chargeback dispute.</li>
+                            <li>Card rules specify an absolute long-stop cap of <strong>540 days from the original transaction processing date</strong>.</li>
+                        </ul>
+
+                        <h3 className="text-2xl font-bold text-slate-950 mt-8 mb-3">The Instalment Payment Plan (IPP) Vulnerability</h3>
+                        <p>
+                            When consumers purchase multi-year packages using 0% interest credit card Instalment Payment Plans (IPPs), the financial risk structure changes fundamentally:
+                        </p>
+                        <div className="bg-slate-50 border-l-4 border-rose-600 p-6 rounded-2xl my-6 text-slate-800 text-sm sm:text-base space-y-2">
+                            <p className="font-bold text-slate-950">The Mechanics of the IPP Settlement:</p>
+                            <p>
+                                At transaction initiation, the consumer&apos;s bank pays the merchant the <strong>entire contract sum upfront in full</strong> (minus a merchant processing fee). The transaction is converted into a direct personal credit facility between the consumer and the bank.
+                            </p>
+                            <p>
+                                If the merchant enters liquidation, ABS guidance notes that chargeback reversals are generally not available for IPP transactions because full payment was already completed at point of sale. Unless a bank offers voluntary relief on an ex gratia basis, consumers remain contractually obligated to service monthly installments for a non-operational gym.
+                            </p>
+                        </div>
+
+                        <hr className="my-12 border-slate-200" />
+
+                        <h2 className="text-3xl font-black text-slate-950 tracking-tight mt-14 mb-4">
+                            6. The Macro Shift: Asset-Light Franchising vs. Mega-Format Leases
+                        </h2>
+
+                        <p>
+                            The liquidation of True Fitness marks an accelerating industry transition toward sustainable, asset-light business models:
+                        </p>
+
+                        <div className="overflow-x-auto rounded-2xl border border-slate-200 my-8 shadow-sm w-full bg-white">
+                            <table className="min-w-full table-fixed border-collapse text-sm sm:text-base text-left">
+                                <thead className="bg-slate-50 border-b border-slate-200">
+                                    <tr>
+                                        <th className="px-5 py-4 text-left font-black text-slate-950 uppercase text-xs tracking-wider w-1/4">Diagnostic Dimension</th>
+                                        <th className="px-5 py-4 text-left font-bold text-slate-700 uppercase text-xs tracking-wider w-1/3">Legacy Prepaid Mega-Gym</th>
+                                        <th className="px-5 py-4 text-left font-bold text-teal-700 uppercase text-xs tracking-wider bg-teal-50/20">Asset-Light Franchise Model (e.g. Anytime Fitness)</th>
+                                    </tr>
+                                </thead>
+                                <tbody className="divide-y divide-slate-200 bg-white text-slate-700">
+                                    <tr>
+                                        <td className="px-5 py-5 font-bold text-slate-950">Commercial Real Estate</td>
+                                        <td className="px-5 py-5 text-slate-600">20,000 – 35,000 sq ft (Prime Mall Anchors)</td>
+                                        <td className="px-5 py-5 font-semibold text-teal-800 bg-teal-50/10">3,000 – 5,500 sq ft (Heartland &amp; Transit Hubs)</td>
+                                    </tr>
+                                    <tr>
+                                        <td className="px-5 py-5 font-bold text-slate-950">Billing Structure</td>
+                                        <td className="px-5 py-5 text-slate-600">24–36 Month Upfront Prepaid / IPP Cash</td>
+                                        <td className="px-5 py-5 font-semibold text-teal-800 bg-teal-50/10">Month-to-Month Recurring Billing (MRR) via Direct Debit/Card</td>
+                                    </tr>
+                                    <tr>
+                                        <td className="px-5 py-5 font-bold text-slate-950">Working Capital Risk</td>
+                                        <td className="px-5 py-5 text-rose-700 font-semibold">High leverage on unearned future liabilities</td>
+                                        <td className="px-5 py-5 font-semibold text-teal-800 bg-teal-50/10">Positive operating cash flow aligned with real-time service delivery</td>
+                                    </tr>
+                                    <tr>
+                                        <td className="px-5 py-5 font-bold text-slate-950">Consumer Risk Profile</td>
+                                        <td className="px-5 py-5 text-rose-700 font-semibold">High (Unsecured creditor exposure)</td>
+                                        <td className="px-5 py-5 font-semibold text-teal-800 bg-teal-50/10">Minimal (30-day cancellation notice frameworks)</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <p>
+                            As consumer awareness of insolvency risk rises and institutional landlords re-evaluate the risk profile of multi-thousand-square-foot fitness leases, the franchise and wellness industry is realigning around unit-level profitability, transparent monthly recurring retainers, and sustainable capital management.
+                        </p>
+
+                        <hr className="my-12 border-slate-200" />
+
+                        <h2 className="text-3xl font-black text-slate-950 tracking-tight mt-14 mb-4">
+                            7. Cross-Industry Vulnerability: Which Other Franchise Sectors Share This Risk Profile?
+                        </h2>
+
+                        <p>
+                            The structural mechanics that brought down True Fitness—<strong>high fixed real estate overheads coupled with upfront multi-session package collections (unhedged float)</strong>—are not unique to commercial gyms. Several prominent consumer-facing franchise and retail sectors in Singapore operate under broadly similar financial structures:
+                        </p>
+
+                        <div className="overflow-x-auto rounded-2xl border border-slate-200 my-8 shadow-sm w-full bg-white">
+                            <table className="min-w-full table-fixed border-collapse text-xs sm:text-sm text-left">
+                                <thead className="bg-slate-950 text-white">
+                                    <tr>
+                                        <th className="px-4 py-3 font-bold uppercase tracking-wider w-1/4">Franchise &amp; Retail Sector</th>
+                                        <th className="px-4 py-3 font-bold uppercase tracking-wider w-1/3">Operating Structure &amp; Float Mechanism</th>
+                                        <th className="px-4 py-3 font-bold uppercase tracking-wider w-1/4">Key Vulnerability &amp; Risk Trigger</th>
+                                        <th className="px-4 py-3 font-bold uppercase tracking-wider w-1/6">Recommended Pivot</th>
+                                    </tr>
+                                </thead>
+                                <tbody className="divide-y divide-slate-200 bg-white text-slate-700">
+                                    <tr>
+                                        <td className="px-4 py-4 font-bold text-slate-950">Beauty, Medical Aesthetics &amp; Slimming Clinics</td>
+                                        <td className="px-4 py-4">High-ticket upfront package sales (S$2,000–S$10,000 for 10–30 sessions) often financed via 12–24 month credit card IPPs; high medical machine leasing costs.</td>
+                                        <td className="px-4 py-4 text-rose-700">Therapist turnover, marketing cost escalation, and unearned session service liabilities outstripping available cash reserves.</td>
+                                        <td className="px-4 py-4 font-semibold text-teal-800">Pay-as-you-go memberships or transparent monthly micro-subscriptions.</td>
+                                    </tr>
+                                    <tr>
+                                        <td className="px-4 py-4 font-bold text-slate-950">Children&apos;s Enrichment &amp; Tuition Chains</td>
+                                        <td className="px-4 py-4">Semester-long or annual tuition fees collected 6–12 months in advance alongside non-refundable deposit floats; clustered in high-rent education malls.</td>
+                                        <td className="px-4 py-4 text-rose-700">Tutor salary overheads remain fixed during seasonal dropouts and post-PSLE enrollment troughs.</td>
+                                        <td className="px-4 py-4 font-semibold text-teal-800">Monthly recurring billing (MRR) via Giro/credit card debit; modular classroom footprints.</td>
+                                    </tr>
+                                    <tr>
+                                        <td className="px-4 py-4 font-bold text-slate-950">Indoor Playgrounds &amp; Recreational Simulators</td>
+                                        <td className="px-4 py-4">10,000–25,000 sq ft prime mall leases selling 20–50 visit passes or annual unlimited family passes upfront.</td>
+                                        <td className="px-4 py-4 text-rose-700">Steep baseline mall rents + GTO turnover splits; rapid equipment obsolescence and safety maintenance expenses.</td>
+                                        <td className="px-4 py-4 font-semibold text-teal-800">Dynamic off-peak booking SaaS and pay-per-entry corporate pass integrations.</td>
+                                    </tr>
+                                    <tr>
+                                        <td className="px-4 py-4 font-bold text-slate-950">Automotive Detailing &amp; Ceramic Coating</td>
+                                        <td className="px-4 py-4">3-to-5 year multi-year maintenance packages (S$1,500–S$4,000) collected upfront for recurring detailing washes and recoats.</td>
+                                        <td className="px-4 py-4 text-rose-700">Industrial rental escalations and foreign worker levy increases eating away recurring margins on repeat claims.</td>
+                                        <td className="px-4 py-4 font-semibold text-teal-800">Annual maintenance retainers tied to annual vehicle inspection schedules.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <hr className="my-12 border-slate-200" />
+
+                        <h2 className="text-3xl font-black text-slate-950 tracking-tight mt-14 mb-4">
+                            8. Strategic Impact on the Singapore Franchise Industry: 4 Macro Paradigm Shifts
+                        </h2>
+
+                        <p>
+                            The collapse of True Fitness represents a watershed moment that will permanently alter how franchise systems, commercial landlords, franchisees, and regulators operate in Singapore:
+                        </p>
+
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
+                            <div className="p-6 bg-slate-50 border border-slate-200 rounded-2xl space-y-3">
+                                <div className="text-teal-600 font-black text-xs uppercase tracking-wider">Shift 1: Commercial Landlord Covenants</div>
+                                <h3 className="font-bold text-lg text-slate-950">The End of Unhedged Mega-Anchor Fitness Leases</h3>
+                                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                                    Major institutional landlords (CapitaLand, Frasers Property, Mapletree, UOL) are fundamentally reassessing the risk of allocating 20,000–35,000 sq ft to single-operator gyms with parent holding guarantees. Landlords will increasingly favor <strong>decentralized franchise networks</strong> (e.g. 3,000–5,000 sq ft 24/7 gyms like Anytime Fitness, F45, or boutique Pilates concepts), distributing real estate counterparty risk across multiple independent franchisee balance sheets.
+                                </p>
+                            </div>
+
+                            <div className="p-6 bg-slate-50 border border-slate-200 rounded-2xl space-y-3">
+                                <div className="text-teal-600 font-black text-xs uppercase tracking-wider">Shift 2: Regulatory Prepayment Reforms</div>
+                                <h3 className="font-bold text-lg text-slate-950">Impending Statutory Escrow &amp; Bond Mandates</h3>
+                                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                                    The S$71.5 million net liability write-off will accelerate regulatory discussions between CASE, the Ministry of Trade and Industry (MTI), and the Police Licensing &amp; Regulatory Department (PLRD) to extend <strong>mandatory prepayment protection schemes</strong> (modeled after the <em>Massage Establishments Act 2017</em>) to commercial gyms, wellness centers, and high-ticket enrichment academies.
+                                </p>
+                            </div>
+
+                            <div className="p-6 bg-slate-50 border border-slate-200 rounded-2xl space-y-3">
+                                <div className="text-teal-600 font-black text-xs uppercase tracking-wider">Shift 3: Consumer Sentiment &amp; Contract Dynamics</div>
+                                <h3 className="font-bold text-lg text-slate-950">The Permanent Rejection of Multi-Year Lock-Ins</h3>
+                                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                                    Following high-profile closures from California Fitness to True Fitness, Singapore consumers have developed structural immunity against aggressive upfront 2–5 year contract pitches. Consumer demand is decisively migrating toward <strong>zero-lock-in monthly recurring revenue (MRR)</strong>, class-pack apps (ClassPass), and transparent 30-day notice cancellation frameworks.
+                                </p>
+                            </div>
+
+                            <div className="p-6 bg-slate-50 border border-slate-200 rounded-2xl space-y-3">
+                                <div className="text-teal-600 font-black text-xs uppercase tracking-wider">Shift 4: Franchise Investor Due Diligence</div>
+                                <h3 className="font-bold text-lg text-slate-950">Prioritizing Unit-Level FCF Over Float Toplines</h3>
+                                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                                    Prospective franchisees and private equity investors in Singapore will subject franchise disclosures to stricter accounting audits. Concepts that depend on upfront package cash flow to fund ongoing operational deficits will face capital starvation, while <strong>tech-enabled, asset-light franchises with automated 24/7 keycard access and predictable monthly billing</strong> will capture institutional investment.
+                                </p>
+                            </div>
+                        </div>
+
+                        <hr className="my-12 border-slate-200" />
+
+                        {/* Due Diligence & Verified Directory Bridge */}
+                        <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 sm:p-8 text-white my-8 space-y-4">
+                            <div className="flex items-center gap-2 text-teal-400 font-bold text-xs uppercase tracking-wider">
+                                <span className="w-2 h-2 rounded-full bg-teal-400 animate-pulse"></span>
+                                <span>Verified Singapore Investment Due Diligence</span>
+                            </div>
+                            <h4 className="text-xl font-black text-white">Evaluate Verified Franchise Opportunities on Franchise.sg</h4>
+                            <p className="text-slate-300 text-xs sm:text-sm leading-relaxed">
+                                Review audited minimum capital requirements, ongoing royalty structures, and verified operational setups across Singapore on <Link href="/" className="text-teal-400 font-bold hover:underline">Franchise.sg</Link>.
+                            </p>
+                            <div className="flex flex-wrap gap-3 pt-2">
+                                <Link href="/" className="bg-teal-600 hover:bg-teal-700 text-white font-bold text-xs py-2.5 px-4 rounded-xl transition-colors inline-block">
+                                    Explore Verified Franchise Directory →
+                                </Link>
+                                <Link href="/categories/health-wellness" className="border border-slate-700 hover:bg-slate-800 text-slate-300 hover:text-white font-bold text-xs py-2.5 px-4 rounded-xl transition-colors inline-block">
+                                    Health &amp; Wellness Franchise Opportunities
+                                </Link>
+                                <Link href="/insights/vending-machine-franchise-analysis-singapore" className="border border-slate-700 hover:bg-slate-800 text-slate-300 hover:text-white font-bold text-xs py-2.5 px-4 rounded-xl transition-colors inline-block">
+                                    Read Vending Franchise Due Diligence
+                                </Link>
+                            </div>
+                        </div>
+                    </section>
+                </>
+            );
+        }
+    },
     'foot-traffic-lies-predicts-franchise-unit-survival-singapore': {
         title: "Foot Traffic Lies. Here's What Actually Predicts a Franchise Unit's Survival",
         description: "Every leasing pitch in Singapore comes with footfall numbers, yet high-profile F&B units fail within years. Commercial Property Strategist Maggie Png exposes why raw foot traffic lies and reveals the true predictors of 5-year unit survival.",
@@ -382,8 +970,26 @@ const insightsMap: Record<string, { title: string; description: string; publishA
         )
     },
     'vending-machine-franchise-analysis-singapore': {
-        title: 'Vending Machine Franchise Scam Alert: The Reality Behind "Hands-Off Passive Income" in Singapore',
-        description: 'The promise of 30%+ passive ROI has collapsed under real criminal court charges in Singapore. Read our hard hitting article on real equipment setup fees, empty location tricks, and how to verify actual unit economics before you lose your capital.',
+        title: 'Vending Machine Franchise Scam Singapore (2026 Breakdown): The Truth Behind "Passive Income" Schemes',
+        description: 'The promise of 30%+ passive ROI in Singapore automated retail collapsed under criminal court charges. Detailed breakdown of real machine setup fees (S$8K–S$25K), prime lease tricks, and the complete investor due diligence checklist.',
+        faqs: [
+            {
+                question: "Is investing in a vending machine franchise in Singapore safe and profitable?",
+                answer: "Automated retail can be viable, but turnkey 'hands-off passive income' schemes claiming 30%+ annual returns carry severe risks. In Singapore, high-profile schemes have faced criminal court charges for taking capital without securing prime commercial leases or deploying physical machines. True profitability depends on verified high-density footfall, direct physical machine title, and audited unit POS margins."
+            },
+            {
+                question: "How much does it cost to set up a legitimate vending machine business in Singapore?",
+                answer: "A standard smart vending machine setup in Singapore typically ranges from S$8,000 to S$25,000 per unit depending on hardware sophistication, plus monthly commercial lease rent ranging from S$300 to S$1,500+ depending on landlord and transit location tier."
+            },
+            {
+                question: "What red flags indicate a potential vending machine franchise scam?",
+                answer: "Key warning signs include: guaranteed passive returns (>20–30% p.a.), pooling funds into fractional co-ownership without direct serialised machine ownership, refusal to disclose signed landlord lease agreements, and strict non-disclosure agreements preventing co-owners from communicating."
+            },
+            {
+                question: "How do I perform due diligence before buying a franchise in Singapore?",
+                answer: "Always inspect physical machine serial numbers, review counter-signed commercial site leases with mall or building management, audit third-party POS transaction logs, and verify whether the business structure complies with Monetary Authority of Singapore (MAS) and Singapore Food Agency (SFA) licensing regulations."
+            }
+        ],
         content: () => (
             <>
                 <header className="bg-gradient-to-r from-teal-900 via-slate-950 to-slate-950 text-white py-20 px-6 border-b border-slate-800 -mx-8 sm:-mx-12 -mt-8 sm:-mt-12 mb-12 rounded-t-3xl">
@@ -396,11 +1002,13 @@ const insightsMap: Record<string, { title: string; description: string; publishA
                             <span className="text-base font-bold uppercase tracking-wider text-teal-400 block">Insights:</span>
                         </div>
                         <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white max-w-4xl leading-tight">
-                            Vending Machine Franchise Scam Alert: The Reality Behind &quot;Hands-Off Passive Income&quot; in Singapore
+                            Vending Machine Franchise Scam Singapore (2026 Breakdown): The Truth Behind &quot;Hands-Off Passive Income&quot;
                         </h1>
                         <div className="flex flex-wrap items-center gap-y-4 gap-x-8 text-xs font-semibold uppercase tracking-wider text-slate-400 border-t border-slate-800/80 mt-8 pt-6">
                             <div>
-                                <strong className="text-white font-bold text-sm normal-case">Chen Yong Lin</strong>
+                                <strong className="text-white font-bold text-sm normal-case">
+                                    <Link href="/author/chen-yong-lin" className="hover:text-teal-400 transition-colors">Chen Yong Lin</Link>
+                                </strong>
                                 <span className="text-slate-400 font-normal normal-case"> · Editor, Franchise.sg</span>
                             </div>
                             <div className="sm:ml-auto">
@@ -545,6 +1153,57 @@ const insightsMap: Record<string, { title: string; description: string; publishA
 
                     <hr className="my-12 border-slate-200" />
 
+                    {/* Interactive FAQ Section for High Search Intent */}
+                    <div className="my-12 space-y-6">
+                        <div className="flex items-center gap-2">
+                            <span className="w-2.5 h-2.5 rounded-full bg-teal-500"></span>
+                            <span className="text-xs font-black uppercase tracking-wider text-teal-700">Frequently Asked Questions &amp; Investor Due Diligence</span>
+                        </div>
+                        <h2 className="text-2xl sm:text-3xl font-black text-slate-950 tracking-tight">
+                            Singapore Vending Machine Franchise &amp; Investment FAQs
+                        </h2>
+
+                        <div className="space-y-4 pt-2">
+                            <div className="p-6 bg-slate-50 border border-slate-200 rounded-2xl space-y-2">
+                                <h3 className="font-bold text-base text-slate-950">
+                                    Is investing in a vending machine franchise in Singapore safe and profitable?
+                                </h3>
+                                <p className="text-sm text-slate-600 leading-relaxed font-normal">
+                                    Automated retail can be viable, but turnkey &quot;hands-off passive income&quot; schemes claiming 30%+ annual returns carry severe risks. In Singapore, high-profile schemes have faced criminal court charges for taking capital without securing prime commercial leases or deploying physical machines. True profitability depends on verified high-density footfall, direct physical machine title, and audited unit POS margins.
+                                </p>
+                            </div>
+
+                            <div className="p-6 bg-slate-50 border border-slate-200 rounded-2xl space-y-2">
+                                <h3 className="font-bold text-base text-slate-950">
+                                    How much does it cost to set up a legitimate vending machine business in Singapore?
+                                </h3>
+                                <p className="text-sm text-slate-600 leading-relaxed font-normal">
+                                    A standard smart vending machine setup in Singapore typically ranges from <strong className="text-slate-900">S$8,000 to S$25,000</strong> per unit depending on hardware sophistication, plus monthly commercial lease rent ranging from <strong className="text-slate-900">S$300 to S$1,500+</strong> depending on landlord and transit location tier.
+                                </p>
+                            </div>
+
+                            <div className="p-6 bg-slate-50 border border-slate-200 rounded-2xl space-y-2">
+                                <h3 className="font-bold text-base text-slate-950">
+                                    What red flags indicate a potential vending machine franchise scam?
+                                </h3>
+                                <p className="text-sm text-slate-600 leading-relaxed font-normal">
+                                    Key warning signs include: guaranteed passive returns (&gt;20–30% p.a.), pooling funds into fractional co-ownership without direct serialised machine ownership, refusal to disclose signed landlord lease agreements, and strict non-disclosure agreements preventing co-owners from communicating.
+                                </p>
+                            </div>
+
+                            <div className="p-6 bg-slate-50 border border-slate-200 rounded-2xl space-y-2">
+                                <h3 className="font-bold text-base text-slate-950">
+                                    How do I perform due diligence before buying a franchise in Singapore?
+                                </h3>
+                                <p className="text-sm text-slate-600 leading-relaxed font-normal">
+                                    Always inspect physical machine serial numbers, review counter-signed commercial site leases with mall or building management, audit third-party POS transaction logs, and verify whether the business structure complies with Monetary Authority of Singapore (MAS) and Singapore Food Agency (SFA) licensing regulations.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr className="my-12 border-slate-200" />
+
                     <h2 className="text-3xl font-black text-slate-950 tracking-tight mt-14 mb-4">The Bottom Line</h2>
                     <p>The automated retail sector in Singapore isn&apos;t dying; it is maturing. The purge of predatory, asset-light schemes paves the way for transparent, operationally sound brands to dominate the Asian continent. For the modern investor, the lesson is clear: <strong className="text-slate-950 font-bold">look past the promise of passive income and demand to see the physical asset.</strong></p>
 
@@ -562,11 +1221,14 @@ const insightsMap: Record<string, { title: string; description: string; publishA
                             <Link href="/" className="bg-teal-600 hover:bg-teal-700 text-white font-bold text-xs py-2.5 px-4 rounded-xl transition-colors inline-block">
                                 Explore Verified Franchise Directory →
                             </Link>
+                            <Link href="/categories/retail-services" className="border border-slate-700 hover:bg-slate-800 text-slate-300 hover:text-white font-bold text-xs py-2.5 px-4 rounded-xl transition-colors inline-block">
+                                Retail &amp; Kiosk Franchises
+                            </Link>
+                            <Link href="/categories/food-beverage" className="border border-slate-700 hover:bg-slate-800 text-slate-300 hover:text-white font-bold text-xs py-2.5 px-4 rounded-xl transition-colors inline-block">
+                                F&amp;B Franchise Opportunities
+                            </Link>
                             <Link href="/insights/vending-machine-illusion-singapore-franchise-lease" className="border border-slate-700 hover:bg-slate-800 text-slate-300 hover:text-white font-bold text-xs py-2.5 px-4 rounded-xl transition-colors inline-block">
                                 Read 5-Point Lease Audit Guide
-                            </Link>
-                            <Link href="/for-sale" className="border border-slate-700 hover:bg-slate-800 text-slate-300 hover:text-white font-bold text-xs py-2.5 px-4 rounded-xl transition-colors inline-block">
-                                Resale Franchises For Sale
                             </Link>
                         </div>
                     </div>
@@ -2173,6 +2835,386 @@ const insightsMap: Record<string, { title: string; description: string; publishA
                 </>
             );
         }
+    },
+    'hidden-costs-commercial-lease-franchise-unit-economics-singapore': {
+        title: "The Hidden Costs in a Commercial Lease That Sink Franchise Unit Economics",
+        description: "Why $14.50 psf headline rent is misleading. Commercial Property Strategist Maggie Png exposes the three silent cost leaks in Singapore commercial leases: $25K–$60K reinstatement bills, floating mall service charges, and compounding rent escalations.",
+        publishAt: '2026-10-20T08:00:00+08:00',
+        faqs: [
+            {
+                question: "What is the typical reinstatement cost for a commercial F&B franchise outlet in Singapore?",
+                answer: "Reinstatement for a retail F&B unit in Singapore typically ranges from $35 to $75 per square foot (psf) of Net Lettable Area (NLA). For an average 800 to 1,200 sq ft unit, restoring the space to bare-shell handover condition (dismantling exhaust hoods, removing grease traps, stripping custom screed/tiles, and re-terminating electrical DB boards) costs between $30,000 and $65,000+."
+            },
+            {
+                question: "How does Gross Turnover (GTO) rent work in Singapore shopping malls?",
+                answer: "Institutional Singapore shopping malls commonly structure rent as the higher of a base rental rate or a percentage of Gross Turnover (typically 10%–15% GTO), or as a hybrid formula of Base Rent + 1.0% to 1.5% GTO. When sales exceed projections, the landlord shares in the turnover upside, which directly affects store EBITDA."
+            },
+            {
+                question: "Can commercial landlords in Singapore increase service charges midway through a lease?",
+                answer: "Yes. In institutional mall leases, service charges ($1.80 to $3.50 psf) are typically floating rather than fixed, allowing landlords to adjust rates to reflect rising common area maintenance (CAM), centralized air-conditioning chiller tariffs, or security and cleaning labor costs under Singapore's Progressive Wage Model (PWM)."
+            },
+            {
+                question: "How does the Singapore Code of Conduct (CoC) for Retail Leases protect tenants?",
+                answer: "Under the Lease Agreements for Retail Premises Act 2023 (LARPA), retail leases in Singapore must comply with the Fair Tenancy Industry Committee (FTIC) Code of Conduct, which enforces transparency in rental structures, caps security deposits at standard thresholds, prohibits unilateral landlord lease variations, and requires pre-agreed condition reports to govern reinstatement obligations."
+            }
+        ],
+        content: () => {
+            const author = EDITORS['maggie-png'];
+            return (
+                <>
+                    <header className="bg-gradient-to-r from-teal-900 via-slate-950 to-slate-950 text-white py-20 px-6 border-b border-slate-800 -mx-8 sm:-mx-12 -mt-8 sm:-mt-12 mb-12 rounded-t-3xl">
+                        <div className="max-w-4xl mx-auto px-4 text-left">
+                            <div className="mb-6 inline-flex items-center gap-2 bg-teal-500/10 border border-teal-500/20 px-3 py-1 rounded-full">
+                                <span className="w-2 h-2 rounded-full bg-teal-400"></span>
+                                <span className="text-xs font-semibold text-teal-300 uppercase tracking-wider">Commercial Leasing Strategy · Article 5 of 12</span>
+                            </div>
+                            <div className="mb-2">
+                                <span className="text-base font-bold uppercase tracking-wider text-teal-400 block">Lease Strategy &amp; Negotiation:</span>
+                            </div>
+                            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white max-w-4xl leading-tight">
+                                The Hidden Costs in a Commercial Lease That Sink Franchise Unit Economics
+                            </h1>
+                            <div className="flex flex-wrap items-center gap-y-4 gap-x-8 text-xs font-semibold uppercase tracking-wider text-slate-400 border-t border-slate-800/80 mt-8 pt-6">
+                                <Link href={`/author/${author?.slug || 'maggie-png'}`} className="flex items-center gap-3 group">
+                                    <div className="w-9 h-9 rounded-xl bg-teal-700 text-white font-black text-xs flex items-center justify-center shrink-0 border border-teal-500">
+                                        {author?.initials || 'MP'}
+                                    </div>
+                                    <div>
+                                        <strong className="text-white font-bold text-sm normal-case group-hover:text-teal-300 transition-colors">{author?.name || 'Maggie Png'}</strong>
+                                        <span className="text-slate-400 font-normal normal-case"> · {author?.role || 'Commercial Property Strategist'}</span>
+                                        <span className="text-teal-400 font-normal normal-case block sm:inline sm:before:content-['•'] sm:before:mx-2">
+                                            In collaboration with <strong className="text-teal-300 font-bold">Frederick Tan</strong> (Principal Consultant, FT Synergist)
+                                        </span>
+                                    </div>
+                                </Link>
+                                <div className="sm:ml-auto">
+                                    <span className="text-slate-500 block text-[10px] mb-0.5">Scheduled Release</span>
+                                    <time className="text-slate-200 font-bold normal-case text-sm">20 October 2026</time>
+                                </div>
+                            </div>
+                        </div>
+                    </header>
+
+                    <section className="prose prose-slate max-w-none text-slate-800 text-lg sm:text-xl font-normal leading-relaxed space-y-8 text-left">
+                        {/* Executive Teardown Callout */}
+                        <div className="bg-slate-950 text-slate-200 p-6 sm:p-8 rounded-2xl border border-slate-800 space-y-4 not-prose my-8">
+                            <div className="flex items-center gap-2 text-teal-400 font-black text-xs uppercase tracking-wider">
+                                <span className="w-2 h-2 rounded-full bg-teal-400 animate-pulse"></span>
+                                <span>The 60-Second Reality Check</span>
+                            </div>
+                            <h3 className="text-xl sm:text-2xl font-black text-white">The Headline Rent Illusion</h3>
+                            <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
+                                A first-time franchisee signs an 800 sq ft suburban mall unit at <strong className="text-white font-bold">$14.50 psf base rent</strong>, budgeting $11,600/month. In reality, after factoring in <strong className="text-teal-300 font-bold">floating service charges ($1.80–$2.50 psf)</strong>, <strong className="text-teal-300 font-bold">step-up escalations (+6% to +8% per term)</strong>, and an unaccrued <strong className="text-teal-300 font-bold">$45,000 reinstatement bill</strong>, the true effective occupancy cost exceeds <strong className="text-amber-300 font-bold">$18.20 psf</strong> — quietly wiping out store EBITDA before Year 3.
+                            </p>
+                        </div>
+
+                        <p className="font-bold text-slate-950 text-2xl sm:text-3xl tracking-tight leading-snug">
+                            The Rent You Didn&apos;t See Coming
+                        </p>
+
+                        <p>
+                            I&apos;ve sat across the negotiation table from dozens of first-time franchisees. Most of them can recite the headline rent to the exact dollar — <em>&quot;$14.50 psf, 3-year lease, 2+2 option, 1-month rent-free fit-out&quot;</em> — but ask them what reinstatement is going to cost them on the way out, how the building&apos;s chiller maintenance alters their service charges, or how compounding rent escalation widens the gap against flat same-store revenue, and you get a blank stare.
+                        </p>
+
+                        <p>
+                            That silent gap is what quietly kills franchise unit economics in Singapore. <strong>Not the rent you negotiated. The rent you didn&apos;t see coming.</strong>
+                        </p>
+
+                        <p>
+                            Let&apos;s walk through the three largest costs that catch franchisees off guard, in the order they usually get bitten.
+                        </p>
+
+                        <hr className="my-12 border-slate-200" />
+
+                        <h2 className="text-3xl font-black text-slate-950 tracking-tight mt-14 mb-4">
+                            1. Reinstatement — The Bill Nobody Budgets For
+                        </h2>
+
+                        <p>
+                            Every commercial lease in Singapore has a <strong>reinstatement (yielding up) clause</strong>, and almost every franchisee reads it once, nods, signs the Tenancy Agreement, and forgets about it until month 33 of a 36-month lease.
+                        </p>
+
+                        <p>
+                            Reinstatement means legally returning the unit to <strong>&quot;original handover condition&quot;</strong> — a bare shell. In an F&amp;B unit with kitchen exhaust hoods, duct extraction, grease traps, gas piping, and heavy commercial fit-out, this does not mean simply packing up inventory. It requires stripping down mechanical and electrical (M&amp;E) installations, hacking custom screed or floor tiles, dismantling false ceilings, and re-terminating electrical distribution boards to the landlord&apos;s baseline specifications.
+                        </p>
+
+                        <div className="not-prose my-8 overflow-x-auto">
+                            <div className="inline-block min-w-full align-middle">
+                                <div className="border border-slate-200 rounded-2xl overflow-hidden shadow-sm">
+                                    <table className="min-w-full divide-y divide-slate-200 bg-white text-left text-xs sm:text-sm">
+                                        <thead className="bg-slate-950 text-white font-bold">
+                                            <tr>
+                                                <th className="py-3.5 px-4 sm:px-6">Trade / Unit Category</th>
+                                                <th className="py-3.5 px-4 sm:px-6">Unit Size (NLA)</th>
+                                                <th className="py-3.5 px-4 sm:px-6">Typical Singapore Reinstatement Cost</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody className="divide-y divide-slate-100 text-slate-700">
+                                            <tr className="hover:bg-slate-50 transition-colors">
+                                                <td className="py-3 px-4 sm:px-6 font-bold text-slate-900">Retail / Dry Service Kiosk</td>
+                                                <td className="py-3 px-4 sm:px-6">200 – 400 sq ft</td>
+                                                <td className="py-3 px-4 sm:px-6 font-mono text-teal-700 font-bold">$6,000 – $15,000</td>
+                                            </tr>
+                                            <tr className="hover:bg-slate-50 transition-colors">
+                                                <td className="py-3 px-4 sm:px-6 font-bold text-slate-900">Fast-Casual / Beverage / Bakery</td>
+                                                <td className="py-3 px-4 sm:px-6">500 – 800 sq ft</td>
+                                                <td className="py-3 px-4 sm:px-6 font-mono text-teal-700 font-bold">$18,000 – $35,000</td>
+                                            </tr>
+                                            <tr className="hover:bg-slate-50 transition-colors">
+                                                <td className="py-3 px-4 sm:px-6 font-bold text-slate-900">Full-Service F&amp;B / Heavy Kitchen</td>
+                                                <td className="py-3 px-4 sm:px-6">1,000 – 1,800 sq ft</td>
+                                                <td className="py-3 px-4 sm:px-6 font-mono text-teal-700 font-bold">$35,000 – $65,000+</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                        <p>
+                            <strong>Here is the part that stings:</strong> this cost sits completely outside your standard P&amp;L projections. Your franchisor&apos;s ROI model — the one showing an 18-month capital payback — almost never includes it, because it is an exit cost, not an opening cost.
+                        </p>
+
+                        <p>
+                            If you are not setting aside a <strong>monthly reinstatement sinking fund</strong> from day one, you will be scrambling for five figures of hard cash right when your lease is ending and cash flow is already strained from new lease deposits or relocation fit-outs.
+                        </p>
+
+                        <div className="bg-teal-50/80 border-l-4 border-teal-600 p-6 rounded-r-2xl my-8 space-y-3 not-prose">
+                            <h4 className="text-teal-950 font-black text-base uppercase tracking-wider">
+                                Strategic Action Checklist: Reinstatement Protection
+                            </h4>
+                            <ul className="space-y-2 text-slate-800 text-sm leading-relaxed">
+                                <li><strong>• Demand a Photographic Condition Schedule:</strong> Before signing the Tenancy Agreement, insist on a signed photographic handover schedule. You should never be liable to strip out heavy M&amp;E left behind by the prior tenant.</li>
+                                <li><strong>• Get a Contractor Estimate Upfront:</strong> Obtain a preliminary reinstatement quote from a commercial fit-out contractor at lease signing — not month 35.</li>
+                                <li><strong>• Create a Monthly Sinking Fund:</strong> Treat reinstatement like straight-line depreciation. On a 36-month lease for a $36,000 estimated exit bill, accrue <strong>$1,000 every single month</strong> in a separate reserve account.</li>
+                            </ul>
+                        </div>
+
+                        <hr className="my-12 border-slate-200" />
+
+                        <h2 className="text-3xl font-black text-slate-950 tracking-tight mt-14 mb-4">
+                            2. Service Charges &amp; A&amp;P Levies — The Numbers That Move Without Your Permission
+                        </h2>
+
+                        <p>
+                            Service charge sounds administrative. It isn&apos;t. In institutional Singapore shopping malls, it is often the second-largest recurring occupancy line item after base rent, and unlike base rent, it is rarely locked flat for the entire lease term.
+                        </p>
+
+                        <p>
+                            In prime suburban malls and integrated transport hubs, service charges range from <strong>$1.80 to $3.50 psf</strong>. Landlords frequently draft leases that allow them to adjust service charges mid-tenancy to reflect increases in common area maintenance (CAM), centralized air-conditioning chiller electricity tariffs, cleaning contracts, or security wages under Singapore&apos;s Progressive Wage Model (PWM).
+                        </p>
+
+                        <div className="bg-slate-100 p-6 rounded-2xl border border-slate-200 not-prose my-6 font-mono text-xs sm:text-sm text-slate-800 space-y-2">
+                            <p className="font-bold text-slate-950 text-sm">Occupancy Math on a 1,200 sq ft Mall Unit:</p>
+                            <p className="text-slate-600">• Base Rent: $15.00 psf = $18,000 / month</p>
+                            <p className="text-slate-600">• Initial Service Charge: $2.00 psf = $2,400 / month</p>
+                            <p className="text-teal-700 font-bold">• Mid-Lease Opex Revision (+ $0.60 psf):</p>
+                            <p className="text-rose-700 font-bold pl-4">↳ New Monthly Charge: $3,120 (+$720/mo = +$8,640/year bottom-line loss)</p>
+                        </div>
+
+                        <p>
+                            Heartland HDB commercial units and shophouse properties are generally more forgiving here — service charges and town council conservancy fees are substantially lower or absent entirely. But in managed mall environments, franchisees consistently underestimate their true occupancy overhead by <strong>10% to 15%</strong> due to unbudgeted service and A&amp;P fee revisions.
+                        </p>
+
+                        <div className="bg-teal-50/80 border-l-4 border-teal-600 p-6 rounded-r-2xl my-8 space-y-3 not-prose">
+                            <h4 className="text-teal-950 font-black text-base uppercase tracking-wider">
+                                Strategic Action Checklist: Service Charge Audits
+                            </h4>
+                            <ul className="space-y-2 text-slate-800 text-sm leading-relaxed">
+                                <li><strong>• Request a 3-Year Historical Opex Audit:</strong> Don&apos;t just ask what the service charge is today. Ask for its historical trajectory over the past 36 months. A landlord that increases CAM charges annually gives you clear insight into future operating costs.</li>
+                                <li><strong>• Seek a Contractual Cap:</strong> In lease negotiations, push to cap annual service charge adjustments (e.g., maximum 3% to 5% increase per annum).</li>
+                                <li><strong>• Scrutinize A&amp;P Inclusions:</strong> Ensure Advertising &amp; Promotion (A&amp;P) fees actually provide tangible digital, footfall, or promotional support for your unit.</li>
+                            </ul>
+                        </div>
+
+                        <hr className="my-12 border-slate-200" />
+
+                        <h2 className="text-3xl font-black text-slate-950 tracking-tight mt-14 mb-4">
+                            3. Rent Escalation Clauses — The Clause That Quietly Compounds
+                        </h2>
+
+                        <p>
+                            Almost every commercial lease in Singapore contains a <strong>rent escalation clause</strong>, typically featuring a 5% to 8% increase at each renewal option, or stepped annual increases within a single term (for instance: Year 1 at $13.00 psf, Year 2 at $13.80 psf, Year 3 at $14.50 psf).
+                        </p>
+
+                        <p>
+                            On paper, a small percentage bump looks modest. Across a 6-year franchise commitment spanning two lease terms (3+3), the compounding impact is severe:
+                        </p>
+
+                        <div className="bg-slate-950 text-slate-200 p-6 rounded-2xl border border-slate-800 not-prose my-6 font-mono text-xs sm:text-sm space-y-3">
+                            <div className="text-teal-400 font-bold">The Rent vs. Revenue Asymmetry:</div>
+                            <p className="text-slate-300">• Year 1: $13.00 psf on 1,000 sq ft = $13,000/mo (Gross Sales: $65,000 | Rent Ratio: 20.0%)</p>
+                            <p className="text-slate-300">• Year 3: $14.20 psf on 1,000 sq ft = $14,200/mo (Gross Sales: $66,000 | Rent Ratio: 21.5%)</p>
+                            <p className="text-amber-400 font-bold">• Year 6 (Renewal @ +15% over initial): $16.80 psf = $16,800/mo (Gross Sales: $67,000 | Rent Ratio: 25.0%)</p>
+                            <p className="text-rose-400 font-bold text-xs pt-2">↳ Result: Store EBITDA shifts from healthy profit to break-even purely on unmodelled rental compounding.</p>
+                        </div>
+
+                        <p>
+                            Your franchise&apos;s same-store sales are not guaranteed to escalate at 5% to 8% annually alongside your lease. The divergence between fixed rental compounding and actual retail revenue growth is exactly where unit economics quietly slip underwater.
+                        </p>
+
+                        <p>
+                            Furthermore, watch out for clauses stating renewal rent will be pegged to <em>&quot;prevailing open market rent as determined by the Landlord.&quot;</em> By Year 3, you have sunk $200,000 into unamortized fit-out. Walking away triggers a $40,000 reinstatement cost. Landlords understand this switching friction and hold maximum pricing leverage right at renewal time.
+                        </p>
+
+                        <div className="bg-teal-50/80 border-l-4 border-teal-600 p-6 rounded-r-2xl my-8 space-y-3 not-prose">
+                            <h4 className="text-teal-950 font-black text-base uppercase tracking-wider">
+                                Strategic Action Checklist: Escalation &amp; CoC Compliance
+                            </h4>
+                            <ul className="space-y-2 text-slate-800 text-sm leading-relaxed">
+                                <li><strong>• Model Full-Term Horizons:</strong> Run your unit economic projections across the entire 6-year franchise tenure, not just Year 1 introductory figures.</li>
+                                <li><strong>• Cap Renewal Escalations:</strong> Avoid undefined &quot;market rate&quot; renewals. Negotiate explicit caps (e.g., <em>&quot;Renewal rent capped at no more than 5% above the last expiring base rent&quot;</em>).</li>
+                                <li><strong>• Leverage Singapore&apos;s Code of Conduct (CoC) for Retail Leases:</strong> Ensure your tenancy complies with Singapore&apos;s <em>Code of Conduct for Leasing of Retail Premises</em>, which enforces transparency in rental formula structures and protects tenants against unilateral landlord variations.</li>
+                            </ul>
+                        </div>
+
+                        <hr className="my-12 border-slate-200" />
+
+                        <h2 className="text-3xl font-black text-slate-950 tracking-tight mt-14 mb-4">
+                            The True Cost of Occupancy: Pitch vs. Reality Teardown
+                        </h2>
+
+                        <p>
+                            To see how these hidden clauses accumulate, compare what standard franchisor promotional decks present versus what an institutional Singapore commercial lease actually extracts:
+                        </p>
+
+                        <div className="not-prose my-8 overflow-x-auto">
+                            <div className="inline-block min-w-full align-middle">
+                                <div className="border border-slate-200 rounded-2xl overflow-hidden shadow-sm">
+                                    <table className="min-w-full divide-y divide-slate-200 bg-white text-left text-xs sm:text-sm">
+                                        <thead className="bg-slate-950 text-white font-bold">
+                                            <tr>
+                                                <th className="py-3.5 px-4 sm:px-6">Financial Line Item</th>
+                                                <th className="py-3.5 px-4 sm:px-6">Optimistic Franchisor Deck</th>
+                                                <th className="py-3.5 px-4 sm:px-6">Real-World Operational Reality</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody className="divide-y divide-slate-100 text-slate-700">
+                                            <tr className="hover:bg-slate-50 transition-colors">
+                                                <td className="py-3 px-4 sm:px-6 font-bold text-slate-900">Headline Base Rent</td>
+                                                <td className="py-3 px-4 sm:px-6">$14.50 psf ($14,500/mo)</td>
+                                                <td className="py-3 px-4 sm:px-6 font-medium text-slate-900">$14.50 psf ($14,500/mo)</td>
+                                            </tr>
+                                            <tr className="hover:bg-slate-50 transition-colors">
+                                                <td className="py-3 px-4 sm:px-6 font-bold text-slate-900">Service Charge + A&amp;P</td>
+                                                <td className="py-3 px-4 sm:px-6">Estimated @ $1.50 psf ($1,500/mo)</td>
+                                                <td className="py-3 px-4 sm:px-6 text-amber-700 font-bold">Revised to $2.40 psf ($2,400/mo)</td>
+                                            </tr>
+                                            <tr className="hover:bg-slate-50 transition-colors">
+                                                <td className="py-3 px-4 sm:px-6 font-bold text-slate-900">Gross Turnover (GTO) Rent</td>
+                                                <td className="py-3 px-4 sm:px-6">Excluded / Flat 0% assumed</td>
+                                                <td className="py-3 px-4 sm:px-6 text-amber-700 font-bold">1.0% GTO surcharge (~$700/mo)</td>
+                                            </tr>
+                                            <tr className="hover:bg-slate-50 transition-colors">
+                                                <td className="py-3 px-4 sm:px-6 font-bold text-slate-900">Stepped Rent Escalation</td>
+                                                <td className="py-3 px-4 sm:px-6">Flat model assumed ($0)</td>
+                                                <td className="py-3 px-4 sm:px-6 text-amber-700 font-bold">+$1,200/mo average step-up</td>
+                                            </tr>
+                                            <tr className="hover:bg-slate-50 transition-colors">
+                                                <td className="py-3 px-4 sm:px-6 font-bold text-slate-900">Reinstatement Sinking Fund</td>
+                                                <td className="py-3 px-4 sm:px-6">$0 budgeted</td>
+                                                <td className="py-3 px-4 sm:px-6 text-rose-700 font-bold">$1,250/mo ($45k exit reserve)</td>
+                                            </tr>
+                                            <tr className="bg-slate-950 text-white font-bold">
+                                                <td className="py-4 px-4 sm:px-6 text-teal-300">True Monthly Occupancy</td>
+                                                <td className="py-4 px-4 sm:px-6 text-slate-300">$16,000 / mo ($16.00 psf)</td>
+                                                <td className="py-4 px-4 sm:px-6 text-teal-400 font-black">$20,050 / mo ($20.05 psf)</td>
+                                            </tr>
+                                            <tr className="bg-rose-50 text-rose-900 font-bold">
+                                                <td className="py-3.5 px-4 sm:px-6" colSpan={2}>3-Year Cumulative Variance (Hidden Margin Drain):</td>
+                                                <td className="py-3.5 px-4 sm:px-6 font-black text-rose-700">+$145,800 Out of Pocket</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr className="my-12 border-slate-200" />
+
+                        <h2 className="text-3xl font-black text-slate-950 tracking-tight mt-14 mb-4">
+                            The Strategic Takeaway
+                        </h2>
+
+                        <p>
+                            None of these three costs are hidden in the sense of being unlawful or deceptive — they are standard covenants in commercial Singapore leases.
+                        </p>
+
+                        <p>
+                            They are &quot;hidden&quot; only in the sense that first-time franchisees rarely ask about them upfront, and franchisors&apos; unit economics decks don&apos;t feature them because it is outside their primary scope.
+                        </p>
+
+                        <p>
+                            That is the commercial property reality of franchising. These figures must sit on a franchisee&apos;s own financial checklist before executing any Letter of Offer or Tenancy Agreement — not discovered clause by clause three years in, when there is zero negotiating room remaining.
+                        </p>
+
+                        {/* Series Link Section */}
+                        <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6 my-8 space-y-3 not-prose">
+                            <h4 className="text-xs font-black uppercase tracking-wider text-slate-500">
+                                Lease Strategy &amp; Negotiation Series Guide:
+                            </h4>
+                            <div className="space-y-2 text-sm">
+                                <p>
+                                    <span className="text-slate-400 font-bold mr-2">Previous:</span>
+                                    <Link href="/insights/foot-traffic-lies-predicts-franchise-unit-survival-singapore" className="text-teal-700 hover:text-teal-800 font-bold underline">
+                                        Foot Traffic Lies: What Actually Predicts a Franchise Unit&apos;s Survival →
+                                    </Link>
+                                </p>
+                                <p>
+                                    <span className="text-slate-400 font-bold mr-2">Coming Next:</span>
+                                    <span className="text-slate-700 font-semibold">
+                                        Article 6: How to Negotiate Rent-Free Fit-Out Periods and Why Most First-Time Franchisees Don&apos;t Ask.
+                                    </span>
+                                </p>
+                            </div>
+                        </div>
+
+                        {/* Due Diligence & Verified Directory Bridge */}
+                        <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 sm:p-8 text-white my-8 space-y-4 not-prose">
+                            <div className="flex items-center gap-2 text-teal-400 font-bold text-xs uppercase tracking-wider">
+                                <span className="w-2 h-2 rounded-full bg-teal-400 animate-pulse"></span>
+                                <span>Verified Singapore Franchise Directory &amp; Master Licenses</span>
+                            </div>
+                            <h4 className="text-xl font-black text-white">Acquire Master Franchise Rights &amp; Explore Vetted Opportunities</h4>
+                            <p className="text-slate-300 text-xs sm:text-sm leading-relaxed">
+                                Review verified investment tiers, certified financials, and master license availability across Singapore on <Link href="/" className="text-teal-400 font-bold hover:underline">Franchise.sg</Link>.
+                            </p>
+                            <div className="flex flex-wrap gap-3 pt-2">
+                                <Link href="/" className="bg-teal-600 hover:bg-teal-700 text-white font-bold text-xs py-2.5 px-4 rounded-xl transition-colors inline-block">
+                                    Explore Singapore Franchise Directory →
+                                </Link>
+                                <Link href="/categories/food-beverage" className="border border-slate-700 hover:bg-slate-800 text-slate-300 hover:text-white font-bold text-xs py-2.5 px-4 rounded-xl transition-colors inline-block">
+                                    Browse F&amp;B Franchises
+                                </Link>
+                                <Link href="/for-sale" className="border border-slate-700 hover:bg-slate-800 text-slate-300 hover:text-white font-bold text-xs py-2.5 px-4 rounded-xl transition-colors inline-block">
+                                    Franchises For Sale
+                                </Link>
+                            </div>
+                        </div>
+
+                        {/* Author Bio Box */}
+                        <div className="mt-12 p-6 bg-teal-50 border border-teal-200 rounded-2xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 font-sans text-sm not-prose">
+                            <div className="flex items-center gap-4">
+                                <div className="w-12 h-12 rounded-xl bg-teal-700 text-white font-black text-sm flex items-center justify-center shrink-0">
+                                    {author?.initials || 'MP'}
+                                </div>
+                                <div>
+                                    <h3 className="font-bold text-slate-950">{author?.name || 'Maggie Png'}</h3>
+                                    <p className="text-xs font-semibold text-teal-800">{author?.role || 'Commercial Property Strategist'}</p>
+                                    <p className="text-xs text-slate-600 mt-0.5">{author?.bio}</p>
+                                </div>
+                            </div>
+                            <Link
+                                href={`/author/${author?.slug || 'maggie-png'}`}
+                                className="text-xs font-black text-teal-800 underline underline-offset-2 shrink-0 hover:text-teal-900"
+                            >
+                                View Analyst Profile →
+                            </Link>
+                        </div>
+                    </section>
+                </>
+            );
+        }
     }
 };
 
@@ -2350,12 +3392,11 @@ export default async function DynamicInsightRouter({ params }: PageProps) {
     }
 
     // Article author metadata mapping
-    const isMaggie = slug.includes('foot-traffic') || slug.includes('vending-machine-illusion') || slug.includes('lease-or-own');
+    const isMaggie = slug.includes('foot-traffic') || slug.includes('vending-machine-illusion') || slug.includes('lease-or-own') || slug.includes('hidden-costs');
     const isFrederick = slug.includes('bubble-tea');
     const authorData = isFrederick ? EDITORS['frederick-tan'] : (isMaggie ? EDITORS['maggie-png'] : EDITORS['chen-yong-lin']);
 
     const articleSchema = {
-        "@context": "https://schema.org",
         "@type": "Article",
         "headline": insight.title,
         "description": insight.description,
@@ -2376,6 +3417,27 @@ export default async function DynamicInsightRouter({ params }: PageProps) {
         }
     };
 
+    const schemaGraph: any[] = [articleSchema];
+
+    if (insight.faqs && insight.faqs.length > 0) {
+        schemaGraph.push({
+            "@type": "FAQPage",
+            "mainEntity": insight.faqs.map(faq => ({
+                "@type": "Question",
+                "name": faq.question,
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": faq.answer
+                }
+            }))
+        });
+    }
+
+    const structuredDataMarkup = {
+        "@context": "https://schema.org",
+        "@graph": schemaGraph
+    };
+
     // Formatted sharing assets cleanly to point back to the fully qualified WWW domain parameters
     const targetUrl = encodeURIComponent(`https://www.franchise.sg/insights/${slug}`);
     const shareText = encodeURIComponent(`Critical analysis by Franchise.sg: ${insight.title}`);
@@ -2384,7 +3446,7 @@ export default async function DynamicInsightRouter({ params }: PageProps) {
         <div className="min-h-screen w-full bg-slate-50/60 font-sans antialiased text-slate-900 text-left flex flex-col">
             <script
                 type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredDataMarkup) }}
             />
             <nav className="bg-white border-b border-slate-200 py-4 px-6 sm:px-8">
                 <div className="max-w-6xl mx-auto flex items-center">

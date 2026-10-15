@@ -23,6 +23,30 @@ export const metadata: Metadata = {
 
 const ARTICLES = [
     {
+        slug: 'true-fitness-collapse-singapore-prepaid-gym-model-audit',
+        title: 'The Collapse of True Fitness Singapore: Forensic Financial Audit & The Structural Failure of the Prepaid Gym Model',
+        description: 'A forensic financial audit into the provisional liquidation of True Fitness & True Yoga Singapore. Deconstruct HKEX regulatory filings, the HK$633.8M liabilities, court-documented precedents, and the systemic vulnerabilities of unescrowed prepaid fitness contracts.',
+        category: 'Corporate Governance & Financial Audit',
+        categoryColor: 'bg-rose-50 text-rose-700 border-rose-200',
+        date: 'October 15, 2026',
+        publishAt: '2026-10-15T08:00:00+08:00',
+        authorName: 'Chen Yong Lin',
+        authorRole: 'Editor-in-Chief & Lead Analyst',
+        authorSlug: 'chen-yong-lin',
+    },
+    {
+        slug: 'hidden-costs-commercial-lease-franchise-unit-economics-singapore',
+        title: 'The Hidden Costs in a Commercial Lease That Sink Franchise Unit Economics',
+        description: 'Why $14.50 psf headline rent is misleading. Commercial Property Strategist Maggie Png exposes the three silent cost leaks in Singapore commercial leases: $25K–$60K reinstatement bills, floating mall service charges, and compounding rent escalations.',
+        category: 'Commercial Leasing Strategy',
+        categoryColor: 'bg-teal-50 text-teal-700 border-teal-200',
+        date: 'October 20, 2026',
+        publishAt: '2026-10-20T08:00:00+08:00',
+        authorName: 'Maggie Png',
+        authorRole: 'Commercial Property Strategist',
+        authorSlug: 'maggie-png',
+    },
+    {
         slug: 'psychology-singaporean-plate-franchise-evolution-super-brands-1970-2026',
         title: 'The Psychology of the Singaporean Plate: Evolution & Hyper-Profitability of Franchise Super-Brands (1970–2026)',
         description: 'From 1968 A&W and 1987 MUIS Halal certification breakthroughs to BreadTalk\'s global scaling and 2026 viral powerhouses like Pawa Bakery: the definitive sociological and financial audit of Singapore\'s franchise super-brands.',
