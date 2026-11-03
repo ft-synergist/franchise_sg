@@ -25,9 +25,29 @@ interface FranchiseItem {
     current_outlets?: number | string;
 }
 
+const INITIAL_VERIFIED_FRANCHISES: FranchiseItem[] = Object.values(VERIFIED_LISTINGS)
+    .map((v) => ({
+        id: v.slug,
+        brand_name: v.brand_name,
+        slug: v.slug,
+        category: v.category,
+        is_verified_partner: Boolean(v.is_verified_partner),
+        brand_origin: v.brand_origin,
+        current_outlets: v.current_outlets_sg,
+        min_capital_sgd: v.min_capital_sgd,
+        franchise_fee_sgd: typeof v.franchise_fee_sgd === 'number' ? v.franchise_fee_sgd : 0,
+        royalty_fee_text: v.royalty_fee_text,
+        description: v.description
+    }))
+    .sort((a, b) => {
+        if (a.is_verified_partner && !b.is_verified_partner) return -1;
+        if (!a.is_verified_partner && b.is_verified_partner) return 1;
+        return a.brand_name.localeCompare(b.brand_name);
+    });
+
 export default function FranchiseGridEngine() {
-    const [franchises, setFranchises] = useState<FranchiseItem[]>([]);
-    const [isLoading, setIsLoading] = useState(true);
+    const [franchises, setFranchises] = useState<FranchiseItem[]>(INITIAL_VERIFIED_FRANCHISES);
+    const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
 
     const [selectedCategory, setSelectedCategory] = useState<string>('All');
@@ -51,7 +71,6 @@ export default function FranchiseGridEngine() {
     useEffect(() => {
         async function fetchFranchises() {
             try {
-                setIsLoading(true);
                 const { data, error } = await supabase
                     .from('crm_franchises')
                     .select('id, brand_name, slug, category, min_capital_sgd, franchise_fee_sgd, royalty_fee_text, description, brand_origin, current_outlets')

@@ -276,6 +276,127 @@ export default async function FranchiseDirectoryHome() {
         </div>
       </header>
 
+      {/* Latest Forensic Audits & Insights Strip (Direct Crawl Equity Bridge) */}
+      <section className="bg-slate-950 border-b border-slate-800 py-10 px-6">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-6">
+            <div>
+              <div className="inline-flex items-center gap-2 text-teal-400 font-black text-[11px] uppercase tracking-wider mb-1">
+                <span className="w-2 h-2 rounded-full bg-teal-400 animate-pulse"></span>
+                Latest Forensic Audits &amp; Market Intelligence
+              </div>
+              <h2 className="text-xl sm:text-2xl font-black text-white tracking-tight">
+                Proprietary Singapore Franchise Due Diligence &amp; Unit Economics
+              </h2>
+            </div>
+            <Link
+              href="/insights"
+              className="text-xs font-bold text-teal-400 hover:text-teal-300 uppercase tracking-wider shrink-0 transition-colors"
+            >
+              View All 12 Forensic Reports &rarr;
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <Link
+              href="/insights/reinstatement-breakdown-mall-tenancy-audit-singapore"
+              className="bg-slate-900/90 hover:bg-slate-900 border border-teal-500/40 hover:border-teal-400 p-5 rounded-2xl transition-all group flex flex-col justify-between shadow-lg"
+            >
+              <div>
+                <div className="flex items-center justify-between gap-2 mb-2">
+                  <span className="text-[10px] font-black uppercase tracking-wider px-2 py-0.5 rounded bg-teal-500/20 text-teal-300 border border-teal-500/30">
+                    Mall Tenancy Audit
+                  </span>
+                  <span className="text-[10px] font-semibold text-slate-400">3 Nov 2026</span>
+                </div>
+                <h3 className="text-sm font-bold text-white group-hover:text-teal-300 leading-snug line-clamp-3">
+                  Reinstatement Breakdown &amp; Mall Tenancy Audit: Protecting Your S$30K–S$65K Handover
+                </h3>
+                <p className="text-xs text-slate-400 mt-2 line-clamp-2">
+                  M&amp;E demolition line items, the 200% daily double-rent trap, and LARPA tenant rights.
+                </p>
+              </div>
+              <div className="text-[11px] font-bold text-teal-400 mt-4 flex items-center justify-between border-t border-slate-800/80 pt-3">
+                <span>By Maggie Png</span>
+                <span>Read Audit &rarr;</span>
+              </div>
+            </Link>
+
+            <Link
+              href="/insights/singapore-fb-franchise-capital-payback-audit-2026"
+              className="bg-slate-900/90 hover:bg-slate-900 border border-emerald-500/40 hover:border-emerald-400 p-5 rounded-2xl transition-all group flex flex-col justify-between shadow-lg"
+            >
+              <div>
+                <div className="flex items-center justify-between gap-2 mb-2">
+                  <span className="text-[10px] font-black uppercase tracking-wider px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+                    F&amp;B Financial Audit
+                  </span>
+                  <span className="text-[10px] font-semibold text-slate-400">27 Oct 2026</span>
+                </div>
+                <h3 className="text-sm font-bold text-white group-hover:text-emerald-300 leading-snug line-clamp-3">
+                  Singapore F&amp;B Franchise Capital &amp; Payback Audit 2026 (S$150K–S$350K Real Capex)
+                </h3>
+                <p className="text-xs text-slate-400 mt-2 line-clamp-2">
+                  Audited store EBITDA margins (11%–21%) and payback horizons across 4 F&amp;B formats.
+                </p>
+              </div>
+              <div className="text-[11px] font-bold text-emerald-400 mt-4 flex items-center justify-between border-t border-slate-800/80 pt-3">
+                <span>By Chen Yong Lin</span>
+                <span>Read Audit &rarr;</span>
+              </div>
+            </Link>
+
+            <Link
+              href="/insights/hidden-costs-commercial-lease-franchise-unit-economics-singapore"
+              className="bg-slate-900/90 hover:bg-slate-900 border border-slate-800 hover:border-teal-400 p-5 rounded-2xl transition-all group flex flex-col justify-between shadow-lg"
+            >
+              <div>
+                <div className="flex items-center justify-between gap-2 mb-2">
+                  <span className="text-[10px] font-black uppercase tracking-wider px-2 py-0.5 rounded bg-teal-500/10 text-teal-300 border border-teal-500/20">
+                    Commercial Leasing
+                  </span>
+                  <span className="text-[10px] font-semibold text-slate-400">20 Oct 2026</span>
+                </div>
+                <h3 className="text-sm font-bold text-white group-hover:text-teal-300 leading-snug line-clamp-3">
+                  The Hidden Costs in a Commercial Lease That Sink Franchise Unit Economics
+                </h3>
+                <p className="text-xs text-slate-400 mt-2 line-clamp-2">
+                  Why S$14.50 psf base rent becomes S$20.05 psf after floating CAM charges and GTO rent.
+                </p>
+              </div>
+              <div className="text-[11px] font-bold text-teal-400 mt-4 flex items-center justify-between border-t border-slate-800/80 pt-3">
+                <span>By Maggie Png</span>
+                <span>Read Guide &rarr;</span>
+              </div>
+            </Link>
+
+            <Link
+              href="/insights/true-fitness-collapse-singapore-prepaid-gym-model-audit"
+              className="bg-slate-900/90 hover:bg-slate-900 border border-slate-800 hover:border-rose-400 p-5 rounded-2xl transition-all group flex flex-col justify-between shadow-lg"
+            >
+              <div>
+                <div className="flex items-center justify-between gap-2 mb-2">
+                  <span className="text-[10px] font-black uppercase tracking-wider px-2 py-0.5 rounded bg-rose-500/20 text-rose-300 border border-rose-500/30">
+                    Corporate Governance
+                  </span>
+                  <span className="text-[10px] font-semibold text-slate-400">15 Oct 2026</span>
+                </div>
+                <h3 className="text-sm font-bold text-white group-hover:text-rose-300 leading-snug line-clamp-3">
+                  The Collapse of True Fitness Singapore: Forensic Audit of the Prepaid Gym Model
+                </h3>
+                <p className="text-xs text-slate-400 mt-2 line-clamp-2">
+                  Deconstructing HK$633.8M liabilities, HKEX filings, and asset-light 24/7 gym shifts.
+                </p>
+              </div>
+              <div className="text-[11px] font-bold text-rose-400 mt-4 flex items-center justify-between border-t border-slate-800/80 pt-3">
+                <span>By Chen Yong Lin</span>
+                <span>Read Audit &rarr;</span>
+              </div>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* Directory Engine Framework Section */}
       <main className="max-w-6xl mx-auto px-6 py-16" id="directory-market">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 pb-4 border-b border-slate-200">
@@ -292,13 +413,7 @@ export default async function FranchiseDirectoryHome() {
           </div>
         </div>
 
-        {!dbFranchises || dbFranchises.length === 0 ? (
-          <div className="bg-white rounded-2xl p-12 text-center border border-slate-200">
-            <p className="text-slate-500">Database synchronization in progress. Please refresh shortly.</p>
-          </div>
-        ) : (
-          <FranchiseGridEngine />
-        )}
+        <FranchiseGridEngine />
 
         {/* High Authority Pillar Section: Singapore Franchise Market Guide */}
         <section className="mt-20 pt-16 border-t border-slate-200 space-y-12">
@@ -378,11 +493,41 @@ export default async function FranchiseDirectoryHome() {
                 <div>
                   <div className="text-xs font-semibold text-emerald-300">F&amp;B Unit Economics</div>
                   <div className="text-sm font-bold text-white group-hover:text-emerald-200 mt-1 line-clamp-2">
-                    Bubble Tea Franchise Singapore: Cost &amp; Profitability Breakdown
+                    The S$3.7B Bubble Tea Illusion: Cost &amp; Profitability Breakdown
                   </div>
                 </div>
                 <div className="text-[11px] text-slate-400 mt-3 flex items-center gap-1">
                   Read Case Study &rarr;
+                </div>
+              </Link>
+
+              <Link
+                href="/insights/psychology-singaporean-plate-franchise-evolution-super-brands-1970-2026"
+                className="bg-slate-800/80 hover:bg-slate-800 border border-slate-700/80 p-4 rounded-xl transition-all group flex flex-col justify-between"
+              >
+                <div>
+                  <div className="text-xs font-semibold text-indigo-300">Macro Strategy</div>
+                  <div className="text-sm font-bold text-white group-hover:text-indigo-200 mt-1 line-clamp-2">
+                    Psychology of the Singaporean Plate: Super-Brands (1970–2026)
+                  </div>
+                </div>
+                <div className="text-[11px] text-slate-400 mt-3 flex items-center gap-1">
+                  Read Evolution Audit &rarr;
+                </div>
+              </Link>
+
+              <Link
+                href="/insights/lease-or-own-franchise-commercial-property-singapore"
+                className="bg-slate-800/80 hover:bg-slate-800 border border-slate-700/80 p-4 rounded-xl transition-all group flex flex-col justify-between"
+              >
+                <div>
+                  <div className="text-xs font-semibold text-teal-300">Property Strategy</div>
+                  <div className="text-sm font-bold text-white group-hover:text-teal-200 mt-1 line-clamp-2">
+                    Lease or Own? Commercial Property Math for SG Franchisees
+                  </div>
+                </div>
+                <div className="text-[11px] text-slate-400 mt-3 flex items-center gap-1">
+                  Read Property Guide &rarr;
                 </div>
               </Link>
 
@@ -413,6 +558,36 @@ export default async function FranchiseDirectoryHome() {
                 </div>
                 <div className="text-[11px] text-slate-400 mt-3 flex items-center gap-1">
                   Read F&amp;B Guide &rarr;
+                </div>
+              </Link>
+
+              <Link
+                href="/insights/vending-machine-franchise-analysis-singapore"
+                className="bg-slate-800/80 hover:bg-slate-800 border border-slate-700/80 p-4 rounded-xl transition-all group flex flex-col justify-between"
+              >
+                <div>
+                  <div className="text-xs font-semibold text-rose-300">Scam Due Diligence</div>
+                  <div className="text-sm font-bold text-white group-hover:text-rose-200 mt-1 line-clamp-2">
+                    Vending Machine Franchise Scam Alert: Passive Income Reality
+                  </div>
+                </div>
+                <div className="text-[11px] text-slate-400 mt-3 flex items-center gap-1">
+                  Read Scam Alert &rarr;
+                </div>
+              </Link>
+
+              <Link
+                href="/insights/vending-machine-illusion-singapore-franchise-lease"
+                className="bg-slate-800/80 hover:bg-slate-800 border border-slate-700/80 p-4 rounded-xl transition-all group flex flex-col justify-between"
+              >
+                <div>
+                  <div className="text-xs font-semibold text-teal-300">Lease Due Diligence</div>
+                  <div className="text-sm font-bold text-white group-hover:text-teal-200 mt-1 line-clamp-2">
+                    The S$200,000 Vending Machine Illusion: 5-Point Lease Audit
+                  </div>
+                </div>
+                <div className="text-[11px] text-slate-400 mt-3 flex items-center gap-1">
+                  Read 5-Point Audit &rarr;
                 </div>
               </Link>
             </div>
