@@ -100,6 +100,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
         // 3. Editorial articles tracking (under /insights/)
         const staticEditorialSlugs = [
+            'reinstatement-breakdown-mall-tenancy-audit-singapore',
+            'singapore-fb-franchise-capital-payback-audit-2026',
             'true-fitness-collapse-singapore-prepaid-gym-model-audit',
             'hidden-costs-commercial-lease-franchise-unit-economics-singapore',
             'psychology-singaporean-plate-franchise-evolution-super-brands-1970-2026',

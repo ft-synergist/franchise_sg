@@ -12,6 +12,14 @@ type Props = {
 const AUTHOR_ARTICLES: Record<string, Array<{ slug: string; title: string; description: string; date: string; category: string; publishAt?: string }>> = {
     'maggie-png': [
         {
+            slug: 'reinstatement-breakdown-mall-tenancy-audit-singapore',
+            title: 'Reinstatement Breakdown & Mall Tenancy Audit: How to Protect Your Franchise From S$30K–S$65K Handover Bills & 200% Double-Rent Penalties',
+            description: 'The most expensive clause in a commercial lease is not your rent—it is the bare-shell handover mandate costing S$30,000 to S$65,000+ upon exit. Commercial Property Strategist Maggie Png breaks down M&E demolition costs, the 200% daily liquidated damages trap, LARPA legal protections, and the 4-step Month 33 exit protocol.',
+            date: 'November 3, 2026',
+            publishAt: '2026-11-03T08:00:00+08:00',
+            category: 'Commercial Property Strategy',
+        },
+        {
             slug: 'hidden-costs-commercial-lease-franchise-unit-economics-singapore',
             title: 'The Hidden Costs in a Commercial Lease That Sink Franchise Unit Economics',
             description: 'Commercial Property Strategist Maggie Png exposes the three silent cost leaks in Singapore commercial leases: $25K–$60K reinstatement bills, floating mall service charges, and compounding rent escalation formulas.',
@@ -43,6 +51,14 @@ const AUTHOR_ARTICLES: Record<string, Array<{ slug: string; title: string; descr
         }
     ],
     'chen-yong-lin': [
+        {
+            slug: 'singapore-fb-franchise-capital-payback-audit-2026',
+            title: 'Singapore F&B Franchise Capital & Payback Audit 2026: Real All-In Opening Capex (S$150K–S$350K), Store EBITDA & Payback Horizons',
+            description: 'Franchise decks promise "payback in 9 to 12 months." We audited 30+ store P&Ls, SGX filings, and real mall disclosures to expose the "Fee Illusion," benchmark 4 F&B segments, and detail the 2 operational moats that keep units profitable.',
+            date: 'October 27, 2026',
+            publishAt: '2026-10-27T08:00:00+08:00',
+            category: 'F&B Financial Audit',
+        },
         {
             slug: 'true-fitness-collapse-singapore-prepaid-gym-model-audit',
             title: 'The Collapse of True Fitness Singapore: Forensic Financial Audit & The Structural Failure of the Prepaid Gym Model',
