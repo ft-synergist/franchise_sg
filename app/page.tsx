@@ -4,14 +4,16 @@ import FranchiseGridEngine from './components/FranchiseGridEngine';
 import { VERIFIED_LISTINGS } from '@/lib/verifiedListings';
 
 export const metadata = {
-  title: 'Franchise Singapore (2026 Directory) | Compare Costs, Fees & Opportunities',
-  description: 'Singapore\'s premier verified franchise directory. Explore active F&B, retail, education & service franchise opportunities. Compare minimum capital (S$30K–S$500K+), franchise fees, royalties, and unfiltered due diligence.',
+  title: {
+    absolute: 'Franchise Singapore (2026 Directory) | Compare 159+ Low-Cost (<S$50K) to F&B Opportunities',
+  },
+  description: 'Compare 159+ verified franchises in Singapore (2026): low-cost & cheap franchises from S$8K–S$50K, under S$100K kiosks, F&B, retail & education opportunities. Audit real startup capital, franchise fees, royalties & payback.',
   alternates: {
     canonical: 'https://www.franchise.sg',
   },
   openGraph: {
-    title: 'Franchise Singapore (2026 Directory) | Compare Costs, Fees & Opportunities',
-    description: 'Singapore\'s premier verified franchise directory. Explore active F&B, retail, education & service franchise opportunities. Compare minimum capital (S$30K–S$500K+), franchise fees, royalties, and unfiltered due diligence.',
+    title: 'Franchise Singapore (2026 Directory) | Compare 159+ Low-Cost (<S$50K) to F&B Opportunities',
+    description: 'Compare 159+ verified franchises in Singapore (2026): low-cost & cheap franchises from S$8K–S$50K, under S$100K kiosks, F&B, retail & education opportunities. Audit real startup capital, franchise fees, royalties & payback.',
     url: 'https://www.franchise.sg',
     siteName: 'Franchise Singapore',
     type: 'website',
@@ -19,8 +21,8 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Franchise Singapore (2026 Directory) | Compare Costs, Fees & Opportunities',
-    description: 'Singapore\'s premier verified franchise directory. Explore active F&B, retail, education & service franchise opportunities. Compare minimum capital (S$30K–S$500K+), franchise fees, royalties, and unfiltered due diligence.',
+    title: 'Franchise Singapore (2026 Directory) | Compare 159+ Low-Cost (<S$50K) to F&B Opportunities',
+    description: 'Compare 159+ verified franchises in Singapore (2026): low-cost & cheap franchises from S$8K–S$50K, under S$100K kiosks, F&B, retail & education opportunities. Audit real startup capital, franchise fees, royalties & payback.',
   }
 };
 
@@ -143,15 +145,15 @@ export default async function FranchiseDirectoryHome() {
             "name": "How much does it cost to buy a franchise in Singapore?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Franchise investment costs in Singapore typically range from S$30,000 for low-overhead kiosk or service models up to S$500,000+ for prime F&B restaurant concepts. Key capital items audited include initial franchise fees, commercial fitout, security rental deposits (typically 3–6 months per URA commercial leasing standards), initial inventory, and working capital runway."
+              "text": "Franchise investment costs in Singapore start from S$8,000–S$50,000 for verified low-cost digital, parcel locker, and automated vending models, S$50,000–S$100,000 for turnkey convenience stores and enrichment centers, and S$150,000–S$500,000+ for mall F&B kiosks and full-service restaurants. Key capital items audited include initial franchise fees, commercial fit-out, 3+1 month mall security deposits, and working capital runway."
             }
           },
           {
             "@type": "Question",
-            "name": "What are the most profitable low-cost franchise opportunities in Singapore?",
+            "name": "What are the cheapest and most profitable low-cost franchises in Singapore under S$50,000?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Low-cost franchises in Singapore under S$50,000 to S$100,000 include automated retail vending stations (e.g. iJooz), B2B digital services (e.g. Beyond Borders CRM), artisanal micro-bakeries (e.g. Jie Bakery, Pawa Bakery), and specialized service models. These formats feature low staffing overhead, rapid payback timelines (6–18 months), and predictable operating margins."
+              "text": "Verified low-cost and cheap franchises in Singapore under S$50,000 include Beyond Borders CRM (S$8,000 min capital, S$3,000 fee), Ninja Van Point (S$15,000 min capital, S$5,000 fee), iJooz Smart Juicer automated vending (S$25,000 min capital, S$8,000 fee), uParcel Zone Franchise (S$35,000 min capital), Petale Tea (S$40,000 min capital), Gogowash (S$50,000 min capital), and Kumon Singapore (S$50,000 min capital, S$2,000 fee). These lean models feature minimal staffing overhead and 6 to 18 month payback horizons."
             }
           },
           {
@@ -182,7 +184,7 @@ export default async function FranchiseDirectoryHome() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaMarkup) }}
       />
 
-      {/* URL-Safe Smooth Scroll Interceptor Script */}
+      {/* URL-Safe Smooth Scroll & Budget Filter Preset Interceptor Script */}
       <script
         dangerouslySetInnerHTML={{
           __html: `
@@ -190,6 +192,10 @@ export default async function FranchiseDirectoryHome() {
               var scrollLink = e.target.closest('a[data-scroll-target]');
               if (scrollLink) {
                 e.preventDefault();
+                var budgetAttr = scrollLink.getAttribute('data-budget-preset');
+                if (budgetAttr) {
+                  window.dispatchEvent(new CustomEvent('franchise:set-budget', { detail: Number(budgetAttr) }));
+                }
                 var targetId = scrollLink.getAttribute('data-scroll-target');
                 var targetElement = document.getElementById(targetId);
                 if (targetElement) {
@@ -254,23 +260,33 @@ export default async function FranchiseDirectoryHome() {
             <a
               href="#directory-market"
               data-scroll-target="directory-market"
+              data-budget-preset="50000"
               className="bg-slate-900/90 hover:bg-teal-950/80 border border-teal-500/40 hover:border-teal-400 text-teal-300 font-bold px-3 py-1.5 rounded-lg transition-all shadow-sm"
             >
-              ⚡ Cheap &amp; Low-Cost Franchises (&lt; S$50K)
+              ⚡ Cheap &amp; Low-Cost Franchises (S$8K–S$50K)
             </a>
             <a
               href="#directory-market"
               data-scroll-target="directory-market"
+              data-budget-preset="100000"
               className="bg-slate-900/90 hover:bg-teal-950/80 border border-teal-500/40 hover:border-teal-400 text-teal-300 font-bold px-3 py-1.5 rounded-lg transition-all shadow-sm"
             >
-              💰 Under S$100k Investment Opportunities
+              💰 Under S$100K Investment Opportunities
             </a>
             <a
               href="#directory-market"
               data-scroll-target="directory-market"
+              data-budget-preset="250000"
               className="bg-slate-900/90 hover:bg-teal-950/80 border border-slate-700 hover:border-teal-400 text-slate-300 font-semibold px-3 py-1.5 rounded-lg transition-all shadow-sm"
             >
-              📊 S$100k–S$250k Mid-Tier Models
+              📊 S$100K–S$250K Mid-Tier Models
+            </a>
+            <a
+              href="#low-cost-franchises-singapore"
+              data-scroll-target="low-cost-franchises-singapore"
+              className="bg-emerald-950/80 hover:bg-emerald-900/80 border border-emerald-500/40 hover:border-emerald-400 text-emerald-300 font-bold px-3 py-1.5 rounded-lg transition-all shadow-sm"
+            >
+              📋 Compare Cheapest SG Franchises Table &darr;
             </a>
           </div>
         </div>
@@ -433,10 +449,10 @@ export default async function FranchiseDirectoryHome() {
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-3">
-                <span className="text-xs font-bold text-teal-700 uppercase tracking-wider bg-teal-50 px-2.5 py-1 rounded-md border border-teal-200">Tier 1 • S$30K – S$80K</span>
-                <h4 className="text-lg font-bold text-slate-900">Micro &amp; Kiosk Franchises</h4>
+                <span className="text-xs font-bold text-teal-700 uppercase tracking-wider bg-teal-50 px-2.5 py-1 rounded-md border border-teal-200">Tier 1 • S$8K – S$80K</span>
+                <h4 className="text-lg font-bold text-slate-900">Low-Cost, Micro &amp; Kiosk Franchises</h4>
                 <p className="text-xs text-slate-600 leading-relaxed">
-                  Low-overhead takeaway beverage kiosks, automated services, and cloud-based mobile service franchises with low capex requirements.
+                  Low-overhead digital B2B agencies, automated smart vending, parcel points, and takeaway kiosks starting from S$8,000 to S$50,000.
                 </p>
               </div>
 
@@ -455,6 +471,155 @@ export default async function FranchiseDirectoryHome() {
                   Full-scale dining restaurants, cafes, aesthetic clinics, and master franchise licensing territories with high return potential.
                 </p>
               </div>
+            </div>
+          </div>
+
+          {/* Dedicated Low-Cost & Cheap Franchises Comparison Matrix (SERP Rich Table Snippet Target) */}
+          <div id="low-cost-franchises-singapore" className="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-sm space-y-6 scroll-mt-8">
+            <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-slate-100 pb-4">
+              <div>
+                <span className="text-[11px] font-black uppercase tracking-wider text-emerald-700 bg-emerald-50 border border-emerald-200 px-2.5 py-1 rounded-md inline-block mb-2">
+                  2026 Low-Capital Benchmark • Under S$10K, S$50K &amp; S$100K
+                </span>
+                <h3 className="text-xl sm:text-2xl font-black text-slate-950 tracking-tight">
+                  Low-Cost &amp; Cheap Franchises in Singapore (Verified Capital &amp; Fee Table)
+                </h3>
+                <p className="text-xs sm:text-sm text-slate-600 mt-1">
+                  Compare the lowest-entry verified franchises in Singapore across automated vending, digital B2B, convenience stores, F&amp;B kiosks, and enrichment.
+                </p>
+              </div>
+              <a
+                href="#directory-market"
+                data-scroll-target="directory-market"
+                data-budget-preset="50000"
+                className="text-xs font-bold text-white bg-emerald-600 hover:bg-emerald-700 px-4 py-2.5 rounded-xl shrink-0 transition-colors self-start md:self-auto"
+              >
+                Filter All &lt; S$50K Franchises &uarr;
+              </a>
+            </div>
+
+            <div className="overflow-x-auto">
+              <table className="min-w-full divide-y divide-slate-200 text-left text-xs sm:text-sm">
+                <thead className="bg-slate-950 text-white font-bold uppercase text-[11px] tracking-wider">
+                  <tr>
+                    <th className="py-3 px-4 rounded-tl-xl">Franchise Brand</th>
+                    <th className="py-3 px-4">Category</th>
+                    <th className="py-3 px-4">Min Capital (SGD)</th>
+                    <th className="py-3 px-4">Franchise Fee</th>
+                    <th className="py-3 px-4 rounded-tr-xl">Est. Payback</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-slate-100 text-slate-700">
+                  <tr className="hover:bg-slate-50 transition-colors">
+                    <td className="py-3 px-4 font-bold text-slate-950">
+                      <Link href="/franchise/beyond-borders-crm" className="text-teal-700 hover:underline">Beyond Borders CRM</Link>
+                    </td>
+                    <td className="py-3 px-4">Software &amp; B2B AI</td>
+                    <td className="py-3 px-4 font-mono font-bold text-emerald-700">S$8,000</td>
+                    <td className="py-3 px-4 font-mono">S$3,000</td>
+                    <td className="py-3 px-4 font-semibold">6 – 10 Months</td>
+                  </tr>
+                  <tr className="hover:bg-slate-50 transition-colors">
+                    <td className="py-3 px-4 font-bold text-slate-950">
+                      <Link href="/franchise/ninja-van-point" className="text-teal-700 hover:underline">Ninja Van Point / Ninja Box</Link>
+                    </td>
+                    <td className="py-3 px-4">Retail &amp; Parcel Logistics</td>
+                    <td className="py-3 px-4 font-mono font-bold text-emerald-700">S$15,000</td>
+                    <td className="py-3 px-4 font-mono">S$5,000</td>
+                    <td className="py-3 px-4 font-semibold">6 – 10 Months</td>
+                  </tr>
+                  <tr className="hover:bg-slate-50 transition-colors">
+                    <td className="py-3 px-4 font-bold text-slate-950">
+                      <Link href="/franchise/ijooz-vending" className="text-teal-700 hover:underline">iJooz Smart Juicer</Link>
+                    </td>
+                    <td className="py-3 px-4">Automated Smart Vending</td>
+                    <td className="py-3 px-4 font-mono font-bold text-emerald-700">S$25,000</td>
+                    <td className="py-3 px-4 font-mono">S$8,000</td>
+                    <td className="py-3 px-4 font-semibold">10 – 16 Months</td>
+                  </tr>
+                  <tr className="hover:bg-slate-50 transition-colors">
+                    <td className="py-3 px-4 font-bold text-slate-950">
+                      <Link href="/franchise/uparcel-logistics" className="text-teal-700 hover:underline">uParcel Zone Franchise</Link>
+                    </td>
+                    <td className="py-3 px-4">Logistics &amp; Tech</td>
+                    <td className="py-3 px-4 font-mono font-bold text-emerald-700">S$35,000</td>
+                    <td className="py-3 px-4 font-mono">S$12,000</td>
+                    <td className="py-3 px-4 font-semibold">10 – 16 Months</td>
+                  </tr>
+                  <tr className="hover:bg-slate-50 transition-colors">
+                    <td className="py-3 px-4 font-bold text-slate-950">
+                      <Link href="/franchise/petale-tea" className="text-teal-700 hover:underline">Petale Tea</Link>
+                    </td>
+                    <td className="py-3 px-4">F&amp;B Specialty Tea</td>
+                    <td className="py-3 px-4 font-mono font-bold text-emerald-700">S$40,000</td>
+                    <td className="py-3 px-4 font-mono">S$15,000</td>
+                    <td className="py-3 px-4 font-semibold">10 – 16 Months</td>
+                  </tr>
+                  <tr className="hover:bg-slate-50 transition-colors">
+                    <td className="py-3 px-4 font-bold text-slate-950">
+                      <Link href="/franchise/education-enrichment" className="text-teal-700 hover:underline">Kumon Singapore</Link>
+                    </td>
+                    <td className="py-3 px-4">Children&apos;s Education</td>
+                    <td className="py-3 px-4 font-mono font-bold text-emerald-700">S$50,000</td>
+                    <td className="py-3 px-4 font-mono">S$2,000</td>
+                    <td className="py-3 px-4 font-semibold">14 – 20 Months</td>
+                  </tr>
+                  <tr className="hover:bg-slate-50 transition-colors">
+                    <td className="py-3 px-4 font-bold text-slate-950">
+                      <Link href="/franchise/gogowash-pet" className="text-teal-700 hover:underline">Gogowash Automated Pet Grooming</Link>
+                    </td>
+                    <td className="py-3 px-4">Automated Pet Services</td>
+                    <td className="py-3 px-4 font-mono font-bold text-emerald-700">S$50,000</td>
+                    <td className="py-3 px-4 font-mono">S$15,000</td>
+                    <td className="py-3 px-4 font-semibold">12 – 18 Months</td>
+                  </tr>
+                  <tr className="hover:bg-slate-50 transition-colors">
+                    <td className="py-3 px-4 font-bold text-slate-950">
+                      <Link href="/franchise/cheers-convenience-store" className="text-teal-700 hover:underline">Cheers Convenience Store</Link>
+                    </td>
+                    <td className="py-3 px-4">24/7 Retail Convenience</td>
+                    <td className="py-3 px-4 font-mono font-bold text-teal-700">S$70,000</td>
+                    <td className="py-3 px-4 font-mono">S$40,000</td>
+                    <td className="py-3 px-4 font-semibold">18 – 24 Months</td>
+                  </tr>
+                  <tr className="hover:bg-slate-50 transition-colors">
+                    <td className="py-3 px-4 font-bold text-slate-950">
+                      <Link href="/franchise/7-eleven-singapore" className="text-teal-700 hover:underline">7-Eleven Singapore</Link>
+                    </td>
+                    <td className="py-3 px-4">Turnkey 24/7 Convenience</td>
+                    <td className="py-3 px-4 font-mono font-bold text-teal-700">S$75,000</td>
+                    <td className="py-3 px-4 font-mono">S$30,000</td>
+                    <td className="py-3 px-4 font-semibold">18 – 24 Months</td>
+                  </tr>
+                  <tr className="hover:bg-slate-50 transition-colors">
+                    <td className="py-3 px-4 font-bold text-slate-950">
+                      <Link href="/franchise/saku-saku-chicken" className="text-teal-700 hover:underline">Saku Saku Chicken</Link>
+                    </td>
+                    <td className="py-3 px-4">F&amp;B Takeaway Kiosk</td>
+                    <td className="py-3 px-4 font-mono font-bold text-teal-700">S$75,000</td>
+                    <td className="py-3 px-4 font-mono">S$18,000</td>
+                    <td className="py-3 px-4 font-semibold">10 – 15 Months</td>
+                  </tr>
+                  <tr className="hover:bg-slate-50 transition-colors">
+                    <td className="py-3 px-4 font-bold text-slate-950">
+                      <Link href="/franchise/each-a-cup" className="text-teal-700 hover:underline">Each-A-Cup</Link>
+                    </td>
+                    <td className="py-3 px-4">F&amp;B Bubble Tea Kiosk</td>
+                    <td className="py-3 px-4 font-mono font-bold text-teal-700">S$90,000</td>
+                    <td className="py-3 px-4 font-mono">S$25,000</td>
+                    <td className="py-3 px-4 font-semibold">14 – 20 Months</td>
+                  </tr>
+                  <tr className="hover:bg-slate-50 transition-colors">
+                    <td className="py-3 px-4 font-bold text-slate-950">
+                      <Link href="/franchise/coding-lab" className="text-teal-700 hover:underline">Coding Lab Singapore</Link>
+                    </td>
+                    <td className="py-3 px-4">STEM &amp; Coding Enrichment</td>
+                    <td className="py-3 px-4 font-mono font-bold text-teal-700">S$100,000</td>
+                    <td className="py-3 px-4 font-mono">S$25,000</td>
+                    <td className="py-3 px-4 font-semibold">14 – 20 Months</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
 

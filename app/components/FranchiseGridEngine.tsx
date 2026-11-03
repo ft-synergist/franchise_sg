@@ -148,6 +148,18 @@ export default function FranchiseGridEngine() {
         fetchFranchises();
     }, []);
 
+    useEffect(() => {
+        function handleSetBudget(e: Event) {
+            const customEvent = e as CustomEvent<number>;
+            if (typeof customEvent.detail === 'number') {
+                setMaxBudget(customEvent.detail);
+                setSelectedCategory('All');
+            }
+        }
+        window.addEventListener('franchise:set-budget', handleSetBudget);
+        return () => window.removeEventListener('franchise:set-budget', handleSetBudget);
+    }, []);
+
     const filteredFranchises = useMemo(() => {
         return franchises.filter((item) => {
             const matchCat = selectedCategory === 'All' || item.category === selectedCategory;
