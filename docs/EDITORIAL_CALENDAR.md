@@ -21,7 +21,7 @@
 
 | Scheduled Go-Live Date & Time | Article Title & Slug | Author & Role | Domain / Category | Status |
 | :--- | :--- | :--- | :--- | :--- |
-| **Tuesday, 10 Nov 2026<br>08:00:00 SGT** | *Queue Milestone: Q4 Franchise Expansion & Master Licensing Audit* | **Chen Yong Lin** / Guest Contributor | Cross-Border & Master Licensing | 📝 **Queued for Production** |
+| **Tuesday, 10 Nov 2026<br>08:00:00 SGT** | **The 500-Outlet Blueprint: How Profitable Singapore Brands Scale into Global Franchises (2026 Audit)**<br>`500-outlet-blueprint-how-profitable-singapore-brands-scale-global-franchises-2026` | **Chen Yong Lin**<br>*Editor-in-Chief & Lead Analyst* | Cross-Border & Master Licensing | 🟡 **Scheduled & Gated**<br>`publishAt: 2026-11-10T08:00:00+08:00` |
 | **Tuesday, 17 Nov 2026<br>08:00:00 SGT** | **How to Negotiate Rent-Free Fit-Out Periods in Singapore: Commercial Lease Benchmarks & Tactical Guide**<br>`negotiate-rent-free-fit-out-periods-commercial-lease-singapore` | **Maggie Png**<br>*Commercial Property Strategist* | Commercial Leasing Strategy | 📝 **Queued for Production**<br>`publishAt: 2026-11-17T08:00:00+08:00` |
 | **Tuesday, 24 Nov 2026<br>08:00:00 SGT** | *Manpower Quotas vs Automated Operations: Singapore Unit Economics 2026* | Editorial Team | Labor & Automation Unit Economics | 📝 **Pipeline Queue** |
 

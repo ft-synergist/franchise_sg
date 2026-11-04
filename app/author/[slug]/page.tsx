@@ -52,6 +52,14 @@ const AUTHOR_ARTICLES: Record<string, Array<{ slug: string; title: string; descr
     ],
     'chen-yong-lin': [
         {
+            slug: '500-outlet-blueprint-how-profitable-singapore-brands-scale-global-franchises-2026',
+            title: 'The 500-Outlet Blueprint: How Profitable Singapore Brands Scale into Global Franchises (2026 Audit)',
+            description: 'Why do most profitable Singapore concepts stall between 3 and 15 stores while Ya Kun, BreadTalk, Old Chang Kee, and Mr. Coconut scale regionally? Editor-in-Chief Chen Yong Lin audits the 3 structural pillars of 500-outlet franchises, 2026 ASEAN Master Franchise fee benchmarks, Enterprise Singapore EDG/MRA grant co-funding, and the 3 unit-economic traps that sink local franchisors.',
+            date: 'November 10, 2026',
+            publishAt: '2026-11-10T08:00:00+08:00',
+            category: 'Cross-Border & Master Licensing',
+        },
+        {
             slug: 'singapore-fb-franchise-capital-payback-audit-2026',
             title: 'Singapore F&B Franchise Capital & Payback Audit 2026: Real All-In Opening Capex (S$150K–S$350K), Store EBITDA & Payback Horizons',
             description: 'Franchise decks promise "payback in 9 to 12 months." We audited 30+ store P&Ls, SGX filings, and real mall disclosures to expose the "Fee Illusion," benchmark 4 F&B segments, and detail the 2 operational moats that keep units profitable.',

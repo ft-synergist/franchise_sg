@@ -23,6 +23,18 @@ export const metadata: Metadata = {
 
 const ARTICLES = [
     {
+        slug: '500-outlet-blueprint-how-profitable-singapore-brands-scale-global-franchises-2026',
+        title: 'The 500-Outlet Blueprint: How Profitable Singapore Brands Scale into Global Franchises (2026 Audit)',
+        description: 'Why do most profitable Singapore concepts stall between 3 and 15 stores while Ya Kun, BreadTalk, Old Chang Kee, and Mr. Coconut scale regionally? Editor-in-Chief Chen Yong Lin audits the 3 structural pillars of 500-outlet franchises, 2026 ASEAN Master Franchise fee benchmarks, Enterprise Singapore EDG/MRA grant co-funding, and the 3 unit-economic traps that sink local franchisors.',
+        category: 'Cross-Border & Master Licensing',
+        categoryColor: 'bg-indigo-50 text-indigo-700 border-indigo-200',
+        date: 'November 10, 2026',
+        publishAt: '2026-11-10T08:00:00+08:00',
+        authorName: 'Chen Yong Lin',
+        authorRole: 'Editor-in-Chief & Lead Analyst',
+        authorSlug: 'chen-yong-lin',
+    },
+    {
         slug: 'reinstatement-breakdown-mall-tenancy-audit-singapore',
         title: 'Reinstatement Breakdown & Mall Tenancy Audit: How to Protect Your Franchise From S$30K–S$65K Handover Bills & 200% Double-Rent Penalties',
         description: 'The most expensive clause in a commercial lease is not your rent—it is the bare-shell handover mandate costing S$30,000 to S$65,000+ upon exit. Commercial Property Strategist Maggie Png breaks down M&E demolition costs, the 200% daily liquidated damages trap, LARPA legal protections, and the 4-step Month 33 exit protocol.',

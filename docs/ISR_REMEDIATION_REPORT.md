@@ -36,6 +36,7 @@
 
 ---
 
-## 4. Post-Deployment Monitoring Action Item (Phase 6)
-- **Check Vercel Observability:** Monitor ISR write metrics in Vercel to confirm writes have dropped from the ~153,894 baseline to **~0 writes**.
-- **No Manual Bot Crawling:** Allow search engines and crawlers to access the edge-cached pages naturally.
+## 4. Post-Deployment Monitoring Verification (Phase 6 — VERIFIED ✅)
+- **Verified on 03 November 2026 (5-Week Post-Fix Audit):**
+  - **ISR Writes (`isr-writes`):** Confirmed dropped from the Sep 7–21 peak (~42k–67k Write Units/week; 188,825 cumulative 3-month total prior to 25 Sep) to **~0 Write Units/week across 5 consecutive weeks** (`Sep 28`, `Oct 5`, `Oct 12`, `Oct 19`, `Oct 26`, `Nov 2`).
+  - **ISR Reads (`isr-reads`):** Healthy static cache delivery (~35k–44k Read Units/week on `franchise-sg`, 540,672 / 1,000,000 across all projects over 3 months), proving search engine and AI bots are reading pre-rendered pages from edge cache with zero background regeneration cost.
