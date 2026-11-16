@@ -15,7 +15,7 @@ interface PageProps {
 const insightsMap: Record<string, { title: string; description: string; publishAt?: string; faqs?: Array<{ question: string; answer: string }>; content: () => React.JSX.Element }> = {
     '500-outlet-blueprint-how-profitable-singapore-brands-scale-global-franchises-2026': {
         title: 'The 500-Outlet Blueprint: How Profitable Singapore Brands Scale into Global Franchises (2026 Audit)',
-        description: 'A forensic 2026 scaling audit by Chen Yong Lin examining how profitable Singapore brands (Ya Kun, BreadTalk, Old Chang Kee, Mr. Coconut) scale into global franchises, including ASEAN Master Franchise fee benchmarks, Enterprise Singapore EDG & MRA grant co-funding, and the 3 unit-economic traps that sink local franchisors.',
+        description: 'A forensic 2026 scaling audit by Frederick Tan examining how profitable Singapore brands (Ya Kun, BreadTalk, Old Chang Kee, Mr. Coconut) scale into global franchises, including ASEAN Master Franchise fee benchmarks, Enterprise Singapore EDG & MRA grant co-funding, and the 3 unit-economic traps that sink local franchisors.',
         publishAt: '2026-11-10T08:00:00+08:00',
         faqs: [
             {
@@ -40,7 +40,7 @@ const insightsMap: Record<string, { title: string; description: string; publishA
             }
         ],
         content: () => {
-            const author = EDITORS['chen-yong-lin'];
+            const author = EDITORS['frederick-tan'];
             return (
                 <>
                     <header className="bg-gradient-to-r from-indigo-950 via-slate-950 to-slate-950 text-white py-20 px-6 border-b border-slate-800 -mx-8 sm:-mx-12 -mt-8 sm:-mt-12 mb-12 rounded-t-3xl">
@@ -56,13 +56,13 @@ const insightsMap: Record<string, { title: string; description: string; publishA
                                 The 500-Outlet Blueprint: How Profitable Singapore Brands Scale into Global Franchises (2026 Audit)
                             </h1>
                             <div className="flex flex-wrap items-center gap-y-4 gap-x-8 text-xs font-semibold uppercase tracking-wider text-slate-400 border-t border-slate-800/80 mt-8 pt-6">
-                                <Link href={`/author/${author?.slug || 'chen-yong-lin'}`} className="flex items-center gap-3 group">
+                                <Link href={`/author/${author?.slug || 'frederick-tan'}`} className="flex items-center gap-3 group">
                                     <div className="w-9 h-9 rounded-xl bg-indigo-700 text-white font-black text-xs flex items-center justify-center shrink-0 border border-indigo-500">
-                                        {author?.initials || 'CYL'}
+                                        {author?.initials || 'FT'}
                                     </div>
                                     <div>
-                                        <strong className="text-white font-bold text-sm normal-case group-hover:text-indigo-300 transition-colors">{author?.name || 'Chen Yong Lin'}</strong>
-                                        <span className="text-slate-400 font-normal normal-case"> · {author?.role || 'Editor-in-Chief & Lead Analyst'}</span>
+                                        <strong className="text-white font-bold text-sm normal-case group-hover:text-indigo-300 transition-colors">{author?.name || 'Frederick Tan'}</strong>
+                                        <span className="text-slate-400 font-normal normal-case"> · {author?.role || 'Guest Contributor · Certified Management Consultant'}</span>
                                     </div>
                                 </Link>
                                 <div className="sm:ml-auto">
@@ -4535,7 +4535,7 @@ export default async function DynamicInsightRouter({ params }: PageProps) {
 
     // Article author metadata mapping
     const isMaggie = slug.includes('foot-traffic') || slug.includes('vending-machine-illusion') || slug.includes('lease-or-own') || slug.includes('hidden-costs') || slug.includes('reinstatement-breakdown');
-    const isFrederick = slug.includes('bubble-tea');
+    const isFrederick = slug.includes('bubble-tea') || slug.includes('500-outlet-blueprint');
     const authorData = isFrederick ? EDITORS['frederick-tan'] : (isMaggie ? EDITORS['maggie-png'] : EDITORS['chen-yong-lin']);
 
     const articleSchema = {
