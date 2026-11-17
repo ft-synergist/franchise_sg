@@ -110,10 +110,10 @@ export default async function FranchiseProfilePage({ params }: PageProps) {
         "@context": "https://schema.org",
         "@graph": [
             {
-                "@type": "BusinessWithPhysicalSystem",
+                "@type": "Organization",
                 "@id": `https://www.franchise.sg/franchise/${slug}#franchise-entity`,
                 "name": `${brandName} Franchise`,
-                "category": category,
+                "url": `https://www.franchise.sg/franchise/${slug}`,
                 "description": description,
                 "address": {
                     "@type": "PostalAddress",

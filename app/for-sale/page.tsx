@@ -45,9 +45,9 @@ export default async function ForSaleDirectory() {
                 "@type": "ListItem",
                 "position": index + 1,
                 "item": {
-                    "@type": "BusinessWithPhysicalSystem",
+                    "@type": "Organization",
                     "name": item.title,
-                    "location": item.location_region
+                    "areaServed": item.location_region
                 }
             })) || []
         }

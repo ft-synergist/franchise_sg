@@ -166,7 +166,7 @@ export default async function CategoryDirectoryPage({ params }: CategoryPageProp
                         "@type": "ListItem",
                         "position": index + 1,
                         "item": {
-                            "@type": "BusinessWithPhysicalSystem",
+                            "@type": "Organization",
                             "name": item.brand_name,
                             "description": item.description
                         }

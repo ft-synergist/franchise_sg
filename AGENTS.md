@@ -18,3 +18,11 @@ This version has breaking changes — APIs, conventions, and file structure may 
 - **Source of Truth:** Reference [docs/ISR_REMEDIATION_REPORT.md](file:///Users/fredericktan/Documents/franchise_sg/docs/ISR_REMEDIATION_REPORT.md).
 - **Standing Reminder:** The 60-second ISR write amplification issue was resolved on 25 Sep 2026 (commit `975f9cc`). All directory routes (`/franchise/[slug]`, `/categories/[slug]`, `/`, `/for-sale`) are pure SSG/Static, and `/sitemap.xml` is 24h. Remind user to check Vercel Observability to verify ISR write units stay near ~0.
 
+# Mandatory Technical SEO & GSC Audit Gate
+- **Pre-Deploy Verification Gate:** Before committing or pushing any code change in `app/`, ALWAYS run both `npx tsc --noEmit` and `npm run verify:seo` (`scripts/validate-seo-schema.mjs`). Never deploy if any Schema.org `@type` check, `AggregateRating` guard, canonical `www` check, or Insights sync check fails.
+- **3-Pillar GSC Audit Rule:** Never treat a GSC **Performance** export alone as a complete site health audit. Whenever reviewing GSC performance, explicitly check and request exports for all three GSC pillars:
+  1. **Performance** (`Queries.csv`, `Pages.csv`, `Chart.csv`)
+  2. **Enhancements** (`Review snippets`, `Breadcrumbs`, `Profile page`)
+  3. **Indexing** (`Pages` — Indexed vs. Not Indexed breakdown)
+
+

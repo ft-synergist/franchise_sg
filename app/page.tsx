@@ -70,14 +70,7 @@ export default async function FranchiseDirectoryHome() {
         "name": "Franchise Singapore",
         "url": "https://www.franchise.sg",
         "logo": "https://www.franchise.sg/favicon.ico",
-        "description": "The authoritative Singapore Franchise Portal breaking down startup costs, capital requirements, and unit economics across Asia.",
-        "aggregateRating": {
-          "@type": "AggregateRating",
-          "ratingValue": "4.9",
-          "reviewCount": "158",
-          "bestRating": "5",
-          "worstRating": "1"
-        }
+        "description": "The authoritative Singapore Franchise Portal breaking down startup costs, capital requirements, and unit economics across Asia."
       },
       {
         "@type": "BreadcrumbList",
@@ -125,12 +118,6 @@ export default async function FranchiseDirectoryHome() {
                 "price": typeof item.min_capital_sgd === 'number' ? item.min_capital_sgd : 50000,
                 "priceValidUntil": "2027-12-31",
                 "availability": "https://schema.org/InStock"
-              },
-              "aggregateRating": {
-                "@type": "AggregateRating",
-                "ratingValue": "4.9",
-                "reviewCount": "28",
-                "bestRating": "5"
               }
             }
           }))
