@@ -23,6 +23,18 @@ export const metadata: Metadata = {
 
 const ARTICLES = [
     {
+        slug: 'negotiate-rent-free-fit-out-periods-commercial-lease-singapore',
+        title: 'How to Negotiate Rent-Free Fit-Out Periods—and Why Most First-Time Franchisees Don’t Ask',
+        description: 'Why paying six weeks of rent while your outlet is still under renovation drains opening cash flow. Commercial Property Strategist Maggie Png explains what rent-free really waives, why S$20K in upfront fit-out relief can beat a S$500/month rent cut, the exact landlord script, and the 5 dates to lock down before signing.',
+        category: 'Commercial Leasing Strategy',
+        categoryColor: 'bg-teal-50 text-teal-700 border-teal-200',
+        date: 'November 25, 2026',
+        publishAt: '2026-11-25T00:30:00+08:00',
+        authorName: 'Maggie Png',
+        authorRole: 'Commercial Property Strategist',
+        authorSlug: 'maggie-png',
+    },
+    {
         slug: '500-outlet-blueprint-how-profitable-singapore-brands-scale-global-franchises-2026',
         title: 'The 500-Outlet Blueprint: How Profitable Singapore Brands Scale into Global Franchises (2026 Audit)',
         description: 'Why do most profitable Singapore concepts stall between 3 and 15 stores while Ya Kun, BreadTalk, Old Chang Kee, and Mr. Coconut scale regionally? Certified Management Consultant Frederick Tan audits the 3 structural pillars of 500-outlet franchises, 2026 ASEAN Master Franchise fee benchmarks, Enterprise Singapore EDG/MRA grant co-funding, and the 3 unit-economic traps that sink local franchisors.',

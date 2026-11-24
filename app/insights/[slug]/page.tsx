@@ -13,6 +13,237 @@ interface PageProps {
 // ARTICLE DATA ARCHITECTURE
 // ==========================================
 const insightsMap: Record<string, { title: string; description: string; publishAt?: string; faqs?: Array<{ question: string; answer: string }>; content: () => React.JSX.Element }> = {
+    'negotiate-rent-free-fit-out-periods-commercial-lease-singapore': {
+        title: 'How to Negotiate Rent-Free Fit-Out Periods—and Why Most First-Time Franchisees Don’t Ask',
+        description: 'Commercial Property Strategist Maggie Png breaks down how to negotiate rent-free fit-out periods in Singapore commercial leases, what charges still apply during renovation, how S$20K upfront cash preservation compares to a monthly rent cut, and the 5 critical handover dates to confirm before signing.',
+        publishAt: '2026-11-25T00:30:00+08:00',
+        faqs: [
+            {
+                question: "What is a rent-free fit-out period in a Singapore commercial lease?",
+                answer: "A rent-free fit-out period is an agreed window where a tenant can access commercial premises to carry out renovation, equipment installation, signage, and opening preparations without paying the agreed base rental component. However, service charges, utilities, and other outgoings may still apply depending on the tenancy agreement."
+            },
+            {
+                question: "Does a rent-free fit-out period mean you pay zero dollars during renovation?",
+                answer: "Not necessarily. 'Rent-free' typically waives the base rent component only. Depending on your lease terms in Singapore, monthly service charges, chilled water or utilities, renovation deposits, and landlord vetting fees may still be payable during the fit-out period."
+            },
+            {
+                question: "How does a 2-month rent-free fit-out period compare to a monthly rental reduction?",
+                answer: "On a S$10,000/month lease, waiving two full months of base rent saves S$20,000 upfront during setup—when renovation, equipment, and deposit bills all hit simultaneously. By comparison, negotiating a S$500/month rental reduction saves S$18,000 spread slowly over a 36-month lease. Both matter, so franchisees should compare the total package."
+            },
+            {
+                question: "What dates must a franchisee confirm in writing before signing a fit-out clause?",
+                answer: "Confirm five key items in writing: (1) key handover and site access date, (2) exact start and end dates of the rent-free period, (3) rent commencement date, (4) which charges remain payable during fit-out, and (5) remedies or timeline extensions if the landlord hands over the unit late."
+            }
+        ],
+        content: () => {
+            const author = EDITORS['maggie-png'];
+            return (
+                <>
+                    <header className="bg-gradient-to-r from-teal-900 via-slate-950 to-slate-950 text-white py-20 px-6 border-b border-slate-800 -mx-8 sm:-mx-12 -mt-8 sm:-mt-12 mb-12 rounded-t-3xl">
+                        <div className="max-w-4xl mx-auto px-4 text-left">
+                            <div className="mb-6 inline-flex items-center gap-2 bg-teal-500/10 border border-teal-500/20 px-3 py-1 rounded-full">
+                                <span className="w-2 h-2 rounded-full bg-teal-400"></span>
+                                <span className="text-xs font-semibold text-teal-300 uppercase tracking-wider">Commercial Leasing Strategy</span>
+                            </div>
+                            <div className="mb-2">
+                                <span className="text-base font-bold uppercase tracking-wider text-teal-400 block">Insights:</span>
+                            </div>
+                            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white max-w-4xl leading-tight">
+                                How to Negotiate Rent-Free Fit-Out Periods—and Why Most First-Time Franchisees Don&apos;t Ask
+                            </h1>
+                            <div className="flex flex-wrap items-center gap-y-4 gap-x-8 text-xs font-semibold uppercase tracking-wider text-slate-400 border-t border-slate-800/80 mt-8 pt-6">
+                                <Link href={`/author/${author?.slug || 'maggie-png'}`} className="flex items-center gap-3 group">
+                                    <div className="w-9 h-9 rounded-xl bg-teal-700 text-white font-black text-xs flex items-center justify-center shrink-0 border border-teal-500">
+                                        {author?.initials || 'MP'}
+                                    </div>
+                                    <div>
+                                        <strong className="text-white font-bold text-sm normal-case group-hover:text-teal-300 transition-colors">{author?.name || 'Maggie Png'}</strong>
+                                        <span className="text-slate-400 font-normal normal-case"> · {author?.role || 'Commercial Property Strategist'}</span>
+                                    </div>
+                                </Link>
+                                <div className="sm:ml-auto">
+                                    <span className="text-slate-500 block text-[10px] mb-0.5">Published On</span>
+                                    <time className="text-slate-200 font-bold normal-case text-sm">25 November 2026</time>
+                                </div>
+                            </div>
+                        </div>
+                    </header>
+
+                    <section className="prose prose-slate max-w-none text-slate-800 text-lg sm:text-xl font-normal leading-relaxed space-y-8 text-left">
+                        <p className="font-bold text-slate-950 text-2xl sm:text-3xl tracking-tight leading-snug">
+                            You&apos;ve found a suitable shop. The location works, the franchisor likes it, and the monthly rent is within budget. Then the landlord asks when you want to start the lease.
+                        </p>
+
+                        <p>
+                            You agree on a date, sign the paperwork and collect the keys. But your contractor needs six weeks to get the outlet ready.
+                        </p>
+
+                        <p>
+                            During those six weeks, you&apos;re paying rent while the shop is closed. Renovation bills are coming in, equipment needs to be paid for, and you haven&apos;t made your first sale.
+                        </p>
+
+                        <p className="font-semibold text-slate-900">
+                            This is why the rent-free fit-out period deserves a place in your lease negotiations.
+                        </p>
+
+                        <h2 className="text-2xl sm:text-3xl font-black text-slate-950 tracking-tight pt-4">
+                            What is a rent-free fit-out period?
+                        </h2>
+                        <p>
+                            It is an agreed period when you can access the premises to prepare your outlet without paying the agreed rental component. You may use that time for renovation, equipment installation, signage and getting the premises ready to open.
+                        </p>
+                        <div className="p-6 rounded-2xl bg-amber-50/70 border border-amber-200 text-base text-slate-800 space-y-1">
+                            <span className="text-xs font-black uppercase tracking-wider text-amber-700 block">Important Caveat</span>
+                            <p className="m-0 leading-relaxed">
+                                However, <strong>&ldquo;rent-free&rdquo; does not always mean there is nothing to pay.</strong> Depending on the agreement, service charges, utilities and other costs may still apply. Check exactly what is waived before signing.
+                            </p>
+                        </div>
+
+                        <h2 className="text-2xl sm:text-3xl font-black text-slate-950 tracking-tight pt-4">
+                            Why first-time franchisees don&apos;t ask
+                        </h2>
+                        <p>
+                            For someone taking their first outlet, the monthly rent usually gets most of the attention. They might spend several rounds negotiating a few hundred dollars off the rent but overlook the cost of preparing the shop.
+                        </p>
+                        <p>
+                            Some assume the landlord&apos;s offer is standard. Others worry that asking for more time will make them look difficult or cause them to lose the unit.
+                        </p>
+                        <p>
+                            There is also a common mistake: <strong>assuming a fitted shop will be quick to open.</strong> An existing kitchen or shop layout may look usable, but your franchise could require different equipment, electrical capacity, signage or finishes. A fitted unit can still need substantial work.
+                        </p>
+                        <p>
+                            Until your contractor and franchisor have checked the premises, it is difficult to know how much preparation time you really need.
+                        </p>
+
+                        <h2 className="text-2xl sm:text-3xl font-black text-slate-950 tracking-tight pt-4">
+                            Work out your timeline before negotiating
+                        </h2>
+                        <p>
+                            Rather than asking, <em>&ldquo;Can you give me one month rent-free?&rdquo;</em>, start with the work that needs to happen:
+                        </p>
+                        <ul className="list-disc pl-6 space-y-2 text-base sm:text-lg text-slate-700">
+                            <li>Ask your contractor for a realistic schedule covering necessary submissions and approvals, renovation, equipment delivery, installation and testing.</li>
+                            <li>Check the landlord&apos;s renovation rules too—restrictions on working hours, deliveries or noisy work can affect your schedule.</li>
+                            <li>Factor in your franchisor&apos;s requirements, as they may need to approve the design or inspect the completed outlet before opening.</li>
+                        </ul>
+                        <p>
+                            These steps can overlap, but they still need to be planned. A fit-out period should reflect the actual work required.
+                        </p>
+
+                        <h2 className="text-2xl sm:text-3xl font-black text-slate-950 tracking-tight pt-4">
+                            Explain your request with a clear plan
+                        </h2>
+                        <p>
+                            A landlord can assess a specific request more easily than a general appeal for a concession. For example:
+                        </p>
+                        <blockquote className="p-6 sm:p-8 rounded-2xl bg-slate-900 text-white border-l-4 border-teal-400 not-italic space-y-2 my-6">
+                            <span className="text-[11px] font-black uppercase tracking-wider text-teal-400 block">Tactical Negotiation Script</span>
+                            <p className="text-base sm:text-lg text-slate-100 leading-relaxed m-0">
+                                &ldquo;We&apos;ve reviewed the unit with our contractor. We expect to need six weeks for the electrical works, renovation, equipment installation and testing. We would like to request six weeks rent-free from handover, with rent starting on the agreed date after that.&rdquo;
+                            </p>
+                        </blockquote>
+                        <p>
+                            This gives the landlord a reason for the request and a proposed timeline. Raise it when negotiating the offer, before committing to the lease. If fit-out costs affect whether the outlet is affordable, they should be discussed alongside the rent.
+                        </p>
+
+                        <h2 className="text-2xl sm:text-3xl font-black text-slate-950 tracking-tight pt-4">
+                            Look at the dollars involved
+                        </h2>
+                        <p>
+                            Suppose the monthly rent is <strong>S$10,000</strong> and you need two months to prepare the outlet. Compare the two concessions side by side:
+                        </p>
+                        <div className="overflow-x-auto my-6 rounded-2xl border border-slate-200 shadow-sm">
+                            <table className="w-full text-left border-collapse text-sm">
+                                <thead>
+                                    <tr className="bg-slate-900 text-white">
+                                        <th className="p-4 font-bold">Concession Structure</th>
+                                        <th className="p-4 font-bold text-teal-300">Total Dollar Value</th>
+                                        <th className="p-4 font-bold">Cash-Flow Impact</th>
+                                    </tr>
+                                </thead>
+                                <tbody className="divide-y divide-slate-200 bg-white">
+                                    <tr>
+                                        <td className="p-4 font-bold text-slate-900">2 Months Rent-Free Fit-Out (Base Rent Waived)</td>
+                                        <td className="p-4 font-bold text-teal-700">S$20,000 saved upfront</td>
+                                        <td className="p-4 text-slate-700">Preserves cash immediately during setup, when renovation, equipment, and deposit bills arrive together. *(Service charges &amp; utilities may still apply).*</td>
+                                    </tr>
+                                    <tr>
+                                        <td className="p-4 font-bold text-slate-900">S$500 / Month Rental Reduction (3-Year Lease)</td>
+                                        <td className="p-4 font-bold text-slate-700">S$18,000 over 36 months</td>
+                                        <td className="p-4 text-slate-700">Lowers ongoing monthly fixed expenses once the outlet is trading.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p>
+                            Both concessions matter. The rental reduction lowers your ongoing expenses, while the fit-out concession preserves cash at the start, when many bills arrive together. Compare the whole package before deciding which offer works better for your business.
+                        </p>
+
+                        <h2 className="text-2xl sm:text-3xl font-black text-slate-950 tracking-tight pt-4">
+                            Make sure the dates are clear
+                        </h2>
+                        <div className="p-6 sm:p-8 rounded-2xl bg-teal-50/70 border border-teal-200 space-y-4 my-6">
+                            <span className="text-xs font-black uppercase tracking-wider text-teal-800 block">5-Point Pre-Signing Verification Checklist</span>
+                            <ul className="list-disc pl-5 space-y-2 text-base text-slate-800 m-0">
+                                <li>When you receive the keys and access to start work.</li>
+                                <li>When the rent-free period begins and ends.</li>
+                                <li>When rent becomes payable.</li>
+                                <li>Which charges remain payable during fit-out.</li>
+                                <li>What happens if the landlord hands over the premises late.</li>
+                            </ul>
+                        </div>
+                        <p>
+                            Also check whether the fit-out period forms part of the lease term or comes before it. Do not assume rent will start only when your outlet opens. Unless the agreement provides otherwise, a delay in your renovation may leave you paying rent before you can trade.
+                        </p>
+
+                        <h2 className="text-2xl sm:text-3xl font-black text-slate-950 tracking-tight pt-4">
+                            What if the landlord won&apos;t agree?
+                        </h2>
+                        <p>
+                            Find out where there is room to move. The landlord may consider a shorter rent-free period, a reduced rental rate during fit-out, or completing certain agreed works before handover.
+                        </p>
+                        <p>
+                            Any early access arrangement should also be documented, including what work you are allowed to carry out and the conditions attached. The aim is to reach an arrangement that gives you enough time and cash to prepare the outlet properly.
+                        </p>
+
+                        <div className="p-6 sm:p-8 rounded-2xl bg-slate-950 text-white border border-slate-800 space-y-3 my-8">
+                            <span className="text-xs font-black uppercase tracking-wider text-teal-400 block">The Pre-Commitment Test</span>
+                            <p className="text-lg sm:text-xl font-bold text-white leading-snug m-0">
+                                &ldquo;Can I afford to get this outlet open, as well as pay the rent once it is running?&rdquo;
+                            </p>
+                            <p className="text-sm text-slate-300 m-0">
+                                That question belongs in the negotiation from the beginning. Also review our related lease audits on{' '}
+                                <Link href="/insights/hidden-costs-commercial-lease-franchise-unit-economics-singapore" className="text-teal-300 underline hover:text-teal-200 font-semibold">
+                                    Hidden Costs in a Commercial Lease
+                                </Link>{' '}
+                                and{' '}
+                                <Link href="/insights/reinstatement-breakdown-mall-tenancy-audit-singapore" className="text-teal-300 underline hover:text-teal-200 font-semibold">
+                                    Reinstatement Breakdown &amp; Mall Tenancy Audit
+                                </Link>.
+                            </p>
+                        </div>
+
+                        <div className="p-6 rounded-2xl bg-slate-50 border border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                            <div>
+                                <p className="text-sm text-slate-700 m-0 leading-relaxed">
+                                    <strong>Maggie Png</strong> helps business owners and investors find suitable commercial premises and work through the practical details of their property decisions.
+                                </p>
+                                <p className="text-xs font-black uppercase tracking-widest text-teal-700 mt-2 mb-0">
+                                    Guide • Protect • Strategise
+                                </p>
+                            </div>
+                            <Link
+                                href={`/author/${author?.slug || 'maggie-png'}`}
+                                className="inline-flex shrink-0 items-center justify-center rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold px-4 py-2.5 transition-colors"
+                            >
+                                View All Audits by Maggie Png →
+                            </Link>
+                        </div>
+                    </section>
+                </>
+            );
+        }
+    },
     '500-outlet-blueprint-how-profitable-singapore-brands-scale-global-franchises-2026': {
         title: 'The 500-Outlet Blueprint: How Profitable Singapore Brands Scale into Global Franchises (2026 Audit)',
         description: 'A forensic 2026 scaling audit by Frederick Tan examining how profitable Singapore brands (Ya Kun, BreadTalk, Old Chang Kee, Mr. Coconut) scale into global franchises, including ASEAN Master Franchise fee benchmarks, Enterprise Singapore EDG & MRA grant co-funding, and the 3 unit-economic traps that sink local franchisors.',
@@ -4534,7 +4765,7 @@ export default async function DynamicInsightRouter({ params }: PageProps) {
     }
 
     // Article author metadata mapping
-    const isMaggie = slug.includes('foot-traffic') || slug.includes('vending-machine-illusion') || slug.includes('lease-or-own') || slug.includes('hidden-costs') || slug.includes('reinstatement-breakdown');
+    const isMaggie = slug.includes('foot-traffic') || slug.includes('vending-machine-illusion') || slug.includes('lease-or-own') || slug.includes('hidden-costs') || slug.includes('reinstatement-breakdown') || slug.includes('rent-free-fit-out');
     const isFrederick = slug.includes('bubble-tea') || slug.includes('500-outlet-blueprint');
     const authorData = isFrederick ? EDITORS['frederick-tan'] : (isMaggie ? EDITORS['maggie-png'] : EDITORS['chen-yong-lin']);
 

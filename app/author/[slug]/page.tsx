@@ -12,6 +12,14 @@ type Props = {
 const AUTHOR_ARTICLES: Record<string, Array<{ slug: string; title: string; description: string; date: string; category: string; publishAt?: string }>> = {
     'maggie-png': [
         {
+            slug: 'negotiate-rent-free-fit-out-periods-commercial-lease-singapore',
+            title: 'How to Negotiate Rent-Free Fit-Out Periods—and Why Most First-Time Franchisees Don’t Ask',
+            description: 'Commercial Property Strategist Maggie Png breaks down how to negotiate rent-free fit-out periods in Singapore commercial leases, what charges still apply during renovation, how S$20K upfront cash preservation compares to a monthly rent cut, and the 5 critical handover dates to confirm before signing.',
+            date: 'November 25, 2026',
+            publishAt: '2026-11-25T00:30:00+08:00',
+            category: 'Commercial Leasing Strategy',
+        },
+        {
             slug: 'reinstatement-breakdown-mall-tenancy-audit-singapore',
             title: 'Reinstatement Breakdown & Mall Tenancy Audit: How to Protect Your Franchise From S$30K–S$65K Handover Bills & 200% Double-Rent Penalties',
             description: 'The most expensive clause in a commercial lease is not your rent—it is the bare-shell handover mandate costing S$30,000 to S$65,000+ upon exit. Commercial Property Strategist Maggie Png breaks down M&E demolition costs, the 200% daily liquidated damages trap, LARPA legal protections, and the 4-step Month 33 exit protocol.',
