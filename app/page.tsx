@@ -5,15 +5,15 @@ import { VERIFIED_LISTINGS } from '@/lib/verifiedListings';
 
 export const metadata = {
   title: {
-    absolute: 'Franchise Singapore (2026 Directory) | Compare 159+ Low-Cost (<S$50K) to F&B Opportunities',
+    absolute: 'Franchise Singapore (2026) | 159+ Business & Low-Cost Opportunities',
   },
-  description: 'Compare 159+ verified franchises in Singapore (2026): low-cost & cheap franchises from S$8K–S$50K, under S$100K kiosks, F&B, retail & education opportunities. Audit real startup capital, franchise fees, royalties & payback.',
+  description: 'Compare 159+ verified franchise business opportunities in Singapore (2026): low-cost & cheap franchises from S$8K, F&B, retail & education. Audit real fees & ROI.',
   alternates: {
     canonical: 'https://www.franchise.sg',
   },
   openGraph: {
-    title: 'Franchise Singapore (2026 Directory) | Compare 159+ Low-Cost (<S$50K) to F&B Opportunities',
-    description: 'Compare 159+ verified franchises in Singapore (2026): low-cost & cheap franchises from S$8K–S$50K, under S$100K kiosks, F&B, retail & education opportunities. Audit real startup capital, franchise fees, royalties & payback.',
+    title: 'Franchise Singapore (2026) | 159+ Business & Low-Cost Opportunities',
+    description: 'Compare 159+ verified franchise business opportunities in Singapore (2026): low-cost & cheap franchises from S$8K, F&B, retail & education. Audit real fees & ROI.',
     url: 'https://www.franchise.sg',
     siteName: 'Franchise Singapore',
     type: 'website',
@@ -21,8 +21,8 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Franchise Singapore (2026 Directory) | Compare 159+ Low-Cost (<S$50K) to F&B Opportunities',
-    description: 'Compare 159+ verified franchises in Singapore (2026): low-cost & cheap franchises from S$8K–S$50K, under S$100K kiosks, F&B, retail & education opportunities. Audit real startup capital, franchise fees, royalties & payback.',
+    title: 'Franchise Singapore (2026) | 159+ Business & Low-Cost Opportunities',
+    description: 'Compare 159+ verified franchise business opportunities in Singapore (2026): low-cost & cheap franchises from S$8K, F&B, retail & education. Audit real fees & ROI.',
   }
 };
 

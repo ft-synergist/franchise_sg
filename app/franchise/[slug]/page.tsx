@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: PageProps) {
 
     const { data } = await supabase
         .from('crm_franchises')
-        .select('brand_name, description, category')
+        .select('brand_name, description, category, min_capital_sgd, franchise_fee_sgd, royalty_fee_text, extended_data')
         .eq('slug', slug)
         .eq('tenant_id', TENANT_ID)
         .single();
@@ -32,8 +32,21 @@ export async function generateMetadata({ params }: PageProps) {
     }
 
     const brandName = verified?.brand_name || franchise?.brand_name || 'Franchise';
-    const titleText = `${brandName} Franchise Cost, Fees & ROI | Singapore (2026)`;
-    const descText = `Analyze audited investment matrices for ${brandName} Singapore. Verified initial franchise fees, projected payback timelines, ROI margins, and capital requirements.`;
+    const minCapitalNum = verified?.min_capital_sgd ?? franchise?.min_capital_sgd ?? 0;
+    const formattedCapital = minCapitalNum > 0 ? `S$${minCapitalNum.toLocaleString()}` : null;
+    const rawFee = verified?.franchise_fee_sgd ?? franchise?.franchise_fee_sgd;
+    const formattedFee = typeof rawFee === 'number'
+        ? `S$${rawFee.toLocaleString()}`
+        : (rawFee || 'On Application');
+    const royaltyText = verified?.royalty_fee_text || franchise?.royalty_fee_text || 'On Application';
+    const projectedPayback = verified?.projected_payback_text || franchise?.extended_data?.projected_payback_text || '18–24 Months';
+
+    const titleText = formattedCapital
+        ? `${brandName} Franchise Cost Singapore (2026): From ${formattedCapital} | Fees & ROI`
+        : `${brandName} Franchise Cost, Fees & ROI | Singapore (2026)`;
+    const descText = formattedCapital
+        ? `${brandName} Singapore franchise cost (2026): Min. capital ${formattedCapital}, franchise fee ${formattedFee}, royalty ${royaltyText}, est. payback ${projectedPayback}. Verified on Franchise.sg.`
+        : `Audit ${brandName} Singapore franchise cost (2026): initial franchise fee ${formattedFee}, royalty ${royaltyText}, est. payback ${projectedPayback}, and verified unit economics on Franchise.sg.`;
     const itemUrl = `https://www.franchise.sg/franchise/${slug}`;
 
     return {
