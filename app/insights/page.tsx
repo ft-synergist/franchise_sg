@@ -23,6 +23,18 @@ export const metadata: Metadata = {
 
 const ARTICLES = [
     {
+        slug: 'singapore-asean-franchise-trends-2027-forensic-outlook-sectors-unit-economics',
+        title: 'Singapore & ASEAN Franchise Trends 2027: Forensic Outlook on the 10 High-Conviction Sectors, Unit Economics & Capital Shifts',
+        description: 'Heading into 2027, capital across Singapore and ASEAN is rotating from high-overhead dine-in retail into micro-format kiosks, functional beverages, Halal regional Asian food, super-aged senior care, STEM/AI enrichment, boutique longevity wellness, and AI-enabled multi-unit systems. Editor-in-Chief Chen Yong Lin filters global 2027 hype against real Singapore unit economics.',
+        category: '2027 Market Outlook',
+        categoryColor: 'bg-indigo-50 text-indigo-700 border-indigo-200',
+        date: 'December 1, 2026',
+        publishAt: '2026-12-01T08:00:00+08:00',
+        authorName: 'Chen Yong Lin',
+        authorRole: 'Editor-in-Chief & Lead Analyst',
+        authorSlug: 'chen-yong-lin',
+    },
+    {
         slug: 'negotiate-rent-free-fit-out-periods-commercial-lease-singapore',
         title: 'How to Negotiate Rent-Free Fit-Out Periods—and Why Most First-Time Franchisees Don’t Ask',
         description: 'Why paying six weeks of rent while your outlet is still under renovation drains opening cash flow. Commercial Property Strategist Maggie Png explains what rent-free really waives, why S$20K in upfront fit-out relief can beat a S$500/month rent cut, the exact landlord script, and the 5 dates to lock down before signing.',

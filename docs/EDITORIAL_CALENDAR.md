@@ -23,7 +23,8 @@
 
 | Scheduled Go-Live Date & Time | Article Title & Slug | Author & Role | Domain / Category | Status |
 | :--- | :--- | :--- | :--- | :--- |
-| **Tuesday, 01 Dec 2026<br>08:00:00 SGT** | *Manpower Quotas vs Automated Operations: Singapore Unit Economics 2026* | Editorial Team | Labor & Automation Unit Economics | 📝 **Pipeline Queue** |
+| **Tuesday, 01 Dec 2026<br>08:00:00 SGT** | **Singapore & ASEAN Franchise Trends 2027: Forensic Outlook on the 10 High-Conviction Sectors, Unit Economics & Capital Shifts**<br>`singapore-asean-franchise-trends-2027-forensic-outlook-sectors-unit-economics` | **Chen Yong Lin**<br>*Editor-in-Chief & Lead Analyst* | 2027 Market Outlook | 🟡 **Scheduled & Gated**<br>`publishAt: 2026-12-01T08:00:00+08:00` |
+| **Tuesday, 08 Dec 2026<br>08:00:00 SGT** | *Manpower Quotas vs Automated Operations: Singapore Unit Economics 2026* | Editorial Team | Labor & Automation Unit Economics | 📝 **Pipeline Queue** |
 
 ---
 

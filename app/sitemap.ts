@@ -100,6 +100,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
         // 3. Editorial articles tracking (under /insights/)
         const staticEditorialSlugs = [
+            ...(new Date('2026-12-01T08:00:00+08:00').getTime() <= Date.now()
+                ? ['singapore-asean-franchise-trends-2027-forensic-outlook-sectors-unit-economics']
+                : []),
             'negotiate-rent-free-fit-out-periods-commercial-lease-singapore',
             ...(new Date('2026-11-10T08:00:00+08:00').getTime() <= Date.now()
                 ? ['500-outlet-blueprint-how-profitable-singapore-brands-scale-global-franchises-2026']

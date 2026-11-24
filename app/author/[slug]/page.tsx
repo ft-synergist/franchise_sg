@@ -60,6 +60,14 @@ const AUTHOR_ARTICLES: Record<string, Array<{ slug: string; title: string; descr
     ],
     'chen-yong-lin': [
         {
+            slug: 'singapore-asean-franchise-trends-2027-forensic-outlook-sectors-unit-economics',
+            title: 'Singapore & ASEAN Franchise Trends 2027: Forensic Outlook on the 10 High-Conviction Sectors, Unit Economics & Capital Shifts',
+            description: 'Forensic 2027 franchise outlook for Singapore, ASEAN, and APAC by Chen Yong Lin. Evaluates the 10 high-conviction sectors—micro-kiosks, functional beverages, Halal Asian food, senior care, STEM/AI enrichment, boutique wellness, pet care, urban home organizing, IP licensing, and AI-enabled operations.',
+            date: 'December 1, 2026',
+            publishAt: '2026-12-01T08:00:00+08:00',
+            category: '2027 Market Outlook',
+        },
+        {
             slug: 'singapore-fb-franchise-capital-payback-audit-2026',
             title: 'Singapore F&B Franchise Capital & Payback Audit 2026: Real All-In Opening Capex (S$150K–S$350K), Store EBITDA & Payback Horizons',
             description: 'Franchise decks promise "payback in 9 to 12 months." We audited 30+ store P&Ls, SGX filings, and real mall disclosures to expose the "Fee Illusion," benchmark 4 F&B segments, and detail the 2 operational moats that keep units profitable.',

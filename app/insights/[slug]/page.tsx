@@ -13,6 +13,245 @@ interface PageProps {
 // ARTICLE DATA ARCHITECTURE
 // ==========================================
 const insightsMap: Record<string, { title: string; description: string; publishAt?: string; faqs?: Array<{ question: string; answer: string }>; content: () => React.JSX.Element }> = {
+    'singapore-asean-franchise-trends-2027-forensic-outlook-sectors-unit-economics': {
+        title: 'Singapore & ASEAN Franchise Trends 2027: Forensic Outlook on the 10 High-Conviction Sectors, Unit Economics & Capital Shifts',
+        description: 'Forensic 2027 franchise outlook for Singapore, ASEAN, and APAC by Chen Yong Lin. Evaluates the 10 high-conviction sectors—micro-kiosks, functional beverages, Halal Asian food, senior care, STEM/AI enrichment, boutique wellness, pet care, urban home organizing, IP licensing, and AI-enabled operations.',
+        publishAt: '2026-12-01T08:00:00+08:00',
+        faqs: [
+            {
+                question: "What are the top franchise trends to watch in Singapore for 2027?",
+                answer: "The highest-conviction 2027 franchise categories in Singapore are micro-format F&B kiosks, specialty and functional beverages, Halal-certified regional Asian food, senior care and aging-in-place services, children's STEM/AI enrichment, boutique fitness and recovery studios, holistic pet care, urban home organizing, experiential leisure and IP licensing, and AI-enabled or ESG-compliant service models."
+            },
+            {
+                question: "Why are micro-format kiosks outperforming full dine-in franchises in Singapore and ASEAN?",
+                answer: "Escalating Tier-1 mall rents, rising renovation and bare-shell reinstatement costs, and tight F&B manpower quotas make 1,500+ sq ft dine-in restaurants capital-heavy with slow 28–42 month paybacks. Compact 150–300 sq ft kiosks cut upfront capex by 40%–60% and enable sub-18-month payback horizons."
+            },
+            {
+                question: "How will Singapore's 2027 ASEAN Chairmanship impact regional franchising?",
+                answer: "Under the 2027 theme 'Deeper Integration, Wider Partnerships' alongside the ASEAN Digital Economy Framework Agreement (DEFA) and linked cross-border QR payment ecosystems, Singapore-based franchisors face lower operational friction when managing multi-country loyalty apps, digital telemetry, and regional Master Franchise networks."
+            },
+            {
+                question: "Which non-F&B franchise sectors offer the most resilient recurring revenue in 2027?",
+                answer: "Non-discretionary demographic and essential service franchises—specifically senior home care, children's STEM/enrichment centres, pet grooming and wellness, boutique monthly-subscription fitness, and urban home organizing/maintenance—outperform discretionary fads during tighter household budget cycles."
+            },
+            {
+                question: "Why are regional ASEAN investors demanding stricter unit-economics validation in 2027?",
+                answer: "Regional family offices and multi-unit area developers have moved away from speculative single-store pitches. Heading into 2027, experienced Master Franchisees require audited multi-outlet P&L track records, proven store-level EBITDA margins, and enforceable supply-chain and territorial development frameworks before deploying capital."
+            }
+        ],
+        content: () => {
+            const author = EDITORS['chen-yong-lin'];
+            return (
+                <>
+                    <header className="bg-gradient-to-r from-indigo-950 via-slate-950 to-slate-950 text-white py-20 px-6 border-b border-slate-800 -mx-8 sm:-mx-12 -mt-8 sm:-mt-12 mb-12 rounded-t-3xl">
+                        <div className="max-w-4xl mx-auto px-4 text-left">
+                            <div className="mb-6 inline-flex items-center gap-2 bg-indigo-500/10 border border-indigo-500/20 px-3 py-1 rounded-full">
+                                <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+                                <span className="text-xs font-semibold text-indigo-300 uppercase tracking-wider">2027 Market Outlook · Singapore &amp; ASEAN</span>
+                            </div>
+                            <div className="mb-2">
+                                <span className="text-base font-bold uppercase tracking-wider text-indigo-400 block">Insights:</span>
+                            </div>
+                            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white max-w-4xl leading-tight">
+                                Singapore &amp; ASEAN Franchise Trends 2027: Forensic Outlook on the 10 High-Conviction Sectors, Unit Economics &amp; Capital Shifts
+                            </h1>
+                            <div className="flex flex-wrap items-center gap-y-4 gap-x-8 text-xs font-semibold uppercase tracking-wider text-slate-400 border-t border-slate-800/80 mt-8 pt-6">
+                                <Link href={`/author/${author?.slug || 'chen-yong-lin'}`} className="flex items-center gap-3 group">
+                                    <div className="w-9 h-9 rounded-xl bg-indigo-700 text-white font-black text-xs flex items-center justify-center shrink-0 border border-indigo-500">
+                                        {author?.initials || 'CYL'}
+                                    </div>
+                                    <div>
+                                        <strong className="text-white font-bold text-sm normal-case group-hover:text-indigo-300 transition-colors">{author?.name || 'Chen Yong Lin'}</strong>
+                                        <span className="text-slate-400 font-normal normal-case"> · {author?.role || 'Editor-in-Chief & Lead Analyst'}</span>
+                                    </div>
+                                </Link>
+                                <div className="sm:ml-auto">
+                                    <span className="text-slate-500 block text-[10px] mb-0.5">Published On</span>
+                                    <time className="text-slate-200 font-bold normal-case text-sm">1 December 2026</time>
+                                </div>
+                            </div>
+                        </div>
+                    </header>
+
+                    <section className="prose prose-slate max-w-none text-slate-800 text-lg sm:text-xl font-normal leading-relaxed space-y-8 text-left">
+                        <div className="p-6 sm:p-8 rounded-2xl bg-slate-900 text-white border border-slate-800 space-y-3">
+                            <span className="text-xs font-black uppercase tracking-wider text-indigo-400 block">Executive Outlook Summary</span>
+                            <p className="text-base sm:text-lg text-slate-200 leading-relaxed m-0">
+                                Heading into 2027, global franchising is bifurcating sharply. While traditional, high-overhead full-service restaurants and big-box retail face margin compression from commercial rents and labour scarcity, capital across <strong>Singapore, ASEAN, and APAC</strong> is rotating aggressively into three structural winners: <strong>asset-light micro-formats</strong>, <strong>non-discretionary demographic services</strong> (super-aged senior care, children&apos;s STEM/AI enrichment, pet humanization), and <strong>AI-enabled multi-unit systems</strong>.
+                            </p>
+                            <p className="text-sm sm:text-base text-slate-300 leading-relaxed m-0 pt-2">
+                                Accelerated by <strong>Singapore&apos;s 2027 ASEAN Chairmanship</strong> (&ldquo;Deeper Integration, Wider Partnerships&rdquo;), the rollout of the <strong>ASEAN Digital Economy Framework Agreement (DEFA)</strong>, and major regional showcases including <strong>Food &amp; Hospitality Asia (FHA, April 2027)</strong> and <strong>Franchising &amp; Licensing Asia (FLAsia, September 2027)</strong>, this forensic audit filters global 2027 trend benchmarks against real Singapore tenancy, regulatory, and unit-economic realities.
+                            </p>
+                        </div>
+
+                        <h2 className="text-2xl sm:text-3xl font-black text-slate-950 tracking-tight pt-4">
+                            Global Hype vs. Singapore Reality: Why Not Every Global 2027 Trend Translates Locally
+                        </h2>
+                        <p>
+                            Every year, global publications such as <em>Entrepreneur</em> and <em>Yahoo Finance</em> publish top-10 franchise trend lists led by US suburban concepts—ranging from mobile coffee trucks and emergency flood/fire restoration to residential painting and drive-thru chicken QSRs. In Singapore&apos;s land-scarce, high-density urban economy (6.04M population, strict SFA/LTA/URA zoning, and 80% high-rise HDB/condo housing), importing global trend lists without a local unit-economics filter is a costly mistake:
+                        </p>
+
+                        <div className="overflow-x-auto my-6 rounded-2xl border border-slate-200 shadow-sm">
+                            <table className="w-full text-left border-collapse text-sm">
+                                <thead>
+                                    <tr className="bg-slate-900 text-white">
+                                        <th className="p-4 font-bold">Global 2027 Trend (US / Entrepreneur)</th>
+                                        <th className="p-4 font-bold text-teal-300">Singapore &amp; ASEAN 2027 Translation</th>
+                                        <th className="p-4 font-bold">Local Unit-Economics Verdict</th>
+                                    </tr>
+                                </thead>
+                                <tbody className="divide-y divide-slate-200 bg-white">
+                                    <tr>
+                                        <td className="p-4 font-bold text-slate-900">Mobile Food Trucks &amp; Drive-Thrus</td>
+                                        <td className="p-4 font-bold text-teal-700">150–300 sq ft Transit &amp; Mall Micro-Kiosks</td>
+                                        <td className="p-4 text-slate-700"><strong>High Conviction</strong> — SFA/LTA restrict street trucks; MRT/suburban kiosks slash capex &amp; payback.</td>
+                                    </tr>
+                                    <tr>
+                                        <td className="p-4 font-bold text-slate-900">Emergency Property Restoration (Fire/Flood)</td>
+                                        <td className="p-4 font-bold text-teal-700">Urban Home Organizing, Aircon/MEP &amp; Eco-Cleaning</td>
+                                        <td className="p-4 text-slate-700"><strong>Selective</strong> — Lower severe-weather insurance volume; recurring B2B/condo maintenance wins.</td>
+                                    </tr>
+                                    <tr>
+                                        <td className="p-4 font-bold text-slate-900">Big-Box Gyms &amp; Multi-Year Contracts</td>
+                                        <td className="p-4 font-bold text-teal-700">Boutique Pilates, Recovery Lounges &amp; Longevity</td>
+                                        <td className="p-4 text-slate-700"><strong>High Conviction</strong> — Post-True Fitness shift toward asset-light, monthly recurring billing (MRR).</td>
+                                    </tr>
+                                    <tr>
+                                        <td className="p-4 font-bold text-slate-900">Western Casual Dining Imports</td>
+                                        <td className="p-4 font-bold text-teal-700">Halal-Certified Asian &amp; Functional Beverage Concepts</td>
+                                        <td className="p-4 text-slate-700"><strong>High Conviction</strong> — MUIS Halal unlocks SG + Malaysia (34M) + Indonesia (275M) seamlessly.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <h2 className="text-2xl sm:text-3xl font-black text-slate-950 tracking-tight pt-6">
+                            The 10 High-Conviction Franchise Trends for Singapore &amp; ASEAN (2027)
+                        </h2>
+
+                        <div className="p-5 rounded-2xl bg-teal-50/70 border border-teal-200">
+                            <span className="text-xs font-black uppercase tracking-wider text-teal-800 block">Cluster A · Asset-Light F&amp;B &amp; Repeat Velocity</span>
+                        </div>
+
+                        <h3 className="text-xl sm:text-2xl font-bold text-slate-900">1. Micro-Format &amp; Low-Capital Kiosks</h3>
+                        <p>
+                            High commercial rents in Tier-1 cities (Singapore, Bangkok, Jakarta, Tokyo) and rising fit-out and reinstatement costs are pushing F&amp;B and retail brands toward compact <strong>150–300 sq ft kiosks</strong>, grab-and-go counters, and automated beverage stations. These formats cut upfront capital expenditure by <strong>40%–60%</strong>, compress payback below 18 months, and accelerate expansion into suburban commuter malls and Tier-2 ASEAN hubs.
+                        </p>
+
+                        <h3 className="text-xl sm:text-2xl font-bold text-slate-900">2. Specialty &amp; Functional Beverages</h3>
+                        <p>
+                            Coffee, specialty tea, and functional wellness drinks (probiotic, collagen, botanical, and Nutri-Grade A/B low-sugar formulations) continue to dominate ASEAN&apos;s franchise pipeline. High gross margins (65%–75%), standardized brewing SOPs, and daily commuter repeat visits—reinforced by a generational shift away from alcohol toward functional daytime drinks—make beverage concepts one of the most scalable cross-border models.
+                        </p>
+
+                        <h3 className="text-xl sm:text-2xl font-bold text-slate-900">3. Halal-Certified Regional Asian Food &amp; Streamlined Chicken QSRs</h3>
+                        <p>
+                            Intra-regional APAC expansion is outpacing Western brand entry. Diners across Singapore and Southeast Asia favour flavour-forward regional Asian concepts and <strong>streamlined chicken QSRs</strong>—where tight, single-protein menus simplify central-kitchen supply chains and protect food-cost ratios. Securing <strong>MUIS Halal certification</strong> early has become a decisive regional passport, unlocking 25%+ of Singapore&apos;s domestic base plus Malaysia, Indonesia, Brunei, and GCC territories.
+                        </p>
+
+                        <div className="p-5 rounded-2xl bg-indigo-50/70 border border-indigo-200">
+                            <span className="text-xs font-black uppercase tracking-wider text-indigo-800 block">Cluster B · Non-Discretionary Demographic Moats</span>
+                        </div>
+
+                        <h3 className="text-xl sm:text-2xl font-bold text-slate-900">4. Senior Care &amp; Aging-in-Place Services</h3>
+                        <p>
+                            As Singapore and Thailand enter <strong>&ldquo;super-aged&rdquo;</strong> demographic territory (alongside Japan, South Korea, and China), demand for non-medical home care, physiotherapy, mobility assistance, and active-aging wellness franchises is structurally non-deferrable. Crucially, home-care and care-coordination models operate with <strong>minimal commercial real estate overhead</strong>, insulating operators from mall rent escalations.
+                        </p>
+
+                        <h3 className="text-xl sm:text-2xl font-bold text-slate-900">5. Children&apos;s Enrichment, STEM &amp; Future-Skills EdTech</h3>
+                        <p>
+                            Across Singapore, Kuala Lumpur, and Ho Chi Minh City, household education spend remains resilient even during tighter economic cycles. Parental spend heading into 2027 is shifting from rote tutoring toward <strong>STEM, coding, AI literacy, and holistic early-childhood development</strong>. Hybrid centres pairing physical classrooms with app-based adaptive tutoring lock in recurring term-based tuition revenue.
+                        </p>
+
+                        <h3 className="text-xl sm:text-2xl font-bold text-slate-900">6. Boutique Fitness, Recovery &amp; Preventative Longevity</h3>
+                        <p>
+                            Following high-profile collapses of capital-heavy big-box prepaid gyms, consumers in Singapore and APAC are migrating to <strong>specialized, community-driven boutique studios</strong> (reformer Pilates, functional strength training, recovery lounges, and longevity clinics). These models operate on transparent <strong>monthly recurring subscriptions (MRR)</strong> and lean 1,500–3,000 sq ft footprints without multi-year prepayment liability.
+                        </p>
+
+                        <h3 className="text-xl sm:text-2xl font-bold text-slate-900">7. Holistic Pet Care &amp; &ldquo;Pet Humanization&rdquo; Services</h3>
+                        <p>
+                            Falling birth rates and delayed marriage across urban Singapore and APAC have turned pet ownership into a durable recurring-revenue category. Modern pet franchises now extend far beyond basic boarding into <strong>recurring grooming memberships, urban daycare, training, specialty nutrition, and preventative wellness</strong>.
+                        </p>
+
+                        <div className="p-5 rounded-2xl bg-slate-100 border border-slate-300">
+                            <span className="text-xs font-black uppercase tracking-wider text-slate-800 block">Cluster C · Tech, IP &amp; Urban Lifestyle Infrastructure</span>
+                        </div>
+
+                        <h3 className="text-xl sm:text-2xl font-bold text-slate-900">8. Compact Urban Home Organizing &amp; Essential Property Services</h3>
+                        <p>
+                            In Singapore&apos;s compact HDB and condominium housing market, space constraints and dual-income schedules are fueling demand for <strong>professional home organizing, decluttering, storage optimization, and move-related services</strong>. Alongside essential commercial and residential maintenance (aircon servicing, eco-cleaning, pest control), these service-led models require zero prime retail frontage.
+                        </p>
+
+                        <h3 className="text-xl sm:text-2xl font-bold text-slate-900">9. Experiential Leisure (&ldquo;Competitive Socializing&rdquo;) &amp; Character/Lifestyle IP Licensing</h3>
+                        <p>
+                            Younger urban consumers are prioritizing screen-free, real-world social experiences over pure retail. Regional malls are actively allocating space to <strong>&ldquo;competitive socializing&rdquo;</strong> venues blending interactive gaming, active recreation, and F&amp;B. Simultaneously—accelerated by platforms like <strong>FLAsia 2027</strong>—brands are fusing franchising with <strong>Character, Cultural &amp; Lifestyle IP Licensing</strong> to drive viral footfall and limited-edition merchandise margins.
+                        </p>
+
+                        <h3 className="text-xl sm:text-2xl font-bold text-slate-900">10. AI-Driven Operations, &ldquo;Foodvenience&rdquo; &amp; ESG-Compliant Franchises</h3>
+                        <ul className="list-disc pl-6 space-y-2 text-base sm:text-lg text-slate-700">
+                            <li><strong>AI-Powered &amp; &ldquo;Human-Assured&rdquo; Operations:</strong> Leading franchisors use AI behind the counter for demand forecasting, staff rostering, dynamic pricing, and inventory control, while high-trust service franchises (healthcare, education, advisory) differentiate through guaranteed human oversight.</li>
+                            <li><strong>&ldquo;Foodvenience&rdquo; &amp; Automated Retail:</strong> Convenience stores are evolving into hot-food QSR hubs, while unmanned smart micro-markets in residential condos and office towers unlock 24/7 retail without manpower quota pressure.</li>
+                            <li><strong>ESG &amp; Eco-Compliant Operations:</strong> Tightening packaging waste mandates in Singapore and APAC carbon reporting are creating institutional tailwinds for zero-waste retail, EV fleet maintenance, and sustainable commercial cleaning.</li>
+                        </ul>
+
+                        <h2 className="text-2xl sm:text-3xl font-black text-slate-950 tracking-tight pt-6">
+                            Summary of 2027 Macro Growth Catalysts in Singapore &amp; APAC
+                        </h2>
+                        <div className="overflow-x-auto my-6 rounded-2xl border border-slate-200 shadow-sm">
+                            <table className="w-full text-left border-collapse text-sm">
+                                <thead>
+                                    <tr className="bg-slate-900 text-white">
+                                        <th className="p-4 font-bold">Core 2027 Catalyst</th>
+                                        <th className="p-4 font-bold text-teal-300">Structural Impact on Franchise Unit Economics</th>
+                                    </tr>
+                                </thead>
+                                <tbody className="divide-y divide-slate-200 bg-white">
+                                    <tr>
+                                        <td className="p-4 font-bold text-slate-900">Commercial Rent &amp; Labour Scarcity</td>
+                                        <td className="p-4 text-slate-700">Accelerates shift to 150–300 sq ft kiosks, central-kitchen de-skilling, and AI scheduling.</td>
+                                    </tr>
+                                    <tr>
+                                        <td className="p-4 font-bold text-slate-900">Barbell Demographics</td>
+                                        <td className="p-4 text-slate-700">Drives simultaneous booms at both ends of the age spectrum: early-childhood STEM/AI and super-aged senior care.</td>
+                                    </tr>
+                                    <tr>
+                                        <td className="p-4 font-bold text-slate-900">Singapore 2027 ASEAN Chairmanship &amp; DEFA</td>
+                                        <td className="p-4 text-slate-700">Linked cross-border QR payments and digital trade frameworks lower friction for multi-country ASEAN scaling.</td>
+                                    </tr>
+                                    <tr>
+                                        <td className="p-4 font-bold text-slate-900">Institutional Multi-Unit Validation</td>
+                                        <td className="p-4 text-slate-700">Regional family offices and area developers demand audited multi-store P&amp;Ls before committing Master Franchise capital.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div className="p-6 sm:p-8 rounded-2xl bg-slate-950 text-white border border-slate-800 space-y-4 my-8">
+                            <span className="text-xs font-black uppercase tracking-wider text-teal-400 block">2027 Singapore Trade Calendar &amp; Forensic Due-Diligence Notice</span>
+                            <p className="text-sm sm:text-base text-slate-200 leading-relaxed m-0">
+                                Track live regional concepts and Master Licensing deal flow at <strong>Food &amp; Hospitality Asia (FHA, April 2027)</strong> and <strong>Franchising &amp; Licensing Asia (FLAsia, September 2027)</strong>. Remember: trend lists are directional market signals—not investment guarantees. Before committing capital in 2027, stress-test every opportunity against our{' '}
+                                <Link href="/insights/singapore-fb-franchise-capital-payback-audit-2026" className="text-teal-300 underline hover:text-teal-200 font-semibold">
+                                    Singapore F&amp;B Capital &amp; Payback Audit
+                                </Link>,{' '}
+                                <Link href="/insights/negotiate-rent-free-fit-out-periods-commercial-lease-singapore" className="text-teal-300 underline hover:text-teal-200 font-semibold">
+                                    Rent-Free Fit-Out Negotiation Guide
+                                </Link>, and verified{' '}
+                                <Link href="/categories/food-beverage" className="text-teal-300 underline hover:text-teal-200 font-semibold">
+                                    F&amp;B
+                                </Link>,{' '}
+                                <Link href="/categories/education-enrichment" className="text-teal-300 underline hover:text-teal-200 font-semibold">
+                                    Education
+                                </Link>, and{' '}
+                                <Link href="/categories/health-wellness" className="text-teal-300 underline hover:text-teal-200 font-semibold">
+                                    Health &amp; Wellness
+                                </Link>{' '}
+                                directory benchmarks.
+                            </p>
+                        </div>
+                    </section>
+                </>
+            );
+        }
+    },
     'negotiate-rent-free-fit-out-periods-commercial-lease-singapore': {
         title: 'How to Negotiate Rent-Free Fit-Out Periods—and Why Most First-Time Franchisees Don’t Ask',
         description: 'Commercial Property Strategist Maggie Png breaks down how to negotiate rent-free fit-out periods in Singapore commercial leases, what charges still apply during renovation, how S$20K upfront cash preservation compares to a monthly rent cut, and the 5 critical handover dates to confirm before signing.',
